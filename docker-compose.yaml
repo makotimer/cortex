@@ -1,0 +1,47 @@
+services:
+  cortex:
+    build:
+      context: .
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    command:
+    - sh
+    - -c
+    - |
+      echo "Waiting for Proton Bridge to Stablize..."
+      sleep 8
+      exec python -m service.cli serve
+    volumes:
+      - ./local:/app/local
+      - ./local/command_history:/home/app/.bash_history
+    depends_on:
+      cortex_bridge:
+        condition: service_healthy
+    networks:
+      - mailnet
+
+  cortex_bridge:
+    image: shenxn/protonmail-bridge:latest
+    restart: unless-stopped
+    volumes:
+      - cortex_bridge-data:/root   # persists the Bridge account/tokens
+    expose:
+      - "25"                # SMTP (internal)
+      - "143"               # IMAP (internal)
+    networks:
+      - mailnet
+    healthcheck:
+      test: >
+        sh -c '
+        socat - TCP:127.0.0.1:1143,connect-timeout=2 </dev/null >/dev/null 2>&1        '
+      interval: 4s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+networks:
+  mailnet:
+
+volumes:
+  cortex_bridge-data:

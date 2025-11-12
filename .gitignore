@@ -1,0 +1,44 @@
+# --- Secrets / env ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- Runtime state (bind-mounted) --------------------------------------------
+local
+
+# --- Logs / artifacts ---------------------------------------------------------
+*.log
+*.jsonl
+/logs/
+/tmp/
+/*.sqlite
+*.sqlite
+*.db
+
+# --- Python -------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.venv/
+venv/
+.envrc
+.python-version
+.ruff_cache
+
+# --- Editors / OS -------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.venv
+
+# --- Docker / compose ---------------------------------------------------------
+docker-compose.override.yml
