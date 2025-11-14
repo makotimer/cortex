@@ -1,5 +1,6 @@
 # service/imap_commands/templates.py
 import textwrap
+import urllib.parse
 from datetime import datetime
 
 from apscheduler.job import Job
@@ -54,13 +55,15 @@ def list_html(jobs: list[Job], first_id: str | None = None) -> str:
 
     button_html = ""
     if first_id:
-        mailto_link = (
-            f"mailto:?subject=RUN%20MODULE%3D{first_id}"
-            f"&body=RUN%20MODULE%3D{first_id}%0A"
-            f"KWARGS%3D%7B%7D%0A"
-            f"NO_EMAIL%3Dfalse%0A"
-            f"PRINT_HTML%3Dfalse"
-        )
+        # === PROTON MAIL-SAFE mailto: LINK ===
+        # Use real spaces and newlines, then URL-encode the entire body
+        # This ensures Proton Mail shows "RUN MODULE=..." not "RUN+MODULE=..."
+        raw_body = f"RUN MODULE={first_id} KWARGS={{}} NO_EMAIL=false PRINT_HTML=false"
+        encoded_body = urllib.parse.quote(raw_body, safe="")  # Encodes space → %20, \n → %0A
+
+        # Subject uses %20 for space (standard)
+        mailto_link = f"mailto:?subject=RUN%20MODULE%3D{first_id}&body={encoded_body}"
+
         button_html = f"""
         <p>
             <a href="{mailto_link}"
@@ -94,18 +97,16 @@ def list_html(jobs: list[Job], first_id: str | None = None) -> str:
         <p>Click below to reply and run the <strong>first job</strong> instantly:</p>
         {button_html}
 
-        <p>Or reply with:</p>
+        <p>Or reply with the command on <strong>one line</strong>:</p>
         <pre style="background:#f8f8f8;padding:10px;border:1px solid #ddd;">
-        RUN MODULE=&lt;ID&gt;
-        KWARGS={{}}
-        NO_EMAIL=false
-        PRINT_HTML=false
+RUN MODULE=&lt;ID&gt; KWARGS={{}} NO_EMAIL=false PRINT_HTML=false
         </pre>
 
-        <p><strong>Examples:</strong></p>
+        <p><strong>Examples (all on one line):</strong></p>
         <ul>
             <li><code>RUN MODULE=career-watch</code></li>
             <li><code>RUN MODULE=career-watch KWARGS={{"max_pages":5}}</code></li>
+            <li><code>RUN MODULE=backup NO_EMAIL=true</code></li>
         </ul>
 
         <p><i>Generated at {datetime.now():%Y-%m-%d %H:%M:%S}</i></p>

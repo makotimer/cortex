@@ -218,7 +218,7 @@ def _command_listener_loop(
                                         send_html(
                                             subject=subject,
                                             html="<pre style='font-family: monospace; "
-                                            "white-space: pre-wrap;'>{content}</pre>",
+                                            f"white-space: pre-wrap;'>{content}</pre>",
                                             to=[reply_to],
                                         )
                                 except EmailSendError:
