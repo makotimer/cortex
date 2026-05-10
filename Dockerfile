@@ -27,15 +27,8 @@ COPY service/ service/
 COPY scripts/ scripts/
 COPY tests/ tests/
 
-# 3. Optional: any top-level __init__.py or other root modules
-COPY *.py ./
-
 # --- Install editable with dev extras ---
 RUN pip install --no-cache-dir -e .[dev]
-
-# --- Secrets (optional) ---
-RUN --mount=type=secret,id=env \
-    cp /run/secrets/env /app/.env || true
 
 # --- Runtime directories ---
 RUN mkdir -p /app/local && chown -R app:app /app

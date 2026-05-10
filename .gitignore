@@ -11,7 +11,6 @@ local
 *.jsonl
 /logs/
 /tmp/
-/*.sqlite
 *.sqlite
 *.db
 
@@ -38,7 +37,7 @@ venv/
 .vscode/
 .idea/
 *.swp
-.venv
 
 # --- Docker / compose ---------------------------------------------------------
 docker-compose.override.yml
+docker-compose.override.yaml

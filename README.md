@@ -33,7 +33,6 @@ The MakoTimer Network provides a distributed system for family task management, 
 | **Logging** | JSONL activity logs (`local/logs/activity-*.jsonl`) |
 | **Testing** | `pytest` + live tests |
 | **Linting** | `ruff` (3ms/format) |
-| **Shared Assets** | Git submodule to `makotimer/shared` |
 
 ---
 
@@ -195,48 +194,6 @@ SEND_EMAIL=1
 | ✅ | **Bullet-proof tests** — **Pytest** → 100 % isolated DB, `--live` for real email |
 | ✅ | **Audit-ready logs** — structured JSONL → `./local/logs/activity-*.jsonl` |
 | ✅ | **Dry-run toggle** — `SCHEDULED_MODULES_DRY_RUN=1` → zero emails |
-| ✅ | **Secrets-safe Docker** — `--secret` mount → `.env` never baked |
-
-
-## Project Layout
-```
-local/
-   config.json
-   state/
-      careerwatch.db
-   logs/
-   command_history
-   config/
-      career_watch_groups.*.json   ← scrapers
-
-modules/
-   _shared/
-   bible_plan/
-   career_watch/
-   sonos/
-  └── README.md            ← module docs live here
-
-service/
-   cli.py
-   config_schema.py
-   emailer.py
-   imap_listener.py
-   logging_utils.py
-   runner.py
-   scheduler.py
-
-tests/
-   career_live/
-   manual_live_runs/
-   assorted_live/
-   conftest.py
-   ...
-
-scripts/
-   reload.sh
-   pytest.sh
-   career_check.py
-```
 
 
 ## Perfect VSCode Setup (copy-paste)
@@ -280,3 +237,4 @@ make lint
 # Rebuild & restart
 make rebuild
 make logs-f               # follow logs
+```

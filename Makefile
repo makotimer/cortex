@@ -1,12 +1,19 @@
 # Makefile
+# Dev setup
+# Code quality
+# Docker control
+# Logging
+# Reports
+# Dynamic test runner
+# Cleanup
 .PHONY: \
-	setup install bootstrap \         # Dev setup
-	test live-tests lint \            # Code quality
-	up down reload reload-bridge \    # Docker control
-	logs logs-f tail tail-f \         # Logging
-	career-report \                   # Reports
-	live-test \                       # Dynamic test runner
-	clean                             # Cleanup
+	setup install bootstrap \
+	test live-tests lint \
+	up down reload reload-bridge \
+	logs logs-f tail tail-f \
+	career-report \
+	live-test \
+	clean
 
 # ──────── One-Command Setup ────────
 setup: install bootstrap
@@ -40,7 +47,7 @@ up: ; docker compose up -d
 down: ; docker compose down
 reload: ; ./scripts/reload.sh
 reload-bridge: ; ./scripts/reload.sh --bridge
-career-report: ; python scripts/career_check.py
+career-report: ; $(PYTHON) scripts/career_check.py
 
 # ──────── Logs ────────
 logs: ; docker compose logs cortex
@@ -72,7 +79,7 @@ live-test:
 	docker compose run --rm cortex pytest --live -vv -s "$$test_file"
 
 # ──────── Cleanup ────────
-clean: ; docker compose down -v --remove-orphans && docker system prune -f
+clean: ; docker compose down -v --remove-orphans
 
 # Allow extra args
 %::

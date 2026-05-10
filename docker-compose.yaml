@@ -3,13 +3,14 @@ services:
     build:
       context: .
     restart: unless-stopped
+    mem_limit: 512m
     env_file:
       - ./.env
     command:
     - sh
     - -c
     - |
-      echo "Waiting for Proton Bridge to Stablize..."
+      echo "Waiting for Proton Bridge to Stabilize..."
       sleep 8
       exec python -m service.cli serve
     volumes:
@@ -22,8 +23,9 @@ services:
       - mailnet
 
   cortex_bridge:
-    image: shenxn/protonmail-bridge:latest
+    image: ghcr.io/videocurio/proton-mail-bridge:latest
     restart: unless-stopped
+    mem_limit: 512m
     volumes:
       - cortex_bridge-data:/root   # persists the Bridge account/tokens
     expose:
