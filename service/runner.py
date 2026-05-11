@@ -362,7 +362,9 @@ def run_module_once(
 
     # Prepare email gating (env + kwarg precedence)
     # Hard override: dry-run disables sending no matter what.
-    dry_run = str(os.getenv("CORTEX_DRY_RUN", "")).strip().lower() in {"1", "true", "yes", "on"}
+    dry_run = str(
+        os.getenv("CORTEX_DRY_RUN") or os.getenv("SCHEDULED_MODULES_DRY_RUN") or ""
+    ).strip().lower() in {"1", "true", "yes", "on"}
     env_send_default = str(os.getenv("SEND_EMAIL", "1")).strip().lower() in {"1", "true", "yes", "on"}
     effective_send = send_email if send_email is not None else env_send_default
     if dry_run:
