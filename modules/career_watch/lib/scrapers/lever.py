@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import time
-from collections.abc import Iterable, Sequence
+from collections.abc import Sequence
 from dataclasses import dataclass
 from urllib.parse import urljoin
 
@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup  # pip install beautifulsoup4 html5lib
 from ..config import ScraperConfig
 from ..http_client import HttpClient
 from ..models import Posting, ScrapeResult
+from ._targets import parse_url_label_list
 from .base import BaseScraper
 from .registry import register
 
@@ -22,27 +23,7 @@ class _Target:
 
 
 def _normalize_targets(raw: object) -> list[_Target]:
-    """
-    Accept either:
-      - [["https://jobs.lever.co/palantir?team=Dev", "lever:palantir"], ...]
-      - [{"url": "...", "source": "lever:palantir"}, ...]
-    and return a normalized list of _Target.
-    """
-    out: list[_Target] = []
-    if not raw:
-        return out
-    if isinstance(raw, list):
-        for item in raw:
-            if isinstance(item, (list, tuple)) and len(item) >= 2:
-                url, label = str(item[0]).strip(), str(item[1]).strip()
-                if url and label:
-                    out.append(_Target(url, label))
-            elif isinstance(item, dict):
-                url = str(item.get("url") or item.get("list_url") or "").strip()
-                label = str(item.get("source") or item.get("source_label") or "").strip()
-                if url and label:
-                    out.append(_Target(url, label))
-    return out
+    return [_Target(url, label) for url, label in parse_url_label_list(raw)]
 
 
 @register

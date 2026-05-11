@@ -6,7 +6,6 @@ import logging
 import os
 import re
 import time
-from collections.abc import Sequence
 from urllib.parse import urljoin, urlsplit
 
 from bs4 import BeautifulSoup  # pip install beautifulsoup4 html5lib
@@ -14,6 +13,7 @@ from bs4 import BeautifulSoup  # pip install beautifulsoup4 html5lib
 from ..config import ScraperConfig
 from ..http_client import HttpClient
 from ..models import Posting, ScrapeResult
+from ._targets import parse_url_label_list
 from .base import BaseScraper
 from .registry import register
 
@@ -65,18 +65,8 @@ class BoeingScraper(BaseScraper):
         results: list[ScrapeResult] = []
         for spec in specs:
             params = dict(spec.params or {})
-            start_urls: Sequence[tuple[str, str]] = []
 
-            # Accept [["url","label"], ...] OR [{"url":..., "source":...}, ...]
-            raw = params.get("start_urls") or []
-            for item in raw:
-                if isinstance(item, (list, tuple)) and len(item) >= 2:
-                    start_urls.append((str(item[0]).strip(), str(item[1]).strip()))
-                elif isinstance(item, dict):
-                    u = str(item.get("url") or item.get("list_url") or "").strip()
-                    s = str(item.get("source") or item.get("source_label") or "").strip()
-                    if u and s:
-                        start_urls.append((u, s))
+            start_urls: list[tuple[str, str]] = parse_url_label_list(params.get("start_urls") or [])
 
             if not start_urls:
                 # Back-compat: single pair passed as params

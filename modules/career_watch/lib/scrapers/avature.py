@@ -28,6 +28,7 @@ from bs4 import BeautifulSoup
 from ..config import ScraperConfig
 from ..http_client import HttpClient
 from ..models import Posting, ScrapeResult
+from ._targets import parse_url_label_list
 from .base import BaseScraper
 from .registry import register
 
@@ -41,21 +42,7 @@ class _Target:
 
 
 def _normalize_targets(raw: object) -> list[_Target]:
-    out: list[_Target] = []
-    if not raw:
-        return out
-    if isinstance(raw, list):
-        for item in raw:
-            if isinstance(item, (list, tuple)) and len(item) >= 2:
-                url, label = str(item[0]).strip(), str(item[1]).strip()
-                if url and label:
-                    out.append(_Target(url, label))
-            elif isinstance(item, dict):
-                url = str(item.get("url") or item.get("search_url") or item.get("list_url") or "").strip()
-                label = str(item.get("source") or item.get("source_label") or "").strip()
-                if url and label:
-                    out.append(_Target(url, label))
-    return out
+    return [_Target(url, label) for url, label in parse_url_label_list(raw)]
 
 
 @register
