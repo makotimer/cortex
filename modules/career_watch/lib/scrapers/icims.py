@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import contextlib
 import logging
+import os
 import time
 from collections.abc import Sequence
 from dataclasses import dataclass
@@ -109,7 +110,7 @@ class IcimsScraper(BaseScraper):
             return []
 
         results: list[ScrapeResult] = []
-        debug = True  # os.getenv("JOBWATCH_DEBUG") == "1"
+        debug = os.getenv("JOBWATCH_DEBUG") == "1"
 
         for spec in specs:
             params = dict(spec.params or {})

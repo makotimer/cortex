@@ -252,8 +252,6 @@ class WorkdayCxSScraper(BaseScraper):
         return results
 
     # ---- internals ----
-    from urllib.parse import parse_qs, urlsplit
-
     def _extract_jobs(self, data: Any) -> list[dict[str, Any]]:
         """
         Common shapes seen from /wday/cxs/.../jobs:
