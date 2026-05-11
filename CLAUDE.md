@@ -41,7 +41,7 @@ docker compose exec cortex python scripts/proton_query.py list-folders
 
 Copy `.env.example` and fill in real values. Minimum to start:
 - `BRIDGE_USERNAME` / `BRIDGE_PASSWORD` — from `docker exec -it cortex_bridge protonmail-bridge --cli` → `info`
-- `BRIDGE_IMAP_HOST` / `BRIDGE_SMTP_HOST` — typically `cortex_bridge`
+- `BRIDGE_HOST` / `BRIDGE_SMTP_PORT` / `BRIDGE_IMAP_PORT` — typically `cortex_bridge` / `25` / `143`
 - `SEND_EMAIL` — set to `1` to enable outbound mail
 
 See `.env.example` for all keys with descriptions.
@@ -52,4 +52,5 @@ See `.env.example` for all keys with descriptions.
 - **`local/` is a bind-mount** from the host at `/srv/docker/cortex/local/`. It is not inside the image. Never put secrets in the image.
 - **Heartbeat** — the scheduler writes `local/state/heartbeat` every 60 s. The Docker `HEALTHCHECK` watches this file (`find ... -mmin -2`). If the scheduler stalls the container goes unhealthy.
 - **IMAP command format** — send an email to yourself with subject matching a command (e.g. `LIST`, `RUN MODULE=modules.example_daily`). The listener polls `Labels/Command`.
-- **Dry-run** — set `SCHEDULED_MODULES_DRY_RUN=1` in `.env` to suppress all outbound email.
+- **Dry-run** — set `CORTEX_DRY_RUN=1` in `.env` to suppress all outbound email.
+- **VPN sidecar** — the `vpn` service (gluetun/ProtonVPN WireGuard) must be running for `career_watch` to scrape. If `CAREER_WATCH_PROXY_URL` is set and gluetun is unreachable, `career_watch` skips the run (fail-closed). Bring it up with `docker compose up -d vpn`.
