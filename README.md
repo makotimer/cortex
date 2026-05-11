@@ -47,7 +47,7 @@ The MakoTimer Network provides a distributed system for family task management, 
 | **MQTT Publisher** | Sends CBOR to `makotimer/to_nexus` → `nexus` → `portal`. (TODO) |
 | **Health Monitoring** | Daily job pings `nexus` → emails if silent. (TODO) |
 | **Dry-Run Mode** | `SCHEDULED_MODULES_DRY_RUN=1` → zero emails. |
-| **Zero-Downtime** | `socat` healthcheck + 8s sleep on restart. |
+| **Zero-Downtime** | Bridge `socat` healthcheck gates cortex startup. |
 
 ---
 
@@ -187,7 +187,7 @@ SEND_EMAIL=1
 
 | Done | Feature |
 |------|---------|
-| ✅ | **Zero-downtime restarts** — `socat` healthcheck + 8s sleep |
+| ✅ | **Zero-downtime restarts** — bridge `socat` healthcheck gates startup |
 | ✅ | **One-time Proton login** — credentials persist forever |
 | ✅ | **IMAP commands** — instant ad-hoc |
 | ✅ | **Blazing-fast lint/format** — **Ruff** → 3 ms on save, 600 files/sec |
