@@ -6,7 +6,7 @@ from datetime import datetime
 from apscheduler.job import Job
 
 
-def list_html(jobs: list[Job], first_id: str | None = None) -> str:
+def list_html(jobs: list[Job], first_id: str | None = None, subj: str | None = None) -> str:
     if not jobs:
         return "<p>No jobs currently scheduled.</p>"
 
@@ -55,14 +55,12 @@ def list_html(jobs: list[Job], first_id: str | None = None) -> str:
 
     button_html = ""
     if first_id:
-        # === PROTON MAIL-SAFE mailto: LINK ===
         # Use real spaces and newlines, then URL-encode the entire body
         # This ensures Proton Mail shows "RUN MODULE=..." not "RUN+MODULE=..."
         raw_body = f"RUN MODULE={first_id} KWARGS={{}} NO_EMAIL=false PRINT_HTML=false"
         encoded_body = urllib.parse.quote(raw_body, safe="")  # Encodes space → %20, \n → %0A
 
-        # Subject uses %20 for space (standard)
-        mailto_link = f"mailto:?subject=RUN%20MODULE%3D{first_id}&body={encoded_body}"
+        mailto_link = f"mailto:?subject={subj}&body={encoded_body}"
 
         button_html = f"""
         <p>

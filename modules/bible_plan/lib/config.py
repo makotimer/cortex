@@ -18,7 +18,7 @@ def _truthy(s: str | None) -> bool:
 
 def load() -> Settings:
     return Settings(
-        plan_start=os.getenv("BIBLE_PLAN_START", "2025-09-06"),
+        plan_start=os.getenv("BIBLE_PLAN_START", "2025-09-13"),
         tz_name=os.getenv("TZ", "UTC"),
         skip_probe=_truthy(os.getenv("BIBLE_PLAN_SKIP_PROBE", "1")),
         enable_llm=_truthy(os.getenv("BIBLE_PLAN_ENABLE_LLM", "")),

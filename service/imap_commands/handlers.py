@@ -72,9 +72,8 @@ def handle_command(
     from email.policy import default
 
     """
-    Process incoming email and return (reply_to, subject, html).
-    NEVER sends email — caller handles it.
-    reply_to = to_addr or sender (from ENVELOPE or From header)
+    Process incoming email and get (subj, html).
+    Return to_addr, subj, html
     """
     msg = message_from_bytes(raw_email, policy=default)
 
@@ -105,14 +104,15 @@ def handle_command(
         jobs = scheduler.get_jobs()
         first_id = jobs[0].id if jobs else None
         subj = "Scheduled Jobs"
-        html = list_html(jobs, first_id)
+        html = list_html(jobs, first_id, subject)
 
     # ===================================================================
     # CAREER REPORT
     # ===================================================================
     elif cmd["command"] == "CAREER REPORT":
         logger.info("CAREER REPORT command from %s", sender)
-        to_addr, subj, html = _handle_career_report()
+        ## Ignore to_addr return so
+        subj, html = _handle_career_report()
 
     # ===================================================================
     # RUN MODULE=...
@@ -125,8 +125,7 @@ def handle_command(
         else:
             kwargs = cmd["kwargs"]
             no_email = cmd["no_email"]
-            print_html = cmd["print_html"]
-            to_addr, subj, html = _handle_run(module_id, kwargs, no_email, print_html, cfg, scheduler)
+            subj, html = _handle_run(module_id, kwargs, no_email, cfg, scheduler)
 
     # ===================================================================
     # UNKNOWN
@@ -138,10 +137,10 @@ def handle_command(
     return to_addr or sender, subj, html
 
 
-def _handle_career_report() -> tuple[str, str, str]:
+def _handle_career_report() -> tuple[str, str]:
     script_path = Path("/app/scripts/career_check.py")
     if not script_path.exists():
-        return "", "Career Report - Error", "Error: career_check.py not found."
+        return "Career Report - Error", "Error: career_check.py not found."
 
     try:
         result = subprocess.run(
@@ -156,21 +155,20 @@ def _handle_career_report() -> tuple[str, str, str]:
             output = f"Script failed (exit {result.returncode})\n\n{result.stderr.strip()}\n\n{output}"
         if not output:
             output = "No new postings found."
-        return "", "Career Report", output
+        return "Career Report", output
     except subprocess.TimeoutExpired:
-        return "", "Career Report - Timeout", "Error: Timed out after 120s"
+        return "Career Report - Timeout", "Error: Timed out after 120s"
     except Exception as e:
-        return "", "Career Report - Error", f"Exception: {e}"
+        return "Career Report - Error", f"Exception: {e}"
 
 
 def _handle_run(
     module_id: str,
     kwargs: dict,
     no_email: bool,
-    print_html: bool,
     cfg: dict[str, Any],
     scheduler: BackgroundScheduler | None,
-) -> tuple[str, str, str]:
+) -> tuple[str, str]:
     job_cfg = next((j for j in cfg.get("jobs", []) if j.get("id") == module_id), None)
 
     # Merge config defaults with any user overrides
@@ -232,7 +230,7 @@ def _handle_run(
         )
         if not send_email:
             logger.info("Job %s finished silently (send_email=False)", module_id)
-            return None, None, None  # no reply at all
+            return None, None  # no reply at all
 
         # Below result_html could be included in this email confirmation, but would be redundant
         # since the job itself will send the same email content
@@ -247,4 +245,4 @@ def _handle_run(
         """
         reply_subject = f"Result: {module_id}"
 
-    return email_to, reply_subject, reply_html
+    return reply_subject, reply_html
