@@ -18,6 +18,7 @@ services:
       - HTTPPROXY=on
       - HTTPPROXY_LISTENING_ADDRESS=:8888
       - HTTP_CONTROL_SERVER_ADDRESS=:8000
+      - SERVER_UPDATE_PERIOD=0
     expose: ["8888", "8000"]
     restart: unless-stopped
     logging: *default-logging

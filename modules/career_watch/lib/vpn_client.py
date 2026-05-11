@@ -45,7 +45,7 @@ class GluetunClient:
         timed out or failed.
 
         gluetun v3 control API paths:
-          - WireGuard: PUT /v1/openvpn/status (shared path in v3)
+          - VPN (any type): PUT /v1/vpn/status
           - Confirm: GET /v1/publicip/ip
         """
         before = self.current_ip()
@@ -53,7 +53,7 @@ class GluetunClient:
         for status in ("stopped", "running"):
             try:
                 r = requests.put(
-                    f"{self._base}/v1/openvpn/status",
+                    f"{self._base}/v1/vpn/status",
                     json={"status": status},
                     timeout=self._timeout,
                 )
