@@ -71,6 +71,15 @@ def run_once(
                 "control_url": control_url,
             })
             return None
+        if settings.rotate_vpn_per_run:
+            new_ip = gluetun.rotate()
+            logging_bridge.activity({
+                "component": "career_watch.engine",
+                "op": "vpn_rotated",
+                "person": person_env,
+                "new_ip": new_ip,
+                "rotated": new_ip is not None,
+            })
 
     # Resolve scraper lookup function (test override or production default)
     get_scraper_func = get_scraper or _default_get_scraper

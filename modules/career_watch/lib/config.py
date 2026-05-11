@@ -67,6 +67,8 @@ class Settings:
 
     # VPN proxy (gluetun HTTP proxy URL, e.g. "http://vpn:8888"); None = direct
     proxy_url: str | None = None
+    # Rotate to a new VPN server before each run (requires proxy_url to be set)
+    rotate_vpn_per_run: bool = True
 
     # ------------- convenience -------------
     def group_by_kind(self) -> dict[str, list[ScraperConfig]]:
@@ -168,6 +170,12 @@ class Settings:
         proxy_url_raw = str(kw.get("proxy_url") or os.getenv("CAREER_WATCH_PROXY_URL") or "").strip()
         proxy_url = proxy_url_raw or None
 
+        # Rotation flag; default True — disable with rotate_vpn_per_run=false or env CAREER_WATCH_ROTATE_VPN=0
+        rotate_raw = kw.get("rotate_vpn_per_run")
+        if rotate_raw is None:
+            rotate_raw = os.getenv("CAREER_WATCH_ROTATE_VPN", "1")
+        rotate_vpn_per_run = truthy(rotate_raw)
+
         settings = cls(
             person_env=person_env_val,  # may be "" if groups_path is given
             groups_path=groups_path if groups_path else None,
@@ -177,6 +185,7 @@ class Settings:
             email_all_even_if_seen=email_all_even_if_seen,
             ingest_only_no_email=ingest_only_no_email,
             proxy_url=proxy_url,
+            rotate_vpn_per_run=rotate_vpn_per_run,
         )
         _validate_settings(settings)
         return settings

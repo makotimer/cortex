@@ -161,7 +161,45 @@ def test_no_proxy_url_skips_vpn_check(fresh_settings, stub_scraper, monkeypatch)
 
 
 # ----------------------------------------------------------------------
-# 9. Render helper is safe (XSS)
+# 9. rotate_vpn_per_run=False → rotate() never called
+# ----------------------------------------------------------------------
+def test_rotate_vpn_per_run_false_skips_rotation(fresh_settings, stub_scraper, monkeypatch):
+    settings = cw_config.Settings.from_env_and_kwargs({
+        "person_env": "Test User",
+        "groups_path": fresh_settings.groups_path,
+        "sqlite_path": fresh_settings.sqlite_path,
+        "proxy_url": "http://vpn:8888",
+        "rotate_vpn_per_run": False,
+    })
+    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: True)
+    rotate_calls: list[bool] = []
+    monkeypatch.setattr(vpn_client.GluetunClient, "rotate", lambda self: rotate_calls.append(True) or "1.2.3.4")
+
+    engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
+    assert rotate_calls == []
+
+
+# ----------------------------------------------------------------------
+# 10. Rotation failure does not abort the run
+# ----------------------------------------------------------------------
+def test_rotation_failure_does_not_abort(fresh_settings, stub_scraper, monkeypatch):
+    settings = cw_config.Settings.from_env_and_kwargs({
+        "person_env": "Test User",
+        "groups_path": fresh_settings.groups_path,
+        "sqlite_path": fresh_settings.sqlite_path,
+        "proxy_url": "http://vpn:8888",
+        "rotate_vpn_per_run": True,
+    })
+    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: True)
+    monkeypatch.setattr(vpn_client.GluetunClient, "rotate", lambda self: None)  # rotation fails
+
+    result = engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
+    # Run still proceeds because health() passed
+    assert result is not None
+
+
+# ----------------------------------------------------------------------
+# 11. Render helper is safe (XSS)
 # ----------------------------------------------------------------------
 def test_render_build_tables_escapes_html():
     postings = {
