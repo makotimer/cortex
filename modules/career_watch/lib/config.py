@@ -166,9 +166,11 @@ class Settings:
         email_all_even_if_seen = truthy(kw.get("email_all_even_if_seen"))
         ingest_only_no_email = truthy(kw.get("ingest_only_no_email"))
 
-        # VPN proxy: explicit kwarg wins, then env, then None (no proxy)
-        proxy_url_raw = str(kw.get("proxy_url") or os.getenv("CAREER_WATCH_PROXY_URL") or "").strip()
-        proxy_url = proxy_url_raw or None
+        # VPN proxy: explicit kwarg wins (even empty string), then env, then None
+        if "proxy_url" in kw:
+            proxy_url = str(kw["proxy_url"]).strip() or None
+        else:
+            proxy_url = str(os.getenv("CAREER_WATCH_PROXY_URL") or "").strip() or None
 
         # Rotation flag; default True — disable with rotate_vpn_per_run=false or env CAREER_WATCH_ROTATE_VPN=0
         rotate_raw = kw.get("rotate_vpn_per_run")

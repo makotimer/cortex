@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import contextlib
-from typing import Optional
 
 from soco import SoCo
 

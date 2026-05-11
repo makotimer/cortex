@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import html
 import os
-from datetime import UTC, datetime, timezone
-from typing import Any, Optional
+from datetime import UTC, datetime
+from typing import Any
 
 _HTML_ESCAPE_QUOTE = True  # keep quotes escaped for attributes
 

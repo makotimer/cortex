@@ -62,7 +62,7 @@ def _merge_query_into_payload(list_or_cxs_url: str, payload: dict) -> dict:
     try:
         p = urlsplit(list_or_cxs_url)
         q = parse_qs(p.query or "")
-        out = json.loads(json.dumps(payload or {}))  # deepcopy
+        out: dict[str, Any] = json.loads(json.dumps(payload or {}))  # deepcopy
         applied = out.setdefault("appliedFacets", {})
 
         # search text

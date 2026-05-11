@@ -1,7 +1,6 @@
 # tests/career_live/workday_cxs_live.py
 from __future__ import annotations
 
-import os
 import types
 
 import pytest

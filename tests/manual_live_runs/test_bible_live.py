@@ -3,7 +3,6 @@ import datetime as dt
 import importlib
 import json
 import os
-import sys
 
 import pytest
 

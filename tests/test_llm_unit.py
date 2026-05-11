@@ -1,9 +1,6 @@
 # tests/test_llm_unit.py
-import os
 import sys
 from typing import ClassVar  # <-- Add import
-
-import pytest
 
 from modules._shared import utils as shared_utils
 from modules.bible_plan import lib

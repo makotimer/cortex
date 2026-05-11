@@ -11,7 +11,7 @@ from .models import Posting, ScrapeResult
 try:
     from .scrapers import stub as _stub
 except Exception:  # pragma: no cover
-    _stub = None
+    _stub = None  # type: ignore[assignment]
 
 try:
     from .scrapers import bae as _bae
@@ -19,10 +19,10 @@ try:
     from .scrapers import lever as _lever
     from .scrapers import workday_cxs as _workday_cxs
 except Exception:  # pragma: no cover
-    _lever = None
-    _boeing = None
-    _bae = None
-    _workday_cxs = None
+    _lever = None  # type: ignore[assignment]
+    _boeing = None  # type: ignore[assignment]
+    _bae = None  # type: ignore[assignment]
+    _workday_cxs = None  # type: ignore[assignment]
 
 __all__ = [
     "ConfigError",

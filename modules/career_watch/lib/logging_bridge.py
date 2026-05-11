@@ -9,13 +9,13 @@ from typing import Any
 _logging_backend = None
 try:
     # Preferred: service package
-    from service import logging_utils as _svc_logging  # type: ignore
+    from service import logging_utils as _svc_logging
 
     _logging_backend = _svc_logging
 except Exception:
     try:
         # Fallback: project-root logging_utils.py
-        import logging_utils as _root_logging  # type: ignore
+        import logging_utils as _root_logging
 
         _logging_backend = _root_logging
     except Exception:
@@ -58,7 +58,7 @@ def activity(record: dict[str, Any]) -> None:
     payload = _redact_record(record)
     if _logging_backend and hasattr(_logging_backend, "write_activity_log"):
         try:
-            _logging_backend.write_activity_log(payload)  # type: ignore[attr-defined]
+            _logging_backend.write_activity_log(payload)
             return
         except Exception:
             # Fall through to std logging
@@ -74,7 +74,7 @@ def error(record: dict[str, Any]) -> None:
     payload = _redact_record(record)
     if _logging_backend and hasattr(_logging_backend, "write_error_log"):
         try:
-            _logging_backend.write_error_log(payload)  # type: ignore[attr-defined]
+            _logging_backend.write_error_log(payload)
             return
         except Exception:
             # Fall through to std logging

@@ -3,10 +3,6 @@ from __future__ import annotations
 
 import html
 import re
-from typing import Optional
-from urllib.parse import quote_plus
-
-from modules._shared import utils
 
 __all__ = ["linkify_scripture_refs", "nkjv_link"]
 

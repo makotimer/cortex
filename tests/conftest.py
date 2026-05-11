@@ -6,7 +6,6 @@ import pathlib
 import re
 import types
 import warnings
-from unittest import mock
 
 import pytest
 from freezegun import freeze_time
@@ -72,6 +71,9 @@ def _env_defaults(monkeypatch, tmp_path):
 
     # Default person for modules that require it (override per test if desired)
     monkeypatch.setenv("SCRAPER_USER_1", "The Archivist")
+
+    # Blank the VPN proxy so unit tests never hit the real gluetun container
+    monkeypatch.setenv("CAREER_WATCH_PROXY_URL", "")
 
     yield
 
@@ -180,6 +182,7 @@ def fresh_settings(minimal_groups_json, tmp_path, monkeypatch):
         "groups_path": str(minimal_groups_json),  # force load from temp file
         "sqlite_path": str(db_path),
         "max_threads": 2,
+        "proxy_url": "",  # no VPN in unit tests
     })
 
 

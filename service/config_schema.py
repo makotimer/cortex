@@ -12,7 +12,7 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 try:
-    import yaml  # type: ignore
+    import yaml
 except Exception:  # pragma: no cover
     yaml = None  # YAML optional
 

@@ -7,7 +7,7 @@ import argparse
 import json
 import sys
 from collections import namedtuple
-from datetime import UTC, datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 # Try to use ijson for large files; fallback to json

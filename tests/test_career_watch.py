@@ -1,8 +1,6 @@
 # tests/test_career_watch.py
 from unittest import mock
 
-import pytest
-
 from modules.career_watch.lib import config as cw_config  # already added
 from modules.career_watch.lib import db, engine, models, render, vpn_client
 
@@ -68,6 +66,7 @@ def test_email_all_even_if_seen_renders_all(fresh_settings, stub_scraper):
         "sqlite_path": fresh_settings.sqlite_path,
         "max_threads": 2,
         "email_all_even_if_seen": True,
+        "proxy_url": "",
     })
 
     html, meta = engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
@@ -87,6 +86,7 @@ def test_ingest_only_no_email_returns_none(fresh_settings, stub_scraper):
         "groups_path": fresh_settings.groups_path,
         "sqlite_path": fresh_settings.sqlite_path,
         "ingest_only_no_email": True,
+        "proxy_url": "",
     })
 
     result = engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
@@ -104,6 +104,7 @@ def test_skip_network_skips_scrapers(fresh_settings):
         "groups_path": fresh_settings.groups_path,
         "sqlite_path": fresh_settings.sqlite_path,
         "skip_network": True,
+        "proxy_url": "",
     })
 
     # No patch needed - engine short-circuits before registry lookup

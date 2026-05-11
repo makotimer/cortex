@@ -1,5 +1,4 @@
 # tests/test_career_watch_targets.py
-import pytest
 
 from modules.career_watch.lib.scrapers._targets import parse_url_label_list
 

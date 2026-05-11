@@ -54,13 +54,16 @@ exclude = [".venv","venv","build","dist","local","node_modules"]
 
 [tool.ruff.lint]
 select = ["F","E","W","I","UP","B","SIM","PERF","RUF","C4","PTH","DTZ","S","ARG","N"]
-ignore = ["F401","S101","S110","S108"]
+ignore = ["S101","S110","S108"]
 
 [tool.ruff.lint.per-file-ignores]
 "**/__init__.py" = ["F401"]
 "scripts/**" = ["PTH","DTZ","S","ARG","N","C4","B007"]
 "modules/**" = ["PTH","DTZ","S","ARG","N","C4"]
 "tests/**" = ["ARG","N801","N818","DTZ"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["modules", "service"]
 
 [tool.ruff.format]
 preview = true
@@ -73,6 +76,7 @@ line-ending = "lf"
 python_version = "3.12"
 strict = false
 ignore_missing_imports = true
+cache_dir = "/tmp/mypy_cache"
 namespace_packages = true
 explicit_package_bases = true
 warn_unused_ignores = true
@@ -83,19 +87,14 @@ no_implicit_optional = true
 warn_return_any = true
 exclude = [".venv","venv","build","dist","local","node_modules"]
 
-# --- Pytest ---
-[tool.pytest.ini_options]
-cache_dir = "local/.pytest_cache"
-
-# TODO(round-3): fix type errors in modules and tests
 [[tool.mypy.overrides]]
-module = ["modules.*"]
+module = ["modules.bible_plan.*", "modules._shared.*", "modules.sonos.*", "scripts.*"]
 ignore_errors = true
 
 [[tool.mypy.overrides]]
 module = ["tests.*"]
 ignore_errors = true
 
-[[tool.mypy.overrides]]
-module = ["scripts.*"]
-ignore_errors = true
+# --- Pytest ---
+[tool.pytest.ini_options]
+cache_dir = "local/.pytest_cache"

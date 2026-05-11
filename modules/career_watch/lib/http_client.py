@@ -60,7 +60,7 @@ class HttpClient:
             resp.encoding = encoding
         elif not resp.encoding and resp.apparent_encoding:
             resp.encoding = resp.apparent_encoding
-        return resp.text
+        return str(resp.text)
 
     def get_json(
         self,

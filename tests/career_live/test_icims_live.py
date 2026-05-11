@@ -5,7 +5,6 @@ Live test for multi-tenant iCIMS scraper with include/exclude filters.
 
 from __future__ import annotations
 
-import os
 import types
 
 import pytest

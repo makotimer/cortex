@@ -4,7 +4,6 @@ import contextlib
 import os
 from collections.abc import Iterator
 from datetime import datetime
-from typing import Optional
 
 # ----------------------------
 # Small utilities for Sonos

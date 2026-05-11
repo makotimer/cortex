@@ -1,6 +1,5 @@
 # service/imap_commands/handlers.py
 import logging
-import re
 import subprocess
 import sys
 from datetime import datetime, timedelta

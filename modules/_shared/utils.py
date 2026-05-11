@@ -8,8 +8,7 @@ import logging
 import os
 import re
 from dataclasses import dataclass
-from datetime import UTC, datetime, timezone
-from typing import Optional
+from datetime import UTC, datetime
 
 log = logging.getLogger(__name__)
 

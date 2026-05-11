@@ -13,7 +13,7 @@ from typing import Any
 
 # NOTE: We intentionally avoid importing BaseTrigger to keep imports light; we refer
 # to it by string for type hints where helpful.
-from apscheduler.executors.pool import ProcessPoolExecutor, ThreadPoolExecutor
+from apscheduler.executors.pool import ThreadPoolExecutor
 from apscheduler.jobstores.memory import MemoryJobStore
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.combining import OrTrigger
@@ -204,7 +204,7 @@ def _resolve_timezone(cfg: dict[str, Any]):
 
         return pytz.timezone(tz_name)
     except Exception:
-        import pytz  # type: ignore[import-untyped]
+        import pytz
 
         LOG.warning("Falling back to UTC timezone (invalid or missing tz '%s')", tz_name)
         return pytz.UTC
@@ -286,7 +286,6 @@ def _build_trigger(trig_def: dict[str, Any], tz: str | None) -> Any:
       - 'date.run_at' without tz is interpreted in the scheduler tz.
     """
     from collections.abc import Iterable
-    from datetime import datetime
     from datetime import tzinfo as _dt_tzinfo
     from zoneinfo import ZoneInfo
 
@@ -608,7 +607,7 @@ def _int_or(v: Any, default: int | None) -> int | None:
 def _build_job_context(spec: JobSpec) -> dict:
     # Keep it small and predictable; runner can enrich as needed.
     # You can add more fields later (e.g., next_run_time) without breaking callers.
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     return {
         "job_id": spec.id,
