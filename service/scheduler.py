@@ -8,6 +8,7 @@ import time as _time
 from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import time
+from pathlib import Path
 from typing import Any
 
 # NOTE: We intentionally avoid importing BaseTrigger to keep imports light; we refer
@@ -138,6 +139,27 @@ def start(config_path: str | None = None) -> SchedulerController:
     # Start the engine
     scheduler.start()
     LOG.info("Scheduler started with %d job(s).", len(scheduler.get_jobs()))
+
+    # Internal heartbeat for the Docker HEALTHCHECK.
+    # find /app/local/state/heartbeat -mmin -2 in the HEALTHCHECK validates this.
+    _heartbeat_path = Path(config_path or os.getenv("CONFIG_PATH", "local/config.json")).parent / "state" / "heartbeat"
+
+    def _write_heartbeat() -> None:
+        try:
+            _heartbeat_path.parent.mkdir(parents=True, exist_ok=True)
+            _heartbeat_path.touch()
+        except Exception:
+            LOG.debug("Failed to write heartbeat", exc_info=True)
+
+    _write_heartbeat()  # write immediately so healthcheck passes before first interval
+    scheduler.add_job(
+        func=_write_heartbeat,
+        trigger=IntervalTrigger(seconds=60),
+        id="__heartbeat__",
+        max_instances=1,
+        coalesce=True,
+        replace_existing=True,
+    )
 
     return SchedulerController(scheduler)
 

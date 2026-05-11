@@ -4,7 +4,7 @@ __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.pytest_cache/
+.pytest_cache/
 .mypy_cache/
 .ruff_cache/
 
@@ -13,6 +13,7 @@ __pycache__/
 .gitignore
 .vscode/
 .idea/
+.github/
 
 # Local runtime that is bind-mounted at runtime
 local/
@@ -20,6 +21,19 @@ local/
 *.sqlite
 *.db
 
+# Virtual environment (present in dev, excluded from build context)
+.venv/
+node_modules/
+
 # Build/dist
 build/
 dist/
+
+# Docs and config not needed at runtime
+*.md
+!README.md
+LICENSE
+Makefile
+docker-compose.yaml
+.editorconfig
+.pre-commit-config.yaml
