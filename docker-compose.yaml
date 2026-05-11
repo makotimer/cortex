@@ -5,6 +5,31 @@ x-logging: &default-logging
     max-file: "3"
 
 services:
+  vpn:
+    image: qmcgaw/gluetun:v3
+    cap_add: [NET_ADMIN]
+    devices: [/dev/net/tun:/dev/net/tun]
+    environment:
+      - VPN_SERVICE_PROVIDER=protonvpn
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=${PROTON_WG_PRIVATE_KEY}
+      - WIREGUARD_ADDRESSES=${PROTON_WG_ADDRESSES:-10.2.0.2/32}
+      - SERVER_COUNTRIES=${PROTON_VPN_COUNTRIES:-United States,Canada,Switzerland,Netherlands}
+      - HTTPPROXY=on
+      - HTTPPROXY_LISTENING_ADDRESS=:8888
+      - HTTP_CONTROL_SERVER_ADDRESS=:8000
+    expose: ["8888", "8000"]
+    restart: unless-stopped
+    logging: *default-logging
+    networks:
+      - mailnet
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8000/v1/publicip/ip"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
   cortex:
     build:
       context: .
