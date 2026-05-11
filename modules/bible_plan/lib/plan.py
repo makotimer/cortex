@@ -35,17 +35,23 @@ def resolve_plan_dir(default_pkg_dir: str | None) -> str:
     """
     Resolution order (first match wins):
       1) Explicit default_pkg_dir argument (if it contains chapter_plan.json)
-      2) Directory next to this file (robust even under pytest tmp import paths)
-      3) importlib.resources.files(__package__) (installed package data)
-      4) Project fallbacks (useful in dev containers)
+      2) BIBLE_PLAN_DIR env var (useful for tests and alternative install paths)
+      3) Directory next to this file (robust even under pytest tmp import paths)
+      4) importlib.resources.files(__package__) (installed package data)
+      5) Project fallbacks (useful in dev containers)
     """
 
     def has_plan(p: os.PathLike | str | None) -> bool:
         return bool(p) and (Path(p) / PLAN_FILE).exists()
 
-    # 1) The caller's suggested directory (if provided **and** valid)
+    # 1) The caller's suggested directory (highest priority when provided and valid)
     if has_plan(default_pkg_dir):
         return str(default_pkg_dir)
+
+    # 2) Env var override — useful for tests and alternative install paths
+    env_dir = os.getenv("BIBLE_PLAN_DIR")
+    if has_plan(env_dir):
+        return str(env_dir)
 
     # 2) This file's directory (stable, not affected by pytest CWD)
     here = Path(__file__).resolve().parent

@@ -23,6 +23,16 @@ def fixed_env(monkeypatch):
     yield
 
 
+@pytest.fixture(autouse=True)
+def _plan_dir(tmp_path, monkeypatch):
+    """Redirect chapter_plan.json lookup to a writable temp dir."""
+    plan_dir = tmp_path / "plan"
+    plan_dir.mkdir()
+    plan = ["Psalms 148", "Genesis 1", "Genesis 2"]
+    (plan_dir / "chapter_plan.json").write_text(json.dumps(plan))
+    monkeypatch.setenv("BIBLE_PLAN_DIR", str(plan_dir))
+
+
 @pytest.fixture
 def temp_plan(tmp_path):
     """Create a minimal chapter_plan.json for tests."""

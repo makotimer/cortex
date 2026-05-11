@@ -4,7 +4,6 @@ import json
 import os
 import pathlib
 import re
-import tempfile
 import types
 import warnings
 from unittest import mock
@@ -60,17 +59,18 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
 # Ensures isolation and avoids scope mismatch with 'monkeypatch'.
 # ---------------------------------------------------------------------
 @pytest.fixture(autouse=True)
-def _env_defaults(monkeypatch):
-    # Write logs to a throwaway dir so real logs stay clean (per test)
-    tmp_logs = tempfile.mkdtemp(prefix="cw-pytest-logs-")
+def _env_defaults(monkeypatch, tmp_path):
+    # Write logs to a per-test temp dir so real logs stay clean
+    tmp_logs = str(tmp_path / "logs")
     monkeypatch.setenv("LOG_DIR", tmp_logs)
     monkeypatch.setenv("ACTIVITY_LOG_PREFIX", "activity-test")
     monkeypatch.setenv("ERROR_LOG_PREFIX", "error-test")
-    # Optional kill-switch if you added it in logging_utils.py
-    # monkeypatch.setenv("LOG_DISABLE", "1")
+
+    # Patch module-level paths baked in at import time — setenv alone is too late.
+    monkeypatch.setattr("service.logging_utils._LOG_DIR", tmp_logs)
+    monkeypatch.setattr("service.runner.ACTIVITY_LOG_PATH", str(tmp_path / "activity.log"))
 
     # Default person for modules that require it (override per test if desired)
-    # Use "The Archivist" explicitly for Pytests.
     monkeypatch.setenv("SCRAPER_USER_1", "The Archivist")
 
     yield
