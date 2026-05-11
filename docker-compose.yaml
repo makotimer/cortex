@@ -1,29 +1,31 @@
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
 services:
   cortex:
     build:
       context: .
+      args:
+        - INSTALL_DEV=1
     restart: unless-stopped
     mem_limit: 512m
     env_file:
       - ./.env
-    command:
-    - sh
-    - -c
-    - |
-      echo "Waiting for Proton Bridge to Stabilize..."
-      sleep 8
-      exec python -m service.cli serve
     volumes:
       - ./local:/app/local
       - ./local/command_history:/home/app/.bash_history
     depends_on:
       cortex_bridge:
         condition: service_healthy
+    logging: *default-logging
     networks:
       - mailnet
 
   cortex_bridge:
-    image: ghcr.io/videocurio/proton-mail-bridge:latest
+    image: ghcr.io/videocurio/proton-mail-bridge@sha256:d44f6b12650c6b0f9e0aefee192d65c6e46d0a22bd5ec189e8624812fd139c8b
     restart: unless-stopped
     mem_limit: 512m
     volumes:
@@ -31,12 +33,11 @@ services:
     expose:
       - "25"                # SMTP (internal)
       - "143"               # IMAP (internal)
+    logging: *default-logging
     networks:
       - mailnet
     healthcheck:
-      test: >
-        sh -c '
-        socat - TCP:127.0.0.1:1143,connect-timeout=2 </dev/null >/dev/null 2>&1        '
+      test: ["CMD-SHELL", "socat - TCP:127.0.0.1:1143,connect-timeout=2 </dev/null >/dev/null 2>&1"]
       interval: 4s
       timeout: 3s
       retries: 5
