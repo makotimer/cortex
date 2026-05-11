@@ -23,7 +23,7 @@ from apscheduler.triggers.interval import IntervalTrigger
 
 # Project-local interfaces
 from . import config_schema, runner
-from .logging_utils import write_activity_log  # type: ignore[import-not-found]
+from .logging_utils import write_activity_log
 
 LOG = logging.getLogger(__name__)
 
@@ -200,11 +200,11 @@ def _resolve_timezone(cfg: dict[str, Any]):
     tz_name = cfg.get("timezone") or os.getenv("TZ") or "UTC"
     try:
         # Prefer pytz for APScheduler 3.x
-        import pytz  # type: ignore
+        import pytz
 
         return pytz.timezone(tz_name)
     except Exception:
-        import pytz  # type: ignore
+        import pytz  # type: ignore[import-untyped]
 
         LOG.warning("Falling back to UTC timezone (invalid or missing tz '%s')", tz_name)
         return pytz.UTC
@@ -255,7 +255,7 @@ def _make_job_spec(raw: dict[str, Any], default_job_defaults: dict[str, Any], tz
         kwargs=kwargs,
         send_email=send_email,
         timeout_sec=timeout_sec,
-        max_instances=max_instances,
+        max_instances=max_instances if max_instances is not None else 1,
         coalesce=coalesce,
         misfire_grace_time=misfire_grace_time,
         summary=summary,
@@ -501,20 +501,19 @@ def _add_job(scheduler: BackgroundScheduler, spec: JobSpec) -> None:
         started = _time.monotonic()
         LOG.info("Job[%s] starting (module=%s)", spec.id, spec.module)
 
-        call_kwargs_rich = {
-            "kwargs": dict(spec.kwargs or {}),
-            "send_email": spec.send_email if spec.send_email is not None else True,
-            "timeout_sec": spec.timeout_sec,
-            "trigger_type": "scheduled",
-            "job_context": _build_job_context(spec),
-            "email_to": spec.email_to,
-            "cc": spec.email_cc,
-            "bcc": spec.email_bcc,
-            "subject": spec.subject,
-        }
-
         try:
-            result = runner.run_module_once(spec.module, **call_kwargs_rich)
+            result = runner.run_module_once(
+                spec.module,
+                kwargs=dict(spec.kwargs or {}),
+                send_email=spec.send_email if spec.send_email is not None else True,
+                timeout_sec=spec.timeout_sec,
+                trigger_type="scheduled",
+                job_context=_build_job_context(spec),
+                email_to=spec.email_to,
+                cc=spec.email_cc,
+                bcc=spec.email_bcc,
+                subject=spec.subject,
+            )
         except Exception:
             LOG.exception("Job[%s] raised an exception.", spec.id)
             _write_activity(spec, status="error", duration_s=_time.monotonic() - started)

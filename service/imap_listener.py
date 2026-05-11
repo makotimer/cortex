@@ -210,13 +210,14 @@ def _command_listener_loop(
                             to_addr, subject, content = handle_command(raw_email, cfg, scheduler, from_addr)
 
                             reply_to = to_addr or from_addr
-                            if reply_to:
+                            if reply_to and content is not None:
+                                reply_subject = subject or "(no subject)"
                                 try:
                                     if content.startswith("<"):
-                                        send_html(subject=subject, html=content, to=[reply_to])
+                                        send_html(subject=reply_subject, html=content, to=[reply_to])
                                     else:
                                         send_html(
-                                            subject=subject,
+                                            subject=reply_subject,
                                             html="<pre style='font-family: monospace; "
                                             f"white-space: pre-wrap;'>{content}</pre>",
                                             to=[reply_to],

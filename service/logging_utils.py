@@ -70,7 +70,7 @@ def get_activity_log_path() -> str:
     return _log_path_for_today(_ACTIVITY_PREFIX)
 
 
-def redact(record: dict[str, Any], keys: set[str] | None = None) -> dict[str, Any]:
+def redact(record: dict[str, Any], keys: set[str] | None = None) -> Any:
     """
     Produce a redacted deep copy of `record` by scrubbing values whose KEYS
     contain any of the substrings in `keys` (case-insensitive). Does not mutate input.

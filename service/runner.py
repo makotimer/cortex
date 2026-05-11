@@ -30,12 +30,12 @@ _build_email = None
 _write_activity_log = None
 
 try:
-    _build_email = importlib.import_module("modules._shared.html").build_email  # type: ignore[attr-defined]
+    _build_email = importlib.import_module("modules._shared.html").build_email
 except Exception:
     _build_email = None
 
 try:
-    _write_activity_log = importlib.import_module("service.logging_utils").write_activity_log  # type: ignore[attr-defined]
+    _write_activity_log = importlib.import_module("service.logging_utils").write_activity_log
 except Exception:
     _write_activity_log = None
 
@@ -191,7 +191,7 @@ def _resolve_callable(module_path: str) -> Callable[..., Any]:
 def _wrap_html(subject: str, inner_html: str) -> str:
     if _build_email:
         try:
-            return _build_email(subject, inner_html)  # type: ignore[misc]
+            return _build_email(subject, inner_html)  # type: ignore[no-any-return]
         except Exception:
             # fall through to local wrapper
             pass
@@ -202,7 +202,7 @@ def _emit_activity_jsonl(record: dict[str, Any]) -> None:
     """Write a structured activity record either via logging_utils or to a JSONL file."""
     if _write_activity_log:
         try:
-            _write_activity_log(record)  # type: ignore[misc]
+            _write_activity_log(record)
             return
         except Exception as e:
             log.warning("logging_utils.write_activity_log failed: %s", e)

@@ -57,7 +57,7 @@ def parse_command_line(line: str) -> dict[str, Any]:
 
     match = run_pattern.match(line)
     if match:
-        cmd = {
+        cmd: dict[str, Any] = {
             "command": "RUN",
             "module_id": match.group("module_id").strip(" \"'"),
             "kwargs": {},

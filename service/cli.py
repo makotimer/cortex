@@ -43,13 +43,12 @@ from service import logging_utils as L  # noqa: N812
 from service import runner as _runner
 from service import scheduler as _scheduler
 
+_CONF_IMPORT_ERR: Exception | None = None
+_config_schema: Any = None
 try:
     from service import config_schema as _config_schema
 except Exception as e:  # pragma: no cover
-    _config_schema = None  # type: ignore
     _CONF_IMPORT_ERR = e
-else:
-    _CONF_IMPORT_ERR = None
 
 
 LOG = logging.getLogger("service.cli")
@@ -94,18 +93,18 @@ def _parse_kv_pairs(pairs: Iterable[str]) -> dict[str, Any]:
 @contextmanager
 def _env_overrides(env: dict[str, str]):
     """Temporarily set environment variables."""
-    old = {}
+    old: dict[str, str | None] = {}
     try:
         for k, v in env.items():
             old[k] = os.environ.get(k)
             os.environ[k] = v
         yield
     finally:
-        for k, v in old.items():
-            if v is None:
-                os.environ.pop(k, None)
+        for ok, ov in old.items():
+            if ov is None:
+                os.environ.pop(ok, None)
             else:
-                os.environ[k] = v
+                os.environ[ok] = ov
 
 
 def _print_table(rows: Iterable[tuple[str, str]], headers: tuple[str, str] = ("ID", "DETAILS")) -> None:
@@ -281,11 +280,11 @@ def cmd_serve(args: argparse.Namespace) -> int:
         # Start scheduler: prefer start(config_path=...) if available
         if args.config:
             try:
-                running.sched = _scheduler.start(config_path=args.config)  # type: ignore
+                running.sched = _scheduler.start(config_path=args.config)
             except TypeError:
-                running.sched = _scheduler.start()  # type: ignore
+                running.sched = _scheduler.start()
         else:
-            running.sched = _scheduler.start()  # type: ignore
+            running.sched = _scheduler.start()
         LOG.info("Scheduler started: %r", running.sched)
 
         cfg = _load_config_with_optional_path(args.config)
@@ -297,7 +296,7 @@ def cmd_serve(args: argparse.Namespace) -> int:
             return running.sched._scheduler  # Expose the scheduler instance
 
         # Start IMAP listener with cfg_getter
-        imap_handle = _imap.start(cfg_getter=cfg_getter, scheduler_getter=scheduler_getter)  # type: ignore
+        imap_handle = _imap.start(cfg_getter=cfg_getter, scheduler_getter=scheduler_getter)
         running.imap_thread = imap_handle  # controller with .stop()/.join()
         LOG.info("IMAP listener started: %r", running.imap_thread)
 
@@ -413,7 +412,7 @@ def main(argv: Iterable[str] | None = None) -> int:
     parser = _build_parser()
     args = parser.parse_args(args=list(argv) if argv is not None else None)
     # Attach top-level args (like --config) to subcommand handlers
-    return args.func(args)
+    return args.func(args)  # type: ignore[no-any-return]
 
 
 if __name__ == "__main__":  # pragma: no cover

@@ -73,6 +73,8 @@ line-ending = "lf"
 python_version = "3.12"
 strict = false
 ignore_missing_imports = true
+namespace_packages = true
+explicit_package_bases = true
 warn_unused_ignores = true
 check_untyped_defs = true
 warn_redundant_casts = true
@@ -85,7 +87,7 @@ exclude = [".venv","venv","build","dist","local","node_modules"]
 [tool.pytest.ini_options]
 cache_dir = "local/.pytest_cache"
 
-# TODO(round-2): fix type errors in modules and service
+# TODO(round-3): fix type errors in modules and tests
 [[tool.mypy.overrides]]
 module = ["modules.*"]
 ignore_errors = true
@@ -95,5 +97,5 @@ module = ["tests.*"]
 ignore_errors = true
 
 [[tool.mypy.overrides]]
-module = ["service.runner", "service.logging_utils", "service.imap_commands.*", "service.scheduler", "service.cli", "scripts.*"]
+module = ["scripts.*"]
 ignore_errors = true

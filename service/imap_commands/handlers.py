@@ -35,7 +35,7 @@ class _Stripper(HTMLParser):
 
 def extract_text_from_email(msg) -> str:
     """Prefer first non-empty text/plain; fallback to longest stripped HTML."""
-    plain = None
+    plain: str | None = None
     html_parts = []
 
     for part in msg.walk() if msg.is_multipart() else [msg]:
@@ -46,7 +46,7 @@ def extract_text_from_email(msg) -> str:
         if ctype == "text/plain":
             text = part.get_content().strip()
             if text and plain is None:
-                plain = text
+                plain = str(text)
             continue
         if ctype == "text/html":
             html = part.get_content()
@@ -68,7 +68,7 @@ def handle_command(
     cfg: dict[str, Any],
     scheduler: BackgroundScheduler | None,
     from_addr: str | None = None,
-) -> tuple[str, str, str]:
+) -> tuple[str | None, str | None, str | None]:
     from email import message_from_bytes
     from email.policy import default
 
@@ -97,15 +97,21 @@ def handle_command(
     cmd = parse_command_line(command_line)
 
     to_addr = None
+    subj: str | None = None
+    html: str | None = None
 
     # ===================================================================
     # LIST
     # ===================================================================
     if cmd["command"] == "LIST":
-        jobs = scheduler.get_jobs()
-        first_id = jobs[0].id if jobs else None
-        subj = "Scheduled Jobs"
-        html = list_html(jobs, first_id, subject)
+        if scheduler is None:
+            subj = "Scheduler Unavailable"
+            html = "<p>Scheduler is not running.</p>"
+        else:
+            jobs = scheduler.get_jobs()
+            first_id = jobs[0].id if jobs else None
+            subj = "Scheduled Jobs"
+            html = list_html(jobs, first_id, subject)
 
     # ===================================================================
     # CAREER REPORT
@@ -127,6 +133,8 @@ def handle_command(
             kwargs = cmd["kwargs"]
             no_email = cmd["no_email"]
             subj, html = _handle_run(module_id, kwargs, no_email, cfg, scheduler)
+            if subj is None:  # silent run — no reply
+                return None, None, None
 
     # ===================================================================
     # UNKNOWN
@@ -169,8 +177,10 @@ def _handle_run(
     no_email: bool,
     cfg: dict[str, Any],
     scheduler: BackgroundScheduler | None,
-) -> tuple[str, str]:
+) -> tuple[str | None, str | None]:
     job_cfg = next((j for j in cfg.get("jobs", []) if j.get("id") == module_id), None)
+    if job_cfg is None:
+        return "Command Error", f"<p>Module <code>{module_id}</code> not found in config.</p>"
 
     # Merge config defaults with any user overrides
     final_kwargs = {
@@ -200,12 +210,15 @@ def _handle_run(
             job_defaults = {"coalesce": True, "max_instances": 1}
             tz = _resolve_timezone(cfg)
 
+            assert scheduler is not None  # live_job proves scheduler was non-None
+            sched = scheduler
+
             def delayed_re_add():
                 spec = _make_job_spec(job_cfg, default_job_defaults=job_defaults, tz=tz)
-                _add_job(scheduler, spec)
+                _add_job(sched, spec)
                 logger.info("Re-added job %s after skip", module_id)
 
-            scheduler.add_job(
+            sched.add_job(
                 delayed_re_add,
                 "date",
                 run_date=resume_time,
