@@ -8,7 +8,7 @@ import logging
 import os
 import re
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
 from typing import Optional
 
 log = logging.getLogger(__name__)
@@ -259,7 +259,7 @@ class OpenAIChat:
                 prefix = os.getenv("LLM_MD_PREFIX", "llm")
                 max_keep = int(os.getenv("LLM_MD_MAX", "0"))  # 0 = unlimited
                 os.makedirs(md_dir, exist_ok=True)
-                ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H-%M-%SZ")
+                ts = datetime.now(UTC).strftime("%Y-%m-%dT%H-%M-%SZ")
                 safe_prefix = re.sub(r"[^a-zA-Z0-9._-]+", "-", prefix).strip("-")
                 fname = f"{safe_prefix + '-' if safe_prefix else ''}{ts}.md"
                 out_path = os.path.join(md_dir, fname)

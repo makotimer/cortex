@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta, timezone
 
 import pytest
 
@@ -44,8 +44,8 @@ def test_build_trigger_accepts_interval_minutes():
     assert trig.interval.total_seconds() == 300
 
     # And it should actually schedule every 5 minutes
-    ts = datetime(2099, 1, 1, 0, 0, 0, tzinfo=timezone.utc)
-    times = _next_times(trig, timezone.utc, count=3, start=ts)
+    ts = datetime(2099, 1, 1, 0, 0, 0, tzinfo=UTC)
+    times = _next_times(trig, UTC, count=3, start=ts)
     assert times[0] == ts + timedelta(minutes=5)
     assert times[1] == ts + timedelta(minutes=10)
     assert times[2] == ts + timedelta(minutes=15)
@@ -61,11 +61,11 @@ def test_build_trigger_accepts_cron_numeric_fields():
     assert hasattr(trig, "fields")
 
     # Use a real Monday: 2096-01-02 is Monday
-    start = datetime(2096, 1, 2, 0, 0, 0, tzinfo=timezone.utc)  # Monday
-    times = _next_times(trig, timezone.utc, count=3, start=start)
-    assert times[0] == datetime(2096, 1, 2, 3, 0, 0, tzinfo=timezone.utc)  # Mon
-    assert times[1] == datetime(2096, 1, 3, 3, 0, 0, tzinfo=timezone.utc)  # Tue
-    assert times[2] == datetime(2096, 1, 4, 3, 0, 0, tzinfo=timezone.utc)  # Wed
+    start = datetime(2096, 1, 2, 0, 0, 0, tzinfo=UTC)  # Monday
+    times = _next_times(trig, UTC, count=3, start=start)
+    assert times[0] == datetime(2096, 1, 2, 3, 0, 0, tzinfo=UTC)  # Mon
+    assert times[1] == datetime(2096, 1, 3, 3, 0, 0, tzinfo=UTC)  # Tue
+    assert times[2] == datetime(2096, 1, 4, 3, 0, 0, tzinfo=UTC)  # Wed
 
 
 def test_build_trigger_accepts_cron_string_lists():
@@ -76,13 +76,13 @@ def test_build_trigger_accepts_cron_string_lists():
         "UTC",
     )
     # Use a real Monday: 2099-01-05 is Monday
-    start = datetime(2099, 1, 5, 4, 59, 0, tzinfo=timezone.utc)  # Monday 04:59
-    times = _next_times(trig, timezone.utc, count=4, start=start)
+    start = datetime(2099, 1, 5, 4, 59, 0, tzinfo=UTC)  # Monday 04:59
+    times = _next_times(trig, UTC, count=4, start=start)
     # Expect: 05:00, 05:45, 06:00, 06:45 (same day)
-    assert times[0] == datetime(2099, 1, 5, 5, 0, 0, tzinfo=timezone.utc)
-    assert times[1] == datetime(2099, 1, 5, 5, 45, 0, tzinfo=timezone.utc)
-    assert times[2] == datetime(2099, 1, 5, 6, 0, 0, tzinfo=timezone.utc)
-    assert times[3] == datetime(2099, 1, 5, 6, 45, 0, tzinfo=timezone.utc)
+    assert times[0] == datetime(2099, 1, 5, 5, 0, 0, tzinfo=UTC)
+    assert times[1] == datetime(2099, 1, 5, 5, 45, 0, tzinfo=UTC)
+    assert times[2] == datetime(2099, 1, 5, 6, 0, 0, tzinfo=UTC)
+    assert times[3] == datetime(2099, 1, 5, 6, 45, 0, tzinfo=UTC)
 
 
 def test_build_trigger_accepts_date_iso_with_tz():
@@ -98,7 +98,7 @@ def test_build_trigger_accepts_date_iso_with_tz():
 def test_build_trigger_accepts_date_epoch_seconds():
     from service.scheduler import _build_trigger
 
-    ts = int(datetime(2099, 1, 1, 0, 0, 0, tzinfo=timezone.utc).timestamp())
+    ts = int(datetime(2099, 1, 1, 0, 0, 0, tzinfo=UTC).timestamp())
     trig = _build_trigger({"date": {"run_at": ts}}, "UTC")
     assert hasattr(trig, "run_date")
     assert trig.run_date.year == 2099
@@ -120,11 +120,11 @@ def test_build_trigger_daily_time_single_time_is_exact():
     trig = _build_trigger({"daily_time": {"time": "03:15", "day_of_week": "mon-fri"}}, "UTC")
 
     # Use a real Monday: 2096-01-02 is Monday
-    start = datetime(2096, 1, 2, 3, 14, 50, tzinfo=timezone.utc)  # Monday
-    times = _next_times(trig, timezone.utc, count=3, start=start)
-    assert times[0] == datetime(2096, 1, 2, 3, 15, 0, tzinfo=timezone.utc)  # Mon 03:15
-    assert times[1] == datetime(2096, 1, 3, 3, 15, 0, tzinfo=timezone.utc)  # Tue 03:15
-    assert times[2] == datetime(2096, 1, 4, 3, 15, 0, tzinfo=timezone.utc)  # Wed 03:15
+    start = datetime(2096, 1, 2, 3, 14, 50, tzinfo=UTC)  # Monday
+    times = _next_times(trig, UTC, count=3, start=start)
+    assert times[0] == datetime(2096, 1, 2, 3, 15, 0, tzinfo=UTC)  # Mon 03:15
+    assert times[1] == datetime(2096, 1, 3, 3, 15, 0, tzinfo=UTC)  # Tue 03:15
+    assert times[2] == datetime(2096, 1, 4, 3, 15, 0, tzinfo=UTC)  # Wed 03:15
 
 
 def test_build_trigger_daily_time_multiple_times_no_cross_product():
@@ -144,8 +144,8 @@ def test_build_trigger_daily_time_multiple_times_no_cross_product():
     assert isinstance(trig, OrTrigger)
 
     # Pick a Monday in EST (no DST complications needed here)
-    start = datetime(2097, 1, 6, 4, 59, 0, tzinfo=timezone.utc)  # Still fine; trigger has its own tz
-    times = _next_times(trig, timezone.utc, count=4, start=start)
+    start = datetime(2097, 1, 6, 4, 59, 0, tzinfo=UTC)  # Still fine; trigger has its own tz
+    times = _next_times(trig, UTC, count=4, start=start)
 
     # Extract HH:MM in the trigger's local tz for human clarity if desired
     # but asserting UTC instants is equally valid since triggers carry tzinfo.
@@ -165,10 +165,10 @@ def test_build_trigger_daily_time_supports_seconds_and_dedup():
         "UTC",
     )
     # Use a real Sunday: 2099-01-04 is Sunday
-    start = datetime(2099, 1, 4, 11, 59, 59, tzinfo=timezone.utc)  # Sunday
-    times = _next_times(trig, timezone.utc, count=3, start=start)
-    assert times[0] == datetime(2099, 1, 4, 12, 0, 10, tzinfo=timezone.utc)
-    assert times[1] == datetime(2099, 1, 4, 12, 0, 20, tzinfo=timezone.utc)
+    start = datetime(2099, 1, 4, 11, 59, 59, tzinfo=UTC)  # Sunday
+    times = _next_times(trig, UTC, count=3, start=start)
+    assert times[0] == datetime(2099, 1, 4, 12, 0, 10, tzinfo=UTC)
+    assert times[1] == datetime(2099, 1, 4, 12, 0, 20, tzinfo=UTC)
 
 
 @pytest.mark.parametrize(

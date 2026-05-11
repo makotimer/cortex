@@ -9,7 +9,7 @@ import argparse
 import json
 import sys
 from collections import namedtuple
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
 from pathlib import Path
 
 # Try to use ijson for large files; fallback to json
@@ -45,7 +45,7 @@ def parse_iso(ts: str | None) -> datetime | None:
     except ValueError:
         return None
 
-    dt = dt.replace(tzinfo=timezone.utc) if dt.tzinfo is None else dt.astimezone(timezone.utc)
+    dt = dt.replace(tzinfo=UTC) if dt.tzinfo is None else dt.astimezone(UTC)
     return dt
 
 

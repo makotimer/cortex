@@ -7,7 +7,7 @@ import threading
 import time as _time
 from collections.abc import Iterable
 from dataclasses import dataclass
-from datetime import time
+from datetime import UTC, time
 from pathlib import Path
 from typing import Any
 
@@ -142,7 +142,8 @@ def start(config_path: str | None = None) -> SchedulerController:
 
     # Internal heartbeat for the Docker HEALTHCHECK.
     # find /app/local/state/heartbeat -mmin -2 in the HEALTHCHECK validates this.
-    _heartbeat_path = Path(config_path or os.getenv("CONFIG_PATH", "local/config.json")).parent / "state" / "heartbeat"
+    cfg_path = config_path or os.getenv("CONFIG_PATH") or "local/config.json"
+    _heartbeat_path = Path(cfg_path).parent / "state" / "heartbeat"
 
     def _write_heartbeat() -> None:
         try:
@@ -613,5 +614,5 @@ def _build_job_context(spec: JobSpec) -> dict:
     return {
         "job_id": spec.id,
         "module": spec.module,
-        "now_iso": datetime.now(timezone.utc).isoformat(),
+        "now_iso": datetime.now(UTC).isoformat(),
     }

@@ -289,7 +289,7 @@ def send_html(
         try:
             _send_via_smtp(msg, rcpt_to=rcpt_to, settings=settings)
             return str(msg["Message-ID"])  # success
-        except EmailSendError as e:  # noqa: PERF203
+        except EmailSendError as e:
             if "5xx" not in str(e) and "Internal server error" not in str(e):
                 raise
             time.sleep(2**attempt)  # 2s, 4s, 8s, 16s

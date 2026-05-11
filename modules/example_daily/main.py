@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import html
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
 from typing import Any
 
 from .lib.transform import titleize
@@ -44,7 +44,7 @@ def run(**kwargs) -> str | None:
     else:
         items = [items_raw] if items_raw not in (None, "") else []
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     ts = now.isoformat(timespec="seconds")
     subject = f"[example_daily] Hello, {name} — {ts}"
 

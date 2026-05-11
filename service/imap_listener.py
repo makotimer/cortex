@@ -245,7 +245,7 @@ def _command_listener_loop(
             # Success: reset backoff
             backoff = 30
 
-        except Exception as e:  # noqa: PERF203
+        except Exception as e:
             # Only handle errors if not shutting down
             if stop_event.is_set():
                 break

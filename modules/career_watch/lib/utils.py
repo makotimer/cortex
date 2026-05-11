@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import html
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
 from typing import Any, Optional
 
 _HTML_ESCAPE_QUOTE = True  # keep quotes escaped for attributes
@@ -36,7 +36,7 @@ def now_iso() -> str:
     """
     UTC ISO-8601 timestamp with 'Z' suffix.
     """
-    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    return datetime.now(UTC).isoformat().replace("+00:00", "Z")
 
 
 def getenv_str(name: str, default: str | None = None) -> str | None:
