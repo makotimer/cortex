@@ -1,7 +1,7 @@
 # pyproject.toml
 
 [project]
-name = "scheduled-modules"
+name = "cortex"
 version = "0.1.0"
 description = "One-container scheduler to ProtonMail to IMAP commands"
 requires-python = ">=3.12"

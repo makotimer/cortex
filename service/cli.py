@@ -207,6 +207,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     # Best-effort: many projects wire "no email" as a dry-run env or a kw flag
     env = {}
     if args.no_email:
+        env["CORTEX_DRY_RUN"] = "1"
         env["SCHEDULED_MODULES_DRY_RUN"] = "1"
         env["SEND_EMAIL"] = "0"
 

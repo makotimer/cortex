@@ -17,6 +17,7 @@ def test_runner_email_path_when_enabled(stub_emailer, frozen_utc, monkeypatch):
     from service import runner
 
     monkeypatch.setenv("SEND_EMAIL", "1")
+    monkeypatch.delenv("CORTEX_DRY_RUN", raising=False)
     monkeypatch.delenv("SCHEDULED_MODULES_DRY_RUN", raising=False)
 
     # Force send_email=True and provide a destination

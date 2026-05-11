@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import uuid
+import warnings
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import TimeoutError as FutureTimeout
@@ -361,7 +362,19 @@ def run_module_once(
 
     # Prepare email gating (env + kwarg precedence)
     # Hard override: dry-run disables sending no matter what.
-    dry_run = str(os.getenv("SCHEDULED_MODULES_DRY_RUN", "")).strip().lower() in {"1", "true", "yes", "on"}
+    _old_dry = os.getenv("SCHEDULED_MODULES_DRY_RUN")
+    _new_dry = os.getenv("CORTEX_DRY_RUN")
+    if _new_dry is not None:
+        dry_run = _new_dry.strip().lower() in {"1", "true", "yes", "on"}
+    elif _old_dry is not None:
+        warnings.warn(
+            "SCHEDULED_MODULES_DRY_RUN is deprecated; rename to CORTEX_DRY_RUN",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        dry_run = _old_dry.strip().lower() in {"1", "true", "yes", "on"}
+    else:
+        dry_run = False
     env_send_default = str(os.getenv("SEND_EMAIL", "1")).strip().lower() in {"1", "true", "yes", "on"}
     effective_send = send_email if send_email is not None else env_send_default
     if dry_run:

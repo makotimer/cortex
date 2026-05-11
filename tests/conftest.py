@@ -94,7 +94,7 @@ def _llm_default_off_for_unit_tests(monkeypatch, request):
 @pytest.fixture(autouse=True)
 def no_email_env(monkeypatch):
     monkeypatch.setenv("SEND_EMAIL", "0")
-    monkeypatch.setenv("SCHEDULED_MODULES_DRY_RUN", "1")
+    monkeypatch.setenv("CORTEX_DRY_RUN", "1")
     monkeypatch.setenv("CONFIG_PATH", "/app/local/config.json")
     yield
 

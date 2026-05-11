@@ -46,7 +46,7 @@ The MakoTimer Network provides a distributed system for family task management, 
 | **Weather Integration** | Fetches Open-Meteo → includes in display payload. (TODO) |
 | **MQTT Publisher** | Sends CBOR to `makotimer/to_nexus` → `nexus` → `portal`. (TODO) |
 | **Health Monitoring** | Daily job pings `nexus` → emails if silent. (TODO) |
-| **Dry-Run Mode** | `SCHEDULED_MODULES_DRY_RUN=1` → zero emails. |
+| **Dry-Run Mode** | `CORTEX_DRY_RUN=1` → zero emails. |
 | **Zero-Downtime** | Bridge `socat` healthcheck gates cortex startup. |
 
 ---
@@ -193,7 +193,7 @@ SEND_EMAIL=1
 | ✅ | **Blazing-fast lint/format** — **Ruff** → 3 ms on save, 600 files/sec |
 | ✅ | **Bullet-proof tests** — **Pytest** → 100 % isolated DB, `--live` for real email |
 | ✅ | **Audit-ready logs** — structured JSONL → `./local/logs/activity-*.jsonl` |
-| ✅ | **Dry-run toggle** — `SCHEDULED_MODULES_DRY_RUN=1` → zero emails |
+| ✅ | **Dry-run toggle** — `CORTEX_DRY_RUN=1` → zero emails |
 
 
 ## Perfect VSCode Setup (copy-paste)
