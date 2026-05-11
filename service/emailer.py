@@ -7,7 +7,7 @@ import ssl
 import time
 import uuid
 from collections.abc import Iterable
-from datetime import datetime
+from datetime import UTC, datetime
 from email.message import EmailMessage
 from email.utils import formatdate, make_msgid
 
@@ -148,7 +148,7 @@ def _build_message(
 
     # Body (HTML with plain-text fallback)
     # Add a tiny stamp comment for traceability (harmless in HTML)
-    stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    stamp = datetime.now(UTC).strftime("%Y-%m-%d %H:%M:%S")
     nonce = uuid.uuid4().hex[:8]
     html_augmented = html.rstrip() + f"\n<!-- mailer-ts:{stamp} nonce:{nonce} -->"
 
@@ -174,7 +174,7 @@ def _send_via_smtp(msg: EmailMessage, *, rcpt_to: list[str], settings: dict) -> 
         )
 
     # TLS context
-    context = ssl._create_unverified_context() if insecure_tls else ssl.create_default_context()
+    context = ssl._create_unverified_context() if insecure_tls else ssl.create_default_context()  # noqa: S323
 
     try:
         server = smtplib.SMTP_SSL(host, port, context=context) if use_ssl else smtplib.SMTP(host, port)
@@ -314,7 +314,7 @@ def ping() -> bool:
     if not (host and username and password):
         raise EmailSendError("SMTP health check failed: missing host/credentials.")
 
-    context = ssl._create_unverified_context() if insecure_tls else ssl.create_default_context()
+    context = ssl._create_unverified_context() if insecure_tls else ssl.create_default_context()  # noqa: S323
 
     try:
         server = smtplib.SMTP_SSL(host, port, context=context) if use_ssl else smtplib.SMTP(host, port)

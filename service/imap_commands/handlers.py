@@ -2,6 +2,7 @@
 import logging
 import re
 import subprocess
+import sys
 from datetime import datetime, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
@@ -143,8 +144,8 @@ def _handle_career_report() -> tuple[str, str]:
         return "Career Report - Error", "Error: career_check.py not found."
 
     try:
-        result = subprocess.run(
-            ["python", str(script_path)],
+        result = subprocess.run(  # noqa: S603
+            [sys.executable, str(script_path)],
             capture_output=True,
             text=True,
             check=False,

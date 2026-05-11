@@ -6,6 +6,7 @@ import logging
 import os
 import re
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 logger = logging.getLogger(__name__)
@@ -316,7 +317,7 @@ def _to_int(value: Any, *, field: str, job_id: str, allow_zero: bool) -> int:
 def _read_any(path: str) -> _LoadResult:
     lower = path.lower()
     try:
-        with open(path, encoding="utf-8") as f:
+        with Path(path).open(encoding="utf-8") as f:
             text = f.read()
     except FileNotFoundError as e:
         raise ConfigError(f"Config file not found: {path}") from e

@@ -1,7 +1,7 @@
 # service/imap_commands/templates.py
 import textwrap
 import urllib.parse
-from datetime import datetime
+from datetime import UTC, datetime
 
 from apscheduler.job import Job
 
@@ -107,13 +107,13 @@ RUN MODULE=&lt;ID&gt; KWARGS={{}} NO_EMAIL=false PRINT_HTML=false
             <li><code>RUN MODULE=backup NO_EMAIL=true</code></li>
         </ul>
 
-        <p><i>Generated at {datetime.now():%Y-%m-%d %H:%M:%S}</i></p>
+        <p><i>Generated at {datetime.now(UTC):%Y-%m-%d %H:%M:%S}</i></p>
     """).strip()  # noqa: E501
 
 
 def career_report_html(body: str) -> str:
     return f"""
-    <h3>Career Report - {datetime.now():%Y-%m-%d %H:%M}</h3>
+    <h3>Career Report - {datetime.now(UTC):%Y-%m-%d %H:%M}</h3>
     <pre style='font-family: monospace; white-space: pre-wrap;'>{body}</pre>
     <p><i>Generated via email command</i></p>
     """.strip()

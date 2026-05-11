@@ -459,7 +459,7 @@ def _build_trigger(trig_def: dict[str, Any], tz: str | None) -> Any:
             raise ValueError("daily_time.time must be a string or list of strings")
 
         # Normalize: dedup + sort by (hour, minute, second)
-        uniq: set[tuple[int, int, int]] = set(_parse_time(str(t)) for t in times)
+        uniq: set[tuple[int, int, int]] = {_parse_time(str(t)) for t in times}
         sorted_times = sorted(uniq)
 
         per_time_triggers = []

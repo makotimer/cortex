@@ -7,6 +7,8 @@ import json
 import os
 import socket
 from collections.abc import Iterable
+from datetime import UTC
+from pathlib import Path
 from typing import Any
 
 # ---- Configuration (env-driven, with sensible defaults) ---------------------
@@ -80,20 +82,19 @@ def redact(record: dict[str, Any], keys: set[str] | None = None) -> dict[str, An
 
 
 def _log_path_for_today(prefix: str) -> str:
-    today = _dt.date.today().isoformat()  # YYYY-MM-DD
-    log_dir = os.path.join(_LOG_DIR)
-    return os.path.join(log_dir, f"{prefix}-{today}.jsonl")
+    today = _dt.datetime.now(UTC).date().isoformat()  # YYYY-MM-DD
+    return str(Path(_LOG_DIR) / f"{prefix}-{today}.jsonl")
 
 
 def _ensure_dir(path: str) -> None:
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
 
 
 def _should_rotate_size(path: str) -> bool:
     if _MAX_BYTES <= 0:
         return False
     try:
-        return os.path.getsize(path) >= _MAX_BYTES
+        return Path(path).stat().st_size >= _MAX_BYTES
     except FileNotFoundError:
         return False
 
@@ -106,11 +107,11 @@ def _rotate_file_if_needed(path: str) -> None:
     if not _should_rotate_size(path):
         return
     # Suffix with timestamp to avoid collisions.
-    ts = _dt.datetime.now().strftime("%Y%m%d-%H%M%S")
+    ts = _dt.datetime.now(UTC).strftime("%Y%m%d-%H%M%S")
     rotated = f"{path}.{ts}"
     with contextlib.suppress(FileNotFoundError):
         # Atomic rename on POSIX
-        os.replace(path, rotated)
+        Path(path).replace(rotated)
 
 
 def _json_dumps(obj: Any) -> str:

@@ -53,12 +53,14 @@ target-version = "py312"
 exclude = [".venv","venv","build","dist","local","node_modules"]
 
 [tool.ruff.lint]
-select = ["F","E","W","I","UP","B","SIM","PERF","RUF"]
-ignore = ["F401"]
+select = ["F","E","W","I","UP","B","SIM","PERF","RUF","C4","PTH","DTZ","S","ARG","N"]
+ignore = ["F401","S101","S110","S108"]
 
 [tool.ruff.lint.per-file-ignores]
 "**/__init__.py" = ["F401"]
-"scripts/proton_query.py" = ["B007"]
+"scripts/**" = ["PTH","DTZ","S","ARG","N","C4","B007"]
+"modules/**" = ["PTH","DTZ","S","ARG","N","C4"]
+"tests/**" = ["ARG","N801","N818","DTZ"]
 
 [tool.ruff.format]
 preview = true

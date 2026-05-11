@@ -39,7 +39,7 @@ from types import SimpleNamespace
 from typing import Any
 
 from service import imap_listener as _imap
-from service import logging_utils as L
+from service import logging_utils as L  # noqa: N812
 from service import runner as _runner
 from service import scheduler as _scheduler
 
@@ -267,7 +267,7 @@ def cmd_serve(args: argparse.Namespace) -> int:
     stop_event = threading.Event()
     running = SimpleNamespace(sched=None, imap_thread=None)
 
-    def _graceful_shutdown(signum=None, frame=None):
+    def _graceful_shutdown(signum=None, _frame=None):
         LOG.info("Signal %s received; initiating shutdown...", signum)
         stop_event.set()
         _safe_stop("scheduler", getattr(running, "sched", None))

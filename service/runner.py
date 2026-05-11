@@ -12,6 +12,7 @@ from concurrent.futures import TimeoutError as FutureTimeout
 from dataclasses import dataclass
 from datetime import UTC, datetime, timezone
 from html import escape
+from pathlib import Path
 from typing import Any
 
 from service.emailer import EmailSendError, send_html
@@ -207,8 +208,8 @@ def _emit_activity_jsonl(record: dict[str, Any]) -> None:
             log.warning("logging_utils.write_activity_log failed: %s", e)
     # Local JSONL fallback
     try:
-        os.makedirs(os.path.dirname(ACTIVITY_LOG_PATH), exist_ok=True)
-        with open(ACTIVITY_LOG_PATH, "a", encoding="utf-8") as f:
+        Path(ACTIVITY_LOG_PATH).parent.mkdir(parents=True, exist_ok=True)
+        with Path(ACTIVITY_LOG_PATH).open("a", encoding="utf-8") as f:
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
     except Exception as e:
         log.error("Failed to write activity JSONL: %s", e)
@@ -344,7 +345,7 @@ def run_module_once(
     def _invoke() -> Any:
         return run_callable(**kw)
 
-    t0 = datetime.now()
+    t0 = datetime.now(UTC)
     try:
         with ThreadPoolExecutor(max_workers=1, thread_name_prefix="runner") as pool:
             fut = pool.submit(_invoke)
@@ -357,7 +358,7 @@ def run_module_once(
         exc = e
         result = RunResult(ok=False, message=str(e), html=None, meta={"exception_type": type(e).__name__})
     finally:
-        duration_ms = int((datetime.now() - t0).total_seconds() * 1000)
+        duration_ms = int((datetime.now(UTC) - t0).total_seconds() * 1000)
 
     # Prepare email gating (env + kwarg precedence)
     # Hard override: dry-run disables sending no matter what.
