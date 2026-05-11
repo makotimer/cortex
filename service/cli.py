@@ -31,7 +31,6 @@ import signal
 import sys
 import threading
 import time
-import uuid
 from collections.abc import Iterable
 from contextlib import contextmanager
 from datetime import datetime
@@ -197,13 +196,9 @@ def _now_iso():
 
 
 def cmd_run(args: argparse.Namespace) -> int:
-    run_id = uuid.uuid4().hex
-    start_time = time.monotonic()
-
     kwargs = _parse_kv_pairs(args.kwargs or [])
     LOG.debug("Run module %s with kwargs=%s", args.module, kwargs)
 
-    # Best-effort: many projects wire "no email" as a dry-run env or a kw flag
     env = {}
     if args.no_email:
         env["CORTEX_DRY_RUN"] = "1"
@@ -211,24 +206,11 @@ def cmd_run(args: argparse.Namespace) -> int:
 
     try:
         with _env_overrides(env):
-            html, run_id = _runner.run_module_once(
+            html, _run_id = _runner.run_module_once(
                 module=args.module,
                 kwargs=kwargs,
                 send_email=not args.no_email,
             )
-            # Calculate duration
-            duration_s = time.monotonic() - start_time
-            duration_ms = int(duration_s * 1000)
-            L.write_activity_log({
-                "ts": _now_iso(),
-                "event": "cli_run",
-                "run_id": run_id,
-                "module": args.module,
-                "trigger_type": "adhoc",
-                "emailed": not args.no_email,
-                "kwargs": kwargs,
-                "duration_ms": duration_ms,
-            })
 
         # Console output
         status_line = "DONE: Module run completed."
@@ -243,7 +225,6 @@ def cmd_run(args: argparse.Namespace) -> int:
     except KeyboardInterrupt:
         return 130
     except Exception as e:
-        duration_s = time.monotonic() - start_time
         print(f"FAILURE: {e}", file=sys.stderr)
         L.write_error_log({
             "ts": _now_iso(),
@@ -251,7 +232,6 @@ def cmd_run(args: argparse.Namespace) -> int:
             "module": args.module,
             "kwargs": kwargs,
             "error": repr(e),
-            "duration_ms": int(duration_s * 1000),
         })
         return 1
 

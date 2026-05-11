@@ -23,6 +23,7 @@ dependencies = [
     "IMAPClient==2.3.1",
     "mail-parser==3.15.0",
     "python-dotenv>=1.0.0",
+    "mcp>=1.0.0",
 ]
 
 [project.optional-dependencies]

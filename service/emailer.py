@@ -192,45 +192,6 @@ def _send_via_smtp(msg: EmailMessage, *, rcpt_to: list[str], settings: dict) -> 
         raise EmailSendError(f"SMTP send failed: {e}") from e
 
 
-def _flatten_recipient_list(recipients: list | str | None) -> list[str]:
-    """
-    Normalize recipients:
-    - None → []
-    - str → [str]
-    - [str, ...] → [str, ...]
-    - [[str, ...]] → [str, ...]  ← Now handles multiple emails in inner list
-    - Deeply nested? → Only flatten one level
-    """
-    if recipients is None:
-        return []
-
-    result: list[str] = []
-
-    # Handle string
-    if isinstance(recipients, str):
-        result = [recipients]
-
-    # Handle list
-    elif isinstance(recipients, list):
-        # Case 1: List of strings → use directly
-        if recipients and isinstance(recipients[0], str):
-            result = [email for email in recipients if isinstance(email, str)]
-
-        # Case 2: List containing one list → flatten it
-        elif len(recipients) == 1 and isinstance(recipients[0], list):
-            inner = recipients[0]
-            result = inner if all(isinstance(x, str) for x in inner) else [x for x in inner if isinstance(x, str)]
-        # Case 3: List of mixed/nested → extract strings
-        else:
-            for item in recipients:
-                if isinstance(item, str):
-                    result.append(item)
-                elif isinstance(item, list):
-                    # Flatten any list inside, but only take strings
-                    result.extend(x for x in item if isinstance(x, str))
-    return result
-
-
 # ---- Public API --------------------------------------------------------------
 
 
@@ -252,14 +213,8 @@ def send_html(
     Raises:
         EmailSendError on any failure (connection/auth/SMTP/validation/etc).
     """
-    # === Normalize all recipient lists ===
-    to = _flatten_recipient_list(to)
-    cc = _flatten_recipient_list(cc)
-    bcc = _flatten_recipient_list(bcc)
-
     settings = _resolve_smtp_settings()
 
-    # Resolve recipients and from
     to_l = _as_list(to)
     cc_l = _as_list(cc)
     bcc_l = _as_list(bcc)

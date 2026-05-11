@@ -67,7 +67,6 @@ def _env_defaults(monkeypatch, tmp_path):
 
     # Patch module-level paths baked in at import time — setenv alone is too late.
     monkeypatch.setattr("service.logging_utils._LOG_DIR", tmp_logs)
-    monkeypatch.setattr("service.runner.ACTIVITY_LOG_PATH", str(tmp_path / "activity.log"))
 
     # Default person for modules that require it (override per test if desired)
     monkeypatch.setenv("SCRAPER_USER_1", "The Archivist")

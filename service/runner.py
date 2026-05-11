@@ -12,32 +12,15 @@ from concurrent.futures import TimeoutError as FutureTimeout
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from html import escape
-from pathlib import Path
 from typing import Any
 
 from service.emailer import EmailSendError, send_html
-
-# -----------------------------------------------------------------------------
-# Config / Environment
-# -----------------------------------------------------------------------------
-# Optional local JSONL sink if logging_utils is not available
-ACTIVITY_LOG_PATH = os.getenv("ACTIVITY_LOG_PATH", "/app/local/activity.log")
-
-# -----------------------------------------------------------------------------
-# Optional imports (graceful fallback)
-# -----------------------------------------------------------------------------
-_build_email = None
-_write_activity_log = None
+from service.logging_utils import write_activity_log as _write_activity_log
 
 try:
-    _build_email = importlib.import_module("modules._shared.html").build_email
-except Exception:
-    _build_email = None
-
-try:
-    _write_activity_log = importlib.import_module("service.logging_utils").write_activity_log
-except Exception:
-    _write_activity_log = None
+    from modules._shared.html import build_email as _build_email  # type: ignore[attr-defined]
+except (ImportError, AttributeError):
+    _build_email = None  # type: ignore[assignment]
 
 # -----------------------------------------------------------------------------
 # Logging
@@ -75,33 +58,6 @@ def _html_email_fallback(title: str, body_inner_html: str) -> str:
     {body_inner_html}
   </body>
 </html>"""
-
-
-def _maybe_bool(v: Any) -> Any:
-    if isinstance(v, str):
-        low = v.strip().lower()
-        if low in ("true", "t", "yes", "y", "1"):
-            return True
-        if low in ("false", "f", "no", "n", "0"):
-            return False
-    return v
-
-
-def _maybe_number(v: Any) -> Any:
-    if isinstance(v, str):
-        s = v.strip()
-        # try int
-        try:
-            if s.isdigit() or (s.startswith("-") and s[1:].isdigit()):
-                return int(s)
-        except Exception:
-            pass
-        # try float
-        try:
-            return float(s)
-        except Exception:
-            pass
-    return v
 
 
 def _normalize_kwargs_types(kwargs: dict[str, object] | None) -> dict[str, object]:
@@ -193,26 +149,15 @@ def _wrap_html(subject: str, inner_html: str) -> str:
         try:
             return _build_email(subject, inner_html)  # type: ignore[no-any-return]
         except Exception:
-            # fall through to local wrapper
             pass
     return _html_email_fallback(subject, inner_html)
 
 
 def _emit_activity_jsonl(record: dict[str, Any]) -> None:
-    """Write a structured activity record either via logging_utils or to a JSONL file."""
-    if _write_activity_log:
-        try:
-            _write_activity_log(record)
-            return
-        except Exception as e:
-            log.warning("logging_utils.write_activity_log failed: %s", e)
-    # Local JSONL fallback
     try:
-        Path(ACTIVITY_LOG_PATH).parent.mkdir(parents=True, exist_ok=True)
-        with Path(ACTIVITY_LOG_PATH).open("a", encoding="utf-8") as f:
-            f.write(json.dumps(record, ensure_ascii=False) + "\n")
+        _write_activity_log(record)
     except Exception as e:
-        log.error("Failed to write activity JSONL: %s", e)
+        log.error("Failed to write activity log: %s", e)
 
 
 @dataclass
@@ -349,6 +294,9 @@ def run_module_once(
     try:
         with ThreadPoolExecutor(max_workers=1, thread_name_prefix="runner") as pool:
             fut = pool.submit(_invoke)
+            # NOTE: fut.result(timeout=...) stops *waiting*, not the thread. The module
+            # continues executing in the background until it finishes or the process exits.
+            # Python provides no safe way to kill a running thread.
             value = fut.result(timeout=timeout_sec) if timeout_sec else fut.result()
         result = _coerce_result(value)
     except FutureTimeout:

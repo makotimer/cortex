@@ -7,7 +7,7 @@ import threading
 import time as _time
 from collections.abc import Iterable
 from dataclasses import dataclass
-from datetime import UTC, time
+from datetime import UTC, datetime, time
 from pathlib import Path
 from typing import Any
 
@@ -574,7 +574,7 @@ def _write_activity(spec: JobSpec, status: str, duration_s: float, result: Any =
     """Best-effort JSONL-ish activity logging; non-fatal on errors."""
     try:
         write_activity_log({
-            "ts": __import__("datetime").datetime.now().__str__(),
+            "ts": datetime.now(UTC).isoformat(),
             "source": "scheduler",
             "event": "job_run",
             "fields": {

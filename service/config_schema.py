@@ -104,21 +104,15 @@ def validate(cfg: dict[str, Any]) -> None:
             raise ConfigError(f"Duplicate job id '{job_id}'.")
         seen_ids.add(job_id)
 
-        # Exactly one trigger among cron | interval | date | daily_time
-        # Trigger may be nested under "trigger": {...} or at job top-level.
-        trigger_container = job.get("trigger", job)
-        if "trigger" in job and not isinstance(trigger_container, dict):
-            raise ConfigError(f"Job '{job_id}': 'trigger' must be an object when present.")
+        # Require nested "trigger": {...} object (flat top-level trigger keys are not
+        # supported by the scheduler and would cause a KeyError at runtime).
+        if "trigger" not in job:
+            raise ConfigError(f"Job '{job_id}': missing required 'trigger' object.")
+        trigger_container = job["trigger"]
+        if not isinstance(trigger_container, dict):
+            raise ConfigError(f"Job '{job_id}': 'trigger' must be an object.")
 
         present_triggers = [k for k in _TRIGGER_FIELDS if k in trigger_container]
-        # Guard against mixed usage (nested + top-level simultaneously)
-        if "trigger" in job:
-            also_top_level = [k for k in _TRIGGER_FIELDS if k in job and k != "trigger"]
-            if also_top_level:
-                raise ConfigError(
-                    f"Job '{job_id}': do not mix top-level triggers {also_top_level} with nested 'trigger'."
-                )
-
         if len(present_triggers) != 1:
             raise ConfigError(f"Job '{job_id}': exactly one trigger required among {', '.join(_TRIGGER_FIELDS)}.")
 
@@ -132,24 +126,19 @@ def validate(cfg: dict[str, Any]) -> None:
         if trig_key == "date" and not isinstance(trig_val, (str,)):
             # APScheduler also accepts datetime, but string is the common case
             raise ConfigError(f"Job '{job_id}': date must be an ISO-8601 string.")
-        if trig_key == "daily_time" and not isinstance(trig_val, str):
-            raise ConfigError(f"Job '{job_id}': daily_time must be 'HH:MM' string.")
+        if trig_key == "daily_time" and not isinstance(trig_val, (str, dict)):
+            raise ConfigError(f"Job '{job_id}': daily_time must be an object or 'HH:MM' string.")
 
-        # Validate trigger content
-        if "cron" in job:
-            _require_type(job, "cron", dict, f"Job '{job_id}': 'cron' must be an object with cron fields.")
-        elif "interval" in job:
-            _require_type(
-                job, "interval", dict, f"Job '{job_id}': 'interval' must be an object with interval fields."
-            )
-            # Optional: make sure any provided fields parse as ints >= 0
-            _validate_int_map(job["interval"], job_id, allow_zero=True)
-        elif "date" in job:
-            # Leave to scheduler to parse the date string; ensure it's a non-empty string
-            if not isinstance(job["date"], str) or not job["date"].strip():
+        # Validate trigger content (use trig_val from trigger_container, not job directly,
+        # so nested "trigger": {...} configs are covered alongside flat top-level ones).
+        if trig_key == "interval":
+            _validate_int_map(trig_val, job_id, allow_zero=True)
+        elif trig_key == "date":
+            if not isinstance(trig_val, str) or not trig_val.strip():
                 raise ConfigError(f"Job '{job_id}': 'date' must be a non-empty ISO-like string.")
-        elif "daily_time" in job:
-            _validate_daily_time(job["daily_time"], job_id)
+        elif trig_key == "daily_time":
+            _validate_daily_time(trig_val, job_id)
+        # cron: type already checked above (str or dict); no further content validation needed
 
         # Optional fields
         _require_optional_bool(job, "coalesce", job_id)
@@ -242,14 +231,28 @@ def _derive_job_id(job: dict[str, Any], idx: int) -> str:
 
 
 def _validate_daily_time(dt: Any, job_id: str) -> None:
-    if not isinstance(dt, str):
-        raise ConfigError(f"Job '{job_id}': 'daily_time' must be a string like 'HH:MM'.")
+    if isinstance(dt, dict):
+        times = dt.get("time")
+        if times is None:
+            raise ConfigError(f"Job '{job_id}': daily_time object must have a 'time' field.")
+        for t in ([times] if isinstance(times, str) else times):
+            _validate_daily_time_str(str(t), job_id)
+        unknown = set(dt.keys()) - {"time", "day_of_week", "timezone"}
+        if unknown:
+            raise ConfigError(f"Job '{job_id}': daily_time has unknown field(s): {sorted(unknown)}.")
+    elif isinstance(dt, str):
+        _validate_daily_time_str(dt, job_id)
+    else:
+        raise ConfigError(f"Job '{job_id}': 'daily_time' must be an object or 'HH:MM' string.")
+
+
+def _validate_daily_time_str(dt: str, job_id: str) -> None:
     m = _DAILY_TIME_RE.match(dt.strip())
     if not m:
-        raise ConfigError(f"Job '{job_id}': 'daily_time' must match HH:MM (24h).")
+        raise ConfigError(f"Job '{job_id}': daily_time 'time' must match HH:MM (24h), got {dt!r}.")
     hour, minute = int(m.group(1)), int(m.group(2))
     if not (0 <= hour <= 23 and 0 <= minute <= 59):
-        raise ConfigError(f"Job '{job_id}': 'daily_time' hour/minute out of range (00:00..23:59).")
+        raise ConfigError(f"Job '{job_id}': daily_time hour/minute out of range (00:00..23:59).")
 
 
 def _require_type(obj: dict[str, Any], field: str, t: type, msg: str) -> None:
