@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "protonmail": {
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "compose",
+        "-f", "/srv/docker/cortex/docker-compose.yaml",
+        "run", "--rm", "-T",
+        "cortex",
+        "python", "-m", "service.mcp_server"
+      ],
+      "env": {}
+    }
+  }
+}
