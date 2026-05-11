@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 from collections.abc import Mapping
 from typing import Any
 
@@ -20,10 +21,15 @@ class HttpClient:
         self,
         timeout: float = 15.0,
         user_agent: str = "JobWatch/0.1 (+https://example.invalid)",
+        proxy_url: str | None = None,
     ):
         self.timeout = float(timeout)
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": user_agent})
+
+        _proxy = (proxy_url or os.getenv("CAREER_WATCH_PROXY_URL") or "").strip()
+        if _proxy:
+            self.session.proxies = {"http": _proxy, "https": _proxy}
 
         retry = Retry(
             total=3,

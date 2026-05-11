@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from collections.abc import Mapping
 from dataclasses import dataclass, field
@@ -63,6 +64,9 @@ class Settings:
     # Special-run flags
     email_all_even_if_seen: bool = False
     ingest_only_no_email: bool = False
+
+    # VPN proxy (gluetun HTTP proxy URL, e.g. "http://vpn:8888"); None = direct
+    proxy_url: str | None = None
 
     # ------------- convenience -------------
     def group_by_kind(self) -> dict[str, list[ScraperConfig]]:
@@ -160,6 +164,10 @@ class Settings:
         email_all_even_if_seen = truthy(kw.get("email_all_even_if_seen"))
         ingest_only_no_email = truthy(kw.get("ingest_only_no_email"))
 
+        # VPN proxy: explicit kwarg wins, then env, then None (no proxy)
+        proxy_url_raw = str(kw.get("proxy_url") or os.getenv("CAREER_WATCH_PROXY_URL") or "").strip()
+        proxy_url = proxy_url_raw or None
+
         settings = cls(
             person_env=person_env_val,  # may be "" if groups_path is given
             groups_path=groups_path if groups_path else None,
@@ -168,6 +176,7 @@ class Settings:
             skip_network=skip_network,
             email_all_even_if_seen=email_all_even_if_seen,
             ingest_only_no_email=ingest_only_no_email,
+            proxy_url=proxy_url,
         )
         _validate_settings(settings)
         return settings

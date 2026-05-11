@@ -4,7 +4,7 @@ from unittest import mock
 import pytest
 
 from modules.career_watch.lib import config as cw_config  # already added
-from modules.career_watch.lib import db, engine, models, render
+from modules.career_watch.lib import db, engine, models, render, vpn_client
 
 
 # ----------------------------------------------------------------------
@@ -112,7 +112,56 @@ def test_skip_network_skips_scrapers(fresh_settings):
 
 
 # ----------------------------------------------------------------------
-# 6. Render helper is safe (XSS)
+# 6. VPN health check: unhealthy → engine returns None (fail-closed)
+# ----------------------------------------------------------------------
+def test_vpn_health_fail_returns_none(fresh_settings, stub_scraper, monkeypatch):
+    settings = cw_config.Settings.from_env_and_kwargs({
+        "person_env": "Test User",
+        "groups_path": fresh_settings.groups_path,
+        "sqlite_path": fresh_settings.sqlite_path,
+        "proxy_url": "http://vpn:8888",
+    })
+    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: False)
+    result = engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
+    assert result is None
+
+
+# ----------------------------------------------------------------------
+# 7. VPN health check: healthy → engine proceeds normally
+# ----------------------------------------------------------------------
+def test_vpn_health_ok_proceeds(fresh_settings, stub_scraper, monkeypatch):
+    settings = cw_config.Settings.from_env_and_kwargs({
+        "person_env": "Test User",
+        "groups_path": fresh_settings.groups_path,
+        "sqlite_path": fresh_settings.sqlite_path,
+        "proxy_url": "http://vpn:8888",
+    })
+    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: True)
+    result = engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
+    # 2 new postings found → (html, meta) returned
+    assert result is not None
+    _html, meta = result
+    assert meta["new_total"] == 2
+
+
+# ----------------------------------------------------------------------
+# 8. No proxy_url set → VPN check skipped entirely
+# ----------------------------------------------------------------------
+def test_no_proxy_url_skips_vpn_check(fresh_settings, stub_scraper, monkeypatch):
+    # proxy_url is None by default (CAREER_WATCH_PROXY_URL not set in tests)
+    assert fresh_settings.proxy_url is None
+
+    # If the health check were invoked it would raise; we verify it is not
+    monkeypatch.setattr(
+        vpn_client.GluetunClient, "health", lambda self: (_ for _ in ()).throw(RuntimeError("should not call"))
+    )
+    result = engine.run_once(fresh_settings, get_scraper=lambda kind: stub_scraper)
+    # 2 new postings → result returned (VPN check was never triggered)
+    assert result is not None
+
+
+# ----------------------------------------------------------------------
+# 9. Render helper is safe (XSS)
 # ----------------------------------------------------------------------
 def test_render_build_tables_escapes_html():
     postings = {

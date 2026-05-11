@@ -11,11 +11,12 @@ Features:
 
 from __future__ import annotations
 
+import os
 import time
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from . import db, logging_bridge, render
+from . import db, logging_bridge, render, vpn_client
 from .config import ScraperConfig, Settings
 from .models import Posting, ScrapeResult
 from .scrapers.base import BaseScraper
@@ -55,6 +56,21 @@ def run_once(
     """
     start_ns = time.perf_counter_ns()
     person_env = settings.person_env
+
+    # ------------------------------------------------------------------
+    # VPN HEALTH CHECK (fail-closed: abort the run if VPN is unreachable)
+    # ------------------------------------------------------------------
+    if settings.proxy_url:
+        control_url = os.getenv("VPN_CONTROL_URL", "http://vpn:8000")
+        gluetun = vpn_client.GluetunClient(control_url=control_url)
+        if not gluetun.health():
+            logging_bridge.activity({
+                "component": "career_watch.engine",
+                "op": "vpn_health_fail",
+                "person": person_env,
+                "control_url": control_url,
+            })
+            return None
 
     # Resolve scraper lookup function (test override or production default)
     get_scraper_func = get_scraper or _default_get_scraper
