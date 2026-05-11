@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """
-summarize_new_postings.py — Robust, timezone-safe summary of new career postings.
-
-Preserves original logic exactly, with all improvements applied.
+career_check.py — Robust, timezone-safe summary of new career postings.
 """
 
 import argparse

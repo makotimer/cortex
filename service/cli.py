@@ -208,7 +208,6 @@ def cmd_run(args: argparse.Namespace) -> int:
     env = {}
     if args.no_email:
         env["CORTEX_DRY_RUN"] = "1"
-        env["SCHEDULED_MODULES_DRY_RUN"] = "1"
         env["SEND_EMAIL"] = "0"
 
     try:
