@@ -95,9 +95,7 @@ def start(config_path: str | None = None) -> SchedulerController:
     Returns a SchedulerController that exposes stop() and join().
 
     Notes:
-      * APScheduler 3.x prefers a pytz scheduler timezone. Individual triggers
-        can be constructed with zoneinfo; APS coerces internally. We keep the
-        scheduler tz as pytz to avoid surprises.
+      * APScheduler 3.10+ accepts zoneinfo.ZoneInfo for the scheduler timezone.
     """
     cfg = config_schema.load_config(config_path)
     tz = _resolve_timezone(cfg)
@@ -192,22 +190,20 @@ def _preview_trigger(trigger, tz, count: int = 6, start=None):
 
 def _resolve_timezone(cfg: dict[str, Any]):
     """
-    APScheduler 3.x expects a pytz timezone. We accept either:
+    APScheduler 3.10+ accepts zoneinfo.ZoneInfo (stdlib, Python 3.9+).
+    We accept either:
     - config['timezone'] (e.g., 'America/Indiana/Indianapolis')
     - env TZ
     - default to UTC
     """
+    from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
     tz_name = cfg.get("timezone") or os.getenv("TZ") or "UTC"
     try:
-        # Prefer pytz for APScheduler 3.x
-        import pytz
-
-        return pytz.timezone(tz_name)
-    except Exception:
-        import pytz
-
+        return ZoneInfo(tz_name)
+    except ZoneInfoNotFoundError:
         LOG.warning("Falling back to UTC timezone (invalid or missing tz '%s')", tz_name)
-        return pytz.UTC
+        return ZoneInfo("UTC")
 
 
 def _make_job_spec(raw: dict[str, Any], default_job_defaults: dict[str, Any], tz) -> JobSpec:
