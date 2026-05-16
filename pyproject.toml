@@ -20,7 +20,7 @@ dependencies = [
     "ics==0.7.3",
     "openai>=1.40.0",
     "soco",
-    "IMAPClient==2.3.1",
+    "IMAPClient==3.1.0",
     "mail-parser==3.15.0",
     "python-dotenv>=1.0.0",
     "mcp>=1.0.0",
