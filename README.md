@@ -28,8 +28,6 @@ The MakoTimer Network provides a distributed system for family task management, 
 | **Email** | ProtonMail Bridge (Docker sidecar) + SMTP/IMAP |
 | **Container** | Docker (`python:3.12-slim`) + `tini` + non-root user |
 | **Config** | `config.json` + `.env` (secrets) |
-| **MQTT** | `paho-mqtt` → `makotimer/to_nexus` (TODO) |
-| **Data** | CBOR (`cbor2`) for compact payloads (TODO) |
 | **Logging** | JSONL activity logs (`local/logs/activity-*.jsonl`) |
 | **Testing** | `pytest` + live tests |
 | **Linting** | `ruff` (3ms/format) |
@@ -43,9 +41,6 @@ The MakoTimer Network provides a distributed system for family task management, 
 | **Task Scheduling** | Runs any Python module on `cron`, `interval`, `daily_time`, or `date` triggers. |
 | **Email Alerts** | Sends rich HTML emails via ProtonMail Bridge (never bakes credentials). |
 | **IMAP Command Listener** | Watches `Label/Commands` → runs ad-hoc modules (e.g., "Add chore"). |
-| **Weather Integration** | Fetches Open-Meteo → includes in display payload. (TODO) |
-| **MQTT Publisher** | Sends CBOR to `makotimer/to_nexus` → `nexus` → `portal`. (TODO) |
-| **Health Monitoring** | Daily job pings `nexus` → emails if silent. (TODO) |
 | **Dry-Run Mode** | `CORTEX_DRY_RUN=1` → zero emails. |
 | **Zero-Downtime** | Bridge `socat` healthcheck gates cortex startup. |
 
@@ -228,8 +223,9 @@ make install
 # Run tests
 make test
 
-# Live tests (lazy!)
-make live-test bae        # → tests/career_live/test_bae_live.py
+# Live tests
+make live-tests           # run all live tests in container
+make live-test bae        # run a single live test by keyword
 
 # Lint
 make lint
