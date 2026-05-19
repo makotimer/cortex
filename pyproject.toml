@@ -24,7 +24,6 @@ dependencies = [
     "mail-parser==4.2.1",
     "python-dotenv>=1.0.0",
     "mcp>=1.0.0",
-    "markdown>=3.6",
 ]
 
 [project.optional-dependencies]
