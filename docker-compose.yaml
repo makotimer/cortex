@@ -5,6 +5,17 @@ x-logging: &default-logging
     max-file: "3"
 
 services:
+  autoheal:
+    image: willfarrell/autoheal:latest
+    restart: unless-stopped
+    environment:
+      - AUTOHEAL_CONTAINER_LABEL=autoheal
+      - AUTOHEAL_INTERVAL=30
+      - AUTOHEAL_START_PERIOD=30
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    logging: *default-logging
+
   vpn:
     image: qmcgaw/gluetun:v3
     cap_add: [NET_ADMIN]
@@ -18,16 +29,18 @@ services:
       - HTTPPROXY=on
       - HTTPPROXY_LISTENING_ADDRESS=:8888
       - HTTP_CONTROL_SERVER_ADDRESS=:8000
-      - SERVER_UPDATE_PERIOD=0
+      - SERVER_UPDATE_PERIOD=24h
     expose: ["8888", "8000"]
     restart: unless-stopped
+    labels:
+      - autoheal=true
     logging: *default-logging
     networks:
       - mailnet
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8000/v1/publicip/ip"]
-      interval: 30s
-      timeout: 5s
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:9999"]
+      interval: 60s
+      timeout: 10s
       retries: 3
       start_period: 30s
 
