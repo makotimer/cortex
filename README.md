@@ -59,17 +59,21 @@ cortex/
 ├── local/
 │   ├── config.json
 │   ├── state/
-│   ├── logs/
-│   └── ...
+│   └── logs/
 ├── modules/
-│   ├── _shared/
-│   └── ...
+│   ├── _shared/         ← helpers: cache, dates, email_ctx, html, http, utils
+│   ├── bible_plan/      ← daily Bible reading emails (Mon-Thu / Fri-Sun schedules)
+│   ├── career_watch/    ← job-board scraper; two users, VPN-rotated IPs, Mon-Sat
+│   ├── example_daily/   ← minimal reference; copy to create a new module
+│   └── sonos/           ← hourly chimes; volume varies by day and hour
 ├── service/
 │   ├── cli.py
 │   ├── scheduler.py
 │   ├── runner.py
 │   ├── imap_listener.py
-│   └── ...
+│   ├── imap_commands/   ← parses + dispatches IMAP commands (LIST, RUN, CAREER REPORT)
+│   ├── emailer.py
+│   └── mcp_server.py
 ├── tests/
 ├── scripts/
 └── Dockerfile
