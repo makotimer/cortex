@@ -142,17 +142,24 @@ Every job in `local/config.json` now runs + emails.
 ## config.json – Your Entire Brain
 ```
 {
+  "timezone": "America/Chicago",
   "jobs": [
     {
       "id": "daily-example",
-      "module": "modules.example",
+      "module": "modules.example_daily",
       "trigger": { "daily_time": { "time": ["08:00"] } },
       "kwargs": { "name": "Friend" },
       "send_email": true,
-      "email_to": "you@example.com"
+      "email_to": "you@example.com",
+      "summary": "Example daily job (08:00)"
     }
   ]
 }
+```
+
+`email_to_env` can be used instead of `email_to` to pull the recipient address from an environment variable:
+```json
+"email_to_env": "BIBLE_PLAN_EMAILS"
 ```
 
 ### Supported Triggers – Pick One
