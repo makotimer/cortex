@@ -73,7 +73,9 @@ cortex/
 │   ├── imap_listener.py
 │   ├── imap_commands/   ← parses + dispatches IMAP commands (LIST, RUN, CAREER REPORT)
 │   ├── emailer.py
-│   └── mcp_server.py
+│   ├── mcp_server.py
+│   ├── config_schema.py ← JSON schema + validation for local/config.json
+│   └── logging_utils.py ← shared logging helpers
 ├── tests/
 ├── scripts/
 └── Dockerfile
