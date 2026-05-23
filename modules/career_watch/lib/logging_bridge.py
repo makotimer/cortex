@@ -56,6 +56,7 @@ def activity(record: dict[str, Any]) -> None:
     Falls back to stdlib logging as structured info.
     """
     payload = _redact_record(record)
+    payload.setdefault("module", "modules.career_watch")
     if _logging_backend and hasattr(_logging_backend, "write_activity_log"):
         try:
             _logging_backend.write_activity_log(payload)

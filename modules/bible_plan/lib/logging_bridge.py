@@ -15,7 +15,9 @@ except Exception:
 
 
 def activity(record: dict[str, Any]) -> None:
-    _act(dict(record))
+    payload = dict(record)
+    payload.setdefault("module", "modules.bible_plan")
+    _act(payload)
 
 
 def error(record: dict[str, Any]) -> None:

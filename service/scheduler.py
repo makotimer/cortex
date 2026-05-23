@@ -23,7 +23,6 @@ from apscheduler.triggers.interval import IntervalTrigger
 
 # Project-local interfaces
 from . import config_schema, runner
-from .logging_utils import write_activity_log
 
 LOG = logging.getLogger(__name__)
 
@@ -511,12 +510,10 @@ def _add_job(scheduler: BackgroundScheduler, spec: JobSpec) -> None:
             )
         except Exception:
             LOG.exception("Job[%s] raised an exception.", spec.id)
-            _write_activity(spec, status="error", duration_s=_time.monotonic() - started)
             return
 
         duration = _time.monotonic() - started
         LOG.info("Job[%s] finished in %.3fs", spec.id, duration)
-        _write_activity(spec, status="ok", duration_s=duration, result=result)
 
     # Optional human-friendly preview (toggle with env var)
     try:
@@ -565,25 +562,6 @@ def _add_job(scheduler: BackgroundScheduler, spec: JobSpec) -> None:
         spec.misfire_grace_time,
     )
 
-
-def _write_activity(spec: JobSpec, status: str, duration_s: float, result: Any = None) -> None:
-    """Best-effort JSONL-ish activity logging; non-fatal on errors."""
-    try:
-        write_activity_log({
-            "ts": datetime.now(UTC).isoformat(),
-            "source": "scheduler",
-            "event": "job_run",
-            "fields": {
-                "job_id": spec.id,
-                "module": spec.module,
-                "status": status,
-                "duration_ms": int(duration_s * 1000),
-                "summary": spec.summary,
-                "result_type": type(result).__name__ if result is not None else None,
-            },
-        })
-    except Exception:
-        LOG.debug("write_activity_log failed for job[%s]", spec.id, exc_info=True)
 
 
 def _require(d: dict[str, Any], key: str) -> Any:
