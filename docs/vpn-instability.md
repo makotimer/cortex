@@ -52,14 +52,14 @@ This restarts gluetun, forces a server list refresh, and re-establishes the Wire
 
 1. **Gluetun logs during a failure window** — run `docker compose logs vpn` after a failure day to confirm whether the symptom matches the known pattern (i/o timeout cycling through servers) or something else is happening.
 
-2. **Update period** — consider reducing `SERVER_UPDATE_PERIOD` to `6h` or `12h` to stay ahead of ProtonVPN's key rotation. Or pin to a specific set of servers that rotate less frequently.
+2. **Update period** — ✅ Reduced `SERVER_UPDATE_PERIOD` to `6h` on 2026-05-23. Monitor over the next week to see if failure frequency drops.
 
-3. **Auto-recovery** — gluetun has a built-in health check; the cortex `docker-compose.yaml` could add a `restart: unless-stopped` policy on the `vpn` service (if not already set) and an `autoheal`-style dependency so cortex restarts automatically if vpn recovers.
+3. **Auto-recovery** — `restart: unless-stopped` and `autoheal=true` are already set on the `vpn` service. However, the Docker healthcheck uses gluetun's process health server (port 9999), which only confirms gluetun is running — not that the WireGuard tunnel is passing traffic. So autoheal restarts on crashes but not on the up-but-broken failure mode that career_watch observes. If the 6h update period does not resolve the issue, the next step is a custom healthcheck that validates `/v1/publicip/ip` returns a non-empty IP, so autoheal can restart the container in the broken-tunnel case.
 
 4. **Alerting** — the nightly report now catches this, but failures can accumulate silently for 24 hours. Consider adding a check that pages (email or otherwise) if VPN failures exceed a threshold during the day rather than waiting for the overnight report.
 
 ## Status
 
-- **2026-05-23**: Active. 5 failures so far today. `cortex-vpn-1` currently shows as `(healthy)` in `docker ps`.
-- `SERVER_UPDATE_PERIOD=24h` in place but not sufficient to prevent recurrence.
-- No auto-recovery mechanism in place.
+- **2026-05-23**: `SERVER_UPDATE_PERIOD` reduced to `6h`, vpn container restarted. Currently healthy, returning IP `169.150.254.39` (Dallas, TX). Monitoring.
+- Previous setting (`24h`) was insufficient to prevent recurrence despite being the documented fix.
+- Autoheal is configured but does not cover the broken-tunnel failure mode (see item 3 above).
