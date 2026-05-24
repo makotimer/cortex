@@ -7,6 +7,7 @@ Python 3.12 container. APScheduler runs jobs defined in `local/config.json`. Pro
 ```
 service/   — scheduler, runner, IMAP listener, emailer, MCP server, CLI entrypoint
   imap_commands/  — parses + dispatches IMAP commands (LIST, RUN MODULE=, CAREER REPORT)
+    templates.py  — response message templates used by handlers
   config_schema.py — JSON schema definition + validation for local/config.json
   logging_utils.py — shared logging helpers used across service modules
 modules/   — one subdirectory per job module (each has a run() entry point)
@@ -31,6 +32,7 @@ service/cli.py                    # argparse main; also exposes `run` and `list`
 
 ```bash
 make setup           # create .venv, install deps, bootstrap local/config.json
+make install         # install deps in editable mode + dev tools (also run by make setup)
 make test            # run pytest in container (skips live tests)
 make live-tests      # run all live tests in container
 make live-test bae   # run a single live test by keyword
@@ -41,6 +43,7 @@ make down            # stop all services
 make reload          # rebuild and restart cortex container only
 make tail            # last 100 lines of cortex logs
 make tail-f          # last 100 lines, then follow
+make logs            # last 100 lines of cortex logs (non-following)
 make rebuild         # pull base images, rebuild, force-recreate
 make logs-f          # follow cortex container logs (alias for tail-f)
 make career-report   # run career report script locally (outside container)
