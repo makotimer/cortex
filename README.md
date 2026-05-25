@@ -40,7 +40,7 @@ The MakoTimer Network provides a distributed system for family task management, 
 |--------|-----------|
 | **Task Scheduling** | Runs any Python module on `cron`, `interval`, `daily_time`, or `date` triggers. |
 | **Email Alerts** | Sends rich HTML emails via ProtonMail Bridge (never bakes credentials). |
-| **IMAP Command Listener** | Watches `Label/Commands` → runs ad-hoc modules (e.g., "Add chore"). |
+| **IMAP Command Listener** | Watches `Labels/Command` → runs ad-hoc modules (e.g., `LIST`, `RUN MODULE=modules.example_daily`). |
 | **Dry-Run Mode** | `CORTEX_DRY_RUN=1` → zero emails. |
 | **Zero-Downtime** | Bridge `socat` healthcheck gates cortex startup. |
 
@@ -88,7 +88,9 @@ cortex/
 │   ├─ IMAP listener → reply-to-email commands
 │   └─ Ruff + pytest
 └─ cortex_bridge (ProtonMail Bridge)
-    └─ socat healthcheck → bullet-proof
+│   └─ socat healthcheck → bullet-proof
+└─ vpn (gluetun / ProtonVPN WireGuard)
+    └─ required for career_watch scraping
 ```
 
 ## 1. One-time local dev setup
@@ -199,7 +201,7 @@ SEND_EMAIL=1
 | ✅ | **One-time Proton login** — credentials persist forever |
 | ✅ | **IMAP commands** — instant ad-hoc |
 | ✅ | **Blazing-fast lint/format** — **Ruff** → 3 ms on save, 600 files/sec |
-| ✅ | **Bullet-proof tests** — **Pytest** → 100 % isolated DB, `--live` for real email |
+| ✅ | **Bullet-proof tests** — **Pytest** → file-based state, `--live` for real email |
 | ✅ | **Audit-ready logs** — structured JSONL → `./local/logs/activity-*.jsonl` |
 | ✅ | **Dry-run toggle** — `CORTEX_DRY_RUN=1` → zero emails |
 

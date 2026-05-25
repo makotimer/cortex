@@ -41,6 +41,7 @@ make format          # ruff format
 make up              # start all services (docker compose up -d)
 make down            # stop all services
 make reload          # rebuild and restart cortex container only
+make reload-bridge   # rebuild and restart the bridge container
 make tail            # last 100 lines of cortex logs
 make tail-f          # last 100 lines, then follow
 make logs            # last 100 lines of cortex logs (non-following)
