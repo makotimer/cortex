@@ -7,6 +7,8 @@ Python 3.12 container. APScheduler runs jobs defined in `local/config.json`. Pro
 ```
 service/   — scheduler, runner, IMAP listener, emailer, MCP server, CLI entrypoint
   imap_commands/  — parses + dispatches IMAP commands (LIST, RUN MODULE=, CAREER REPORT)
+    parser.py     — tokenizes and parses raw IMAP command strings
+    handlers.py   — dispatches parsed commands and builds reply payloads
     templates.py  — response message templates used by handlers
   config_schema.py — JSON schema definition + validation for local/config.json
   logging_utils.py — shared logging helpers used across service modules

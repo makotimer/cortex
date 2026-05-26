@@ -72,6 +72,9 @@ cortex/
 │   ├── runner.py
 │   ├── imap_listener.py
 │   ├── imap_commands/   ← parses + dispatches IMAP commands (LIST, RUN, CAREER REPORT)
+│   │   ├── parser.py
+│   │   ├── handlers.py
+│   │   └── templates.py
 │   ├── emailer.py
 │   ├── mcp_server.py
 │   ├── config_schema.py ← JSON schema + validation for local/config.json

@@ -265,5 +265,53 @@ def search_emails(
         return "\n".join(lines)
 
 
+_EMAIL_CSS = """
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+       font-size: 14px; line-height: 1.6; color: #24292e; max-width: 860px; margin: 0 auto; padding: 24px; }
+h1 { font-size: 1.5em; border-bottom: 2px solid #e1e4e8; padding-bottom: 6px; margin-top: 28px; }
+h2 { font-size: 1.2em; border-bottom: 1px solid #e1e4e8; padding-bottom: 4px; margin-top: 22px; }
+h3 { font-size: 1.05em; margin-top: 18px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { border: 1px solid #d0d7de; padding: 6px 12px; text-align: left; }
+th { background: #f6f8fa; font-weight: 600; }
+tr:nth-child(even) { background: #f6f8fa; }
+code { background: #f3f4f6; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; font-family: monospace; }
+pre { background: #f6f8fa; border: 1px solid #e1e4e8; border-radius: 6px; padding: 14px;
+      overflow-x: auto; font-size: 0.88em; line-height: 1.5; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 2px solid #e1e4e8; margin: 24px 0; }
+blockquote { border-left: 4px solid #d0d7de; margin: 0; padding-left: 16px; color: #57606a; }
+"""
+
+
+@mcp.tool()
+def send_email(to: str, subject: str, body: str, cc: str | None = None) -> str:
+    """Send an email via ProtonMail Bridge SMTP. The body is rendered as HTML from markdown.
+
+    Args:
+        to: Recipient address(es), comma-separated.
+        subject: Email subject line.
+        body: Email body in markdown. Rendered to HTML before sending.
+        cc: Optional CC address(es), comma-separated.
+    """
+    import markdown as _md
+
+    from service.emailer import EmailSendError, send_html
+
+    content_html = _md.markdown(
+        body,
+        extensions=["tables", "fenced_code", "nl2br"],
+    )
+    html_body = f"<html><head><style>{_EMAIL_CSS}</style></head><body>{content_html}</body></html>"
+
+    to_list = [a.strip() for a in to.split(",") if a.strip()]
+    cc_list = [a.strip() for a in (cc or "").split(",") if a.strip()]
+    try:
+        msg_id = send_html(subject=subject, html=html_body, to=to_list, cc=cc_list or None)
+        return f"Sent. Message-ID: {msg_id}"
+    except EmailSendError as e:
+        return f"Send failed: {e}"
+
+
 if __name__ == "__main__":
     mcp.run()
