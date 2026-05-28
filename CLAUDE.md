@@ -2,7 +2,7 @@
 
 ## Project shape
 
-Python 3.12 container. APScheduler runs jobs defined in `local/config.json`. ProtonMail Bridge sidecar (`cortex_bridge`) handles all SMTP/IMAP. An IMAP listener watches `Labels/Command` for ad-hoc run requests. No database — state lives in `local/`.
+Python 3.12 container. APScheduler runs jobs defined in `local/config.json`. ProtonMail Bridge sidecar (`cortex_bridge`) handles all SMTP/IMAP. An IMAP listener watches `Label/Commands` for ad-hoc run requests. No database — state lives in `local/`.
 
 ```
 service/   — scheduler, runner, IMAP listener, emailer, MCP server, CLI entrypoint
@@ -78,6 +78,8 @@ Copy `.env.example` and fill in real values. Minimum to start:
 - `BRIDGE_HOST` / `BRIDGE_SMTP_PORT` / `BRIDGE_IMAP_PORT` — typically `cortex_bridge` / `25` / `143`
 - `SEND_EMAIL` — set to `1` to enable outbound mail
 - `OPENAI_API_KEY` — required by `modules/bible_plan/lib/llm.py` for email content generation
+- `LLM_MD_ENABLE` — set to `1` to archive each LLM response as a `.md` file under `LLM_MD_DIR` (default `/app/state/llm`)
+- `LLM_MD_MAX` — max number of archived files to keep per run; `0` = unlimited
 
 See `.env.example` for all keys with descriptions.
 
@@ -86,7 +88,7 @@ See `.env.example` for all keys with descriptions.
 - **Bridge must be logged in** before cortex will send or receive mail. One-time setup: `docker compose up -d cortex_bridge` then `docker exec -it cortex_bridge protonmail-bridge --cli` → `login`.
 - **`local/` is a bind-mount** from the host at `/srv/docker/cortex/local/`. It is not inside the image. Never put secrets in the image.
 - **Heartbeat** — the scheduler writes `local/state/heartbeat` every 60 s. The Docker `HEALTHCHECK` watches this file (`find ... -mmin -2`). If the scheduler stalls the container goes unhealthy.
-- **IMAP command format** — send an email to yourself with subject matching a command (e.g. `LIST`, `RUN MODULE=modules.example_daily`). The listener polls `Labels/Command`.
+- **IMAP command format** — send an email to yourself with subject matching a command (e.g. `LIST`, `RUN MODULE=modules.example_daily`). The listener polls `Label/Commands`.
 - **Dry-run** — set `CORTEX_DRY_RUN=1` in `.env` to suppress all outbound email.
 - **VPN sidecar** — the `vpn` service (gluetun/ProtonVPN WireGuard) must be running for `career_watch` to scrape. If `CAREER_WATCH_PROXY_URL` is set and gluetun is unreachable, `career_watch` skips the run (fail-closed). Bring it up with `docker compose up -d vpn`.
 - **VPN peer keys go stale** — ProtonVPN rotates WireGuard peer public keys periodically. If gluetun's server list is old, the tunnel will appear up (`tun0` gets an IP, `public_ip` returns empty) but pass no traffic. `SERVER_UPDATE_PERIOD=24h` in `docker-compose.yaml` keeps the list fresh. Symptom: gluetun logs show continuous `i/o timeout` healthcheck failures cycling through many servers. Fix: `docker compose up -d vpn` after ensuring `SERVER_UPDATE_PERIOD` is not `0`.
