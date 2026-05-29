@@ -81,6 +81,11 @@ def redact(record: dict[str, Any], keys: set[str] | None = None) -> Any:
 # ---- Internal helpers --------------------------------------------------------
 
 
+def _now_iso() -> str:
+    """Local-time ISO-8601 with offset (matches runner.now_iso())."""
+    return _dt.datetime.now(UTC).astimezone().isoformat(timespec="seconds")
+
+
 def _log_path_for_today(prefix: str) -> str:
     today = _dt.datetime.now(UTC).date().isoformat()  # YYYY-MM-DD
     return str(Path(_LOG_DIR) / f"{prefix}-{today}.jsonl")
@@ -198,6 +203,11 @@ def _write_jsonl(path: str, record: dict[str, Any]) -> None:
     # Redact and add metadata; do not mutate caller's dict.
     redacted = _redact_deep(record, _DEFAULT_REDACT_KEYS)
     payload = _with_metadata(redacted)
+
+    # Every persisted record carries a timestamp. Callers that already set one
+    # (runner.py run records, cli.py serve events) keep theirs; trace records
+    # emitted via logging_bridge get stamped here so outages can be timed.
+    payload.setdefault("ts", _now_iso())
 
     # Serialize first so any serialization errors happen before file ops.
     try:

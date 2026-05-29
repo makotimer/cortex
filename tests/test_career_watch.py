@@ -1,6 +1,8 @@
 # tests/test_career_watch.py
 from unittest import mock
 
+import pytest
+
 from modules.career_watch.lib import config as cw_config  # already added
 from modules.career_watch.lib import db, engine, models, render, vpn_client
 
@@ -113,9 +115,9 @@ def test_skip_network_skips_scrapers(fresh_settings):
 
 
 # ----------------------------------------------------------------------
-# 6. VPN health check: unhealthy → engine returns None (fail-closed)
+# 6. VPN health check: unhealthy → engine raises (fail-closed, surfaces as non-OK)
 # ----------------------------------------------------------------------
-def test_vpn_health_fail_returns_none(fresh_settings, stub_scraper, monkeypatch):
+def test_vpn_health_fail_raises(fresh_settings, stub_scraper, monkeypatch):
     settings = cw_config.Settings.from_env_and_kwargs({
         "person_env": "Test User",
         "groups_path": fresh_settings.groups_path,
@@ -123,8 +125,10 @@ def test_vpn_health_fail_returns_none(fresh_settings, stub_scraper, monkeypatch)
         "proxy_url": "http://vpn:8888",
     })
     monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: False)
-    result = engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
-    assert result is None
+    # A bail-out must NOT look like a healthy no-op (which returns None and is
+    # coerced to ok=True). Raising makes the runner record ok=False.
+    with pytest.raises(engine.VPNUnavailableError):
+        engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
 
 
 # ----------------------------------------------------------------------

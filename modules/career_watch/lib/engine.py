@@ -22,6 +22,15 @@ from .models import Posting, ScrapeResult
 from .scrapers.base import BaseScraper
 
 
+class VPNUnavailableError(RuntimeError):
+    """Raised when the VPN health check fails (fail-closed).
+
+    Raising (rather than returning None) ensures the runner records the run as
+    ok=False instead of coercing a None return into a silent "OK" no-op — so
+    missed scrapes surface in the FAILED RUNS section instead of hiding.
+    """
+
+
 # =============================================================================
 # DEFAULT SCRAPER LOOKUP (PRODUCTION)
 # =============================================================================
@@ -70,7 +79,9 @@ def run_once(
                 "person": person_env,
                 "control_url": control_url,
             })
-            return None
+            raise VPNUnavailableError(
+                f"VPN health check failed for {person_env} (control_url={control_url})"
+            )
         if settings.rotate_vpn_per_run:
             new_ip = gluetun.rotate()
             logging_bridge.activity({
