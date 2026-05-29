@@ -254,7 +254,7 @@ class OpenAIChat:
         # Optional markdown archival
         try:
             if _truthy(os.getenv("LLM_MD_ENABLE")):
-                md_dir = os.getenv("LLM_MD_DIR", "/app/state/llm")
+                md_dir = os.getenv("LLM_MD_DIR", "/app/local/state/llm")
                 prefix = os.getenv("LLM_MD_PREFIX", "llm")
                 max_keep = int(os.getenv("LLM_MD_MAX", "0"))  # 0 = unlimited
                 os.makedirs(md_dir, exist_ok=True)

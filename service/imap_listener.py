@@ -20,6 +20,31 @@ logger = logging.getLogger(__name__)
 if not logger.handlers:
     logger.addHandler(logging.NullHandler())
 
+# Persistent state lives under the writable bind-mounted /app/local/state — the
+# same directory the scheduler heartbeat uses. It must NOT be the root-owned
+# top-level "state" dir directly under /app, which is not writable by the
+# container user (uid 1000); writing there raises PermissionError and
+# crash-loops the listener before it can read any commands.
+_STATE_DIR = Path("/app/local/state")
+
+
+def _state_uid_path(mailbox: str, base: Path | None = None) -> Path:
+    """Path to the per-mailbox last-processed-UID file.
+
+    Honours the COMMAND_STATE_FILE override; otherwise lives under ``base``
+    (default :data:`_STATE_DIR`). Creates the parent directory as a side effect.
+    """
+    override = os.getenv("COMMAND_STATE_FILE")
+    if override:
+        p = Path(override)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        return p
+    safe = re.sub(r"[^A-Za-z0-9_.-]+", "_", mailbox)
+    base = base or _STATE_DIR
+    base.mkdir(parents=True, exist_ok=True)
+    return base / f"command_last_uid_{safe}.txt"
+
+
 # --------------------------------------------------------------------------- #
 # Public control surface
 # --------------------------------------------------------------------------- #
@@ -138,17 +163,6 @@ def _command_listener_loop(
     # --------------------------------------------------------------------- #
     # Helper: persistent state file for last processed UID
     # --------------------------------------------------------------------- #
-    def _state_uid_path(mailbox: str) -> Path:
-        override = os.getenv("COMMAND_STATE_FILE")
-        if override:
-            p = Path(override)
-            p.parent.mkdir(parents=True, exist_ok=True)
-            return p
-        safe = re.sub(r"[^A-Za-z0-9_.-]+", "_", mailbox)
-        base = Path("/app/state")
-        base.mkdir(parents=True, exist_ok=True)
-        return base / f"command_last_uid_{safe}.txt"
-
     def _load_last_uid(p: Path) -> int:
         try:
             return int(p.read_text().strip())
