@@ -125,6 +125,10 @@ def start(config_path: str | None = None) -> SchedulerController:
         raise ValueError("config.jobs must be a list")
 
     for raw in jobs_cfg:
+        if raw.get("enabled") is False:
+            jid = raw.get("id") or raw.get("name") or raw.get("module", "unknown")
+            LOG.info("Skipping disabled job[%s]", jid)
+            continue
         try:
             spec = _make_job_spec(raw, default_job_defaults=job_defaults, tz=tz)
         except Exception:

@@ -136,10 +136,14 @@ def _extract_jobs_from_config(cfg: Any) -> Iterable[tuple[str, str]]:
     for idx, j in enumerate(jobs):
         if isinstance(j, dict):
             jid = str(j.get("id") or j.get("name") or idx)
+            if j.get("enabled") is False:
+                jid = f"{jid} (disabled)"
             desc = j.get("summary") or j.get("description") or j.get("cron") or json.dumps(j, default=str)
         else:
             # Try attributes
             jid = str(getattr(j, "id", None) or getattr(j, "name", None) or idx)
+            if getattr(j, "enabled", None) is False:
+                jid = f"{jid} (disabled)"
             desc = (
                 getattr(j, "summary", None)
                 or getattr(j, "description", None)

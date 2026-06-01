@@ -143,6 +143,7 @@ def validate(cfg: dict[str, Any]) -> None:
         # Optional fields
         _require_optional_bool(job, "coalesce", job_id)
         _require_optional_bool(job, "send_email", job_id)
+        _require_optional_bool(job, "enabled", job_id)
 
         # Optional ints (timeout_sec, max_instances, misfire_grace_time)
         _require_optional_int(job, "timeout_sec", job_id, allow_zero=True)
@@ -200,7 +201,7 @@ def _apply_top_level_defaults(cfg: dict[str, Any]) -> None:
         # ──────────────────────────────────────────────────────────────
 
         # Normalize booleans/ints if provided (best-effort)
-        for b in ("coalesce", "send_email"):
+        for b in ("coalesce", "send_email", "enabled"):
             if b in job_copy:
                 job_copy[b] = _to_bool(job_copy[b], field=b, job_id=job_copy["id"])
 
