@@ -9,6 +9,7 @@
 	logs logs-f tail tail-f \
 	career-report \
 	live-test \
+	trigger-reading \
 	clean
 
 # ──────── Help ────────
@@ -80,6 +81,9 @@ live-test:
 	fi; \
 	echo "Running: pytest --live -vv -s $$test_file"; \
 	docker compose run --rm cortex pytest --live -vv -s "$$test_file"
+
+trigger-reading: ## Send today's Bible reading now + dedup the upcoming scheduled fire
+	docker compose exec -T cortex python -m service.cli trigger-reading $(ARGS)
 
 # ──────── Cleanup ────────
 clean: ; docker compose down -v --remove-orphans

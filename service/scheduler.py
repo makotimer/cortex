@@ -22,7 +22,7 @@ from apscheduler.triggers.date import DateTrigger
 from apscheduler.triggers.interval import IntervalTrigger
 
 # Project-local interfaces
-from . import config_schema, runner
+from . import config_schema, runner, skip_tokens
 
 LOG = logging.getLogger(__name__)
 
@@ -189,6 +189,11 @@ def _preview_trigger(trigger, tz, count: int = 6, start=None):
         prev = nxt
         now = nxt + timedelta(microseconds=1)
     return times
+
+
+def _state_dir() -> Path:
+    """Writable state directory (the bind-mounted local/state), matching heartbeat path."""
+    return skip_tokens.default_state_dir()
 
 
 def _resolve_timezone(cfg: dict[str, Any]):
@@ -496,11 +501,14 @@ def _add_job(scheduler: BackgroundScheduler, spec: JobSpec) -> None:
     """
 
     def _job_wrapper():
+        if skip_tokens.consume_skip_token(_state_dir(), spec.id, datetime.now(scheduler.timezone)):
+            LOG.info("Job[%s] skipped: manual-trigger dedup token consumed", spec.id)
+            return
         started = _time.monotonic()
         LOG.info("Job[%s] starting (module=%s)", spec.id, spec.module)
 
         try:
-            result = runner.run_module_once(
+            runner.run_module_once(
                 spec.module,
                 kwargs=dict(spec.kwargs or {}),
                 send_email=spec.send_email if spec.send_email is not None else True,
@@ -565,7 +573,6 @@ def _add_job(scheduler: BackgroundScheduler, spec: JobSpec) -> None:
         spec.coalesce,
         spec.misfire_grace_time,
     )
-
 
 
 def _require(d: dict[str, Any], key: str) -> Any:

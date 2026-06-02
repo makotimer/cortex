@@ -33,7 +33,8 @@ import threading
 import time
 from collections.abc import Iterable
 from contextlib import contextmanager
-from datetime import datetime
+from datetime import datetime, timedelta
+from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
@@ -41,6 +42,7 @@ from service import imap_listener as _imap
 from service import logging_utils as L  # noqa: N812
 from service import runner as _runner
 from service import scheduler as _scheduler
+from service import skip_tokens
 
 _CONF_IMPORT_ERR: Exception | None = None
 _config_schema: Any = None
@@ -152,6 +154,124 @@ def _extract_jobs_from_config(cfg: Any) -> Iterable[tuple[str, str]]:
             )
         out.append((jid, str(desc)))
     return out
+
+
+_DOW_NAMES = {"mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6}
+_BIBLE_MODULE = "modules.bible_plan"
+
+
+def _day_of_week_indices(spec: str) -> set[int]:
+    """Parse an APScheduler day_of_week string into weekday indices (Mon=0..Sun=6).
+
+    Supports comma lists and hyphen ranges of 3-letter names, e.g. 'mon-thu',
+    'fri,sat,sun'. Numeric forms (accepted by APScheduler) are not used by this
+    codebase; an unrecognized token raises ``ValueError``.
+    """
+
+    def _idx(name: str) -> int:
+        try:
+            return _DOW_NAMES[name]
+        except KeyError:
+            raise ValueError(f"Unsupported day_of_week token {name!r} in {spec!r}") from None
+
+    out: set[int] = set()
+    for part in spec.lower().replace(" ", "").split(","):
+        if not part:
+            continue
+        if "-" in part:
+            lo, hi = part.split("-", 1)
+            li, hi_i = _idx(lo), _idx(hi)
+            rng = range(li, hi_i + 1) if li <= hi_i else list(range(li, 7)) + list(range(0, hi_i + 1))
+            out.update(rng)
+        else:
+            out.add(_idx(part))
+    return out
+
+
+def _weekday_matches(spec: str, weekday: int) -> bool:
+    return weekday in _day_of_week_indices(spec)
+
+
+def _select_bible_job(cfg: dict[str, Any], target_date) -> dict[str, Any]:
+    """Pick the bible_plan job whose day_of_week covers target_date's weekday.
+
+    Raises ValueError on zero or multiple matches.
+    """
+    wd = target_date.weekday()
+    matches = []
+    for job in cfg.get("jobs", []):
+        if job.get("module") != _BIBLE_MODULE:
+            continue
+        dow = (((job.get("trigger") or {}).get("daily_time") or {}).get("day_of_week")) or "mon-sun"
+        if _weekday_matches(dow, wd):
+            matches.append(job)
+    if not matches:
+        raise ValueError(f"No {_BIBLE_MODULE} job covers weekday {wd}")
+    if len(matches) > 1:
+        ids = ", ".join(j.get("id", "?") for j in matches)
+        raise ValueError(f"Ambiguous: multiple {_BIBLE_MODULE} jobs cover weekday {wd}: {ids}")
+    return matches[0]
+
+
+def _next_fire_within(job: dict[str, Any], tz, now, hours: int = 6):
+    """Return the job's next scheduled fire time if it is within `hours` of `now`, else None."""
+    spec = _scheduler._make_job_spec(job, default_job_defaults={"coalesce": True, "max_instances": 1}, tz=tz)
+    next_fire = spec.trigger.get_next_fire_time(None, now)
+    if next_fire is None:
+        return None
+    return next_fire if next_fire <= now + timedelta(hours=hours) else None
+
+
+def _state_dir() -> Path:
+    return skip_tokens.default_state_dir()
+
+
+def _now_local(tz):
+    return datetime.now(tz)
+
+
+def cmd_trigger_reading(args: argparse.Namespace) -> int:
+    """Run today's Bible reading (config recipients) and skip the upcoming fire if <6h."""
+    try:
+        cfg = _load_config_with_optional_path(args.config)
+        tz = _scheduler._resolve_timezone(cfg)
+        now = _now_local(tz)
+
+        target_date = datetime.strptime(args.date, "%Y-%m-%d").date() if args.date else now.date()  # noqa: DTZ007
+
+        job = _select_bible_job(cfg, target_date)
+        job_id = job.get("id")
+
+        final_kwargs = dict(job.get("kwargs") or {})
+        if args.date:
+            final_kwargs["for_date"] = args.date
+
+        _, run_id = _runner.run_module_once(
+            module=job["module"],
+            kwargs=final_kwargs,
+            email_to=job.get("email_to") or None,
+            cc=job.get("email_cc") or None,
+            bcc=job.get("email_bcc") or None,
+            subject=job.get("subject"),
+            send_email=True,
+            trigger_type="command",
+            timeout_sec=job.get("timeout_sec"),
+        )
+
+        token_note = "no dedup (--no-dedup)"  # noqa: S105
+        if not args.no_dedup:
+            next_fire = _next_fire_within(job, tz, now, hours=6)
+            if next_fire is not None:
+                skip_tokens.write_skip_token(_state_dir(), job_id, next_fire)
+                token_note = f"skip token written for {next_fire.isoformat()}"
+            else:
+                token_note = "next fire >6h away; no token"  # noqa: S105
+
+        print(f"DONE: ran {job_id} (run-id {run_id}); {token_note}")
+        return 0
+    except Exception as e:
+        print(f"FAILURE: {e}", file=sys.stderr)
+        return 1
 
 
 # ------------------------------ Subcommands ----------------------------------
@@ -378,6 +498,17 @@ def _build_parser() -> argparse.ArgumentParser:
         help="If the module returns HTML, print it to stdout.",
     )
     sp.set_defaults(func=cmd_run)
+
+    # trigger-reading
+    sp = sub.add_parser(
+        "trigger-reading",
+        help="Send today's Bible reading now and skip the upcoming scheduled fire (<6h).",
+    )
+    sp.add_argument("--date", help="Override target date (YYYY-MM-DD); maps to for_date.")
+    sp.add_argument(
+        "--no-dedup", action="store_true", help="Send only; do not write a skip token for the upcoming fire."
+    )
+    sp.set_defaults(func=cmd_trigger_reading)
 
     # list-jobs
     sp = sub.add_parser("list-jobs", help="Print all jobs from config.")
