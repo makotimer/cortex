@@ -17,3 +17,10 @@ def test_parse_approve_requires_token():
 
 def test_existing_list_still_parses():
     assert parse_command_line("LIST") == {"command": "LIST"}
+
+
+def test_reply_prefix_is_stripped():
+    # Mail clients prepend "Re:"/"Fwd:" to a reply subject; the command must still parse.
+    assert parse_command_line("Re: APPROVE hs-abc123") == {"command": "APPROVE", "token": "hs-abc123"}
+    assert parse_command_line("RE: re: DENY hs-xyz_9") == {"command": "DENY", "token": "hs-xyz_9"}
+    assert parse_command_line("Fwd: LIST") == {"command": "LIST"}

@@ -35,6 +35,12 @@ def parse_command_line(line: str) -> dict[str, Any]:
     if not line:
         return {"command": None}
 
+    # Strip leading reply/forward prefixes a mail client prepends to a reply subject
+    # (e.g. "Re: APPROVE hs-…", "Fwd: re: LIST") so subject-based commands still parse.
+    line = re.sub(r"^(?:(?:re|fwd|fw)\s*:\s*)+", "", line, flags=re.IGNORECASE).strip()
+    if not line:
+        return {"command": None}
+
     # --- APPROVE / DENY <token> (token is site-prefixed, e.g. hs-…) ---
     m = re.match(r"^(APPROVE|DENY)\s+([A-Za-z0-9][A-Za-z0-9._-]*-[A-Za-z0-9._-]+)\s*$", line, re.IGNORECASE)
     if m:
