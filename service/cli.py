@@ -38,6 +38,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
+from service import email_outbound as _emailbus
 from service import imap_listener as _imap
 from service import logging_utils as L  # noqa: N812
 from service import runner as _runner
@@ -368,13 +369,14 @@ def cmd_serve(args: argparse.Namespace) -> int:
     L.write_activity_log({"ts": _now_iso(), "event": "serve_start"})
 
     stop_event = threading.Event()
-    running = SimpleNamespace(sched=None, imap_thread=None)
+    running = SimpleNamespace(sched=None, imap_thread=None, email_worker=None)
 
     def _graceful_shutdown(signum=None, _frame=None):
         LOG.info("Signal %s received; initiating shutdown...", signum)
         stop_event.set()
         _safe_stop("scheduler", getattr(running, "sched", None))
         _safe_stop("imap_listener", getattr(running, "imap_thread", None))
+        _safe_stop("email_worker", getattr(running, "email_worker", None))
 
     # Register signals early
     for sig in (signal.SIGINT, signal.SIGTERM):
@@ -404,6 +406,15 @@ def cmd_serve(args: argparse.Namespace) -> int:
         running.imap_thread = imap_handle  # controller with .stop()/.join()
         LOG.info("IMAP listener started: %r", running.imap_thread)
 
+        # Start the outbound email worker (consumes the eventbus `email.send` stream)
+        try:
+            email_handle = _emailbus.start()
+            running.email_worker = email_handle
+            LOG.info("Email outbound worker started: %r", running.email_worker)
+        except Exception:
+            LOG.exception("Email outbound worker failed to start; continuing without it")
+            running.email_worker = None
+
         # Main wait loop (respond quickly to signals)
         while not stop_event.is_set():
             time.sleep(0.3)
@@ -411,6 +422,7 @@ def cmd_serve(args: argparse.Namespace) -> int:
         # On normal stop path, ensure components are stopped
         _safe_stop("scheduler", running.sched)
         _safe_stop("imap_listener", running.imap_thread)
+        _safe_stop("email_worker", running.email_worker)
         L.write_activity_log({"ts": _now_iso(), "event": "serve_stop"})
         return 0
 
