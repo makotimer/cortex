@@ -43,8 +43,8 @@ def handle_message(msg: Message) -> None:
     to = p.get("to") or []
     subject = p.get("subject")
     html = p.get("html")
-    if not to or not subject or not html:
-        raise InvalidMessage(f"missing to/subject/html in {msg.id}")
+    if not to or not isinstance(to, list) or not subject or not html:
+        raise InvalidMessage(f"missing or invalid to/subject/html in {msg.id}")
 
     if _dry_run():
         logger.info("[email-out] DRY-RUN would send to=%s subject=%r", to, subject)

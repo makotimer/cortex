@@ -47,6 +47,16 @@ def test_handle_message_missing_fields_raises(bus, monkeypatch):
         email_outbound.handle_message(msg)
 
 
+def test_handle_message_non_list_to_raises(bus, monkeypatch):
+    monkeypatch.setenv("CORTEX_DRY_RUN", "0")
+    monkeypatch.setenv("SEND_EMAIL", "1")
+    _publish(bus, {"to": "a@b.com", "subject": "Hi", "html": "<p>x</p>"})  # bare string, not a list
+    msg = bus.read(EMAIL_SEND, GROUP, "c1", block_ms=10)[0]
+
+    with pytest.raises(email_outbound.InvalidMessage):
+        email_outbound.handle_message(msg)
+
+
 def test_process_once_acks_on_success(bus, stub_emailer, monkeypatch):
     monkeypatch.setenv("CORTEX_DRY_RUN", "0")
     monkeypatch.setenv("SEND_EMAIL", "1")
