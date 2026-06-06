@@ -35,8 +35,13 @@ def parse_command_line(line: str) -> dict[str, Any]:
     if not line:
         return {"command": None}
 
+    # --- APPROVE / DENY <token> (token is site-prefixed, e.g. hs-…) ---
+    m = re.match(r"^(APPROVE|DENY)\s+([A-Za-z0-9][A-Za-z0-9._-]*)\s*$", line, re.IGNORECASE)
+    if m:
+        return {"command": m.group(1).upper(), "token": m.group(2)}
+
     # --- 1. Single word command (e.g., LIST) ---
-    if re.fullmatch(r"\w+", line, re.IGNORECASE):
+    if re.fullmatch(r"\w+", line, re.IGNORECASE) and line.upper() not in ("APPROVE", "DENY"):
         return {"command": line.upper()}
 
     # --- 2. Multi-word command (e.g., CAREER REPORT) ---
