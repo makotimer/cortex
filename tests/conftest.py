@@ -211,3 +211,11 @@ def stub_scraper():
             return results
 
     return Stub
+
+
+@pytest.fixture
+def bus():
+    """A fakeredis-backed EventBus for worker tests."""
+    import fakeredis
+    from eventbus import EventBus
+    return EventBus(fakeredis.FakeStrictRedis(decode_responses=True), source="cortex")

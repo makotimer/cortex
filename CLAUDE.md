@@ -50,6 +50,7 @@ make logs            # last 100 lines of cortex logs (non-following)
 make rebuild         # pull base images, rebuild, force-recreate
 make logs-f          # follow cortex container logs (alias for tail-f)
 make career-report   # run career report script locally (outside container)
+make trigger-reading # send today's Bible reading now + dedup the upcoming scheduled fire
 make clean           # docker compose down -v --remove-orphans
 ```
 
@@ -92,3 +93,9 @@ See `.env.example` for all keys with descriptions.
 - **Dry-run** — set `CORTEX_DRY_RUN=1` in `.env` to suppress all outbound email.
 - **VPN sidecar** — the `vpn` service (gluetun/ProtonVPN WireGuard) must be running for `career_watch` to scrape. If `CAREER_WATCH_PROXY_URL` is set and gluetun is unreachable, `career_watch` skips the run (fail-closed). Bring it up with `docker compose up -d vpn`.
 - **VPN peer keys go stale** — ProtonVPN rotates WireGuard peer public keys periodically. If gluetun's server list is old, the tunnel will appear up (`tun0` gets an IP, `public_ip` returns empty) but pass no traffic. `SERVER_UPDATE_PERIOD=24h` in `docker-compose.yaml` keeps the list fresh. Symptom: gluetun logs show continuous `i/o timeout` healthcheck failures cycling through many servers. Fix: `docker compose up -d vpn` after ensuring `SERVER_UPDATE_PERIOD` is not `0`.
+- **eventbus stack must exist before cortex starts** — cortex's compose declares the
+  `eventbus_redis_password` Docker secret with `file: ../eventbus/secrets/eventbus_redis_password`
+  and joins the external `eventbus` network. Both are resolved at `docker compose up` time, so if
+  the eventbus stack has never been brought up, `up`/`make reload` fails with a compose error
+  before any container starts (the worker's in-process graceful-degradation can't help here).
+  Bring the bus up once first: `cd /srv/docker/eventbus && docker compose up -d`.
