@@ -56,12 +56,20 @@ services:
     volumes:
       - ./local:/app/local
       - ./local/command_history:/home/app/.bash_history
+      - ../eventbus/eventbus-kit:/eventbus-kit:ro
     depends_on:
       cortex_bridge:
         condition: service_healthy
     logging: *default-logging
     networks:
       - mailnet
+      - eventbus
+    environment:
+      - PYTHONPATH=/eventbus-kit
+      - EVENTBUS_REDIS_HOST=eventbus-redis
+      - EVENTBUS_REDIS_PORT=6379
+    secrets:
+      - eventbus_redis_password
 
   cortex_bridge:
     image: ghcr.io/videocurio/proton-mail-bridge@sha256:d44f6b12650c6b0f9e0aefee192d65c6e46d0a22bd5ec189e8624812fd139c8b
@@ -84,6 +92,12 @@ services:
 
 networks:
   mailnet:
+  eventbus:
+    external: true
+
+secrets:
+  eventbus_redis_password:
+    file: ../eventbus/secrets/eventbus_redis_password
 
 volumes:
   cortex_bridge-data:
