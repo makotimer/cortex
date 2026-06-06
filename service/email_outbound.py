@@ -58,6 +58,8 @@ def _dispatch(bus: EventBus, msg: Message) -> None:
     """Run the handler for one message; ack on success, dead-letter on terminal failure."""
     try:
         handle_message(msg)
+        # at-least-once: a crash here (after send, before ack) re-delivers the message
+        # on the next claim_stale pass, so a recipient could receive a duplicate email.
         bus.ack(EMAIL_SEND, GROUP, msg.id)
     except InvalidMessage:
         logger.error("[email-out] invalid message %s -> dead", msg.id, exc_info=True)
@@ -75,12 +77,13 @@ def _dispatch(bus: EventBus, msg: Message) -> None:
             # leave unacked: a later claim_stale pass redelivers it
 
 
-def process_once(bus: EventBus, consumer: str) -> None:
-    """One reclaim+read cycle. Used by the loop and by tests."""
+def process_once(bus: EventBus, consumer: str, *, block_ms: int = 0) -> None:
+    """One reclaim+read cycle. Used by the loop (block_ms>0 to pace) and by tests
+    (block_ms=0 for a non-blocking single pass)."""
     bus.ensure_group(EMAIL_SEND, GROUP)
     for msg in bus.claim_stale(EMAIL_SEND, GROUP, consumer, min_idle_ms=_MIN_IDLE_MS):
         _dispatch(bus, msg)
-    for msg in bus.read(EMAIL_SEND, GROUP, consumer, count=10, block_ms=0):
+    for msg in bus.read(EMAIL_SEND, GROUP, consumer, count=10, block_ms=block_ms):
         _dispatch(bus, msg)
 
 
@@ -119,20 +122,21 @@ def start(bus: EventBus | None = None) -> WorkerController:
     return WorkerController(t, _stop_event)
 
 
+def stop() -> None:
+    """Module-level convenience to stop the worker loop (mirrors imap_listener)."""
+    _stop_event.set()
+
+
 def _loop(bus: EventBus | None, consumer: str, stop_event: threading.Event) -> None:
     backoff = 5
     while not stop_event.is_set():
         try:
             if bus is None:
                 bus = EventBus.from_env(source="cortex")
-            bus.ensure_group(EMAIL_SEND, GROUP)
             backoff = 5
             while not stop_event.is_set():
-                for msg in bus.claim_stale(EMAIL_SEND, GROUP, consumer, min_idle_ms=_MIN_IDLE_MS):
-                    _dispatch(bus, msg)
-                # Blocking read wakes every block_ms so we can observe stop_event.
-                for msg in bus.read(EMAIL_SEND, GROUP, consumer, count=10, block_ms=5000):
-                    _dispatch(bus, msg)
+                # block_ms>0 makes the read wake periodically so we can observe stop_event.
+                process_once(bus, consumer, block_ms=5000)
         except Exception as e:
             if stop_event.is_set():
                 break
