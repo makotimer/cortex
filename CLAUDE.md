@@ -50,6 +50,7 @@ make logs            # last 100 lines of cortex logs (non-following)
 make rebuild         # pull base images, rebuild, force-recreate
 make logs-f          # follow cortex container logs (alias for tail-f)
 make career-report   # run career report script locally (outside container)
+make trigger-reading # send today's Bible reading now + dedup the upcoming scheduled fire
 make clean           # docker compose down -v --remove-orphans
 ```
 
