@@ -99,3 +99,8 @@ See `.env.example` for all keys with descriptions.
   the eventbus stack has never been brought up, `up`/`make reload` fails with a compose error
   before any container starts (the worker's in-process graceful-degradation can't help here).
   Bring the bus up once first: `cd /srv/docker/eventbus && docker compose up -d`.
+- **Registration approval replies must reach the `Command` folder.** cortex's IMAP listener
+  only watches the Proton `Command` folder. For an admin's `APPROVE hs-…` / `DENY hs-…` reply
+  to be processed, create a one-time Proton sieve filter: if the subject or body starts with
+  `APPROVE ` or `DENY `, move/label the message into `Command`. Also set `approval_allowlist`
+  (array of admin emails) in `local/config.json` — only those senders' decisions are honored.
