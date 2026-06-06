@@ -3,13 +3,14 @@ import logging
 import subprocess
 import sys
 from datetime import datetime, timedelta
+from html import escape as html_escape
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from service import runner
+from service import runner, site_events
 from service.imap_commands.parser import parse_command_line
 from service.imap_commands.templates import list_html
 from service.scheduler import _add_job, _make_job_spec, _resolve_timezone
@@ -86,9 +87,9 @@ def handle_command(
 
     # Find command line
     command_line = subject
-    if not any(word in command_line.upper() for word in ("RUN", "LIST", "CAREER", "REPORT")):
+    if not any(word in command_line.upper() for word in ("RUN", "LIST", "CAREER", "REPORT", "APPROVE", "DENY")):
         for line in lines:
-            if any(word in line.upper() for word in ("RUN", "LIST", "CAREER", "REPORT")):
+            if any(word in line.upper() for word in ("RUN", "LIST", "CAREER", "REPORT", "APPROVE", "DENY")):
                 command_line = line
                 break
 
@@ -134,6 +135,31 @@ def handle_command(
             subj, html = _handle_run(module_id, kwargs, no_email, cfg, scheduler)
             if subj is None:  # silent run — no reply
                 return None, None, None
+
+    # ===================================================================
+    # APPROVE / DENY <token>
+    # ===================================================================
+    elif cmd["command"] in ("APPROVE", "DENY"):
+        allow = {a.strip().lower() for a in cfg.get("approval_allowlist", []) if a}
+        sender_lc = (sender or "").strip().lower()
+        token = cmd["token"]
+        if sender_lc not in allow:
+            logger.warning("Rejected %s for %s from non-allowlisted %s",
+                           cmd["command"], token, sender)
+            subj = "Not authorized"
+            html = ("<p>Your address is not authorized to approve registrations. "
+                    "No action taken.</p>")
+        else:
+            decision = "approve" if cmd["command"] == "APPROVE" else "deny"
+            try:
+                site_events.publish_decision(token, decision, sender_lc)
+                subj = f"Recorded: {decision} {token}"
+                html = f"<p>Decision <b>{decision}</b> recorded for <code>{token}</code>.</p>"
+            except Exception as exc:
+                logger.exception("Failed to publish decision for %s", token)
+                subj = "Decision failed"
+                detail = html_escape(str(exc))
+                html = f"<p>Could not record decision for <code>{token}</code>:</p><pre>{detail}</pre>"
 
     # ===================================================================
     # UNKNOWN
