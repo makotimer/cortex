@@ -3,6 +3,7 @@ import logging
 import subprocess
 import sys
 from datetime import datetime, timedelta
+from html import escape as html_escape
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
@@ -157,7 +158,8 @@ def handle_command(
             except Exception as exc:
                 logger.exception("Failed to publish decision for %s", token)
                 subj = "Decision failed"
-                html = f"<p>Could not record decision for <code>{token}</code>:</p><pre>{exc}</pre>"
+                detail = html_escape(str(exc))
+                html = f"<p>Could not record decision for <code>{token}</code>:</p><pre>{detail}</pre>"
 
     # ===================================================================
     # UNKNOWN
