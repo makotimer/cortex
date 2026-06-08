@@ -42,13 +42,11 @@ def test_live_send_today_email(request, monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
     (tmp_path / "chapter_plan.json").write_text(json.dumps(["Genesis 1"]), encoding="utf-8")
 
-    # Respect your suite-wide default; explicitly enable/disable LLM as desired:
-    # monkeypatch.setenv("BIBLE_PLAN_ENABLE_LLM", "1")  # uncomment to force LLM on for live
-
     result = main.run(for_date=_today_ymd())
     assert result is not None and isinstance(result, tuple)
     html, meta = result
     assert isinstance(html, str) and html.strip()
+    assert "study.coviecraft.dev" in html
     assert isinstance(meta, dict)
 
     # Subject per your spec
