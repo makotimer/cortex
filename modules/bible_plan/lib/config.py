@@ -8,18 +8,19 @@ from dataclasses import dataclass
 class Settings:
     plan_start: str
     tz_name: str
-    skip_probe: bool
-    enable_llm: bool
+    prayer_count: int
 
 
-def _truthy(s: str | None) -> bool:
-    return (s or "").strip().lower() in {"1", "true", "yes", "on"}
+def _int(value: str | None, default: int) -> int:
+    try:
+        return int(str(value).strip())
+    except (TypeError, ValueError):
+        return default
 
 
 def load() -> Settings:
     return Settings(
         plan_start=os.getenv("BIBLE_PLAN_START", "2025-09-13"),
         tz_name=os.getenv("TZ", "UTC"),
-        skip_probe=_truthy(os.getenv("BIBLE_PLAN_SKIP_PROBE", "1")),
-        enable_llm=_truthy(os.getenv("BIBLE_PLAN_ENABLE_LLM", "")),
+        prayer_count=max(1, _int(os.getenv("BIBLE_PLAN_PRAYER_COUNT"), 3)),
     )

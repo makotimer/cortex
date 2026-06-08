@@ -2,19 +2,7 @@ from __future__ import annotations
 
 import html
 
-
-def _esc(s: str) -> str:
-    return html.escape(str(s), quote=True)
-
-
-def _section(title: str, body_html: str) -> str:
-    return f'<section style="margin:12px 0;"><h3 style="margin:0 0 6px 0;">{_esc(title)}</h3>{body_html}</section>'
-
-
-def assemble_email_html(
-    reading_link: str, calvin_url: str | None, mh_url: str | None, reflection_html: str | None
-) -> str:
-    head = """<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#0f3d3e;">
+_HEADER = """<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#0f3d3e;">
                 <tr>
                     <td align="center" style="padding:14px 10px;">
                     <span style="font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:1px;color:#ffffff;text-transform:uppercase;">
@@ -33,11 +21,11 @@ def assemble_email_html(
                 </h1>
                 <!-- One-line invitation -->
                 <p style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:18px; color:#6d4c41; line-height:1.4; margin:0 0 20px; max-width:480px;">
-                    “Open my eyes, that I may see wondrous things from Your law.” <em>(Ps. 119:18)</em>
+                    "Open my eyes, that I may see wondrous things from Your law." <em>(Ps. 119:18)</em>
                 </p>
                 <!-- Subtle verse footer -->
                 <p style="font-family:'Georgia',serif; font-size:14px; color:#8d6e63; font-style:italic; margin:20px 0 0;">
-                    “…that you may be filled with the knowledge of His will in all wisdom and spiritual understanding.” — Colossians 1:9
+                    "…that you may be filled with the knowledge of His will in all wisdom and spiritual understanding." — Colossians 1:9
                 </p>
                 </td>
             </tr>
@@ -52,18 +40,26 @@ def assemble_email_html(
                 </td>
             </tr>
             </table>"""  # noqa: E501
-    links_html = (
-        "<ul>"
-        + "".join([
-            f"<li>📖 Scripture — {reading_link}</li>",
-            "<li>📚 Calvin — "
-            + (f'<a href="{_esc(calvin_url)}">{_esc(calvin_url)}</a>' if calvin_url else "<em>n/a</em>")
-            + "</li>",
-            "<li>📚 Matthew Henry — "
-            + (f'<a href="{_esc(mh_url)}">{_esc(mh_url)}</a>' if mh_url else "<em>n/a</em>")
-            + "</li>",
-        ])
-        + "</ul>"
+
+
+def _esc(s: str) -> str:
+    return html.escape(str(s), quote=True)
+
+
+def _section(title: str, body_html: str) -> str:
+    return f'<section style="margin:12px 0;"><h3 style="margin:0 0 6px 0;">{_esc(title)}</h3>{body_html}</section>'
+
+
+def assemble_email_html(study_url: str, prayer_title: str, prayer_topics: list[str]) -> str:
+    study_html = (
+        f'<p style="margin:0;">📖 <a href="{_esc(study_url)}">'
+        "Read today's study at study.coviecraft.dev</a></p>"
     )
-    body = head + _section("Focus", links_html) + (_section("Content", reflection_html) if reflection_html else "")
-    return body
+    # quote=False keeps apostrophes literal (e.g. "Lord's Day"); safe in element body text.
+    items = "".join(f"<li>{html.escape(t, quote=False)}</li>" for t in prayer_topics)
+    prayer_html = f"<ul>{items}</ul>"
+    return (
+        _HEADER
+        + _section("Today's Study", study_html)
+        + _section(f"Prayer Focus — {prayer_title}", prayer_html)
+    )

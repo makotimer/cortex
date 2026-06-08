@@ -1,25 +1,8 @@
 # tests/test_llm_unit.py
 import sys
-from typing import ClassVar  # <-- Add import
+from typing import ClassVar
 
 from modules._shared import utils as shared_utils
-from modules.bible_plan import lib
-
-
-def test_generate_commentary_disabled_returns_none():
-    """LLM path is bypassed entirely when enable=False (no OpenAI used)."""
-    html = lib.generate_commentary(
-        book="John",
-        chapter=3,
-        prev_book="John",
-        prev_chapter=2,
-        calvin_url=None,
-        mh_url=None,
-        model_env="OPENAI_MODEL_BIBLE",
-        temp_env="OPENAI_TEMP_BIBLE",
-        enable=False,  # <- important: ensures no OpenAI call
-    )
-    assert html is None
 
 
 def test_openai_chat_temperature_env_parsing(monkeypatch):

@@ -3,21 +3,14 @@ import json
 
 import pytest
 
-# Import the module under test
 from modules.bible_plan import lib, main
-
-# ---------------------------------------------------------------------------
-# Fixtures
-# ---------------------------------------------------------------------------
 
 
 @pytest.fixture(autouse=True)
 def fixed_env(monkeypatch):
-    """Set up predictable environment for all tests."""
+    """Predictable environment for all tests."""
     monkeypatch.setenv("TZ", "UTC")
     monkeypatch.setenv("BIBLE_PLAN_START", "2025-09-06")
-    monkeypatch.setenv("BIBLE_PLAN_SKIP_PROBE", "1")  # no HTTP calls
-    monkeypatch.setenv("BIBLE_PLAN_ENABLE_LLM", "0")  # disable commentary
     yield
 
 
@@ -33,17 +26,13 @@ def _plan_dir(tmp_path, monkeypatch):
 
 @pytest.fixture
 def temp_plan(tmp_path):
-    """Create a minimal chapter_plan.json for tests."""
     plan = ["Psalms 148", "Genesis 1", "Genesis 2"]
     plan_path = tmp_path / "chapter_plan.json"
     plan_path.write_text(json.dumps(plan))
     return plan_path
 
 
-# ---------------------------------------------------------------------------
-# Unit tests for lib layer
-# ---------------------------------------------------------------------------
-
+# ---- lib layer ----
 
 def test_load_plan_valid(temp_plan):
     items = lib.plan.load_plan(str(temp_plan.parent))
@@ -54,11 +43,7 @@ def test_load_plan_valid(temp_plan):
 
 @pytest.mark.parametrize(
     "bad_json",
-    [
-        "{}",  # not a list
-        json.dumps([]),  # empty
-        json.dumps(["Genesis x"]),  # invalid format
-    ],
+    ["{}", json.dumps([]), json.dumps(["Genesis x"])],
 )
 def test_load_plan_invalid(temp_plan, bad_json):
     temp_plan.write_text(bad_json)
@@ -66,70 +51,10 @@ def test_load_plan_invalid(temp_plan, bad_json):
         lib.plan.load_plan(str(temp_plan.parent))
 
 
-def test_nkjv_link_and_linkify():
-    html = lib.links.nkjv_link("John", 3, 16, 18)
-    assert "John 3:16-18" in html
-    text = "Today's reading: John 3:16-18."
-    linked = lib.links.linkify_scripture_refs(text)
-    assert "<a href=" in linked
-    assert "John 3:16-18" in linked
-
-
-def test_commentary_url_no_network(monkeypatch):
-    # Even without requests, should return a URL string
-    url = lib.biblehub.commentary_url("calvin", "Genesis", 1, probe=False)
-    assert url.startswith("https://biblehub.com/commentaries/calvin/")
-
-
 def test_dates_math():
     start = dt.date(2025, 9, 6)
     target = dt.date(2025, 9, 10)
     assert lib.dates.days_since(start, target) == 4
-
-
-# ---------------------------------------------------------------------------
-# Integration-style tests for main.run()
-# ---------------------------------------------------------------------------
-
-
-def test_run_before_start_returns_none():
-    # Date before plan start
-    html = main.run(for_date="2025-09-05")
-    assert html is None
-
-
-def test_run_after_start_returns_html():
-    # Look up the real plan's first item so we assert correctly
-    items = lib.plan.load_plan(None)
-    assert items, "Real plan must not be empty"
-    expected_first = f"{items[0].book} {items[0].chapter}"
-
-    # On start date
-    result = main.run(for_date="2025-09-06")
-    assert isinstance(result, tuple)
-    html, meta = result
-    assert "<table role=" in html
-    assert meta["message"] == expected_first
-    assert meta.get("llm") is False
-
-
-def test_force_index_overrides_before_start():
-    # Use the real plan's second item as the forced expectation
-    items = lib.plan.load_plan(None)
-    assert len(items) >= 2, "Real plan must have at least two entries"
-    expected_forced = f"{items[1].book} {items[1].chapter}"
-
-    # force_index allows before start to still produce HTML
-    result = main.run(for_date="2025-09-01", force_index=1)
-    html, meta = result
-    assert expected_forced in html
-    assert meta["idx"] == 1
-
-
-def test_logging_bridge_no_error(monkeypatch):
-    # Should not raise even if service.logging_utils missing
-    lib.log.activity({"test": True})
-    lib.log.error({"error": True})
 
 
 def test_load_plan_allows_single_chapter_books(tmp_path):
@@ -144,3 +69,48 @@ def test_load_plan_allows_single_chapter_books(tmp_path):
         ("3 John", 1),
         ("Obadiah", 1),
     ]
+
+
+def test_logging_bridge_no_error():
+    lib.log.activity({"test": True})
+    lib.log.error({"error": True})
+
+
+# ---- main.run() integration ----
+
+def test_run_before_start_returns_none():
+    assert main.run(for_date="2025-09-05") is None
+
+
+def test_run_after_start_returns_html():
+    items = lib.plan.load_plan(None)
+    assert items, "Plan must not be empty"
+    expected_first = f"{items[0].book} {items[0].chapter}"
+
+    result = main.run(for_date="2025-09-06")
+    assert isinstance(result, tuple)
+    html, meta = result
+
+    assert "<table role=" in html
+    assert "study.coviecraft.dev" in html
+    assert meta["message"] == expected_first
+    assert meta["idx"] == 0
+    assert meta["prayer_day"]
+    assert meta["prayer_topics"]
+    # Every selected prayer topic appears in the rendered email.
+    for topic in meta["prayer_topics"]:
+        assert topic in html
+    # Commentary/LLM/link fields are gone.
+    assert "llm" not in meta
+    assert "links" not in meta
+
+
+def test_force_index_overrides_before_start():
+    items = lib.plan.load_plan(None)
+    assert len(items) >= 2
+    expected_forced = f"{items[1].book} {items[1].chapter}"
+
+    result = main.run(for_date="2025-09-01", force_index=1)
+    _html, meta = result
+    assert meta["message"] == expected_forced
+    assert meta["idx"] == 1
