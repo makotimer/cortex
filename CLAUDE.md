@@ -16,7 +16,7 @@ modules/   — one subdirectory per job module (each has a run() entry point)
   _shared/      — shared helpers: cache, dates, email_ctx, html, http, utils
   example_daily/ — minimal reference implementation; copy this to create a new module
   career_watch/ — job-board scraper; two users, VPN-rotated IPs, Mon-Sat
-  bible_plan/   — daily Bible reading emails; Mon-Thu and Fri-Sun schedules; uses lib/llm.py for content generation (requires OPENAI_API_KEY)
+  bible_plan/   — daily prayer-and-study emails; Mon-Thu and Fri-Sun schedules; links to study.coviecraft.dev + a rotating weekday prayer focus (no LLM)
   sonos/        — hourly Sonos chimes; volume varies by day and hour
 scripts/   — host-side utilities and container helpers
 tests/     — pytest unit + optional live tests
@@ -78,7 +78,7 @@ Copy `.env.example` and fill in real values. Minimum to start:
 - `BRIDGE_USERNAME` / `BRIDGE_PASSWORD` — from `docker exec -it cortex_bridge protonmail-bridge --cli` → `info`
 - `BRIDGE_HOST` / `BRIDGE_SMTP_PORT` / `BRIDGE_IMAP_PORT` — typically `cortex_bridge` / `25` / `143`
 - `SEND_EMAIL` — set to `1` to enable outbound mail
-- `OPENAI_API_KEY` — required by `modules/bible_plan/lib/llm.py` for email content generation
+- `OPENAI_API_KEY` — used by the shared `modules/_shared/utils.OpenAIChat` facade (not used by `bible_plan`, which no longer calls an LLM)
 - `LLM_MD_ENABLE` — set to `1` to archive each LLM response as a `.md` file under `LLM_MD_DIR` (default `/app/local/state/llm`)
 - `LLM_MD_MAX` — max number of archived files to keep per run; `0` = unlimited
 
