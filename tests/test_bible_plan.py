@@ -103,6 +103,11 @@ def test_run_after_start_returns_html():
     # Commentary/LLM/link fields are gone.
     assert "llm" not in meta
     assert "links" not in meta
+    # Brief illumination-prayer suggestions, closing with the Lord's Prayer (NKJV).
+    assert "Praying for Illumination" in html
+    assert "Ask for illumination" in html
+    assert "Our Father in heaven" in html
+    assert "NKJV" in html
 
 
 def test_force_index_overrides_before_start():

@@ -6,6 +6,10 @@
  - Computes today's chapter from `chapter_plan.json` (loops forever) — used for the email **subject** only.
  - Emails a link to the study site (`https://study.coviecraft.dev`), whose homepage shows
    today's reading (it uses the same plan and start date as this module).
+ - Includes a **Praying for Illumination** section: a fixed set of brief suggestions for how
+   to pray before reading (acknowledge need, ask for illumination, seek transformation, plead
+   Christ's mediation, commit to respond, close with praise), ending with the Lord's Prayer
+   (Matthew 6:9-13, NKJV). Static content — defined in `lib/render.py`.
  - Includes a **Prayer Focus** section: a rotating subset of that weekday's prayer topics.
    The window advances each week, cycling through every topic over time. These are prayer
    *topics to cover* — never a written-out prayer.
@@ -52,5 +56,5 @@ BIBLE_PLAN_PRAYER_COUNT=3     # prayer topics shown per day (default 3)
 run(**kwargs)              # → main.py
 └─ load_plan()             # → chapter_plan.json (today's chapter, for the subject)
    └─ prayer_for()         # → lib/prayer.py (rotating weekday topics)
-      └─ assemble_email_html()  # → study link + prayer focus
+      └─ assemble_email_html()  # → study link + illumination prayer + prayer focus
 ```
