@@ -40,7 +40,7 @@ The MakoTimer Network provides a distributed system for family task management, 
 |--------|-----------|
 | **Task Scheduling** | Runs any Python module on `cron`, `interval`, `daily_time`, or `date` triggers. |
 | **Email Alerts** | Sends rich HTML emails via ProtonMail Bridge (never bakes credentials). |
-| **IMAP Command Listener** | Watches `Label/Commands` → runs ad-hoc modules (e.g., `LIST`, `RUN MODULE=modules.example_daily`). |
+| **IMAP Command Listener** | Watches `Labels/Command` → runs ad-hoc modules (e.g., `LIST`, `RUN MODULE=modules.example_daily`). |
 | **Dry-Run Mode** | `CORTEX_DRY_RUN=1` → zero emails. |
 | **Zero-Downtime** | Bridge `socat` healthcheck gates cortex startup. |
 
