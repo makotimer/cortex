@@ -1,5 +1,4 @@
 # tests/conftest.py
-import contextlib
 import json
 import os
 import pathlib
@@ -80,18 +79,6 @@ def _env_defaults(monkeypatch, tmp_path):
 # ---------------------------------------------------------------------
 # Your existing fixtures
 # ---------------------------------------------------------------------
-@pytest.fixture(autouse=True)
-def _llm_default_off_for_unit_tests(monkeypatch, request):
-    """Force LLM off unless explicitly running live tests."""
-    live_flag = False
-    with contextlib.suppress(Exception):
-        live_flag = bool(request.config.getoption("--live"))
-    env_live = os.getenv("PYTEST_LIVE", "").strip().lower() in {"1", "true", "yes", "on"}
-
-    if not (live_flag or env_live):
-        monkeypatch.setenv("BIBLE_PLAN_ENABLE_LLM", "0")
-
-
 @pytest.fixture(autouse=True)
 def no_email_env(monkeypatch):
     monkeypatch.setenv("SEND_EMAIL", "0")
