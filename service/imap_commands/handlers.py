@@ -1,5 +1,6 @@
 # service/imap_commands/handlers.py
 import logging
+import re
 import subprocess
 import sys
 from datetime import datetime, timedelta
@@ -31,6 +32,37 @@ class _Stripper(HTMLParser):
 
     def get(self) -> str:
         return "".join(self.parts)
+
+
+_COMMAND_WORDS = ("RUN", "LIST", "CAREER", "REPORT", "APPROVE", "DENY")
+
+# Markers that begin the quoted original beneath a reply. The earliest match ends
+# the user's own text. The "Original Message" divider is matched anywhere (not just
+# at line start) because Proton glues the typed reply directly onto it with no
+# separator, e.g. "APPROVE pbd-deck-builder-waco-------- Original Message --------".
+_QUOTE_BOUNDARY = re.compile(
+    r"-{2,}\s*Original Message\s*-{2,}"   # Proton / generic divider (matches mid-line)
+    r"|^\s*On\b.*\bwrote:\s*$"            # Gmail / Apple Mail "On <date>, X wrote:"
+    r"|^\s*_{5,}\s*$"                     # Outlook divider line
+    r"|^\s*From:\s.+$"                    # Outlook quoted-header block
+    r"|^\s*>",                            # classic ">" quote prefix
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def _strip_quoted_reply(text: str) -> str:
+    """Return only the user's own reply text — everything above the quoted original."""
+    m = _QUOTE_BOUNDARY.search(text)
+    return text[: m.start()] if m else text
+
+
+def _find_command_line(text: str) -> str | None:
+    """First non-blank line naming a command keyword, else None."""
+    for line in text.splitlines():
+        s = line.strip()
+        if s and any(w in s.upper() for w in _COMMAND_WORDS):
+            return s
+    return None
 
 
 def extract_text_from_email(msg) -> str:
@@ -85,13 +117,14 @@ def handle_command(
     text = extract_text_from_email(msg)
     lines = [line.strip() for line in text.splitlines() if line.strip()]
 
-    # Find command line
-    command_line = subject
-    if not any(word in command_line.upper() for word in ("RUN", "LIST", "CAREER", "REPORT", "APPROVE", "DENY")):
-        for line in lines:
-            if any(word in line.upper() for word in ("RUN", "LIST", "CAREER", "REPORT", "APPROVE", "DENY")):
-                command_line = line
-                break
+    # The command is taken from the message BODY, not the subject. A reply's subject
+    # is unreliable — mail clients rewrite it to "Re: <draft title>" or Proton's
+    # command filter relabels it "COMMAND" — and the quoted draft beneath the reply
+    # also contains the APPROVE/DENY instruction lines, which must never be matched.
+    # So: isolate the user's own reply (everything above the quoted original) and
+    # scan that. Fall back to the subject only if the reply names no command, which
+    # keeps the legacy "edit the subject" workflow working.
+    command_line = _find_command_line(_strip_quoted_reply(text)) or subject
 
     logger.info("Command from %s: %s -- %r", sender, command_line.strip(), lines)
     cmd = parse_command_line(command_line)
