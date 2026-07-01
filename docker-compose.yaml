@@ -80,6 +80,8 @@ services:
     expose:
       - "25"                # SMTP (internal)
       - "143"               # IMAP (internal)
+    labels:
+      - autoheal=true       # let autoheal restart the bridge when its healthcheck goes red
     logging: *default-logging
     networks:
       - mailnet
