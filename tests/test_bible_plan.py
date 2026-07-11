@@ -92,22 +92,26 @@ def test_run_after_start_returns_html():
     html, meta = result
 
     assert "<table role=" in html
+    # Psalm 51:10 now leads the three opening verses near the top.
+    assert "Ps. 51:10" in html
+    # The study-site link is still present.
     assert "study.coviecraft.dev" in html
     assert meta["message"] == expected_first
     assert meta["idx"] == 0
     assert meta["prayer_day"]
     assert meta["prayer_topics"]
-    # Every selected prayer topic appears in the rendered email.
-    for topic in meta["prayer_topics"]:
-        assert topic in html
     # Commentary/LLM/link fields are gone.
     assert "llm" not in meta
     assert "links" not in meta
-    # Brief illumination-prayer suggestions, closing with the Lord's Prayer (NKJV).
-    assert "Praying for Illumination" in html
-    assert "Ask for illumination" in html
-    assert "Our Father in heaven" in html
-    assert "NKJV" in html
+    # --- Remaining content after the three opening verses is commented out for now. ---
+    # # Every selected prayer topic appears in the rendered email.
+    # for topic in meta["prayer_topics"]:
+    #     assert topic in html
+    # # Brief illumination-prayer suggestions, closing with the Lord's Prayer (NKJV).
+    # assert "Praying for Illumination" in html
+    # assert "Ask for illumination" in html
+    # assert "Our Father in heaven" in html
+    # assert "NKJV" in html
 
 
 def test_force_index_overrides_before_start():

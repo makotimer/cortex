@@ -19,6 +19,10 @@ _HEADER = """<table role="presentation" width="100%" cellspacing="0" cellpadding
                 <h1 style="font-family:'Georgia', serif; font-size:28px; color:#5d4037; margin:0 0 12px;">
                     ✧ Pause & Pray ✧
                 </h1>
+                <!-- Opening verse -->
+                <p style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:18px; color:#6d4c41; line-height:1.4; margin:0 0 20px; max-width:480px;">
+                    "Create in me a clean heart, O God, and renew a steadfast spirit within me." <em>(Ps. 51:10)</em>
+                </p>
                 <!-- One-line invitation -->
                 <p style="font-family:'Helvetica Neue',Arial,sans-serif; font-size:18px; color:#6d4c41; line-height:1.4; margin:0 0 20px; max-width:480px;">
                     "Open my eyes, that I may see wondrous things from Your law." <em>(Ps. 119:18)</em>
@@ -111,12 +115,14 @@ def assemble_email_html(study_url: str, prayer_title: str, prayer_topics: list[s
         f'<p style="margin:0;">📖 <a href="{_esc(study_url)}">'
         "Read today's study at study.coviecraft.dev</a></p>"
     )
-    # quote=False keeps apostrophes literal (e.g. "Lord's Day"); safe in element body text.
-    items = "".join(f"<li>{html.escape(t, quote=False)}</li>" for t in prayer_topics)
-    prayer_html = f"<ul>{items}</ul>"
+    # --- Remaining content after the three opening verses is commented out for now. ---
+    # (Supporting code kept intact — just disabled.)
+    # # quote=False keeps apostrophes literal (e.g. "Lord's Day"); safe in element body text.
+    # items = "".join(f"<li>{html.escape(t, quote=False)}</li>" for t in prayer_topics)
+    # prayer_html = f"<ul>{items}</ul>"
     return (
         _HEADER
         + _section("Today's Study", study_html)
-        + _section("Praying for Illumination", _prayer_guide_html())
-        + _section(f"Prayer Focus — {prayer_title}", prayer_html)
+        # + _section("Praying for Illumination", _prayer_guide_html())
+        # + _section(f"Prayer Focus — {prayer_title}", prayer_html)
     )
