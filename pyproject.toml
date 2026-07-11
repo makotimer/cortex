@@ -8,17 +8,17 @@ requires-python = ">=3.12"
 license = {text = "MIT"}
 
 dependencies = [
-    "apscheduler==3.11.2",
+    "apscheduler==3.11.3",
     "python-dateutil==2.9.0.post0",
     "requests==2.34.2",
     "beautifulsoup4==4.15.0",
     "html5lib==1.1",
     "urllib3>=2.7.0,<3",
     "google-api-python-client==2.198.0",
-    "google-auth==2.55.1",
+    "google-auth==2.55.2",
     "google-auth-oauthlib==1.4.0",
     "ics==0.7.3",
-    "openai>=2.44.0",
+    "openai>=2.45.0",
     "soco==0.31.1",
     "IMAPClient==3.1.0",
     "mail-parser==4.4.0",
