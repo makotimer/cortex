@@ -67,6 +67,24 @@ done
 
 export PYTHONPATH="${PWD}${PYTHONPATH:+:$PYTHONPATH}"
 
+# eventbus-kit path differs by environment:
+#   host / make:     /srv/docker/eventbus/eventbus-kit (or sibling of cortex)
+#   ops-worker:      /eventbus-kit (compose mount; /srv/docker/eventbus is not mounted)
+_eventbus_kit=""
+for _cand in \
+  "/eventbus-kit" \
+  "/srv/docker/eventbus/eventbus-kit" \
+  "$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)/eventbus/eventbus-kit"
+do
+  if [ -f "${_cand}/eventbus/__init__.py" ]; then
+    _eventbus_kit="$_cand"
+    break
+  fi
+done
+if [ -n "$_eventbus_kit" ]; then
+  export PYTHONPATH="${_eventbus_kit}:${PYTHONPATH}"
+fi
+
 if [ "$smoke" -eq 1 ]; then
   # Fast hermetic subset (no eventbus/docker). Live suites excluded.
   echo ">> pytest smoke (unit subset)"
@@ -79,10 +97,6 @@ if [ "$smoke" -eq 1 ]; then
 fi
 
 echo ">> pytest (hermetic; live tests skipped by default)"
-# Prefer host venv. Some modules need eventbus-kit on PYTHONPATH when present.
-if [ -d /srv/docker/eventbus/eventbus-kit ]; then
-  export PYTHONPATH="/srv/docker/eventbus/eventbus-kit:${PYTHONPATH:-}"
-fi
 exec "$VENV/bin/python" -m pytest -q --tb=line \
   --ignore=tests/career_live \
   --ignore=tests/assorted_live \
