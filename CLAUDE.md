@@ -23,6 +23,22 @@ tests/     — pytest unit + optional live tests
 local/     — bind-mounted at runtime: config.json, logs/, state/
 ```
 
+## Planned: event injectors for discoverbcs.org
+
+Approved design, not started. A new module (`modules/event_watch/`) scrapes public
+event calendars and publishes them onto `events:discoverbcs`, where the site's worker
+validates and stores them. The receiving site is **finished and waiting** — it holds
+zero events until this exists.
+
+**Read the design before starting:**
+`/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
+and the contract it targets, `/srv/docker/websites/discoverbcs/docs/intake-contract.md`.
+
+It follows `career_watch` deliberately: a scraper family keyed by `kind`, the gluetun
+proxy with per-run rotation, and fail-closed on VPN health. First source is the BCS
+library's Tockify feed. `vpn_client.py` should move from `career_watch/lib/` to
+`modules/_shared/` when this lands — it will have a second consumer.
+
 ## Entrypoint
 
 ```
@@ -93,6 +109,14 @@ See `.env.example` for all keys with descriptions.
 - **Dry-run** — set `CORTEX_DRY_RUN=1` in `.env` to suppress all outbound email.
 - **VPN sidecar** — the `vpn` service (gluetun/ProtonVPN WireGuard) must be running for `career_watch` to scrape. If `CAREER_WATCH_PROXY_URL` is set and gluetun is unreachable, `career_watch` skips the run (fail-closed). Bring it up with `docker compose up -d vpn`.
 - **VPN peer keys go stale** — ProtonVPN rotates WireGuard peer public keys periodically. If gluetun's server list is old, the tunnel will appear up (`tun0` gets an IP, `public_ip` returns empty) but pass no traffic. `SERVER_UPDATE_PERIOD=24h` in `docker-compose.yaml` keeps the list fresh. Symptom: gluetun logs show continuous `i/o timeout` healthcheck failures cycling through many servers. Fix: `docker compose up -d vpn` after ensuring `SERVER_UPDATE_PERIOD` is not `0`.
+- **No LLM is reachable from cortex.** `llm-proxy` exists and is well established —
+  six sites under `/srv/docker/websites/` run one as a sidecar (multi-backend, tiers
+  `light`/`middle`/`heavy`, `X-Proxy-Secret` auth on `:11434`) — but every instance is
+  attached to its own site's stack. Cortex joins only `mailnet` and `eventbus`, so it
+  has **no route to any of them**, and no LLM client of its own. Anything here needing
+  classification or summarization must first resolve that: give the target site a
+  sidecar on a network cortex can reach, or add a cortex-side client. Don't assume the
+  capability is available because the service exists.
 - **eventbus stack must exist before cortex starts** — cortex's compose declares the
   `eventbus_redis_password` Docker secret with `file: ../eventbus/secrets/eventbus_redis_password`
   and joins the external `eventbus` network. Both are resolved at `docker compose up` time, so if
