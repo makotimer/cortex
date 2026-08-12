@@ -35,13 +35,19 @@ class HttpClient:
         timeout: float = 15.0,
         user_agent: str = "JobWatch/0.1 (+https://example.invalid)",
         proxy_url: str | None = None,
-        proxy_env: str = "CAREER_WATCH_PROXY_URL",
+        proxy_env: str | None = "CAREER_WATCH_PROXY_URL",
     ):
         self.timeout = float(timeout)
         self.session = requests.Session()
         self.session.headers.update({"User-Agent": user_agent})
 
-        _proxy = (proxy_url or os.getenv(proxy_env) or "").strip()
+        # proxy_env=None disables the environment fallback entirely, for callers
+        # that already resolved the proxy themselves. Without it, passing
+        # proxy_url=None to mean "go direct" is silently overridden by the
+        # environment — and the caller then proxies without having run the VPN
+        # health check that is supposed to gate proxied traffic.
+        _env_proxy = os.getenv(proxy_env) if proxy_env else None
+        _proxy = (proxy_url or _env_proxy or "").strip()
         if _proxy:
             self.session.proxies = {"http": _proxy, "https": _proxy}
 

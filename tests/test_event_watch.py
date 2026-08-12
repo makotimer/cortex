@@ -465,3 +465,34 @@ def test_window_default_is_about_nine_months():
     the disappearance guard keeps meaning something."""
     assert Settings.from_env_and_kwargs({}).window_days == 270
     assert date(2026, 8, 12) + timedelta(days=270) > date(2027, 1, 1)
+
+
+# ----------------------------------------------------------------------
+# The proxy setting is authoritative
+# ----------------------------------------------------------------------
+def test_settings_none_proxy_is_not_overridden_by_the_environment(monkeypatch):
+    """Going direct must actually go direct.
+
+    engine._check_vpn only runs when settings.proxy_url is set. If the HTTP
+    client re-read the environment, a run configured to go direct would still
+    proxy — with no VPN health check having gated it.
+    """
+    monkeypatch.setenv("EVENT_WATCH_PROXY_URL", "http://vpn:8888")
+    scraper = tockify.TockifyScraper(proxy_url=None)
+    scraper.fetch(date(2026, 8, 12), date(2026, 9, 11), skip_network=True)
+    from modules._shared.http import HttpClient
+    client = HttpClient(proxy_url=None, proxy_env=None)
+    assert client.session.proxies == {}
+
+
+def test_explicit_proxy_url_is_still_honoured():
+    from modules._shared.http import HttpClient
+    client = HttpClient(proxy_url="http://vpn:8888", proxy_env=None)
+    assert client.session.proxies["https"] == "http://vpn:8888"
+
+
+def test_career_watch_env_fallback_still_works(monkeypatch):
+    """The default must not change: six career_watch scrapers rely on it."""
+    monkeypatch.setenv("CAREER_WATCH_PROXY_URL", "http://vpn:8888")
+    from modules._shared.http import HttpClient
+    assert HttpClient().session.proxies["https"] == "http://vpn:8888"

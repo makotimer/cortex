@@ -111,10 +111,15 @@ class TockifyScraper(BaseEventScraper):
     ) -> list[RawEvent]:
         if skip_network:
             return []
+        # proxy_env=None on purpose: Settings already resolved
+        # EVENT_WATCH_PROXY_URL, and it is the single authority. Letting the
+        # client re-read the environment would mean a run configured to go
+        # direct still proxies — while engine._check_vpn, which keys off the
+        # same setting, skipped the health check.
         client = self._client or HttpClient(
             user_agent="CortexEventWatch/1.0 (+https://discoverbcs.org)",
             proxy_url=self._proxy_url,
-            proxy_env="EVENT_WATCH_PROXY_URL",
+            proxy_env=None,
         )
         self._client = client
 
