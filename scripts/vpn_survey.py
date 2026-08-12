@@ -31,7 +31,7 @@ import statistics
 import sys
 import time
 from collections import Counter, defaultdict
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, "/app")
@@ -90,7 +90,18 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--switches", type=int, default=25,
-                    help="how many exits to walk (default 25)")
+                    help="how many exits to walk (default 25). For an overnight "
+                         "run set this high and rely on --stop-at")
+    ap.add_argument("--stop-at", default="04:30", metavar="HH:MM",
+                    help="local wall-clock time to stop by (default 04:30, "
+                         "which leaves career_watch's 05:00 run 30 minutes of "
+                         "clear air). Checked before every switch, so a long "
+                         "run cannot drift into a scrape")
+    ap.add_argument("--pause", type=float, default=0.0,
+                    help="seconds to idle between switches. Hundreds of "
+                         "reconnects an hour is unusual traffic for a VPN "
+                         "account; a pause makes a long run look less like a "
+                         "hammer")
     ap.add_argument("--control-url", default="http://vpn:8000")
     ap.add_argument("--proxy-url", default="http://vpn:8888")
     ap.add_argument("--switch-timeout", type=float,
@@ -114,11 +125,14 @@ def main() -> int:
               f"to override, or run in the evening.", file=sys.stderr)
         return 2
 
+    deadline = parse_stop_at(args.stop_at, now)
     out_dir = Path(args.out_dir)
     stamp = now.strftime("%Y%m%dT%H%M%S")
     out_path = out_dir / f"survey-{stamp}.jsonl"
 
+    hours = (deadline - now).total_seconds() / 3600
     print(f"switches={args.switches} targets={[n for n, _ in DEFAULT_TARGETS]}")
+    print(f"stopping by {deadline:%a %H:%M %Z} ({hours:.1f}h from now)")
     print(f"writing  {out_path}")
     if args.dry_run:
         print("dry run: nothing touched")
@@ -129,8 +143,22 @@ def main() -> int:
                                       rotate_timeout=args.switch_timeout)
     records: list[dict] = []
 
+    stopped_early = ""
     with out_path.open("w", encoding="utf-8") as fh:
         for i in range(1, args.switches + 1):
+            # Checked every iteration, not just at startup: an overnight run
+            # must stop on its own before the next scrape, whatever --switches
+            # says and however long each switch turned out to take.
+            check = datetime.now(UTC).astimezone()
+            if check >= deadline:
+                stopped_early = f"reached stop time {deadline:%H:%M}"
+                break
+            if in_busy_window(check) and not args.force:
+                stopped_early = "career_watch window opened"
+                break
+            if args.pause and i > 1:
+                time.sleep(args.pause)
+
             t0 = time.monotonic()
             ip = client._restart_and_wait()
             switch_seconds = round(time.monotonic() - t0, 2)
@@ -176,8 +204,22 @@ def main() -> int:
                   f"{(ip or 'NO IP'):16} {(rec['country'] or '?')[:14]:14} [{flags}]")
 
     summarize(records)
-    print(f"\nwrote {len(records)} records to {out_path}")
+    if stopped_early:
+        print(f"\nstopped early: {stopped_early}")
+    print(f"wrote {len(records)} records to {out_path}")
     return 0
+
+
+def parse_stop_at(value: str, now: datetime) -> datetime:
+    """HH:MM local -> the next such moment. Tomorrow if it already passed."""
+    try:
+        hh, mm = (int(x) for x in value.split(":", 1))
+        stop = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
+    except (ValueError, TypeError):
+        raise SystemExit(f"--stop-at: expected HH:MM, got {value!r}") from None
+    if stop <= now:
+        stop += timedelta(days=1)
+    return stop
 
 
 def summarize(records: list[dict]) -> None:
