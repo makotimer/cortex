@@ -44,6 +44,10 @@ class BaseEventScraper(ABC):
     #: Stable source identity, half of the contract's idempotency key.
     source_slug: str = ""
     source_name: str = ""
+    #: Cheap URL on the host this scraper actually fetches from, used to verify
+    #: the VPN exit can reach *this* source. A neutral check would pass on an
+    #: exit that the source itself blocks.
+    verify_url: str = ""
 
     @abstractmethod
     def fetch(

@@ -20,7 +20,7 @@ def run(
     *,
     for_date: str | None = None,
     force_index: int | None = None,
-) -> str | None | tuple[str, dict[str, Any]]:
+) -> str | tuple[str, dict[str, Any]] | None:
     cfg = load()
     start = datetime.strptime(cfg.plan_start, "%Y-%m-%d").date()
     target = resolve_date(for_date, cfg.tz_name)

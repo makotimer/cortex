@@ -34,8 +34,9 @@ from urllib.parse import parse_qs, urlencode, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 
-from ..config import ScraperConfig
 from modules._shared.http import HttpClient
+
+from ..config import ScraperConfig
 from ..models import Posting, ScrapeResult
 from ._targets import parse_url_label_list
 from .base import BaseScraper

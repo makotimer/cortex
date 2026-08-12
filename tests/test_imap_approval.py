@@ -1,7 +1,7 @@
 import fakeredis
 import pytest
-
 from eventbus import EventBus, events_stream
+
 from service.imap_commands import handlers
 
 

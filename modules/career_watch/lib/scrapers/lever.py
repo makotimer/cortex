@@ -8,8 +8,9 @@ from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup  # pip install beautifulsoup4 html5lib
 
-from ..config import ScraperConfig
 from modules._shared.http import HttpClient
+
+from ..config import ScraperConfig
 from ..models import Posting, ScrapeResult
 from ._targets import parse_url_label_list
 from .base import BaseScraper

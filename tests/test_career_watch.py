@@ -3,8 +3,8 @@ from unittest import mock
 
 import pytest
 
-from modules.career_watch.lib import config as cw_config  # already added
 from modules._shared import vpn_client
+from modules.career_watch.lib import config as cw_config  # already added
 from modules.career_watch.lib import db, engine, models, render
 
 
@@ -116,92 +116,96 @@ def test_skip_network_skips_scrapers(fresh_settings):
 
 
 # ----------------------------------------------------------------------
-# 6. VPN health check: unhealthy → engine raises (fail-closed, surfaces as non-OK)
+# 6-10. The VPN gate: "can this exit reach anything?", not "does it have an IP?"
+#
+# These moved off health()/rotate() and onto switch_until_usable(). The old
+# gate passed whenever gluetun reported a public IP, which it does while the
+# tunnel is mid-reconnect -- 22% of runs failed to rotate and 54% of those then
+# scraped zero results from every source while still logging ok=true.
 # ----------------------------------------------------------------------
-def test_vpn_health_fail_raises(fresh_settings, stub_scraper, monkeypatch):
-    settings = cw_config.Settings.from_env_and_kwargs({
+def _outcome(**kw):
+    base = {"ok": True, "ip": "1.2.3.4", "attempts": 1, "reason": "verified"}
+    base.update(kw)
+    return vpn_client.SwitchOutcome(**base)
+
+
+def _patch_switch(monkeypatch, outcome, calls=None):
+    def _switch(self, **kwargs):
+        if calls is not None:
+            calls.append(kwargs)
+        return outcome
+    monkeypatch.setattr(vpn_client.GluetunClient, "switch_until_usable", _switch)
+
+
+def _vpn_settings(fresh_settings, **kw):
+    return cw_config.Settings.from_env_and_kwargs({
         "person_env": "Test User",
         "groups_path": fresh_settings.groups_path,
         "sqlite_path": fresh_settings.sqlite_path,
         "proxy_url": "http://vpn:8888",
+        **kw,
     })
-    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: False)
-    # A bail-out must NOT look like a healthy no-op (which returns None and is
-    # coerced to ok=True). Raising makes the runner record ok=False.
+
+
+def test_no_usable_exit_raises(fresh_settings, stub_scraper, monkeypatch):
+    """Fail-closed. Raising (not returning None) makes the runner record
+    ok=False, so a missed scrape lands in FAILED RUNS instead of hiding."""
+    _patch_switch(monkeypatch, _outcome(ok=False, ip=None, attempts=3,
+                                        reason="exit 9.9.9.9 could not reach target"))
     with pytest.raises(engine.VPNUnavailableError):
-        engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
+        engine.run_once(_vpn_settings(fresh_settings),
+                        get_scraper=lambda kind: stub_scraper)
 
 
-# ----------------------------------------------------------------------
-# 7. VPN health check: healthy → engine proceeds normally
-# ----------------------------------------------------------------------
-def test_vpn_health_ok_proceeds(fresh_settings, stub_scraper, monkeypatch):
-    settings = cw_config.Settings.from_env_and_kwargs({
-        "person_env": "Test User",
-        "groups_path": fresh_settings.groups_path,
-        "sqlite_path": fresh_settings.sqlite_path,
-        "proxy_url": "http://vpn:8888",
-    })
-    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: True)
-    result = engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
-    # 2 new postings found → (html, meta) returned
+def test_usable_exit_proceeds(fresh_settings, stub_scraper, monkeypatch):
+    _patch_switch(monkeypatch, _outcome())
+    result = engine.run_once(_vpn_settings(fresh_settings),
+                             get_scraper=lambda kind: stub_scraper)
     assert result is not None
     _html, meta = result
     assert meta["new_total"] == 2
 
 
-# ----------------------------------------------------------------------
-# 8. No proxy_url set → VPN check skipped entirely
-# ----------------------------------------------------------------------
-def test_no_proxy_url_skips_vpn_check(fresh_settings, stub_scraper, monkeypatch):
-    # proxy_url is None by default (CAREER_WATCH_PROXY_URL not set in tests)
+def test_usable_exit_that_did_not_change_still_proceeds(
+        fresh_settings, stub_scraper, monkeypatch):
+    """The old gate called an unchanged IP a failed rotation even when the
+    tunnel was perfectly usable. Rotation is a nicety; reachability is the
+    requirement."""
+    _patch_switch(monkeypatch, _outcome(changed=False))
+    assert engine.run_once(_vpn_settings(fresh_settings),
+                           get_scraper=lambda kind: stub_scraper) is not None
+
+
+def test_no_proxy_url_skips_the_vpn_gate_entirely(
+        fresh_settings, stub_scraper, monkeypatch):
     assert fresh_settings.proxy_url is None
 
-    # If the health check were invoked it would raise; we verify it is not
-    monkeypatch.setattr(
-        vpn_client.GluetunClient, "health", lambda self: (_ for _ in ()).throw(RuntimeError("should not call"))
-    )
-    result = engine.run_once(fresh_settings, get_scraper=lambda kind: stub_scraper)
-    # 2 new postings → result returned (VPN check was never triggered)
-    assert result is not None
+    def _boom(self, **kwargs):
+        raise AssertionError("should not switch when no proxy is configured")
+
+    monkeypatch.setattr(vpn_client.GluetunClient, "switch_until_usable", _boom)
+    assert engine.run_once(fresh_settings,
+                           get_scraper=lambda kind: stub_scraper) is not None
 
 
-# ----------------------------------------------------------------------
-# 9. rotate_vpn_per_run=False → rotate() never called
-# ----------------------------------------------------------------------
-def test_rotate_vpn_per_run_false_skips_rotation(fresh_settings, stub_scraper, monkeypatch):
-    settings = cw_config.Settings.from_env_and_kwargs({
-        "person_env": "Test User",
-        "groups_path": fresh_settings.groups_path,
-        "sqlite_path": fresh_settings.sqlite_path,
-        "proxy_url": "http://vpn:8888",
-        "rotate_vpn_per_run": False,
-    })
-    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: True)
-    rotate_calls: list[bool] = []
-    monkeypatch.setattr(vpn_client.GluetunClient, "rotate", lambda self: rotate_calls.append(True) or "1.2.3.4")
-
-    engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
-    assert rotate_calls == []
+def test_rotate_vpn_per_run_false_verifies_without_switching(
+        fresh_settings, stub_scraper, monkeypatch):
+    """prefer_new_ip=False verifies the current exit first and only switches if
+    it is unusable -- restarting the tunnel disturbs every other consumer."""
+    calls: list[dict] = []
+    _patch_switch(monkeypatch, _outcome(), calls)
+    engine.run_once(_vpn_settings(fresh_settings, rotate_vpn_per_run=False),
+                    get_scraper=lambda kind: stub_scraper)
+    assert calls and calls[0]["prefer_new_ip"] is False
 
 
-# ----------------------------------------------------------------------
-# 10. Rotation failure does not abort the run
-# ----------------------------------------------------------------------
-def test_rotation_failure_does_not_abort(fresh_settings, stub_scraper, monkeypatch):
-    settings = cw_config.Settings.from_env_and_kwargs({
-        "person_env": "Test User",
-        "groups_path": fresh_settings.groups_path,
-        "sqlite_path": fresh_settings.sqlite_path,
-        "proxy_url": "http://vpn:8888",
-        "rotate_vpn_per_run": True,
-    })
-    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: True)
-    monkeypatch.setattr(vpn_client.GluetunClient, "rotate", lambda self: None)  # rotation fails
-
-    result = engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
-    # Run still proceeds because health() passed
-    assert result is not None
+def test_rotate_vpn_per_run_true_asks_for_a_new_ip(
+        fresh_settings, stub_scraper, monkeypatch):
+    calls: list[dict] = []
+    _patch_switch(monkeypatch, _outcome(), calls)
+    engine.run_once(_vpn_settings(fresh_settings, rotate_vpn_per_run=True),
+                    get_scraper=lambda kind: stub_scraper)
+    assert calls and calls[0]["prefer_new_ip"] is True
 
 
 # ----------------------------------------------------------------------
@@ -240,28 +244,24 @@ def test_rotate_records_duration_on_timeout(monkeypatch):
 
 
 def test_rotate_timeout_env_override(fresh_settings, stub_scraper, monkeypatch):
+    """VPN_ROTATE_TIMEOUT still reaches the client that does the switching."""
     monkeypatch.setenv("VPN_ROTATE_TIMEOUT", "150")
-    settings = cw_config.Settings.from_env_and_kwargs({
-        "person_env": "Test User",
-        "groups_path": fresh_settings.groups_path,
-        "sqlite_path": fresh_settings.sqlite_path,
-        "proxy_url": "http://vpn:8888",
-        "rotate_vpn_per_run": True,
-    })
-    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: True)
     seen: list[float] = []
 
-    def _record_rotate(self):
+    def _switch(self, **kwargs):
         seen.append(self._rotate_timeout)
-        return "9.9.9.9"
+        return _outcome()
 
-    monkeypatch.setattr(vpn_client.GluetunClient, "rotate", _record_rotate)
-
-    engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
+    monkeypatch.setattr(vpn_client.GluetunClient, "switch_until_usable", _switch)
+    engine.run_once(_vpn_settings(fresh_settings),
+                    get_scraper=lambda kind: stub_scraper)
     assert seen == [150.0]
 
 
 class _StubResponse:
+    def __init__(self, status_code: int = 200) -> None:
+        self.status_code = status_code
+
     def raise_for_status(self) -> None:
         return None
 
@@ -285,3 +285,107 @@ def test_render_build_tables_escapes_html():
     assert "Senior &lt;script&gt;alert(1)&lt;/script&gt;" in html
     assert 'href="https://example.com/lever/1"' in html
     assert "<script>" not in html
+
+
+# ----------------------------------------------------------------------
+# switch_until_usable: the switching logic itself
+# ----------------------------------------------------------------------
+def _client(tmp_path, **kw):
+    return vpn_client.GluetunClient(
+        control_url="http://vpn:8000",
+        quarantine_path=str(tmp_path / "q.json"), **kw)
+
+
+def test_usable_is_true_on_a_2xx_through_the_proxy(monkeypatch, tmp_path):
+    monkeypatch.setattr(vpn_client.requests, "head",
+                        lambda *a, **kw: _StubResponse(200))
+    assert _client(tmp_path).usable("http://vpn:8888", "https://example.invalid")
+
+
+def test_usable_is_false_when_the_request_cannot_complete(monkeypatch, tmp_path):
+    """The exact shape of the failure that passed the old gate: gluetun holds a
+    public IP, and nothing can be reached through it."""
+    def _boom(*a, **kw):
+        raise RuntimeError("ProxyError")
+    monkeypatch.setattr(vpn_client.requests, "head", _boom)
+    assert not _client(tmp_path).usable("http://vpn:8888", "https://example.invalid")
+
+
+def test_usable_falls_back_to_get_when_head_is_refused(monkeypatch, tmp_path):
+    monkeypatch.setattr(vpn_client.requests, "head",
+                        lambda *a, **kw: _StubResponse(405))
+    monkeypatch.setattr(vpn_client.requests, "get",
+                        lambda *a, **kw: _StubResponse(200))
+    assert _client(tmp_path).usable("http://vpn:8888", "https://example.invalid")
+
+
+def test_current_exit_is_verified_before_any_restart(monkeypatch, tmp_path):
+    """prefer_new_ip=False must not restart a working tunnel."""
+    c = _client(tmp_path)
+    restarts = []
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: "1.1.1.1")
+    monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait",
+                        lambda self: restarts.append(True))
+    monkeypatch.setattr(vpn_client.GluetunClient, "usable", lambda self, p, v: True)
+
+    out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
+                                prefer_new_ip=False)
+    assert out.ok and out.attempts == 1 and restarts == []
+
+
+def test_a_bad_exit_is_quarantined_and_the_next_one_is_used(monkeypatch, tmp_path):
+    c = _client(tmp_path)
+    current = {"ip": "9.9.9.9"}
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip",
+                        lambda self: current["ip"])
+    monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait",
+                        lambda self: current.__setitem__("ip", "2.2.2.2"))
+    monkeypatch.setattr(vpn_client.GluetunClient, "usable",
+                        lambda self, p, v: current["ip"] == "2.2.2.2")
+
+    out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
+                                prefer_new_ip=False, attempts=3)
+    assert out.ok and out.ip == "2.2.2.2"
+    assert out.quarantined == ["9.9.9.9"]
+    assert c._is_quarantined("9.9.9.9")
+
+
+def test_a_quarantined_exit_is_skipped_without_being_probed(monkeypatch, tmp_path):
+    c = _client(tmp_path)
+    c._quarantine("9.9.9.9")
+    probed = []
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: "9.9.9.9")
+    monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait", lambda self: None)
+    monkeypatch.setattr(vpn_client.GluetunClient, "usable",
+                        lambda self, p, v: probed.append(True) or True)
+
+    out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
+                                prefer_new_ip=False, attempts=2)
+    assert not out.ok and probed == []
+
+
+def test_quarantine_expires(tmp_path):
+    c = _client(tmp_path, quarantine_ttl=-1)   # already expired on write
+    c._quarantine("9.9.9.9")
+    assert not c._is_quarantined("9.9.9.9")
+
+
+def test_giving_up_reports_every_exit_it_tried(monkeypatch, tmp_path):
+    c = _client(tmp_path)
+    ips = iter(["1.1.1.1"] * 8)
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: next(ips))
+    monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait", lambda self: None)
+    monkeypatch.setattr(vpn_client.GluetunClient, "usable", lambda self, p, v: False)
+
+    out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
+                                prefer_new_ip=True, attempts=3)
+    assert not out.ok and out.attempts == 3
+    assert len(out.tried) == 3 and all(ok is False for _ip, ok in out.tried)
+
+
+def test_a_tunnel_with_no_ip_is_not_usable(monkeypatch, tmp_path):
+    c = _client(tmp_path)
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: None)
+    monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait", lambda self: None)
+    out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u", attempts=2)
+    assert not out.ok and "no public IP" in out.reason

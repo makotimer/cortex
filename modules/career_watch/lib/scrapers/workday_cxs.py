@@ -10,8 +10,9 @@ import time
 from typing import Any
 from urllib.parse import parse_qs, urlsplit
 
-from ..config import ScraperConfig
 from modules._shared.http import HttpClient
+
+from ..config import ScraperConfig
 from ..models import Posting, ScrapeResult
 from .base import BaseScraper
 from .registry import register

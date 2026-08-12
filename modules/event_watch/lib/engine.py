@@ -121,9 +121,11 @@ def run_once(
     window_start = now.date()
     window_end = window_start + timedelta(days=settings.window_days)
 
-    _check_vpn(settings)
-
     scrapers = scrapers if scrapers is not None else _default_scrapers(settings)
+    # Verify against a host this run will actually fetch from. getattr, because
+    # a scraper injected by a test need not declare one.
+    _check_vpn(settings, next(
+        (u for u in (getattr(s, "verify_url", "") for s in scrapers) if u), ""))
     publisher = publish.Publisher(settings.site, dry_run=settings.dry_run)
 
     attention: list[str] = []
@@ -231,8 +233,14 @@ def _run_source(
     return {**counts, "attention": attention}
 
 
-def _check_vpn(settings: Settings) -> None:
-    """Fail-closed, exactly like career_watch, using the same trace ops."""
+def _check_vpn(settings: Settings, verify_url: str = "") -> None:
+    """Fail-closed, but on whether the exit can actually reach the source.
+
+    The old check asked gluetun whether it had a public IP. That question has
+    been answered "yes" by an exit that could not reach the target at all, so
+    a run passed the gate and then failed its fetch. This switches exits until
+    one verifiably works, and only bails when none does.
+    """
     if not settings.proxy_url:
         return
     control_url = os.getenv("VPN_CONTROL_URL", "http://vpn:8000")
@@ -242,23 +250,39 @@ def _check_vpn(settings: Settings) -> None:
         )
     except ValueError:
         rotate_timeout = vpn_client.DEFAULT_ROTATE_TIMEOUT
-    gluetun = vpn_client.GluetunClient(control_url=control_url, rotate_timeout=rotate_timeout)
-    if not gluetun.health():
+
+    gluetun = vpn_client.GluetunClient(
+        control_url=control_url,
+        rotate_timeout=rotate_timeout,
+        quarantine_path=os.getenv("VPN_QUARANTINE_PATH",
+                                  "/app/local/state/vpn_quarantine.json"),
+    )
+    outcome = gluetun.switch_until_usable(
+        proxy_url=settings.proxy_url,
+        verify_url=verify_url or "https://tockify.com/",
+        attempts=int(os.getenv("VPN_SWITCH_ATTEMPTS") or 3),
+        prefer_new_ip=settings.rotate_vpn_per_run,
+    )
+    # Logged whether or not it worked: the (ip, ok) pairs are the only record
+    # of which exits were tried, and the raw material for any future reputation.
+    logging_bridge.activity({
+        "component": "event_watch.engine", "op": "vpn_switch",
+        "ok": outcome.ok, "ip": outcome.ip, "changed": outcome.changed,
+        "attempts": outcome.attempts, "seconds": round(outcome.seconds, 2),
+        "reason": outcome.reason, "quarantined": outcome.quarantined,
+        "tried": [{"ip": ip, "ok": ok} for ip, ok in outcome.tried],
+        "verify_url": verify_url,
+    })
+    if not outcome.ok:
+        # Kept for compatibility: cortex's nightly anomaly detection keys off
+        # this op, and design §8 specifies it.
         logging_bridge.activity({
             "component": "event_watch.engine", "op": "vpn_health_fail",
-            "control_url": control_url,
+            "control_url": control_url, "reason": outcome.reason,
         })
-        raise VPNUnavailableError(f"VPN health check failed (control_url={control_url})")
-    if settings.rotate_vpn_per_run:
-        new_ip = gluetun.rotate()
-        rotate_seconds = getattr(gluetun, "last_rotate_seconds", None)
-        logging_bridge.activity({
-            "component": "event_watch.engine", "op": "vpn_rotated",
-            "new_ip": new_ip, "rotated": new_ip is not None,
-            "rotate_seconds": round(rotate_seconds, 2) if rotate_seconds else None,
-            "rotate_polls": getattr(gluetun, "last_rotate_polls", 0),
-            "rotate_timeout": rotate_timeout,
-        })
+        raise VPNUnavailableError(
+            f"no usable VPN exit after {outcome.attempts} attempt(s): {outcome.reason}"
+        )
 
 
 def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:

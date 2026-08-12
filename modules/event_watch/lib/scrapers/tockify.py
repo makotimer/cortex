@@ -100,6 +100,7 @@ class TockifyScraper(BaseEventScraper):
     kind = "tockify"
     source_slug = CALNAME
     source_name = ORGANIZATION["name"]
+    verify_url = ICS_URL
 
     def __init__(self, proxy_url: str | None = None) -> None:
         self._proxy_url = proxy_url

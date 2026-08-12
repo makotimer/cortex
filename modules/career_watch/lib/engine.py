@@ -80,33 +80,48 @@ def run_once(
         except ValueError:
             rotate_timeout = vpn_client.DEFAULT_ROTATE_TIMEOUT
         gluetun = vpn_client.GluetunClient(
-            control_url=control_url, rotate_timeout=rotate_timeout
+            control_url=control_url,
+            rotate_timeout=rotate_timeout,
+            quarantine_path=os.getenv("VPN_QUARANTINE_PATH",
+                                      "/app/local/state/vpn_quarantine.json"),
         )
-        if not gluetun.health():
+        # Switch until an exit verifiably works, rather than until the IP
+        # changes. Measured over 626 runs, the old check failed to rotate on
+        # 22% of them and 54% of those scraped zero results from every source
+        # while still logging ok=true — the tunnel was mid-reconnect and the
+        # gate had no way to tell.
+        outcome = gluetun.switch_until_usable(
+            proxy_url=settings.proxy_url,
+            verify_url=os.getenv("CAREER_WATCH_VERIFY_URL",
+                                 "https://www.cloudflare.com/cdn-cgi/trace"),
+            attempts=int(os.getenv("VPN_SWITCH_ATTEMPTS") or 3),
+            prefer_new_ip=settings.rotate_vpn_per_run,
+        )
+        logging_bridge.activity({
+            "component": "career_watch.engine",
+            "op": "vpn_switch",
+            "person": person_env,
+            "ok": outcome.ok,
+            "ip": outcome.ip,
+            "changed": outcome.changed,
+            "attempts": outcome.attempts,
+            "seconds": round(outcome.seconds, 2),
+            "reason": outcome.reason,
+            "quarantined": outcome.quarantined,
+            "tried": [{"ip": ip, "ok": ok} for ip, ok in outcome.tried],
+        })
+        if not outcome.ok:
             logging_bridge.activity({
                 "component": "career_watch.engine",
                 "op": "vpn_health_fail",
                 "person": person_env,
                 "control_url": control_url,
+                "reason": outcome.reason,
             })
             raise VPNUnavailableError(
-                f"VPN health check failed for {person_env} (control_url={control_url})"
+                f"no usable VPN exit for {person_env} after {outcome.attempts}"
+                f" attempt(s): {outcome.reason}"
             )
-        if settings.rotate_vpn_per_run:
-            new_ip = gluetun.rotate()
-            rotate_seconds = getattr(gluetun, "last_rotate_seconds", None)
-            logging_bridge.activity({
-                "component": "career_watch.engine",
-                "op": "vpn_rotated",
-                "person": person_env,
-                "new_ip": new_ip,
-                "rotated": new_ip is not None,
-                # Reconnect latency, for tuning VPN_ROTATE_TIMEOUT over time.
-                # None means rotate() never reached the wait loop (PUT failed).
-                "rotate_seconds": round(rotate_seconds, 2) if rotate_seconds else None,
-                "rotate_polls": getattr(gluetun, "last_rotate_polls", 0),
-                "rotate_timeout": rotate_timeout,
-            })
 
     # Resolve scraper lookup function (test override or production default)
     get_scraper_func = get_scraper or _default_get_scraper
