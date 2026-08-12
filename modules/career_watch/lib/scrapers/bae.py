@@ -11,7 +11,7 @@ from typing import Any
 from urllib.parse import urljoin, urlsplit
 
 from ..config import ScraperConfig
-from ..http_client import HttpClient
+from modules._shared.http import HttpClient
 from ..models import Posting, ScrapeResult
 from .base import BaseScraper
 from .registry import register

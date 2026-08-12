@@ -4,7 +4,8 @@ from unittest import mock
 import pytest
 
 from modules.career_watch.lib import config as cw_config  # already added
-from modules.career_watch.lib import db, engine, models, render, vpn_client
+from modules._shared import vpn_client
+from modules.career_watch.lib import db, engine, models, render
 
 
 # ----------------------------------------------------------------------

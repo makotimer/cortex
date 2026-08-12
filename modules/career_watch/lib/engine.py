@@ -16,7 +16,9 @@ import time
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from . import db, logging_bridge, render, vpn_client
+from modules._shared import vpn_client
+
+from . import db, logging_bridge, render
 from .config import ScraperConfig, Settings
 from .models import Posting, ScrapeResult
 from .scrapers.base import BaseScraper

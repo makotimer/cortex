@@ -1,0 +1,3363 @@
+BEGIN:VCALENDAR
+METHOD:PUBLISH
+CALSCALE:GREGORIAN
+PRODID:-//tockify.com/1
+VERSION:2.0
+UID:5ace7462df82fe785ea38405
+X-PUBLISHED-TTL:P15M
+REFRESH-INTERVAL:P15M
+X-WR-CALNAME:Bryan + College Station Library System Calendar
+X-WR-CALDESC:Events and notices from the Bryan + College Station Public L
+ ibrary System.
+X-WR-TIMEZONE:America/Chicago
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5699/29732760/0/0
+DTSTART:20260713T180000Z
+DTEND:20260713T193000Z
+URL:https://tockify.com/bcslibrary/detail/5699/1783965600000
+SUMMARY: Genealogy Help (CBMPL)
+DESCRIPTION:\nGenealogy Help has returned to the Clara B. Mounce Library!
+  Please join us every Monday in the 2nd floor Computer Lab. Genealogy exp
+ erts will be available for one-on-one sessions. Your family tree awaits!\
+ n\nFor more information\, email Mounce Library https://weblink.bryantx.go
+ v/Forms/lcAHV or call (979) 209-5600. Registration not required.\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/678048dbc1c9522556ce195f/scaled_384.png
+X-TKF-CUSTOM-PREVIEW: Genealogy Help has returned to the Clara B. Mounce 
+ Library! Please join us every Monday in the 2nd floor Computer Lab. Genea
+ logy experts will be available...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260518T193146Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193146Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5490/29734020/0/0
+DTSTART:20260714T150000Z
+DTEND:20260714T160000Z
+URL:https://tockify.com/bcslibrary/detail/5490/1784041200000
+SUMMARY: Meyer Book Club (Meyer Center\, online) - Register
+DESCRIPTION:We will be discussing The Lost City of the Monkey God https:/
+ /bcslibrary.tlcdelivers.com/#section=resource&resourceid=4086084 by Dougl
+ as Preston. This book is nonfiction.\n\nThis club's meetings are hybrid (
+ Meyer Center / Zoom). Registration is required\; let us know if you plan 
+ to attend in person or by Zoom.\n\nNOTE: Starting in May\, the Meyer Book
+  Club is moving to the 2nd Tuesday and will still be at 10 AM Central.\n\
+ nFor more information or to register\, click the RSVP button in the top r
+ ight corner\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAH
+ V \, or call (979) 209-6347.\n\n  * Sign up for our newsletter here. http
+ s://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H
+ _gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq
+ 2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69e680e35f82b9dab70c298b/scaled_768.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Lost City of the Monkey Go
+ d https://bcslibrary.tlcdelivers.com/#section=resource&resourceid=4086084
+  by Douglas Preston. This book is...
+LOCATION:Bob and Wanda Meyer Senior and Community Center\,2275 Dartmouth 
+ St\, College Station\, TX 77840\, USA
+CREATED:20260203T203004Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260420T194012Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4598/29735850/0/0
+DTSTART:20260715T213000Z
+DTEND:20260715T223000Z
+URL:https://tockify.com/bcslibrary/detail/4598/1784151000000
+SUMMARY: Classics Book Club (LJRL)
+DESCRIPTION:We will be discussing The Handmaid’s Tale https://bcslibrary.
+ tlcdelivers.com/#/resource/647864948/details by Margaret Atwood. Ages 14 
+ and up are welcome. Registration not required.\n\nFor more information\, 
+ email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or call (979
+ ) 209-6347.\n\n  * Sign up for our newsletter here. https://visitor.r20.c
+ onstantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH
+ 5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_
+ Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a16219cbf50ac3e012433a6/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Handmaid’s Tale https://bc
+ slibrary.tlcdelivers.com/#/resource/647864948/details by Margaret Atwood.
+  Ages 14 and up are welcome....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20230823T211403Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260526T225314Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5518/29737380/0/0
+DTSTART:20260716T230000Z
+URL:https://tockify.com/bcslibrary/detail/5518/1784242800000
+SUMMARY: Teen Anime Craft Club (LJRL)
+DESCRIPTION:If you’re a teen between the ages 14-17\, who is interested i
+ n Manga and Anime\, you should join us for Teen Anime Craft Club! We like
+  to hangout and talk about our favorite shows and manga and enjoy snacks 
+ while we do crafts or activities. Registration not required.\n\nCharacter
+  art is by Desinho_x of Twitter.\n\nFor more information\, email Ringer L
+ ibrary https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\
+ n  * Sign up for our newsletter here. https://visitor.r20.constantcontact
+ .com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vUL
+ Jv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYA
+ q-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Teen,SRP
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6983d70dd7224e478dc2a124/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:If you’re a teen between the ages 14-17\, who is int
+ erested in Manga and Anime\, you should join us for Teen Anime Craft Club
+ ! We like to hangout and talk...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260204T233424Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260414T154239Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5403/29737380/0/0
+DTSTART:20260716T230000Z
+DTEND:20260717T000000Z
+URL:https://tockify.com/bcslibrary/detail/5403/1784242800000
+SUMMARY: Ukulele Club (CBMPL)
+DESCRIPTION:Tune in for Ukulele Club at Mounce Library! Bring your own uk
+ ulele or borrow one from the library. Ages 7 and up.\n\nThis club usually
+  meets in the 2nd floor meeting room. Registration not required.\n\nFor m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. htt
+ ps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9
+ H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTk
+ q2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Children,Tween,Teen,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/65d370a41087122ee7d37334/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Tune in for Ukulele Club at Mounce Library! Bring yo
+ ur own ukulele or borrow one from the library. Ages 7 and up. This club u
+ sually meets in the 2nd floor...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251117T210339Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260327T204904Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5465/29738280/0/0
+DTSTART:20260717T140000Z
+DTEND:20260717T200000Z
+URL:https://tockify.com/bcslibrary/detail/5465/1784296800000
+SUMMARY: Computer Help (CBMPL) - Register
+DESCRIPTION:Friday appointments only. Please leave a message stating what
+  you would like assistance with and what device you are working on. Assis
+ tance can include basic computer skills\, email\, Microsoft Word\, intern
+ et\, Excel Spreadsheet.\n\nFor more information or to sign up\, email Mou
+ nce Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-560
+ 0.\n\n  * Sign up for our newsletter here. https://visitor.r20.constantco
+ ntact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd
+ 25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3Q
+ R9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/66202158f0f60d334375b1ca/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Friday appointments only. Please leave a message sta
+ ting what you would like assistance with and what device you are working 
+ on. Assistance can include basic...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251211T213140Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193425Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5685/29738340/0/0
+DTSTART:20260717T150000Z
+DTEND:20260717T200000Z
+URL:https://tockify.com/bcslibrary/detail/5685/1784300400000
+SUMMARY: Community Benefits Assistance at Your Library (LJRL) - Register
+DESCRIPTION:Beginning in June 2026\, the Bryan + College Station Public L
+ ibrary System will partner with the Brazos Valley Food Bank to assist lib
+ rary patrons with applying for and renewing state benefit programs.\n\nPr
+ ograms Available:\n\n  * SNAP/TSAP\n  * Medicaid\n  * TANF\n  * Healthy T
+ exas Women\n  * Medicare Savings Program\n  * And more\n\nYou can find a 
+ complete list of available programs at: Your Texas Benefits - Learn https
+ ://url.us.m.mimecastprotect.com/s/J1SxCyPkv8hyVMBMSMhvUxuZSI?domain=yourt
+ exasbenefits.com .\n\nTo help prepare for your appointment\, please revie
+ w the required documents here: H1858.pdf https://url.us.m.mimecastprotect
+ .com/s/kBaCCxkjrGfQNAWAS8fVUyHMZm?domain=hhs.texas.gov\n\nService Locatio
+ ns & Schedule:\n\n  * Larry J. Ringer Library\, 1st & 3rd Fridays\, 10 AM
+  - 3 PM\n  * Clara B. Mounce Public Library\, 2nd & 4th Fridays\, 10 AM -
+  3 PM\n\nPlease note: Services will not be available on June 19 and July 
+ 3\, 2026.\n\nWalk-ins are welcome\, and advance registration is encourage
+ d. To register\, click the RSVP button in the top right corner.\n\nFor mo
+ re information\, please visit Brazos Valley Food Bank https://url.us.m.mi
+ mecastprotect.com/s/VLPcCzplwmumV2j2CgiLU9hCRc?domain=bvfb.org .\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a062ec164f49cafacb2fba3/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Beginning in June 2026\, the Bryan + College Station
+  Public Library System will partner with the Brazos Valley Food Bank to a
+ ssist library patrons with...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260514T203836Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260514T204129Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5699/29742840/0/0
+DTSTART:20260720T180000Z
+DTEND:20260720T193000Z
+URL:https://tockify.com/bcslibrary/detail/5699/1784570400000
+SUMMARY: Genealogy Help (CBMPL)
+DESCRIPTION:\nGenealogy Help has returned to the Clara B. Mounce Library!
+  Please join us every Monday in the 2nd floor Computer Lab. Genealogy exp
+ erts will be available for one-on-one sessions. Your family tree awaits!\
+ n\nFor more information\, email Mounce Library https://weblink.bryantx.go
+ v/Forms/lcAHV or call (979) 209-5600. Registration not required.\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/678048dbc1c9522556ce195f/scaled_384.png
+X-TKF-CUSTOM-PREVIEW: Genealogy Help has returned to the Clara B. Mounce 
+ Library! Please join us every Monday in the 2nd floor Computer Lab. Genea
+ logy experts will be available...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260518T193146Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193146Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5615/29743050/0/0
+DTSTART:20260720T213000Z
+DTEND:20260720T233000Z
+URL:https://tockify.com/bcslibrary/detail/5615/1784583000000
+SUMMARY: Game Guild (CBMPL) - Register
+DESCRIPTION:Roll for initiative at the Mounce during Game Guild! Explore 
+ card games\, board games\, puzzles\, and TTRPGs for ages 12-17! Game supp
+ lies provided by Clockwork Games & Events\, MagiKids\, and Let's Quest. O
+ nline registration required.\n\nTo register\, click the RSVP button in th
+ e top right corner.\n\nFor more information\, email Mounce Library https:
+ //weblink.bryantx.gov/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up 
+ for our newsletter here. https://visitor.r20.constantcontact.com/manage/o
+ ptin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIg
+ Ylnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbm
+ z2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Teen,SRP
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/689e0811effeba640a8c55ae/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Roll for initiative at the Mounce during Game Guild!
+  Explore card games\, board games\, puzzles\, and TTRPGs for ages 12-17! 
+ Game supplies provided by...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260331T154425Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260331T155926Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5403/29747460/0/0
+DTSTART:20260723T230000Z
+DTEND:20260724T000000Z
+URL:https://tockify.com/bcslibrary/detail/5403/1784847600000
+SUMMARY: Ukulele Club (CBMPL)
+DESCRIPTION:Tune in for Ukulele Club at Mounce Library! Bring your own uk
+ ulele or borrow one from the library. Ages 7 and up.\n\nThis club usually
+  meets in the 2nd floor meeting room. Registration not required.\n\nFor m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. htt
+ ps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9
+ H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTk
+ q2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Children,Tween,Teen,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/65d370a41087122ee7d37334/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Tune in for Ukulele Club at Mounce Library! Bring yo
+ ur own ukulele or borrow one from the library. Ages 7 and up. This club u
+ sually meets in the 2nd floor...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251117T210339Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260327T204904Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5465/29748360/0/0
+DTSTART:20260724T140000Z
+DTEND:20260724T200000Z
+URL:https://tockify.com/bcslibrary/detail/5465/1784901600000
+SUMMARY: Computer Help (CBMPL) - Register
+DESCRIPTION:Friday appointments only. Please leave a message stating what
+  you would like assistance with and what device you are working on. Assis
+ tance can include basic computer skills\, email\, Microsoft Word\, intern
+ et\, Excel Spreadsheet.\n\nFor more information or to sign up\, email Mou
+ nce Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-560
+ 0.\n\n  * Sign up for our newsletter here. https://visitor.r20.constantco
+ ntact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd
+ 25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3Q
+ R9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/66202158f0f60d334375b1ca/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Friday appointments only. Please leave a message sta
+ ting what you would like assistance with and what device you are working 
+ on. Assistance can include basic...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251211T213140Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193425Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5684/29748420/0/0
+DTSTART:20260724T150000Z
+DTEND:20260724T200000Z
+URL:https://tockify.com/bcslibrary/detail/5684/1784905200000
+SUMMARY: Community Benefits Assistance at Your Library (CBMPL) - Register
+DESCRIPTION:Beginning in June 2026\, the Bryan + College Station Public L
+ ibrary System will partner with the Brazos Valley Food Bank to assist lib
+ rary patrons with applying for and renewing state benefit programs.\n\nPr
+ ograms Available:\n\n  * SNAP/TSAP\n  * Medicaid\n  * TANF\n  * Healthy T
+ exas Women\n  * Medicare Savings Program\n  * And more\n\nYou can find a 
+ complete list of available programs at: Your Texas Benefits - Learn https
+ ://url.us.m.mimecastprotect.com/s/J1SxCyPkv8hyVMBMSMhvUxuZSI?domain=yourt
+ exasbenefits.com .\n\nTo help prepare for your appointment\, please revie
+ w the required documents here: H1858.pdf https://url.us.m.mimecastprotect
+ .com/s/kBaCCxkjrGfQNAWAS8fVUyHMZm?domain=hhs.texas.gov\n\nService Locatio
+ ns & Schedule:\n\n  * Larry J. Ringer Library\, 1st & 3rd Fridays\, 10 AM
+  - 3 PM\n  * Clara B. Mounce Public Library\, 2nd & 4th Fridays\, 10 AM -
+  3 PM\n\nPlease note: Services will not be available on June 19 and July 
+ 3\, 2026.\n\nWalk-ins are welcome\, and advance registration is encourage
+ d. To register\, click the RSVP button in the top right corner.\n\nFor mo
+ re information\, please visit Brazos Valley Food Bank https://url.us.m.mi
+ mecastprotect.com/s/VLPcCzplwmumV2j2CgiLU9hCRc?domain=bvfb.org .\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a062ec164f49cafacb2fba3/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Beginning in June 2026\, the Bryan + College Station
+  Public Library System will partner with the Brazos Valley Food Bank to a
+ ssist library patrons with...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260514T203524Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260514T204136Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5699/29752920/0/0
+DTSTART:20260727T180000Z
+DTEND:20260727T193000Z
+URL:https://tockify.com/bcslibrary/detail/5699/1785175200000
+SUMMARY: Genealogy Help (CBMPL) - CANCELLED
+DESCRIPTION:NOTE: This event is CANCELLED. Mounce Library will be CLOSED 
+ Monday\, July 27\, at 1 PM due to AC Failure. Mounce Library will reopen 
+ tomorrow\, Tuesday\, July 28\, at 9:00 AM for normal public hours. All pr
+ ograming will resume as normal. Thank you all so much for your patience d
+ uring the closure!\n\nGenealogy Help has returned to the Clara B. Mounce 
+ Library! Please join us every Monday in the 2nd floor Computer Lab. Genea
+ logy experts will be available for one-on-one sessions. Your family tree 
+ awaits!\n\nFor more information\, email Mounce Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-5600. Registration not required.\
+ n\n  * Sign up for our newsletter here. https://visitor.r20.constantconta
+ ct.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25v
+ ULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9V
+ YAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/678048dbc1c9522556ce195f/scaled_384.png
+X-TKF-CUSTOM-PREVIEW:NOTE: This event is CANCELLED. Mounce Library will b
+ e CLOSED Monday\, July 27\, at 1 PM due to AC Failure. Mounce Library wil
+ l reopen tomorrow\, Tuesday\,...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260518T193146Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260727T213113Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5616/29753190/0/0
+DTSTART:20260728T223000Z
+DTEND:20260728T233000Z
+URL:https://tockify.com/bcslibrary/detail/5616/1785191400000
+SUMMARY: The Comic Panel (CBMPL) - RESCHEDULED
+DESCRIPTION:NOTE: Mounce Library closed Monday\, July 27\, at 1 PM due to
+  AC Failure. Mounce Library will reopen tomorrow\, Tuesday\, July 28\, at
+  9:00 AM for normal public hours. This book club's meeting has been RESCH
+ EDULED to Tuesday\, July 28\, at 5:30 PM. Thank you all so much for your 
+ patience during the closure!\n\nPicture yourself at the Mounce for The Co
+ mic Panel\, our graphic novel book club for ages 12-17! We will be discus
+ sing The Legend of Zelda: Twilight Princess\, Vol. 1 https://bcslibrary.t
+ lcdelivers.com/?config=YA#/resource/5516364/details by Akira Himekawa. Fr
+ ee books provided by Wonderful Words Bookshoppe in Downtown Bryan! Pick u
+ p your copy\, while supplies last. Online registration required.\n\nFor m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\nTo register\, click the RSVP button in t
+ he top right corner.\n\n  * Sign up for our newsletter here. https://visi
+ tor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6
+ SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_N
+ D7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Teen,Tween,SRP
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a3a9fc655a8c60bf9b1b5e6/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:NOTE: Mounce Library closed Monday\, July 27\, at 1 
+ PM due to AC Failure. Mounce Library will reopen tomorrow\, Tuesday\, Jul
+ y 28\, at 9:00 AM for normal...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260331T154926Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260727T214516Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5363/29754660/0/0
+DTSTART:20260728T230000Z
+URL:https://tockify.com/bcslibrary/detail/5363/1785279600000
+SUMMARY: Anime Club for Adults (LJRL)
+DESCRIPTION:Anime Club for Adults is a chance for Anime and Manga fans ag
+ es 18+ to gather and talk about favorite shows\, series\, and everything 
+ else\, while enjoying snacks! Registration is not required.\n\nCharacter 
+ art is by Desinho_x of Twitter.\n\nFor more information\, email Ringer Li
+ brary https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n
+   * Sign up for our newsletter here. https://visitor.r20.constantcontact.
+ com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJ
+ v4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq
+ -sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,SRP
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/64dfd6f104ea1831705b90d3/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:Anime Club for Adults is a chance for Anime and Mang
+ a fans ages 18+ to gather and talk about favorite shows\, series\, and ev
+ erything else\, while enjoying...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20251112T200551Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260414T154931Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5568/29757000/0/0
+DTSTART:20260730T140000Z
+DTEND:20260730T170000Z
+URL:https://tockify.com/bcslibrary/detail/5568/1785420000000
+SUMMARY: Job and Resume Assistance: Workforce Solutions (CBMPL)
+DESCRIPTION:The BCSPLS and Workforce Solutions Brazos Valley are partneri
+ ng on Job and Resume Assistance. Someone from Workforce Solutions Brazos 
+ Valley will come to the library on the last Thursday of the month and pro
+ vide free\, walk-in assistance to the public. Workforce Solutions will be
+  at both Mounce and Ringer from 9 AM to 12 PM on the last Thursday of the
+  month.\n\nFor more information\, email Mounce Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up for our news
+ letter here. https://visitor.r20.constantcontact.com/manage/optin?v=001nj
+ YGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWv
+ aT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI0
+ 1NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6761a3ae8ed0d3054a019e2e/scaled_896.png
+X-TKF-CUSTOM-PREVIEW:The BCSPLS and Workforce Solutions Brazos Valley are
+  partnering on Job and Resume Assistance. Someone from Workforce Solution
+ s Brazos Valley will come to the...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260307T222354Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260307T222354Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5569/29757000/0/0
+DTSTART:20260730T140000Z
+DTEND:20260730T170000Z
+URL:https://tockify.com/bcslibrary/detail/5569/1785420000000
+SUMMARY: Job and Resume Assistance: Workforce Solutions (LJRL)
+DESCRIPTION:The BCSPLS and Workforce Solutions Brazos Valley are partneri
+ ng on Job and Resume Assistance. Someone from Workforce Solutions Brazos 
+ Valley will come to the library on the last Thursday of the month and pro
+ vide free\, walk-in assistance to the public. Workforce Solutions will be
+  at both Mounce and Ringer from 9 AM to 12 PM on the last Thursday of the
+  month.\n\nFor more information\, email Ringer Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our news
+ letter here. https://visitor.r20.constantcontact.com/manage/optin?v=001nj
+ YGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWv
+ aT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI0
+ 1NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6761a3ae8ed0d3054a019e2e/scaled_896.png
+X-TKF-CUSTOM-PREVIEW:The BCSPLS and Workforce Solutions Brazos Valley are
+  partnering on Job and Resume Assistance. Someone from Workforce Solution
+ s Brazos Valley will come to the...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260307T222424Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260307T222424Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5403/29757540/0/0
+DTSTART:20260730T230000Z
+DTEND:20260731T000000Z
+URL:https://tockify.com/bcslibrary/detail/5403/1785452400000
+SUMMARY: Ukulele Club (CBMPL)
+DESCRIPTION:Tune in for Ukulele Club at Mounce Library! Bring your own uk
+ ulele or borrow one from the library. Ages 7 and up.\n\nThis club usually
+  meets in the 2nd floor meeting room. Registration not required.\n\nFor m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. htt
+ ps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9
+ H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTk
+ q2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Children,Tween,Teen,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/65d370a41087122ee7d37334/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Tune in for Ukulele Club at Mounce Library! Bring yo
+ ur own ukulele or borrow one from the library. Ages 7 and up. This club u
+ sually meets in the 2nd floor...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251117T210339Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260327T204904Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5465/29758440/0/0
+DTSTART:20260731T140000Z
+DTEND:20260731T200000Z
+URL:https://tockify.com/bcslibrary/detail/5465/1785506400000
+SUMMARY: Computer Help (CBMPL) - Register
+DESCRIPTION:Friday appointments only. Please leave a message stating what
+  you would like assistance with and what device you are working on. Assis
+ tance can include basic computer skills\, email\, Microsoft Word\, intern
+ et\, Excel Spreadsheet.\n\nFor more information or to sign up\, email Mou
+ nce Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-560
+ 0.\n\n  * Sign up for our newsletter here. https://visitor.r20.constantco
+ ntact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd
+ 25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3Q
+ R9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/66202158f0f60d334375b1ca/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Friday appointments only. Please leave a message sta
+ ting what you would like assistance with and what device you are working 
+ on. Assistance can include basic...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251211T213140Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193425Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5699/29763000/0/0
+DTSTART:20260803T180000Z
+DTEND:20260803T193000Z
+URL:https://tockify.com/bcslibrary/detail/5699/1785780000000
+SUMMARY: Genealogy Help (CBMPL)
+DESCRIPTION:\nGenealogy Help has returned to the Clara B. Mounce Library!
+  Please join us every Monday in the 2nd floor Computer Lab. Genealogy exp
+ erts will be available for one-on-one sessions. Your family tree awaits!\
+ n\nFor more information\, email Mounce Library https://weblink.bryantx.go
+ v/Forms/lcAHV or call (979) 209-5600. Registration not required.\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/678048dbc1c9522556ce195f/scaled_384.png
+X-TKF-CUSTOM-PREVIEW: Genealogy Help has returned to the Clara B. Mounce 
+ Library! Please join us every Monday in the 2nd floor Computer Lab. Genea
+ logy experts will be available...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260518T193146Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193146Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5594/29763300/0/0
+DTSTART:20260803T230000Z
+DTEND:20260804T000000Z
+URL:https://tockify.com/bcslibrary/detail/5594/1785798000000
+SUMMARY: Evening Book Club (LJRL)
+DESCRIPTION:We will be discussing The Astral Library https://bcslibrary.t
+ lcdelivers.com/#section=resource&resourceid=809294546 by Kate Quinn. Regi
+ stration is not required.\n\nNOTE: Starting in July\, the Evening Book Cl
+ ub is moving to the 1st Monday and will still be at 6 PM.\n\nFor more inf
+ ormation\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV o
+ r call (979) 209-6347.\n\n  * Sign up for our newsletter here. https://vi
+ sitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70B
+ Z6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq
+ _ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69e25c68e7fb5c8ff8d4a09d/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Astral Library https://bcs
+ library.tlcdelivers.com/#section=resource&resourceid=809294546 by Kate Qu
+ inn. Registration is not...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260326T193058Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260417T161454Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5403/29767620/0/0
+DTSTART:20260806T230000Z
+DTEND:20260807T000000Z
+URL:https://tockify.com/bcslibrary/detail/5403/1786057200000
+SUMMARY: Ukulele Club (CBMPL)
+DESCRIPTION:Tune in for Ukulele Club at Mounce Library! Bring your own uk
+ ulele or borrow one from the library. Ages 7 and up.\n\nThis club usually
+  meets in the 2nd floor meeting room. Registration not required.\n\nFor m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. htt
+ ps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9
+ H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTk
+ q2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Children,Tween,Teen,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/65d370a41087122ee7d37334/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Tune in for Ukulele Club at Mounce Library! Bring yo
+ ur own ukulele or borrow one from the library. Ages 7 and up. This club u
+ sually meets in the 2nd floor...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251117T210339Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260327T204904Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5465/29768520/0/0
+DTSTART:20260807T140000Z
+DTEND:20260807T200000Z
+URL:https://tockify.com/bcslibrary/detail/5465/1786111200000
+SUMMARY: Computer Help (CBMPL) - Register
+DESCRIPTION:Friday appointments only. Please leave a message stating what
+  you would like assistance with and what device you are working on. Assis
+ tance can include basic computer skills\, email\, Microsoft Word\, intern
+ et\, Excel Spreadsheet.\n\nFor more information or to sign up\, email Mou
+ nce Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-560
+ 0.\n\n  * Sign up for our newsletter here. https://visitor.r20.constantco
+ ntact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd
+ 25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3Q
+ R9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/66202158f0f60d334375b1ca/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Friday appointments only. Please leave a message sta
+ ting what you would like assistance with and what device you are working 
+ on. Assistance can include basic...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251211T213140Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193425Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5685/29768580/0/0
+DTSTART:20260807T150000Z
+DTEND:20260807T200000Z
+URL:https://tockify.com/bcslibrary/detail/5685/1786114800000
+SUMMARY: Community Benefits Assistance at Your Library (LJRL) - Register
+DESCRIPTION:Beginning in June 2026\, the Bryan + College Station Public L
+ ibrary System will partner with the Brazos Valley Food Bank to assist lib
+ rary patrons with applying for and renewing state benefit programs.\n\nPr
+ ograms Available:\n\n  * SNAP/TSAP\n  * Medicaid\n  * TANF\n  * Healthy T
+ exas Women\n  * Medicare Savings Program\n  * And more\n\nYou can find a 
+ complete list of available programs at: Your Texas Benefits - Learn https
+ ://url.us.m.mimecastprotect.com/s/J1SxCyPkv8hyVMBMSMhvUxuZSI?domain=yourt
+ exasbenefits.com .\n\nTo help prepare for your appointment\, please revie
+ w the required documents here: H1858.pdf https://url.us.m.mimecastprotect
+ .com/s/kBaCCxkjrGfQNAWAS8fVUyHMZm?domain=hhs.texas.gov\n\nService Locatio
+ ns & Schedule:\n\n  * Larry J. Ringer Library\, 1st & 3rd Fridays\, 10 AM
+  - 3 PM\n  * Clara B. Mounce Public Library\, 2nd & 4th Fridays\, 10 AM -
+  3 PM\n\nPlease note: Services will not be available on June 19 and July 
+ 3\, 2026.\n\nWalk-ins are welcome\, and advance registration is encourage
+ d. To register\, click the RSVP button in the top right corner.\n\nFor mo
+ re information\, please visit Brazos Valley Food Bank https://url.us.m.mi
+ mecastprotect.com/s/VLPcCzplwmumV2j2CgiLU9hCRc?domain=bvfb.org .\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a062ec164f49cafacb2fba3/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Beginning in June 2026\, the Bryan + College Station
+  Public Library System will partner with the Brazos Valley Food Bank to a
+ ssist library patrons with...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260514T203836Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260514T204129Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5699/29773080/0/0
+DTSTART:20260810T180000Z
+DTEND:20260810T193000Z
+URL:https://tockify.com/bcslibrary/detail/5699/1786384800000
+SUMMARY: Genealogy Help (CBMPL)
+DESCRIPTION:\nGenealogy Help has returned to the Clara B. Mounce Library!
+  Please join us every Monday in the 2nd floor Computer Lab. Genealogy exp
+ erts will be available for one-on-one sessions. Your family tree awaits!\
+ n\nFor more information\, email Mounce Library https://weblink.bryantx.go
+ v/Forms/lcAHV or call (979) 209-5600. Registration not required.\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/678048dbc1c9522556ce195f/scaled_384.png
+X-TKF-CUSTOM-PREVIEW: Genealogy Help has returned to the Clara B. Mounce 
+ Library! Please join us every Monday in the 2nd floor Computer Lab. Genea
+ logy experts will be available...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260518T193146Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193146Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5490/29774340/0/0
+DTSTART:20260811T150000Z
+DTEND:20260811T160000Z
+URL:https://tockify.com/bcslibrary/detail/5490/1786460400000
+SUMMARY: Meyer Book Club and virtual author visit with Carlene O'Connor (
+ Meyer Center\, online) - Register
+DESCRIPTION:We will be discussing Murder in an Irish Village https://bcsl
+ ibrary.tlcdelivers.com/#/resource/4728505/details by Carlene O’Connor. It
+  is a cozy mystery. Author Carlene O'Connor will be joining us via Zoom f
+ or a virtual author visit.\n\nThis club's meetings are hybrid (Meyer Cent
+ er / Zoom). Registration is required\; let us know if you plan to attend 
+ in person or by Zoom.\n\nFor more information or to register\, click the 
+ RSVP button in the top right corner\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV \, or call (979) 209-6347.\n\n  * Sign up for o
+ ur newsletter here. https://visitor.r20.constantcontact.com/manage/optin?
+ v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0
+ yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_
+ ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a2c3704428b617dce96cfe2/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:We will be discussing Murder in an Irish Village htt
+ ps://bcslibrary.tlcdelivers.com/#/resource/4728505/details by Carlene O’C
+ onnor. It is a cozy mystery....
+LOCATION:Bob and Wanda Meyer Senior and Community Center\,2275 Dartmouth 
+ St\, College Station\, TX 77840\, USA
+CREATED:20260203T203004Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260811T173011Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5578/29775720/0/0
+DTSTART:20260812T140000Z
+DTEND:20260812T150000Z
+URL:https://tockify.com/bcslibrary/detail/5578/1786543200000
+SUMMARY: DigiLab Orientation (CHC) - Register starting August 5 at noon
+DESCRIPTION:The Carnegie History Center has a DigiLab open to the public 
+ to digitize your VHS\, VHS-C\, 8mm and Super8\, cassettes\, LPs\, CDs\, p
+ hotos\, negatives\, 50mm slides\, and more for free! To use the DigiLab\,
+  an orientation is required to learn how to use the technology. Click her
+ e https://www.bcslibrary.org/services/special-collections/#DigiLab for mo
+ re information. Ages 16 and up. Registration required. Registration start
+ s August 5 at noon.\n\nTo register (starting August 5)\, click the RSVP b
+ utton in the top right corner.\n\nFor more information\, email Carnegie H
+ istory Center https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-5
+ 630.\n\n  * Sign up for our newsletter here. https://visitor.r20.constant
+ contact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-h
+ Kd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ
+ 3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69b04113853ad65c775c4d68/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:The Carnegie History Center has a DigiLab open to th
+ e public to digitize your VHS\, VHS-C\, 8mm and Super8\, cassettes\, LPs\
+ , CDs\, photos\, negatives\, 50mm...
+LOCATION:Carnegie History Center\,111 S Main St\, Bryan\, TX 77803\, USA
+CREATED:20260324T164005Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260324T164005Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4711/29775780/0/0
+DTSTART:20260812T150000Z
+URL:https://tockify.com/bcslibrary/detail/4711/1786546800000
+SUMMARY: Sunshine Book Club (CBMPL)
+DESCRIPTION:We will be reading The Path That Led Me Here https://bcslibra
+ ry.tlcdelivers.com/#section=resource&resourceid=353038977 by Kim Nottingh
+ am. For more information\, email Mounce Library https://weblink.bryantx.g
+ ov/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter 
+ here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hz
+ W08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9U
+ fcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuv
+ RLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/691512ea341efa3d3dd0d03a/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be reading The Path That Led Me Here https:/
+ /bcslibrary.tlcdelivers.com/#section=resource&resourceid=353038977 by Kim
+  Nottingham. For more...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20231229T173134Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20251117T214931Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5661/29776170/0/0
+DTSTART:20260812T213000Z
+DTEND:20260812T223000Z
+URL:https://tockify.com/bcslibrary/detail/5661/1786570200000
+SUMMARY: Aggieland Pets with a Purpose Read-a-thon (LJRL)
+DESCRIPTION:Aggieland Pets with a Purpose will bring therapy dogs to the 
+ library so children can read to them. There will also be puppets children
+  can read to while they are waiting to read to a dog\, and there will be 
+ coloring pages. This is a come and go program. Registration not required.
+ \n\nFor more information\, email Ringer Library https://weblink.bryantx.g
+ ov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our newsletter 
+ here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hz
+ W08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9U
+ fcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuv
+ RLC_c
+CATEGORIES:Children,Tween
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69fe00f8b46865d6211e1e4e/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Aggieland Pets with a Purpose will bring therapy dog
+ s to the library so children can read to them. There will also be puppets
+  children can read to while they...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260508T152925Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260508T152925Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5403/29777700/0/0
+DTSTART:20260813T230000Z
+DTEND:20260814T000000Z
+URL:https://tockify.com/bcslibrary/detail/5403/1786662000000
+SUMMARY: Ukulele Club (CBMPL)
+DESCRIPTION:Tune in for Ukulele Club at Mounce Library! Bring your own uk
+ ulele or borrow one from the library. Ages 7 and up.\n\nThis club usually
+  meets in the 2nd floor meeting room. Registration not required.\n\nFor m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. htt
+ ps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9
+ H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTk
+ q2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Children,Tween,Teen,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/65d370a41087122ee7d37334/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Tune in for Ukulele Club at Mounce Library! Bring yo
+ ur own ukulele or borrow one from the library. Ages 7 and up. This club u
+ sually meets in the 2nd floor...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251117T210339Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260327T204904Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5465/29778600/0/0
+DTSTART:20260814T140000Z
+DTEND:20260814T200000Z
+URL:https://tockify.com/bcslibrary/detail/5465/1786716000000
+SUMMARY: Computer Help (CBMPL) - Register
+DESCRIPTION:Friday appointments only. Please leave a message stating what
+  you would like assistance with and what device you are working on. Assis
+ tance can include basic computer skills\, email\, Microsoft Word\, intern
+ et\, Excel Spreadsheet.\n\nFor more information or to sign up\, email Mou
+ nce Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-560
+ 0.\n\n  * Sign up for our newsletter here. https://visitor.r20.constantco
+ ntact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd
+ 25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3Q
+ R9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/66202158f0f60d334375b1ca/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Friday appointments only. Please leave a message sta
+ ting what you would like assistance with and what device you are working 
+ on. Assistance can include basic...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251211T213140Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193425Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5684/29778660/0/0
+DTSTART:20260814T150000Z
+DTEND:20260814T200000Z
+URL:https://tockify.com/bcslibrary/detail/5684/1786719600000
+SUMMARY: Community Benefits Assistance at Your Library (CBMPL) - Register
+DESCRIPTION:Beginning in June 2026\, the Bryan + College Station Public L
+ ibrary System will partner with the Brazos Valley Food Bank to assist lib
+ rary patrons with applying for and renewing state benefit programs.\n\nPr
+ ograms Available:\n\n  * SNAP/TSAP\n  * Medicaid\n  * TANF\n  * Healthy T
+ exas Women\n  * Medicare Savings Program\n  * And more\n\nYou can find a 
+ complete list of available programs at: Your Texas Benefits - Learn https
+ ://url.us.m.mimecastprotect.com/s/J1SxCyPkv8hyVMBMSMhvUxuZSI?domain=yourt
+ exasbenefits.com .\n\nTo help prepare for your appointment\, please revie
+ w the required documents here: H1858.pdf https://url.us.m.mimecastprotect
+ .com/s/kBaCCxkjrGfQNAWAS8fVUyHMZm?domain=hhs.texas.gov\n\nService Locatio
+ ns & Schedule:\n\n  * Larry J. Ringer Library\, 1st & 3rd Fridays\, 10 AM
+  - 3 PM\n  * Clara B. Mounce Public Library\, 2nd & 4th Fridays\, 10 AM -
+  3 PM\n\nPlease note: Services will not be available on June 19 and July 
+ 3\, 2026.\n\nWalk-ins are welcome\, and advance registration is encourage
+ d. To register\, click the RSVP button in the top right corner.\n\nFor mo
+ re information\, please visit Brazos Valley Food Bank https://url.us.m.mi
+ mecastprotect.com/s/VLPcCzplwmumV2j2CgiLU9hCRc?domain=bvfb.org .\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a062ec164f49cafacb2fba3/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Beginning in June 2026\, the Bryan + College Station
+  Public Library System will partner with the Brazos Valley Food Bank to a
+ ssist library patrons with...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260514T203524Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260514T204136Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5583/29780100/0/0
+DTSTART:20260815T150000Z
+DTEND:20260815T150000Z
+URL:https://tockify.com/bcslibrary/detail/5583/1786806000000
+SUMMARY: Master Gardeners: Fall Vegetables (CBMPL)
+DESCRIPTION:The Brazos County Master Gardeners will give a free talk abou
+ t gardening. This month's presentation will be about fall vegetables. Thi
+ s program will be held in the upstairs meeting room. Registration not req
+ uired.\n\nFor more information\, email Mounce Library https://weblink.bry
+ antx.gov/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsl
+ etter here. https://visitor.r20.constantcontact.com/manage/optin?v=001njY
+ GB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWva
+ T4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01
+ NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6410d7e82f36f52e7f39e38e/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:The Brazos County Master Gardeners will give a free 
+ talk about gardening. This month's presentation will be about fall vegeta
+ bles. This program will be held...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260324T170659Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260324T171608Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5699/29783160/0/0
+DTSTART:20260817T180000Z
+DTEND:20260817T193000Z
+URL:https://tockify.com/bcslibrary/detail/5699/1786989600000
+SUMMARY: Genealogy Help (CBMPL)
+DESCRIPTION:\nGenealogy Help has returned to the Clara B. Mounce Library!
+  Please join us every Monday in the 2nd floor Computer Lab. Genealogy exp
+ erts will be available for one-on-one sessions. Your family tree awaits!\
+ n\nFor more information\, email Mounce Library https://weblink.bryantx.go
+ v/Forms/lcAHV or call (979) 209-5600. Registration not required.\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/678048dbc1c9522556ce195f/scaled_384.png
+X-TKF-CUSTOM-PREVIEW: Genealogy Help has returned to the Clara B. Mounce 
+ Library! Please join us every Monday in the 2nd floor Computer Lab. Genea
+ logy experts will be available...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260518T193146Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193146Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5615/29783370/0/0
+DTSTART:20260817T213000Z
+DTEND:20260817T233000Z
+URL:https://tockify.com/bcslibrary/detail/5615/1787002200000
+SUMMARY: Game Guild (CBMPL) - Register
+DESCRIPTION:Roll for initiative at the Mounce during Game Guild! Explore 
+ card games\, board games\, puzzles\, and TTRPGs for ages 12-17! Game supp
+ lies provided by Clockwork Games & Events\, MagiKids\, and Let's Quest. O
+ nline registration required.\n\nTo register\, click the RSVP button in th
+ e top right corner.\n\nFor more information\, email Mounce Library https:
+ //weblink.bryantx.gov/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up 
+ for our newsletter here. https://visitor.r20.constantcontact.com/manage/o
+ ptin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIg
+ Ylnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbm
+ z2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/689e0811effeba640a8c55ae/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Roll for initiative at the Mounce during Game Guild!
+  Explore card games\, board games\, puzzles\, and TTRPGs for ages 12-17! 
+ Game supplies provided by...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260331T154425Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260414T154450Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5598/29783460/0/0
+DTSTART:20260817T230000Z
+DTEND:20260817T230000Z
+URL:https://tockify.com/bcslibrary/detail/5598/1787007600000
+SUMMARY: Let's Get Crafty: Paint Chip Garland (LJRL) - Register starting 
+ August 1\, FULL\, waitlist
+DESCRIPTION:Make a festive garland using paint chips! All supplies provid
+ ed. Registration required. Registration starts August 1. Ages 18+\n\nTo r
+ egister (starting August 1)\, click the RSVP button in the top right corn
+ er.\n\nNote: This event is now FULL. A waitlist has been started.\n\nFor 
+ more information or to be added to the waitlist\, email Ringer Library ht
+ tps://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign
+  up for our newsletter here. https://visitor.r20.constantcontact.com/mana
+ ge/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH
+ -qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oL
+ csbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/5e0a46dfdf82fe6d50845223/scaled_896.jpg
+X-TKF-CUSTOM-PREVIEW:Make a festive garland using paint chips! All suppli
+ es provided. Registration required. Registration starts August 1. Ages 18
+ + To register (starting August...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260326T194528Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T202714Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5713/29784420/0/0
+DTSTART:20260818T150000Z
+DTEND:20260818T160000Z
+URL:https://tockify.com/bcslibrary/detail/5713/1787065200000
+SUMMARY: City of Bryan Senior Socials: Book Swap (CBMPL)
+DESCRIPTION:Join us as we partner with the City of Bryan Parks and Recrea
+ tion Department for a Book Swap. This is part of the City of Bryan Parks 
+ and Recreation Department's Senior Socials https://www.bryantx.gov/parks-
+ and-recreation/adult-programs/#SeniorSocials series\, which are monthly s
+ ocials that offer a great opportunity to connect with others while enjoyi
+ ng engaging discussions and activities. Bring a book to swap\, and take a
+  different book home with you. Ages 55+. Free program.\n\nFor more inform
+ ation\, email Mounce Library https://weblink.bryantx.gov/Forms/lcAHV or c
+ all (979) 209-5600.\n\n  * Sign up for our newsletter here. https://visit
+ or.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6S
+ KD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND
+ 7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a5a9202c28228239b5d8830/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:Join us as we partner with the City of Bryan Parks a
+ nd Recreation Department for a Book Swap. This is part of the City of Bry
+ an Parks and Recreation...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260717T203846Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260717T203846Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5740/29784510/0/0
+DTSTART:20260818T163000Z
+DTEND:20260818T163000Z
+URL:https://tockify.com/bcslibrary/detail/5740/1787070600000
+SUMMARY: Public Library Book Drop Ribbon-Cutting Ceremony (Tower Point HE
+ B)
+DESCRIPTION:The City of College Station will host a ribbon-cutting ceremo
+ ny on Tuesday\, August 18\, at 11:30 a.m. to celebrate the installation o
+ f the new library book drop at Tower Point H-E-B\, located at 949 William
+  D. Fitch Parkway\, College Station\, TX 77845 (between the H-E-B Gas Sta
+ tion and Pharmacy). Feel free to join if you can as we celebrate this exc
+ iting addition to library services in our community!\n\nHere are the thre
+ e convenient locations for the book drops throughout College Station:\n\n
+   * Lincoln Recreation Center\n  * Meyer Senior & Community Center\n  * T
+ ower Point H-E-B\n\nThese additional book return locations make it even e
+ asier for residents to return library materials closer to where they live
+ \, work\, and shop.\n\nThis celebration is open to the public.
+CATEGORIES:All-Ages,Community-Events,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a79ff1c8746b1611a0e4c1d/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:The City of College Station will host a ribbon-cutti
+ ng ceremony on Tuesday\, August 18\, at 11:30 a.m. to celebrate the insta
+ llation of the new library book...
+LOCATION:HEB\,949 William D. Fitch Pkwy\, College Station\, TX 77845\, US
+ A
+CREATED:20260810T164440Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260810T165538Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5697/29785980/0/0
+DTSTART:20260819T170000Z
+DTEND:20260819T180000Z
+URL:https://tockify.com/bcslibrary/detail/5697/1787158800000
+SUMMARY: DigiLab Orientation (CHC) - Register starting August 12 at noon
+DESCRIPTION:The Carnegie History Center has a DigiLab open to the public 
+ to digitize your VHS\, VHS-C\, 8mm and Super8\, cassettes\, LPs\, CDs\, p
+ hotos\, negatives\, 50mm slides\, and more for free! To use the DigiLab\,
+  an orientation is required to learn how to use the technology. Click her
+ e https://www.bcslibrary.org/services/special-collections/#DigiLab for mo
+ re information. Ages 16 and up. Registration required. Registration start
+ s August 12 at noon.\n\nTo register (starting August 12)\, click the RSVP
+  button in the top right corner.\n\nFor more information\, email Carnegie
+  History Center https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209
+ -5630.\n\n  * Sign up for our newsletter here. https://visitor.r20.consta
+ ntcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4
+ -hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJk
+ pZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69b04113853ad65c775c4d68/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:The Carnegie History Center has a DigiLab open to th
+ e public to digitize your VHS\, VHS-C\, 8mm and Super8\, cassettes\, LPs\
+ , CDs\, photos\, negatives\, 50mm...
+LOCATION:Carnegie History Center\,111 S Main St\, Bryan\, TX 77803\, USA
+CREATED:20260515T201945Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T201945Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5694/29787285/0/0
+DTSTART:20260820T144500Z
+DTEND:20260820T153000Z
+URL:https://tockify.com/bcslibrary/detail/5694/1787237100000
+SUMMARY: Play2Learn: 9:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 9:45 group.\n\nFor more informat
+ ion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or cal
+ l (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP but
+ ton https://tockify.com/bcslibrary/detail/5694/1787237100000 in the top r
+ ight corner of the August 20 Play2Learn: 9:45 AM group https://tockify.co
+ m/bcslibrary/detail/5694/1787237100000 .\n\n  * Sign up for our newslette
+ r here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35
+ hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl
+ 9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_v
+ uvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T150256Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151209Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5695/29787345/0/0
+DTSTART:20260820T154500Z
+DTEND:20260820T163000Z
+URL:https://tockify.com/bcslibrary/detail/5695/1787240700000
+SUMMARY: Play2Learn: 10:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 10:45 group.\n\nFor more informa
+ tion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or ca
+ ll (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP bu
+ tton https://tockify.com/bcslibrary/detail/5695/1787240700000 in the top 
+ right corner of the August 20 Play2Learn: 10:45 AM group https://tockify.
+ com/bcslibrary/detail/5695/1787240700000 .\n\n  * Sign up for our newslet
+ ter here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB
+ 35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4
+ yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ
+ _vuvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T151431Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151632Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5518/29787780/0/0
+DTSTART:20260820T230000Z
+DTEND:20260820T230000Z
+URL:https://tockify.com/bcslibrary/detail/5518/1787266800000
+SUMMARY: Teen Anime Craft Club (LJRL)
+DESCRIPTION:If you’re a teen between the ages 14-17\, who is interested i
+ n Manga and Anime\, you should join us for Teen Anime Craft Club! We like
+  to hangout and talk about our favorite shows and manga and enjoy snacks 
+ while we do crafts or activities. Registration not required.\n\nCharacter
+  art is by Desinho_x of Twitter.\n\nFor more information\, email Ringer L
+ ibrary https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\
+ n  * Sign up for our newsletter here. https://visitor.r20.constantcontact
+ .com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vUL
+ Jv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYA
+ q-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6983d70dd7224e478dc2a124/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:If you’re a teen between the ages 14-17\, who is int
+ erested in Manga and Anime\, you should join us for Teen Anime Craft Club
+ ! We like to hangout and talk...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260204T233424Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260414T154056Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5403/29787780/0/0
+DTSTART:20260820T230000Z
+DTEND:20260821T000000Z
+URL:https://tockify.com/bcslibrary/detail/5403/1787266800000
+SUMMARY: Ukulele Club (CBMPL)
+DESCRIPTION:Tune in for Ukulele Club at Mounce Library! Bring your own uk
+ ulele or borrow one from the library. Ages 7 and up.\n\nThis club usually
+  meets in the 2nd floor meeting room. Registration not required.\n\nFor m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. htt
+ ps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9
+ H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTk
+ q2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Children,Tween,Teen,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/65d370a41087122ee7d37334/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Tune in for Ukulele Club at Mounce Library! Bring yo
+ ur own ukulele or borrow one from the library. Ages 7 and up. This club u
+ sually meets in the 2nd floor...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251117T210339Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260327T204904Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5465/29788680/0/0
+DTSTART:20260821T140000Z
+DTEND:20260821T200000Z
+URL:https://tockify.com/bcslibrary/detail/5465/1787320800000
+SUMMARY: Computer Help (CBMPL) - Register
+DESCRIPTION:Friday appointments only. Please leave a message stating what
+  you would like assistance with and what device you are working on. Assis
+ tance can include basic computer skills\, email\, Microsoft Word\, intern
+ et\, Excel Spreadsheet.\n\nFor more information or to sign up\, email Mou
+ nce Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-560
+ 0.\n\n  * Sign up for our newsletter here. https://visitor.r20.constantco
+ ntact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd
+ 25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3Q
+ R9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/66202158f0f60d334375b1ca/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Friday appointments only. Please leave a message sta
+ ting what you would like assistance with and what device you are working 
+ on. Assistance can include basic...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251211T213140Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193425Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5685/29788740/0/0
+DTSTART:20260821T150000Z
+DTEND:20260821T200000Z
+URL:https://tockify.com/bcslibrary/detail/5685/1787324400000
+SUMMARY: Community Benefits Assistance at Your Library (LJRL) - Register
+DESCRIPTION:Beginning in June 2026\, the Bryan + College Station Public L
+ ibrary System will partner with the Brazos Valley Food Bank to assist lib
+ rary patrons with applying for and renewing state benefit programs.\n\nPr
+ ograms Available:\n\n  * SNAP/TSAP\n  * Medicaid\n  * TANF\n  * Healthy T
+ exas Women\n  * Medicare Savings Program\n  * And more\n\nYou can find a 
+ complete list of available programs at: Your Texas Benefits - Learn https
+ ://url.us.m.mimecastprotect.com/s/J1SxCyPkv8hyVMBMSMhvUxuZSI?domain=yourt
+ exasbenefits.com .\n\nTo help prepare for your appointment\, please revie
+ w the required documents here: H1858.pdf https://url.us.m.mimecastprotect
+ .com/s/kBaCCxkjrGfQNAWAS8fVUyHMZm?domain=hhs.texas.gov\n\nService Locatio
+ ns & Schedule:\n\n  * Larry J. Ringer Library\, 1st & 3rd Fridays\, 10 AM
+  - 3 PM\n  * Clara B. Mounce Public Library\, 2nd & 4th Fridays\, 10 AM -
+  3 PM\n\nPlease note: Services will not be available on June 19 and July 
+ 3\, 2026.\n\nWalk-ins are welcome\, and advance registration is encourage
+ d. To register\, click the RSVP button in the top right corner.\n\nFor mo
+ re information\, please visit Brazos Valley Food Bank https://url.us.m.mi
+ mecastprotect.com/s/VLPcCzplwmumV2j2CgiLU9hCRc?domain=bvfb.org .\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a062ec164f49cafacb2fba3/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Beginning in June 2026\, the Bryan + College Station
+  Public Library System will partner with the Brazos Valley Food Bank to a
+ ssist library patrons with...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260514T203836Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260514T204129Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5442/29790420/0/0
+DTSTART:20260822T190000Z
+DTEND:20260822T190000Z
+URL:https://tockify.com/bcslibrary/detail/5442/1787425200000
+SUMMARY: BCS Public Libraries 2026 Author Series: Annie Hartnett Author V
+ isit (CBMPL) - RSVP starting July 21
+DESCRIPTION:RSVPs for this event have closed. Walk-ins are welcome\, but 
+ admission will be available only after all guests with RSVPs have been se
+ ated and space permits. Doors will open 30 minutes before the event\, so 
+ please arrive early.\n\nThe 2026 Author Series https://www.bcslibrary.org
+ /2025-2026-author-series/ presents Annie Hartnett https://www.anniehartne
+ tt.com/ \, the bestselling author of three novels: Rabbit Cake https://bc
+ sdmc.overdrive.com/media/3036789 \, Unlikely Animals https://bcsdmc.overd
+ rive.com/media/6331865 \, and The Road to Tender Hearts https://bcsdmc.ov
+ erdrive.com/media/11138961 .\n\nThe Road to Tender Hearts https://bcsdmc.
+ overdrive.com/media/11138961 is a national bestseller\, USA Today Bestsel
+ ler\, and the winner of the 2025 New England Book Award for fiction. Unli
+ kely Animals https://bcsdmc.overdrive.com/media/6331865 was the winner of
+  the 2023 Julia Ward Howe prize for fiction. Rabbit Cake https://bcsdmc.o
+ verdrive.com/media/3036789 was a Best Book of the Year at Kirkus Reviews\
+ , Book Riot\, The Chicago Review of Books\, and Minnesota Public Radio.\n
+ \nAnnie co-runs Accountability Workshops for writers with Tessa Fontaine.
+  Annie Hartnett lives in Massachusetts.\n\nThe event will include present
+ ation\, Q&A and book signing. The first 50 people to register and attend 
+ the event in person will receive a free copy of the book The Road to Tend
+ er Hearts https://bcsdmc.overdrive.com/media/11138961 .\n\nBooks will be 
+ for sale onsite by Hyperbole Bookstore https://hyperbolebookstore.com/ wi
+ th 10% of proceeds to the Friends.\n\nFor more information\, email Mounce
+  Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-5600.\
+ n\n  * Sign up for our newsletter here. https://visitor.r20.constantconta
+ ct.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25v
+ ULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9V
+ YAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/692f0acabdee87432d62e4e3/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:RSVPs for this event have closed. Walk-ins are welco
+ me\, but admission will be available only after all guests with RSVPs hav
+ e been seated and space permits....
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251125T223310Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260811T195115Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5682/29791860/0/0
+DTSTART:20260823T190000Z
+DTEND:20260823T200000Z
+URL:https://tockify.com/bcslibrary/detail/5682/1787511600000
+SUMMARY: Sunday Family Day: Full STEAM Ahead (LJRL)
+DESCRIPTION:Come get warmed up for the new school year with various STEAM
+  activities with Texas A&M's Early Childhood Development & Education depa
+ rtment. And remember\, the expert in anything was once a beginner. Progra
+ m is come and go. Children of all ages are welcome. Registration is not r
+ equired.\n\nFor more information\, email Ringer Library https://weblink.b
+ ryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our new
+ sletter here. https://visitor.r20.constantcontact.com/manage/optin?v=001n
+ jYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsW
+ vaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI
+ 01NZ_vuvRLC_c
+CATEGORIES:Children,Tween,All-Ages
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a06282e64f49cafac77b340/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Come get warmed up for the new school year with vari
+ ous STEAM activities with Texas A&M's Early Childhood Development & Educa
+ tion department. And remember\,...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260514T194951Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260514T195538Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5699/29793240/0/0
+DTSTART:20260824T180000Z
+DTEND:20260824T193000Z
+URL:https://tockify.com/bcslibrary/detail/5699/1787594400000
+SUMMARY: Genealogy Help (CBMPL)
+DESCRIPTION:\nGenealogy Help has returned to the Clara B. Mounce Library!
+  Please join us every Monday in the 2nd floor Computer Lab. Genealogy exp
+ erts will be available for one-on-one sessions. Your family tree awaits!\
+ n\nFor more information\, email Mounce Library https://weblink.bryantx.go
+ v/Forms/lcAHV or call (979) 209-5600. Registration not required.\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/678048dbc1c9522556ce195f/scaled_384.png
+X-TKF-CUSTOM-PREVIEW: Genealogy Help has returned to the Clara B. Mounce 
+ Library! Please join us every Monday in the 2nd floor Computer Lab. Genea
+ logy experts will be available...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260518T193146Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193146Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5616/29793510/0/0
+DTSTART:20260824T223000Z
+DTEND:20260824T233000Z
+URL:https://tockify.com/bcslibrary/detail/5616/1787610600000
+SUMMARY: The Comic Panel (CBMPL) - Register
+DESCRIPTION:Picture yourself at the Mounce for The Comic Panel\, our grap
+ hic novel book club for ages 12-17! We will be discussing The Legend of Z
+ elda: Twilight Princess\, Vol. 1 https://bcslibrary.tlcdelivers.com/?conf
+ ig=YA#/resource/5516364/details by Akira Himekawa. Free books provided by
+  Wonderful Words Bookshoppe in Downtown Bryan! Pick up your copy\, while 
+ supplies last. Online registration required.\n\nFor more information\, em
+ ail Mounce Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 
+ 209-5600.\n\nTo register\, click the RSVP button in the top right corner.
+ \n\n  * Sign up for our newsletter here. https://visitor.r20.constantcont
+ act.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25
+ vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9
+ VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Teen,Tween
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/669973368bbd8946838db5c0/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Picture yourself at the Mounce for The Comic Panel\,
+  our graphic novel book club for ages 12-17! We will be discussing The Le
+ gend of Zelda: Twilight...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260331T154926Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260730T154932Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5600/29793540/0/0
+DTSTART:20260824T230000Z
+DTEND:20260824T230000Z
+URL:https://tockify.com/bcslibrary/detail/5600/1787612400000
+SUMMARY: Trivia Night (LJRL) - Register starting August 10
+DESCRIPTION:Ages 18+\, Join us for a fun night of trivia spanning a varie
+ ty topics. Bring a group or play on your own. Prizes for winners! Registr
+ ation required. Registration starts August 10.\n\nFor more information\, 
+ email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or call (979
+ ) 209-6347.\n\nTo register (starting August 10)\, click the RSVP button i
+ n the top right corner.\n\n  * Sign up for our newsletter here. https://v
+ isitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70
+ BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHj
+ q_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6425b8c762c5e9704bcf5faa/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Ages 18+\, Join us for a fun night of trivia spannin
+ g a variety topics. Bring a group or play on your own. Prizes for winners
+ ! Registration required....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260326T194938Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260326T194938Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5363/29794980/0/0
+DTSTART:20260825T230000Z
+DTEND:20260825T230000Z
+URL:https://tockify.com/bcslibrary/detail/5363/1787698800000
+SUMMARY: Anime Club for Adults (LJRL)
+DESCRIPTION:Anime Club for Adults is a chance for Anime and Manga fans ag
+ es 18+ to gather and talk about favorite shows\, series\, and everything 
+ else\, while enjoying snacks! Registration is not required.\n\nCharacter 
+ art is by Desinho_x of Twitter.\n\nFor more information\, email Ringer Li
+ brary https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n
+   * Sign up for our newsletter here. https://visitor.r20.constantcontact.
+ com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJ
+ v4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq
+ -sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/64dfd6f104ea1831705b90d3/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:Anime Club for Adults is a chance for Anime and Mang
+ a fans ages 18+ to gather and talk about favorite shows\, series\, and ev
+ erything else\, while enjoying...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20251112T200551Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260414T154711Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5591/29794980/0/0
+DTSTART:20260825T230000Z
+DTEND:20260826T000000Z
+URL:https://tockify.com/bcslibrary/detail/5591/1787698800000
+SUMMARY: Book Repair (CHC) - Register starting August 11 at noon
+DESCRIPTION:Would you like to learn how to repair your books at home? We 
+ can show you how using simple tools and binding materials. Ages 16 and up
+ . Registration required. Registration starts August 11 at noon.\n\nTo reg
+ ister (starting August 11)\, click the RSVP button in the top right corne
+ r.\n\nFor more information\, email Carnegie History Center https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-5630.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69c40ce1701bd67bec21a330/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:Would you like to learn how to repair your books at 
+ home? We can show you how using simple tools and binding materials. Ages 
+ 16 and up. Registration required....
+LOCATION:Carnegie History Center\,111 S Main St\, Bryan\, TX 77803\, USA
+CREATED:20260325T162806Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260526T191434Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4598/29786250/0/0
+DTSTART:20260826T213000Z
+DTEND:20260826T223000Z
+URL:https://tockify.com/bcslibrary/detail/4598/1787175000000
+SUMMARY: Classics Book Club (LJRL)
+DESCRIPTION:We will be discussing The Color Purple https://bcslibrary.tlc
+ delivers.com/#/resource/1867211/details by Alice Walker. Ages 14 and up a
+ re welcome. Registration not required.\n\nFor more information\, email Ri
+ nger Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-63
+ 47.\n\n  * Sign up for our newsletter here. https://visitor.r20.constantc
+ ontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hK
+ d25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3
+ QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a1621d8bf50ac3e0127156a/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Color Purple https://bcsli
+ brary.tlcdelivers.com/#/resource/1867211/details by Alice Walker. Ages 14
+  and up are welcome. Registration...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20230823T211403Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260526T225354Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5568/29797320/0/0
+DTSTART:20260827T140000Z
+DTEND:20260827T170000Z
+URL:https://tockify.com/bcslibrary/detail/5568/1787839200000
+SUMMARY: Job and Resume Assistance: Workforce Solutions (CBMPL)
+DESCRIPTION:The BCSPLS and Workforce Solutions Brazos Valley are partneri
+ ng on Job and Resume Assistance. Someone from Workforce Solutions Brazos 
+ Valley will come to the library on the last Thursday of the month and pro
+ vide free\, walk-in assistance to the public. Workforce Solutions will be
+  at both Mounce and Ringer from 9 AM to 12 PM on the last Thursday of the
+  month.\n\nFor more information\, email Mounce Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up for our news
+ letter here. https://visitor.r20.constantcontact.com/manage/optin?v=001nj
+ YGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWv
+ aT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI0
+ 1NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6761a3ae8ed0d3054a019e2e/scaled_896.png
+X-TKF-CUSTOM-PREVIEW:The BCSPLS and Workforce Solutions Brazos Valley are
+  partnering on Job and Resume Assistance. Someone from Workforce Solution
+ s Brazos Valley will come to the...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260307T222354Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260307T222354Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5569/29797320/0/0
+DTSTART:20260827T140000Z
+DTEND:20260827T170000Z
+URL:https://tockify.com/bcslibrary/detail/5569/1787839200000
+SUMMARY: Job and Resume Assistance: Workforce Solutions (LJRL)
+DESCRIPTION:The BCSPLS and Workforce Solutions Brazos Valley are partneri
+ ng on Job and Resume Assistance. Someone from Workforce Solutions Brazos 
+ Valley will come to the library on the last Thursday of the month and pro
+ vide free\, walk-in assistance to the public. Workforce Solutions will be
+  at both Mounce and Ringer from 9 AM to 12 PM on the last Thursday of the
+  month.\n\nFor more information\, email Ringer Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our news
+ letter here. https://visitor.r20.constantcontact.com/manage/optin?v=001nj
+ YGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWv
+ aT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI0
+ 1NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6761a3ae8ed0d3054a019e2e/scaled_896.png
+X-TKF-CUSTOM-PREVIEW:The BCSPLS and Workforce Solutions Brazos Valley are
+  partnering on Job and Resume Assistance. Someone from Workforce Solution
+ s Brazos Valley will come to the...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260307T222424Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260307T222424Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5694/29797365/0/0
+DTSTART:20260827T144500Z
+DTEND:20260827T153000Z
+URL:https://tockify.com/bcslibrary/detail/5694/1787841900000
+SUMMARY: Play2Learn: 9:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 9:45 group.\n\nFor more informat
+ ion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or cal
+ l (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP but
+ ton https://tockify.com/bcslibrary/detail/5694/1787237100000 in the top r
+ ight corner of the August 20 Play2Learn: 9:45 AM group https://tockify.co
+ m/bcslibrary/detail/5694/1787237100000 .\n\n  * Sign up for our newslette
+ r here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35
+ hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl
+ 9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_v
+ uvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T150256Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151122Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5695/29797425/0/0
+DTSTART:20260827T154500Z
+DTEND:20260827T163000Z
+URL:https://tockify.com/bcslibrary/detail/5695/1787845500000
+SUMMARY: Play2Learn: 10:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 10:45 group.\n\nFor more informa
+ tion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or ca
+ ll (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP bu
+ tton https://tockify.com/bcslibrary/detail/5695/1787240700000 in the top 
+ right corner of the August 20 Play2Learn: 10:45 AM group https://tockify.
+ com/bcslibrary/detail/5695/1787240700000 .\n\n  * Sign up for our newslet
+ ter here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB
+ 35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4
+ yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ
+ _vuvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T151431Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151506Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5641/29797740/0/0
+DTSTART:20260827T210000Z
+DTEND:20260827T210000Z
+URL:https://tockify.com/bcslibrary/detail/5641/1787864400000
+SUMMARY: Afterschool Hangout (LJRL)
+DESCRIPTION:Teens ages 14-17 are invited to hangout with us afterschool. 
+ Even if you're just waiting for a ride\, come play games\, enjoy snacks\,
+  and take a little break. No registration required.\n\nFor more informati
+ on\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or call
+  (979) 209-6347.\n\n  * Sign up for our newsletter here. https://visitor.
+ r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2
+ SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nx
+ gR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/689244a8847f8f50707f2ff8/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:Teens ages 14-17 are invited to hangout with us afte
+ rschool. Even if you're just waiting for a ride\, come play games\, enjoy
+  snacks\, and take a little...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260414T155057Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260414T155114Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5411/29797740/0/0
+DTSTART:20260827T210000Z
+DTEND:20260827T220000Z
+URL:https://tockify.com/bcslibrary/detail/5411/1787864400000
+SUMMARY: Horror Book Club (CBMPL)
+DESCRIPTION:We will be discussing Harvest Home https://www.hoopladigital.
+ com/ebook/harvest-home-thomas-tryon/11561205 by Thomas Tryon. Ages 18+\n\
+ nFor more information\, email Mounce Library https://weblink.bryantx.gov/
+ Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter her
+ e. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08
+ yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU
+ _DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC
+ _c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/691b9d527442f61edee9e714/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing Harvest Home https://www.hoopl
+ adigital.com/ebook/harvest-home-thomas-tryon/11561205 by Thomas Tryon. Ag
+ es 18+ For more information\,...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251117T213331Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20251117T221106Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5403/29797860/0/0
+DTSTART:20260827T230000Z
+DTEND:20260828T000000Z
+URL:https://tockify.com/bcslibrary/detail/5403/1787871600000
+SUMMARY: Ukulele Club (CBMPL)
+DESCRIPTION:Tune in for Ukulele Club at Mounce Library! Bring your own uk
+ ulele or borrow one from the library. Ages 7 and up.\n\nThis club usually
+  meets in the 2nd floor meeting room. Registration not required.\n\nFor m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. htt
+ ps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9
+ H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTk
+ q2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c\n\n
+CATEGORIES:Children,Tween,Teen,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/65d370a41087122ee7d37334/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Tune in for Ukulele Club at Mounce Library! Bring yo
+ ur own ukulele or borrow one from the library. Ages 7 and up. This club u
+ sually meets in the 2nd floor...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251117T210339Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260327T204904Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5465/29798760/0/0
+DTSTART:20260828T140000Z
+DTEND:20260828T200000Z
+URL:https://tockify.com/bcslibrary/detail/5465/1787925600000
+SUMMARY: Computer Help (CBMPL) - Register
+DESCRIPTION:Friday appointments only. Please leave a message stating what
+  you would like assistance with and what device you are working on. Assis
+ tance can include basic computer skills\, email\, Microsoft Word\, intern
+ et\, Excel Spreadsheet.\n\nFor more information or to sign up\, email Mou
+ nce Library https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-560
+ 0.\n\n  * Sign up for our newsletter here. https://visitor.r20.constantco
+ ntact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd
+ 25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3Q
+ R9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/66202158f0f60d334375b1ca/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Friday appointments only. Please leave a message sta
+ ting what you would like assistance with and what device you are working 
+ on. Assistance can include basic...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20251211T213140Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193425Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5684/29798820/0/0
+DTSTART:20260828T150000Z
+DTEND:20260828T200000Z
+URL:https://tockify.com/bcslibrary/detail/5684/1787929200000
+SUMMARY: Community Benefits Assistance at Your Library (CBMPL) - Register
+DESCRIPTION:Beginning in June 2026\, the Bryan + College Station Public L
+ ibrary System will partner with the Brazos Valley Food Bank to assist lib
+ rary patrons with applying for and renewing state benefit programs.\n\nPr
+ ograms Available:\n\n  * SNAP/TSAP\n  * Medicaid\n  * TANF\n  * Healthy T
+ exas Women\n  * Medicare Savings Program\n  * And more\n\nYou can find a 
+ complete list of available programs at: Your Texas Benefits - Learn https
+ ://url.us.m.mimecastprotect.com/s/J1SxCyPkv8hyVMBMSMhvUxuZSI?domain=yourt
+ exasbenefits.com .\n\nTo help prepare for your appointment\, please revie
+ w the required documents here: H1858.pdf https://url.us.m.mimecastprotect
+ .com/s/kBaCCxkjrGfQNAWAS8fVUyHMZm?domain=hhs.texas.gov\n\nService Locatio
+ ns & Schedule:\n\n  * Larry J. Ringer Library\, 1st & 3rd Fridays\, 10 AM
+  - 3 PM\n  * Clara B. Mounce Public Library\, 2nd & 4th Fridays\, 10 AM -
+  3 PM\n\nPlease note: Services will not be available on June 19 and July 
+ 3\, 2026.\n\nWalk-ins are welcome\, and advance registration is encourage
+ d. To register\, click the RSVP button in the top right corner.\n\nFor mo
+ re information\, please visit Brazos Valley Food Bank https://url.us.m.mi
+ mecastprotect.com/s/VLPcCzplwmumV2j2CgiLU9hCRc?domain=bvfb.org .\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a062ec164f49cafacb2fba3/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Beginning in June 2026\, the Bryan + College Station
+  Public Library System will partner with the Brazos Valley Food Bank to a
+ ssist library patrons with...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260514T203524Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260514T204136Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5606/29800290/0/0
+DTSTART:20260829T153000Z
+DTEND:20260829T163000Z
+URL:https://tockify.com/bcslibrary/detail/5606/1788017400000
+SUMMARY: Dino STEM with Code-Explore-Connect (CBMPL)
+DESCRIPTION:Dig into Discovery with the TAMU Institute for Early Childhoo
+ d Development and Education\, Code-Explore-Connect DINO STEM Day. Join us
+  in digging for bones\, exploring natural sciences\, and more with hands-
+ on\, come and go activities for the whole family!\n\nFor more information
+ \, email Mounce Library https://weblink.bryantx.gov/Forms/lcAHV or call (
+ 979) 209-5600.\n\n  * Sign up for our newsletter here. https://visitor.r2
+ 0.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2Sf
+ AtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR
+ _A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Children,SRP
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69c59dea701bd67becde9e89/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:Dig into Discovery with the TAMU Institute for Early
+  Childhood Development and Education\, Code-Explore-Connect DINO STEM Day
+ . Join us in digging for bones\,...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260327T193704Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260414T154551Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5699/29803320/0/0
+DTSTART:20260831T180000Z
+DTEND:20260831T193000Z
+URL:https://tockify.com/bcslibrary/detail/5699/1788199200000
+SUMMARY: Genealogy Help (CBMPL)
+DESCRIPTION:\nGenealogy Help has returned to the Clara B. Mounce Library!
+  Please join us every Monday in the 2nd floor Computer Lab. Genealogy exp
+ erts will be available for one-on-one sessions. Your family tree awaits!\
+ n\nFor more information\, email Mounce Library https://weblink.bryantx.go
+ v/Forms/lcAHV or call (979) 209-5600. Registration not required.\n\n  * S
+ ign up for our newsletter here. https://visitor.r20.constantcontact.com/m
+ anage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR
+ 6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc
+ 2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/678048dbc1c9522556ce195f/scaled_384.png
+X-TKF-CUSTOM-PREVIEW: Genealogy Help has returned to the Clara B. Mounce 
+ Library! Please join us every Monday in the 2nd floor Computer Lab. Genea
+ logy experts will be available...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260518T193146Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260518T193146Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29804820/0/0
+DTSTART:20260901T190000Z
+DTEND:20260901T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1788289200000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5735/29806500/0/0
+DTSTART:20260902T230000Z
+DTEND:20260902T230000Z
+URL:https://tockify.com/bcslibrary/detail/5735/1788390000000
+SUMMARY: Puzzle Swap (LJRL)
+DESCRIPTION:Refresh your puzzle collection! Please bring one puzzle with 
+ you\, and you may take home up to three puzzles\, while supplies last. Pl
+ ease make sure all puzzles are appropriate content. Registration not requ
+ ired. Ages 18+\n\nFor more information\, email Ringer Library https://web
+ link.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for o
+ ur newsletter here. https://visitor.r20.constantcontact.com/manage/optin?
+ v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0
+ yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_
+ ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a7262de9cce07b9ccb5a55a/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Refresh your puzzle collection! Please bring one puz
+ zle with you\, and you may take home up to three puzzles\, while supplies
+  last. Please make sure all...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T220714Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260805T171841Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5694/29807445/0/0
+DTSTART:20260903T144500Z
+DTEND:20260903T153000Z
+URL:https://tockify.com/bcslibrary/detail/5694/1788446700000
+SUMMARY: Play2Learn: 9:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 9:45 group.\n\nFor more informat
+ ion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or cal
+ l (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP but
+ ton https://tockify.com/bcslibrary/detail/5694/1787237100000 in the top r
+ ight corner of the August 20 Play2Learn: 9:45 AM group https://tockify.co
+ m/bcslibrary/detail/5694/1787237100000 .\n\n  * Sign up for our newslette
+ r here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35
+ hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl
+ 9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_v
+ uvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T150256Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151130Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5695/29807505/0/0
+DTSTART:20260903T154500Z
+DTEND:20260903T163000Z
+URL:https://tockify.com/bcslibrary/detail/5695/1788450300000
+SUMMARY: Play2Learn: 10:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 10:45 group.\n\nFor more informa
+ tion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or ca
+ ll (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP bu
+ tton https://tockify.com/bcslibrary/detail/5695/1787240700000 in the top 
+ right corner of the August 20 Play2Learn: 10:45 AM group https://tockify.
+ com/bcslibrary/detail/5695/1787240700000 .\n\n  * Sign up for our newslet
+ ter here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB
+ 35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4
+ yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ
+ _vuvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T151431Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151506Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5474/29812620/0/0
+DTSTART;VALUE=DATE:20260907
+DTEND;VALUE=DATE:20260908
+URL:https://tockify.com/bcslibrary/detail/5474/1788757200000
+SUMMARY: LIBRARIES CLOSED FOR LABOR DAY
+DESCRIPTION:All BCSPLS locations will be closed Monday\, September 7\, 20
+ 26\, for Labor Day.\n\n
+CATEGORIES:All-Ages
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/62f67dd26bc4cb12ac771273/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:All BCSPLS locations will be closed Monday\, Septemb
+ er 7\, 2026\, for Labor Day.
+CREATED:20260114T195457Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260114T195457Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5490/29814660/0/0
+DTSTART:20260908T150000Z
+DTEND:20260908T160000Z
+URL:https://tockify.com/bcslibrary/detail/5490/1788879600000
+SUMMARY: Meyer Book Club (Meyer Center\, online) - Register
+DESCRIPTION:We will be discussing Agnes Aubert’s Mystical Cat Shelter htt
+ ps://bcslibrary.tlcdelivers.com/#/resource/816943116/details by Heather F
+ awcett. It is a fantasy book.\n\nThis club's meetings are hybrid (Meyer C
+ enter / Zoom). Registration is required\; let us know if you plan to atte
+ nd in person or by Zoom.\n\nNOTE: Starting in May\, the Meyer Book Club i
+ s moving to the 2nd Tuesday and will still be at 10 AM Central.\n\nFor mo
+ re information or to register\, click the RSVP button in the top right co
+ rner\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV \, or
+  call (979) 209-6347.\n\n  * Sign up for our newsletter here. https://vis
+ itor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ
+ 6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_
+ ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a20a89d9301fa25d87718a9/scaled_896.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing Agnes Aubert’s Mystical Cat Sh
+ elter https://bcslibrary.tlcdelivers.com/#/resource/816943116/details by 
+ Heather Fawcett. It is a fantasy...
+LOCATION:Bob and Wanda Meyer Senior and Community Center\,2275 Dartmouth 
+ St\, College Station\, TX 77840\, USA
+CREATED:20260203T203004Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260603T222214Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29814900/0/0
+DTSTART:20260908T190000Z
+DTEND:20260908T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1788894000000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5594/29813700/0/0
+DTSTART:20260908T230000Z
+DTEND:20260909T000000Z
+URL:https://tockify.com/bcslibrary/detail/5594/1788822000000
+SUMMARY: Evening Book Club (LJRL)
+DESCRIPTION:We will be discussing The Demon of Unrest https://bcslibrary.
+ tlcdelivers.com/#section=resource&resourceid=480953046 by Erik Larson. Re
+ gistration is not required.\n\nNOTE: This month's meeting will be on Tues
+ day because the library will be closed Monday for Labor Day.\n\nFor more 
+ information\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAH
+ V or call (979) 209-6347.\n\n  * Sign up for our newsletter here. https:/
+ /visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU
+ 70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2Km
+ Hjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69e25cf0e7fb5c8ff8d5b521/scaled_640.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Demon of Unrest https://bc
+ slibrary.tlcdelivers.com/#section=resource&resourceid=480953046 by Erik L
+ arson. Registration is not...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260326T193058Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260417T161721Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4711/29816100/0/0
+DTSTART:20260909T150000Z
+URL:https://tockify.com/bcslibrary/detail/4711/1788966000000
+SUMMARY: Sunshine Book Club (CBMPL)
+DESCRIPTION:We will be reading Love on the Brain https://bcslibrary.tlcde
+ livers.com/#section=resource&resourceid=132742985 by Ali Hazelwood. For m
+ ore information\, email Mounce Library https://weblink.bryantx.gov/Forms/
+ lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. htt
+ ps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9
+ H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTk
+ q2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69151345341efa3d3dd0d09a/scaled_640.jpg
+X-TKF-CUSTOM-PREVIEW:We will be reading Love on the Brain https://bcslibr
+ ary.tlcdelivers.com/#section=resource&resourceid=132742985 by Ali Hazelwo
+ od. For more information\, email...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20231229T173134Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20251117T215033Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5724/29816400/0/0
+DTSTART:20260909T200000Z
+DTEND:20260909T210000Z
+URL:https://tockify.com/bcslibrary/detail/5724/1788984000000
+SUMMARY: DigiLab Orientation (CHC) - Register starting September 2 at noo
+ n
+DESCRIPTION:The Carnegie History Center has a DigiLab open to the public 
+ to digitize your VHS\, VHS-C\, MiniDV\, 8mm and Super8\, cassettes\, LPs\
+ , CDs\, photos\, negatives\, 50mm slides\, and more for free! To use the 
+ DigiLab\, an orientation is required to learn how to use the technology. 
+ Click here https://www.bcslibrary.org/services/special-collections/#DigiL
+ ab for more information. Ages 16 and up. Registration required. Registrat
+ ion starts September 2 at noon.\n\nTo register (starting September 2)\, c
+ lick the RSVP button in the top right corner.\n\nFor more information\, e
+ mail Carnegie History Center https://weblink.bryantx.gov/Forms/lcAHV or c
+ all (979) 209-5630.\n\n  * Sign up for our newsletter here. https://visit
+ or.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6S
+ KD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND
+ 7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a6e07357f09c36e0f4e7183/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:The Carnegie History Center has a DigiLab open to th
+ e public to digitize your VHS\, VHS-C\, MiniDV\, 8mm and Super8\, cassett
+ es\, LPs\, CDs\, photos\,...
+LOCATION:Carnegie History Center\,111 S Main St\, Bryan\, TX 77803\, USA
+CREATED:20260801T144939Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260801T144939Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5694/29817525/0/0
+DTSTART:20260910T144500Z
+DTEND:20260910T153000Z
+URL:https://tockify.com/bcslibrary/detail/5694/1789051500000
+SUMMARY: Play2Learn: 9:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 9:45 group.\n\nFor more informat
+ ion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or cal
+ l (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP but
+ ton https://tockify.com/bcslibrary/detail/5694/1787237100000 in the top r
+ ight corner of the August 20 Play2Learn: 9:45 AM group https://tockify.co
+ m/bcslibrary/detail/5694/1787237100000 .\n\n  * Sign up for our newslette
+ r here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35
+ hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl
+ 9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_v
+ uvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T150256Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151130Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5695/29817585/0/0
+DTSTART:20260910T154500Z
+DTEND:20260910T163000Z
+URL:https://tockify.com/bcslibrary/detail/5695/1789055100000
+SUMMARY: Play2Learn: 10:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 10:45 group.\n\nFor more informa
+ tion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or ca
+ ll (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP bu
+ tton https://tockify.com/bcslibrary/detail/5695/1787240700000 in the top 
+ right corner of the August 20 Play2Learn: 10:45 AM group https://tockify.
+ com/bcslibrary/detail/5695/1787240700000 .\n\n  * Sign up for our newslet
+ ter here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB
+ 35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4
+ yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ
+ _vuvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T151431Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151506Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5719/29817960/0/0
+DTSTART:20260910T220000Z
+URL:https://tockify.com/bcslibrary/detail/5719/1789077600000
+SUMMARY: Harry Potter Club (LJRL) - Register starting August 27
+DESCRIPTION:Witches and wizards between the ages of 8 and 17 are invited 
+ to join us at the Ringer Library for Harry Potter Club. This month\, we w
+ ill be testing our knowledge. Registration required. Registration starts 
+ August 27.\n\nTo register (starting August 27)\, click the RSVP button in
+  the top right corner.\n\nFor more information\, please send an owl (emai
+ l Ringer Library https://weblink.bryantx.gov/Forms/lcAHV ) or call (979) 
+ 209-6347.\n\n  * Sign up for our newsletter here. https://visitor.r20.con
+ stantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5J
+ bP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3
+ uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Teen,Tween
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a68e38f7f09c36e0f41773a/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:Witches and wizards between the ages of 8 and 17 are
+  invited to join us at the Ringer Library for Harry Potter Club. This mon
+ th\, we will be testing our...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260728T171830Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260728T173625Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29824980/0/0
+DTSTART:20260915T190000Z
+DTEND:20260915T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1789498800000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5694/29827605/0/0
+DTSTART:20260917T144500Z
+DTEND:20260917T153000Z
+URL:https://tockify.com/bcslibrary/detail/5694/1789656300000
+SUMMARY: Play2Learn: 9:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 9:45 group.\n\nFor more informat
+ ion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or cal
+ l (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP but
+ ton https://tockify.com/bcslibrary/detail/5694/1787237100000 in the top r
+ ight corner of the August 20 Play2Learn: 9:45 AM group https://tockify.co
+ m/bcslibrary/detail/5694/1787237100000 .\n\n  * Sign up for our newslette
+ r here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35
+ hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl
+ 9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_v
+ uvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T150256Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151130Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5695/29827665/0/0
+DTSTART:20260917T154500Z
+DTEND:20260917T163000Z
+URL:https://tockify.com/bcslibrary/detail/5695/1789659900000
+SUMMARY: Play2Learn: 10:45 AM Group (LJRL) - Register starting August 6
+DESCRIPTION:Play2Learn Parent/Child Workshops are for parents/caregivers 
+ and children ages 0-5 years old.\n\nRegistration required. Registration s
+ tarts August 6. Registration is for the 5-week series.\n\nNOTE: There are
+  two groups (one at 9:45 AM and one at 10:45 AM). Please only sign up for
+  one group. This registration is for the 10:45 group.\n\nFor more informa
+ tion\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or ca
+ ll (979) 209-6347.\n\nTo register (starting August 6)\, click the RSVP bu
+ tton https://tockify.com/bcslibrary/detail/5695/1787240700000 in the top 
+ right corner of the August 20 Play2Learn: 10:45 AM group https://tockify.
+ com/bcslibrary/detail/5695/1787240700000 .\n\n  * Sign up for our newslet
+ ter here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB
+ 35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4
+ yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ
+ _vuvRLC_c\n\n
+CATEGORIES:Children,Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a07365964f49cafac3cbcc4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Play2Learn Parent/Child Workshops are for parents/ca
+ regivers and children ages 0-5 years old. Registration required. Registra
+ tion starts August 6....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260515T151431Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260515T151506Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29835060/0/0
+DTSTART:20260922T190000Z
+DTEND:20260922T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1790103600000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4598/29826570/0/0
+DTSTART:20260923T213000Z
+DTEND:20260923T223000Z
+URL:https://tockify.com/bcslibrary/detail/4598/1789594200000
+SUMMARY: Classics Book Club (LJRL)
+DESCRIPTION:We will be discussing Yellowface https://bcslibrary.tlcdelive
+ rs.com/#/resource/242430324/details by R.F. Kuang. Ages 14 and up are wel
+ come. Registration not required.\n\nFor more information\, email Ringer L
+ ibrary https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\
+ n  * Sign up for our newsletter here. https://visitor.r20.constantcontact
+ .com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vUL
+ Jv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYA
+ q-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a16220bbf50ac3e01299af4/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:We will be discussing Yellowface https://bcslibrary.
+ tlcdelivers.com/#/resource/242430324/details by R.F. Kuang. Ages 14 and u
+ p are welcome. Registration not...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20230823T211403Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260526T225427Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5568/29837640/0/0
+DTSTART:20260924T140000Z
+DTEND:20260924T170000Z
+URL:https://tockify.com/bcslibrary/detail/5568/1790258400000
+SUMMARY: Job and Resume Assistance: Workforce Solutions (CBMPL)
+DESCRIPTION:The BCSPLS and Workforce Solutions Brazos Valley are partneri
+ ng on Job and Resume Assistance. Someone from Workforce Solutions Brazos 
+ Valley will come to the library on the last Thursday of the month and pro
+ vide free\, walk-in assistance to the public. Workforce Solutions will be
+  at both Mounce and Ringer from 9 AM to 12 PM on the last Thursday of the
+  month.\n\nFor more information\, email Mounce Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up for our news
+ letter here. https://visitor.r20.constantcontact.com/manage/optin?v=001nj
+ YGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWv
+ aT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI0
+ 1NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6761a3ae8ed0d3054a019e2e/scaled_896.png
+X-TKF-CUSTOM-PREVIEW:The BCSPLS and Workforce Solutions Brazos Valley are
+  partnering on Job and Resume Assistance. Someone from Workforce Solution
+ s Brazos Valley will come to the...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260307T222354Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260307T222354Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5569/29837640/0/0
+DTSTART:20260924T140000Z
+DTEND:20260924T170000Z
+URL:https://tockify.com/bcslibrary/detail/5569/1790258400000
+SUMMARY: Job and Resume Assistance: Workforce Solutions (LJRL)
+DESCRIPTION:The BCSPLS and Workforce Solutions Brazos Valley are partneri
+ ng on Job and Resume Assistance. Someone from Workforce Solutions Brazos 
+ Valley will come to the library on the last Thursday of the month and pro
+ vide free\, walk-in assistance to the public. Workforce Solutions will be
+  at both Mounce and Ringer from 9 AM to 12 PM on the last Thursday of the
+  month.\n\nFor more information\, email Ringer Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our news
+ letter here. https://visitor.r20.constantcontact.com/manage/optin?v=001nj
+ YGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWv
+ aT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI0
+ 1NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6761a3ae8ed0d3054a019e2e/scaled_896.png
+X-TKF-CUSTOM-PREVIEW:The BCSPLS and Workforce Solutions Brazos Valley are
+  partnering on Job and Resume Assistance. Someone from Workforce Solution
+ s Brazos Valley will come to the...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260307T222424Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260307T222424Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29845140/0/0
+DTSTART:20260929T190000Z
+DTEND:20260929T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1790708400000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5594/29854020/0/0
+DTSTART:20261005T230000Z
+DTEND:20261006T000000Z
+URL:https://tockify.com/bcslibrary/detail/5594/1791241200000
+SUMMARY: Evening Book Club (LJRL)
+DESCRIPTION:We will be discussing The Martian Chronicles https://bcslibra
+ ry.tlcdelivers.com/#section=resource&resourceid=6093692 by Ray Bradbury. 
+ Registration is not required.\n\nNOTE: The Evening Book Club has move to 
+ the 1st Monday at 6 PM.\n\nFor more information\, email Ringer Library ht
+ tps://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign
+  up for our newsletter here. https://visitor.r20.constantcontact.com/mana
+ ge/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH
+ -qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oL
+ csbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69e25e39e7fb5c8ff8d8c78e/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Martian Chronicles https:/
+ /bcslibrary.tlcdelivers.com/#section=resource&resourceid=6093692 by Ray B
+ radbury. Registration is not...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260326T193058Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260417T162254Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29855220/0/0
+DTSTART:20261006T190000Z
+DTEND:20261006T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1791313200000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5719/29858280/0/0
+DTSTART:20261008T220000Z
+URL:https://tockify.com/bcslibrary/detail/5719/1791496800000
+SUMMARY: Harry Potter Club (LJRL) - Register starting September 24
+DESCRIPTION:Witches and wizards between the ages of 8 and 17 are invited 
+ to join us at the Ringer Library for Harry Potter Club. This month\, we w
+ ill be studying dragon eggs in Care of Magical Creatures. Registration re
+ quired. Registration starts September 24.\n\nTo register (starting Septem
+ ber 24)\, click the RSVP button in the top right corner.\n\nFor more info
+ rmation\, please send an owl (email Ringer Library https://weblink.bryant
+ x.gov/Forms/lcAHV ) or call (979) 209-6347.\n\n  * Sign up for our newsle
+ tter here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYG
+ B35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT
+ 4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01N
+ Z_vuvRLC_c
+CATEGORIES:Teen,Tween
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a68e38f7f09c36e0f41773a/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:Witches and wizards between the ages of 8 and 17 are
+  invited to join us at the Ringer Library for Harry Potter Club. This mon
+ th\, we will be studying dragon...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260728T171830Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260728T173739Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5490/29865060/0/0
+DTSTART:20261013T150000Z
+DTEND:20261013T160000Z
+URL:https://tockify.com/bcslibrary/detail/5490/1791903600000
+SUMMARY: Meyer Book Club (Meyer Center\, online) - Register
+DESCRIPTION:Book title and genre to be announced.\n\nThis club's meetings
+  are hybrid (Meyer Center / Zoom). Registration is required\; let us know
+  if you plan to attend in person or by Zoom.\n\nNOTE: Starting in May\, t
+ he Meyer Book Club is moving to the 2nd Tuesday and will still be at 10 A
+ M Central.\n\nFor more information or to register\, click the RSVP button
+  in the top right corner\, email Ringer Library https://weblink.bryantx.g
+ ov/Forms/lcAHV \, or call (979) 209-6347.\n\n  * Sign up for our newslett
+ er here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB3
+ 5hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4y
+ l9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_
+ vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6126b4f8e9d1334378bfaf95/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Book title and genre to be announced. This club's me
+ etings are hybrid (Meyer Center / Zoom). Registration is required\; let u
+ s know if you plan to attend in...
+LOCATION:Bob and Wanda Meyer Senior and Community Center\,2275 Dartmouth 
+ St\, College Station\, TX 77840\, USA
+CREATED:20260203T203004Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260204T204511Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29865300/0/0
+DTSTART:20261013T190000Z
+DTEND:20261013T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1791918000000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4711/29866500/0/0
+DTSTART:20261014T150000Z
+URL:https://tockify.com/bcslibrary/detail/4711/1791990000000
+SUMMARY: Sunshine Book Club (CBMPL)
+DESCRIPTION:We will be discussing The Spellshop https://bcslibrary.tlcdel
+ ivers.com/#section=resource&resourceid=520404007 by Sarah Beth Durst. For
+  more information\, email Mounce Library https://weblink.bryantx.gov/Form
+ s/lcAHV or call (979) 209-5600.\n\nSave the date: The author will be visi
+ ting Ringer Library on Wed.\, Oct. 14 at 6 PM. Click to RSVP https://tock
+ ify.com/bcslibrary/detail/5444/1792018800000 for the BCS Public Libraries
+  2026 Author Series https://www.bcslibrary.org/programs/author-series/ : 
+ Sarah Beth Durst Author Visit. RSVPs https://tockify.com/bcslibrary/detai
+ l/5444/1792018800000 start Sept. 15.\n\n  * Sign up for our newsletter he
+ re. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW0
+ 8yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9Ufc
+ U_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRL
+ C_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69f3c609e5e873960daddc89/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Spellshop https://bcslibra
+ ry.tlcdelivers.com/#section=resource&resourceid=520404007 by Sarah Beth D
+ urst. For more information\,...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20231229T173134Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260430T211734Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29875380/0/0
+DTSTART:20261020T190000Z
+DTEND:20261020T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1792522800000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4598/29876970/0/0
+DTSTART:20261021T213000Z
+DTEND:20261021T223000Z
+URL:https://tockify.com/bcslibrary/detail/4598/1792618200000
+SUMMARY: Classics Book Club (LJRL)
+DESCRIPTION:We will be discussing The Bellamy Trial by Frances Noys Hart.
+  Ages 14 and up are welcome. Registration not required.\n\nFor more infor
+ mation\, email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or 
+ call (979) 209-6347.\n\n  * Sign up for our newsletter here. https://visi
+ tor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6
+ SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_N
+ D7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a1622a1bf50ac3e012e4da4/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Bellamy Trial by Frances N
+ oys Hart. Ages 14 and up are welcome. Registration not required. For more
+  information\, email Ringer...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20230823T211403Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260526T225505Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29885460/0/0
+DTSTART:20261027T190000Z
+DTEND:20261027T200000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1793127600000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5568/29888040/0/0
+DTSTART:20261029T140000Z
+DTEND:20261029T170000Z
+URL:https://tockify.com/bcslibrary/detail/5568/1793282400000
+SUMMARY: Job and Resume Assistance: Workforce Solutions (CBMPL)
+DESCRIPTION:The BCSPLS and Workforce Solutions Brazos Valley are partneri
+ ng on Job and Resume Assistance. Someone from Workforce Solutions Brazos 
+ Valley will come to the library on the last Thursday of the month and pro
+ vide free\, walk-in assistance to the public. Workforce Solutions will be
+  at both Mounce and Ringer from 9 AM to 12 PM on the last Thursday of the
+  month.\n\nFor more information\, email Mounce Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up for our news
+ letter here. https://visitor.r20.constantcontact.com/manage/optin?v=001nj
+ YGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWv
+ aT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI0
+ 1NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6761a3ae8ed0d3054a019e2e/scaled_896.png
+X-TKF-CUSTOM-PREVIEW:The BCSPLS and Workforce Solutions Brazos Valley are
+  partnering on Job and Resume Assistance. Someone from Workforce Solution
+ s Brazos Valley will come to the...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20260307T222354Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260307T222354Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5569/29888040/0/0
+DTSTART:20261029T140000Z
+DTEND:20261029T170000Z
+URL:https://tockify.com/bcslibrary/detail/5569/1793282400000
+SUMMARY: Job and Resume Assistance: Workforce Solutions (LJRL)
+DESCRIPTION:The BCSPLS and Workforce Solutions Brazos Valley are partneri
+ ng on Job and Resume Assistance. Someone from Workforce Solutions Brazos 
+ Valley will come to the library on the last Thursday of the month and pro
+ vide free\, walk-in assistance to the public. Workforce Solutions will be
+  at both Mounce and Ringer from 9 AM to 12 PM on the last Thursday of the
+  month.\n\nFor more information\, email Ringer Library https://weblink.br
+ yantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our news
+ letter here. https://visitor.r20.constantcontact.com/manage/optin?v=001nj
+ YGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWv
+ aT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI0
+ 1NZ_vuvRLC_c
+CATEGORIES:Adult,Community-Events
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6761a3ae8ed0d3054a019e2e/scaled_896.png
+X-TKF-CUSTOM-PREVIEW:The BCSPLS and Workforce Solutions Brazos Valley are
+  partnering on Job and Resume Assistance. Someone from Workforce Solution
+ s Brazos Valley will come to the...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260307T222424Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260307T222424Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5594/29894400/0/0
+DTSTART:20261103T000000Z
+DTEND:20261103T010000Z
+URL:https://tockify.com/bcslibrary/detail/5594/1793664000000
+SUMMARY: Evening Book Club (LJRL)
+DESCRIPTION:We will be discussing The Husbands https://bcslibrary.tlcdeli
+ vers.com/#section=resource&resourceid=477045982 by Holly Gramazio. Regist
+ ration is not required.\n\nFor more information\, email Ringer Library ht
+ tps://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign
+  up for our newsletter here. https://visitor.r20.constantcontact.com/mana
+ ge/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH
+ -qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oL
+ csbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69e25f02e7fb5c8ff8da4def/scaled_640.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Husbands https://bcslibrar
+ y.tlcdelivers.com/#section=resource&resourceid=477045982 by Holly Gramazi
+ o. Registration is not required....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260326T193058Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260417T162601Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29895600/0/0
+DTSTART:20261103T200000Z
+DTEND:20261103T210000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1793736000000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5490/29905440/0/0
+DTSTART:20261110T160000Z
+DTEND:20261110T170000Z
+URL:https://tockify.com/bcslibrary/detail/5490/1794326400000
+SUMMARY: Meyer Book Club (Meyer Center\, online) - Register
+DESCRIPTION:Book title and genre to be announced.\n\nThis club's meetings
+  are hybrid (Meyer Center / Zoom). Registration is required\; let us know
+  if you plan to attend in person or by Zoom.\n\nNOTE: Starting in May\, t
+ he Meyer Book Club is moving to the 2nd Tuesday and will still be at 10 A
+ M Central.\n\nFor more information or to register\, click the RSVP button
+  in the top right corner\, email Ringer Library https://weblink.bryantx.g
+ ov/Forms/lcAHV \, or call (979) 209-6347.\n\n  * Sign up for our newslett
+ er here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB3
+ 5hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4y
+ l9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_
+ vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6126b4f8e9d1334378bfaf95/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Book title and genre to be announced. This club's me
+ etings are hybrid (Meyer Center / Zoom). Registration is required\; let u
+ s know if you plan to attend in...
+LOCATION:Bob and Wanda Meyer Senior and Community Center\,2275 Dartmouth 
+ St\, College Station\, TX 77840\, USA
+CREATED:20260203T203004Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260204T204511Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29905680/0/0
+DTSTART:20261110T200000Z
+DTEND:20261110T210000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1794340800000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4711/29906880/0/0
+DTSTART:20261111T160000Z
+URL:https://tockify.com/bcslibrary/detail/4711/1794412800000
+SUMMARY: Sunshine Book Club (CBMPL)
+DESCRIPTION:We will be discussing The Listeners by Maggie Stiefvater. For
+  more information\, email Mounce Library https://weblink.bryantx.gov/Form
+ s/lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter here. h
+ ttps://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9
+ K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQY
+ Tkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/691513f9341efa3d3dd0d125/scaled_640.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Listeners by Maggie Stiefv
+ ater. For more information\, email Mounce Library https://weblink.bryantx
+ .gov/Forms/lcAHV or call (979)...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20231229T173134Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20251112T231107Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5719/29908740/0/0
+DTSTART:20261112T230000Z
+URL:https://tockify.com/bcslibrary/detail/5719/1794524400000
+SUMMARY: Harry Potter Club (LJRL) - Register starting October 29
+DESCRIPTION:Witches and wizards between the ages of 8 and 17 are invited 
+ to join us at the Ringer Library for Harry Potter Club. This month\, we w
+ ill be studying Transfiguration and trying to turn yarn into something ne
+ w. Registration required. Registration starts October 29.\n\nTo register 
+ (starting October 29)\, click the RSVP button in the top right corner.\n\
+ nFor more information\, please send an owl (email Ringer Library https://
+ weblink.bryantx.gov/Forms/lcAHV ) or call (979) 209-6347.\n\n  * Sign up 
+ for our newsletter here. https://visitor.r20.constantcontact.com/manage/o
+ ptin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIg
+ Ylnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbm
+ z2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Teen,Tween
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a68e38f7f09c36e0f41773a/scaled_1024.jpg
+X-TKF-CUSTOM-PREVIEW:Witches and wizards between the ages of 8 and 17 are
+  invited to join us at the Ringer Library for Harry Potter Club. This mon
+ th\, we will be studying...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260728T171830Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260728T173931Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29915760/0/0
+DTSTART:20261117T200000Z
+DTEND:20261117T210000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1794945600000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4598/29917350/0/0
+DTSTART:20261118T223000Z
+DTEND:20261118T233000Z
+URL:https://tockify.com/bcslibrary/detail/4598/1795041000000
+SUMMARY: Classics Book Club (LJRL)
+DESCRIPTION:We will be discussing "The Minority Report" https://bcslibrar
+ y.tlcdelivers.com/#/resource/835522706/details by Philip K. Dick. Ages 14
+  and up are welcome. Registration not required.\n\nFor more information\,
+  email Ringer Library https://weblink.bryantx.gov/Forms/lcAHV or call (97
+ 9) 209-6347.\n\n  * Sign up for our newsletter here. https://visitor.r20.
+ constantcontact.com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAt
+ H5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A
+ _Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a162367bf50ac3e01354591/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing "The Minority Report" https://
+ bcslibrary.tlcdelivers.com/#/resource/835522706/details by Philip K. Dick
+ . Ages 14 and up are welcome....
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20230823T211403Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260527T140937Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29925840/0/0
+DTSTART:20261124T200000Z
+DTEND:20261124T210000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1795550400000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5732/29935920/0/0
+DTSTART:20261201T200000Z
+DTEND:20261201T210000Z
+URL:https://tockify.com/bcslibrary/detail/5732/1796155200000
+SUMMARY: English Conversation Circle (LJRL)
+DESCRIPTION:Practice speaking English in a safe and friendly space. All l
+ evels welcome. Registration is not required\, join at any time. Adults 18
+  and older.\n\nFor more information\, email Ringer Library https://weblin
+ k.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  * Sign up for our 
+ newsletter here. https://visitor.r20.constantcontact.com/manage/optin?v=0
+ 01njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yau
+ psWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivT
+ orI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/638f7f7eba07b602da3d441d/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Practice speaking English in a safe and friendly spa
+ ce. All levels welcome. Registration is not required\, join at any time. 
+ Adults 18 and older. For more...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260804T212037Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260804T212037Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5594/29944800/0/0
+DTSTART:20261208T000000Z
+DTEND:20261208T010000Z
+URL:https://tockify.com/bcslibrary/detail/5594/1796688000000
+SUMMARY: Evening Book Club (LJRL)
+DESCRIPTION:We will be discussing The Correspondent https://bcslibrary.tl
+ cdelivers.com/#section=resource&resourceid=687570396 by Virginia Evans. R
+ egistration is not required.\n\nFor more information\, email Ringer Libra
+ ry https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\n  *
+  Sign up for our newsletter here. https://visitor.r20.constantcontact.com
+ /manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4U
+ hR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sq
+ cc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69e25f51e7fb5c8ff8dacb88/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing The Correspondent https://bcsl
+ ibrary.tlcdelivers.com/#section=resource&resourceid=687570396 by Virginia
+  Evans. Registration is not...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20260326T193058Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260417T162732Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/5490/29945760/0/0
+DTSTART:20261208T160000Z
+DTEND:20261208T170000Z
+URL:https://tockify.com/bcslibrary/detail/5490/1796745600000
+SUMMARY: Meyer Book Club (Meyer Center\, online) - Register
+DESCRIPTION:Book title and genre to be announced.\n\nThis club's meetings
+  are hybrid (Meyer Center / Zoom). Registration is required\; let us know
+  if you plan to attend in person or by Zoom.\n\nNOTE: Starting in May\, t
+ he Meyer Book Club is moving to the 2nd Tuesday and will still be at 10 A
+ M Central.\n\nFor more information or to register\, click the RSVP button
+  in the top right corner\, email Ringer Library https://weblink.bryantx.g
+ ov/Forms/lcAHV \, or call (979) 209-6347.\n\n  * Sign up for our newslett
+ er here. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB3
+ 5hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4y
+ l9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_
+ vuvRLC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6126b4f8e9d1334378bfaf95/scaled_256.png
+X-TKF-CUSTOM-PREVIEW:Book title and genre to be announced. This club's me
+ etings are hybrid (Meyer Center / Zoom). Registration is required\; let u
+ s know if you plan to attend in...
+LOCATION:Bob and Wanda Meyer Senior and Community Center\,2275 Dartmouth 
+ St\, College Station\, TX 77840\, USA
+CREATED:20260203T203004Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260204T204511Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4711/29947200/0/0
+DTSTART:20261209T160000Z
+URL:https://tockify.com/bcslibrary/detail/4711/1796832000000
+SUMMARY: Sunshine Book Club (CBMPL)
+DESCRIPTION:We will be discussing Small Things Like These by Claire Keega
+ n. For more information\, email Mounce Library https://weblink.bryantx.go
+ v/Forms/lcAHV or call (979) 209-5600.\n\n  * Sign up for our newsletter h
+ ere. https://visitor.r20.constantcontact.com/manage/optin?v=001njYGB35hzW
+ 08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vULJv4UhR6tH-qIgYlnf0yaupsWvaT4yl9Uf
+ cU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYAq-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvR
+ LC_c
+CATEGORIES:Adult
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/69151453341efa3d3dd0d147/scaled_640.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing Small Things Like These by Cla
+ ire Keegan. For more information\, email Mounce Library https://weblink.b
+ ryantx.gov/Forms/lcAHV or call...
+LOCATION:Clara B. Mounce Public Library\,201 E 26th St\, Bryan\, TX 77803
+ \, USA
+CREATED:20231229T173134Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20251112T231233Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+BEGIN:VEVENT
+UID:TKF/5ace7462df82fe785ea38405/4598/29957670/0/0
+DTSTART:20261216T223000Z
+DTEND:20261216T233000Z
+URL:https://tockify.com/bcslibrary/detail/4598/1797460200000
+SUMMARY: Classics Book Club (LJRL)
+DESCRIPTION:We will be discussing Middlemarch https://bcslibrary.tlcdeliv
+ ers.com/#/resource/757967/details by George Eliot. Ages 14 and up are wel
+ come. Registration not required.\n\nFor more information\, email Ringer L
+ ibrary https://weblink.bryantx.gov/Forms/lcAHV or call (979) 209-6347.\n\
+ n  * Sign up for our newsletter here. https://visitor.r20.constantcontact
+ .com/manage/optin?v=001njYGB35hzW08yjx9K9H_gU70BZ6SKD2SfAtH5JbP4-hKd25vUL
+ Jv4UhR6tH-qIgYlnf0yaupsWvaT4yl9UfcU_DQYTkq2KmHjq_ND7nxgR_A_Q3uJkpZ3QR9VYA
+ q-sqcc2oLcsbmz2O4_ivTorI01NZ_vuvRLC_c
+CATEGORIES:Adult,Teen
+X-TKF-FEATURED-IMAGE:https://d3flpus5evl89n.cloudfront.net/5ace7403df82fe
+ 785ea381ce/6a1623a9bf50ac3e013785ea/scaled_256.jpg
+X-TKF-CUSTOM-PREVIEW:We will be discussing Middlemarch https://bcslibrary
+ .tlcdelivers.com/#/resource/757967/details by George Eliot. Ages 14 and u
+ p are welcome. Registration not...
+LOCATION:Larry J. Ringer Library\,1818 Harvey Mitchell Pkwy S\, College S
+ tation\, TX 77845\, USA
+CREATED:20230823T211403Z
+DTSTAMP:20260812T164402Z
+LAST-MODIFIED:20260526T225700Z
+TRANSP:OPAQUE
+CLASS:PUBLIC
+END:VEVENT
+END:VCALENDAR

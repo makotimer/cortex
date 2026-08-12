@@ -11,7 +11,7 @@ from urllib.parse import urljoin, urlsplit
 from bs4 import BeautifulSoup  # pip install beautifulsoup4 html5lib
 
 from ..config import ScraperConfig
-from ..http_client import HttpClient
+from modules._shared.http import HttpClient
 from ..models import Posting, ScrapeResult
 from ._targets import parse_url_label_list
 from .base import BaseScraper
