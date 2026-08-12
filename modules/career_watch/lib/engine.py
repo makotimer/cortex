@@ -71,7 +71,15 @@ def run_once(
     # ------------------------------------------------------------------
     if settings.proxy_url:
         control_url = os.getenv("VPN_CONTROL_URL", "http://vpn:8000")
-        gluetun = vpn_client.GluetunClient(control_url=control_url)
+        try:
+            rotate_timeout = float(
+                os.getenv("VPN_ROTATE_TIMEOUT") or vpn_client.DEFAULT_ROTATE_TIMEOUT
+            )
+        except ValueError:
+            rotate_timeout = vpn_client.DEFAULT_ROTATE_TIMEOUT
+        gluetun = vpn_client.GluetunClient(
+            control_url=control_url, rotate_timeout=rotate_timeout
+        )
         if not gluetun.health():
             logging_bridge.activity({
                 "component": "career_watch.engine",
@@ -84,12 +92,18 @@ def run_once(
             )
         if settings.rotate_vpn_per_run:
             new_ip = gluetun.rotate()
+            rotate_seconds = getattr(gluetun, "last_rotate_seconds", None)
             logging_bridge.activity({
                 "component": "career_watch.engine",
                 "op": "vpn_rotated",
                 "person": person_env,
                 "new_ip": new_ip,
                 "rotated": new_ip is not None,
+                # Reconnect latency, for tuning VPN_ROTATE_TIMEOUT over time.
+                # None means rotate() never reached the wait loop (PUT failed).
+                "rotate_seconds": round(rotate_seconds, 2) if rotate_seconds else None,
+                "rotate_polls": getattr(gluetun, "last_rotate_polls", 0),
+                "rotate_timeout": rotate_timeout,
             })
 
     # Resolve scraper lookup function (test override or production default)

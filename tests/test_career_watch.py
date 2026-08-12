@@ -204,6 +204,68 @@ def test_rotation_failure_does_not_abort(fresh_settings, stub_scraper, monkeypat
 
 
 # ----------------------------------------------------------------------
+# 10b. Rotation waits far longer than the old 20 s and reports how long
+#      the reconnect actually took, so latency can be tracked over time.
+# ----------------------------------------------------------------------
+def test_rotate_timeout_default_is_generous():
+    assert vpn_client.DEFAULT_ROTATE_TIMEOUT >= 60
+
+
+def test_rotate_records_duration_on_success(monkeypatch):
+    client = vpn_client.GluetunClient(control_url="http://vpn:8000")
+    monkeypatch.setattr(vpn_client.requests, "put", lambda *a, **kw: _StubResponse())
+    monkeypatch.setattr(vpn_client.time, "sleep", lambda _s: None)
+    # First call = "before" IP, later calls = the new IP after a few polls.
+    ips = iter(["1.1.1.1", "1.1.1.1", "1.1.1.1", "2.2.2.2"])
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: next(ips))
+
+    assert client.rotate() == "2.2.2.2"
+    assert client.last_rotate_polls == 3
+    assert client.last_rotate_seconds is not None
+    assert client.last_rotate_seconds >= 0
+
+
+def test_rotate_records_duration_on_timeout(monkeypatch):
+    # A tiny timeout keeps the test fast while exercising the timeout path.
+    client = vpn_client.GluetunClient(control_url="http://vpn:8000", rotate_timeout=0.05)
+    monkeypatch.setattr(vpn_client.requests, "put", lambda *a, **kw: _StubResponse())
+    monkeypatch.setattr(vpn_client.time, "sleep", lambda _s: None)
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: "1.1.1.1")
+
+    assert client.rotate() is None
+    # Duration is recorded on failure too — that's the number worth tracking.
+    assert client.last_rotate_seconds is not None
+    assert client.last_rotate_polls >= 1
+
+
+def test_rotate_timeout_env_override(fresh_settings, stub_scraper, monkeypatch):
+    monkeypatch.setenv("VPN_ROTATE_TIMEOUT", "150")
+    settings = cw_config.Settings.from_env_and_kwargs({
+        "person_env": "Test User",
+        "groups_path": fresh_settings.groups_path,
+        "sqlite_path": fresh_settings.sqlite_path,
+        "proxy_url": "http://vpn:8888",
+        "rotate_vpn_per_run": True,
+    })
+    monkeypatch.setattr(vpn_client.GluetunClient, "health", lambda self: True)
+    seen: list[float] = []
+
+    def _record_rotate(self):
+        seen.append(self._rotate_timeout)
+        return "9.9.9.9"
+
+    monkeypatch.setattr(vpn_client.GluetunClient, "rotate", _record_rotate)
+
+    engine.run_once(settings, get_scraper=lambda kind: stub_scraper)
+    assert seen == [150.0]
+
+
+class _StubResponse:
+    def raise_for_status(self) -> None:
+        return None
+
+
+# ----------------------------------------------------------------------
 # 11. Render helper is safe (XSS)
 # ----------------------------------------------------------------------
 def test_render_build_tables_escapes_html():
