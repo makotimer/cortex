@@ -68,12 +68,21 @@ VENUES: dict[str, dict[str, Any]] = {
     },
 }
 
+#: The feed is inconsistent about the all-ages label: both ``All-Ages`` and
+#: ``All Ages`` occur, and a hyphen-only map silently drops the audience on the
+#: spaced variant rather than failing. Matching is done on a normalized key so a
+#: third spelling does not reintroduce the bug.
 AUDIENCE_MAP = {
-    "Adult": "adult",
-    "Teen": "teen",
-    "Tween": "tween",
-    "All-Ages": "all-ages",
+    "adult": "adult",
+    "teen": "teen",
+    "tween": "tween",
+    "all ages": "all-ages",
+    "all-ages": "all-ages",
 }
+
+
+def _audience_key(label: str) -> str:
+    return (label or "").strip().lower()
 
 #: `Children` is broad, so it maps to `elementary` and only gains a younger band
 #: when the text says so outright (design §11 open decision 2). Sending parents
@@ -210,8 +219,12 @@ def _registration(title: str, text: str) -> bool | None:
 
 
 def _audiences(labels: list[str], text: str) -> list[str]:
-    out = {AUDIENCE_MAP[label] for label in labels if label in AUDIENCE_MAP}
-    if "Children" in labels:
+    out = {
+        AUDIENCE_MAP[key]
+        for key in (_audience_key(label) for label in labels)
+        if key in AUDIENCE_MAP
+    }
+    if any(_audience_key(label) == "children" for label in labels):
         out.add("elementary")
         low = (text or "").lower()
         if any(h in low for h in PRESCHOOL_HINTS):

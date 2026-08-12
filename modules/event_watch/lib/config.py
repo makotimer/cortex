@@ -9,10 +9,16 @@ import os
 from dataclasses import dataclass, field
 from typing import Any
 
-#: Days ahead to fetch. Design §3 leaves the window deliberately unscoped and is
-#: correct at any size, because disappearance reconciliation only ever considers
-#: occurrences inside the window it actually fetched.
-DEFAULT_WINDOW_DAYS = 30
+#: Days ahead to fetch — roughly nine months. Design §3 leaves the window
+#: deliberately unscoped and is correct at any size, because disappearance
+#: reconciliation only ever considers occurrences inside the window it actually
+#: fetched.
+#:
+#: Nine months is past the feed's own horizon today: asking for ten years
+#: returns the same 157 occurrences as one year, ending 2027-01-01. So this
+#: currently captures everything the source has while still bounding future runs
+#: — which keeps the disappearance guard meaningful rather than open-ended.
+DEFAULT_WINDOW_DAYS = 270
 
 DEFAULT_STATE_DIR = "/app/local/state/event_watch"
 

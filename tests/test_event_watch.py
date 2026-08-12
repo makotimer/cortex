@@ -18,7 +18,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import sys
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 import pytest
@@ -150,6 +150,17 @@ def test_audiences_use_the_closed_vocabulary(normalized):
     valid = {"baby-toddler", "preschool", "elementary", "tween", "teen", "adult", "all-ages"}
     for p in payloads:
         assert set(p["series"]["audiences"]) <= valid
+
+
+def test_all_ages_label_is_matched_in_both_spellings():
+    """The feed carries both `All-Ages` and `All Ages`.
+
+    A hyphen-only map dropped the audience on the spaced variant silently — no
+    error, just five events losing their only audience signal.
+    """
+    assert tockify._audiences(["All-Ages"], "") == ["all-ages"]
+    assert tockify._audiences(["All Ages"], "") == ["all-ages"]
+    assert tockify._audiences(["all ages"], "") == ["all-ages"]
 
 
 def test_children_maps_to_elementary_and_widens_only_on_evidence():
@@ -432,6 +443,8 @@ def test_conformance_cancel_payload_passes_the_real_validator():
     })
 
 
-def test_window_default_matches_the_fixture_capture():
-    assert Settings.from_env_and_kwargs({}).window_days == 30
-    assert date(2026, 9, 11) > date(2026, 8, 12)
+def test_window_default_is_about_nine_months():
+    """Past the feed's own horizon (it ends 2027-01-01) but still bounded, so
+    the disappearance guard keeps meaning something."""
+    assert Settings.from_env_and_kwargs({}).window_days == 270
+    assert date(2026, 8, 12) + timedelta(days=270) > date(2027, 1, 1)
