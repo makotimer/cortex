@@ -108,7 +108,18 @@ See `.env.example` for all keys with descriptions.
 - **IMAP command format** — send an email to yourself with subject matching a command (e.g. `LIST`, `RUN MODULE=modules.example_daily`). The listener polls `Labels/Command`.
 - **Dry-run** — set `CORTEX_DRY_RUN=1` in `.env` to suppress all outbound email.
 - **VPN sidecar** — the `vpn` service (gluetun/ProtonVPN WireGuard) must be running for `career_watch` to scrape. If `CAREER_WATCH_PROXY_URL` is set and gluetun is unreachable, `career_watch` skips the run (fail-closed). Bring it up with `docker compose up -d vpn`.
-- **VPN peer keys go stale** — ProtonVPN rotates WireGuard peer public keys periodically. If gluetun's server list is old, the tunnel will appear up (`tun0` gets an IP, `public_ip` returns empty) but pass no traffic. `SERVER_UPDATE_PERIOD=24h` in `docker-compose.yaml` keeps the list fresh. Symptom: gluetun logs show continuous `i/o timeout` healthcheck failures cycling through many servers. Fix: `docker compose up -d vpn` after ensuring `SERVER_UPDATE_PERIOD` is not `0`.
+- **VPN peer keys go stale** — ProtonVPN rotates WireGuard peer public keys periodically. If gluetun's server list is old, the tunnel will appear up (`tun0` gets an IP, `public_ip` returns empty) but pass no traffic. The server-list updater is `UPDATER_PERIOD=6h` in `docker-compose.yaml` (gluetun v3 renamed the old `SERVER_UPDATE_PERIOD`; that key no longer does anything). Symptom: gluetun logs show continuous `i/o timeout` healthcheck failures cycling through many servers. Fix: `docker compose up -d vpn` after ensuring `UPDATER_PERIOD` is not `0` — but if the updater is already running, suspect a stale `PROTON_WG_PRIVATE_KEY` instead, which produces the same silent no-traffic signature.
+- **A failed VPN rotation is silent and costs the whole run.** The health check runs
+  *before* rotation and is never re-checked after, so a rotation that doesn't finish
+  leaves the scrape pointed at a still-reconnecting tunnel. The run then logs
+  `ok: true` / `no_new` and emails nothing — it looks like a quiet day, not a failure.
+  Measured over 626 runs (2026-06-01 → 08-12): rotation failed on 22% of runs, and 54%
+  of those scraped **zero** results from every source, versus 0% when rotation
+  succeeded. Diagnose with the `vpn_rotated` activity event, which carries
+  `rotated`, `rotate_seconds`, `rotate_polls` and `rotate_timeout`; a `summary` whose
+  `found_by_source` is all-zero with multi-second `durations_us` is this, not an empty
+  job board. `VPN_ROTATE_TIMEOUT` (default 90 s) is the knob — raise it if
+  `rotate_seconds` clusters near the ceiling.
 - **No LLM is reachable from cortex.** `llm-proxy` exists and is well established —
   six sites under `/srv/docker/websites/` run one as a sidecar (multi-backend, tiers
   `light`/`middle`/`heavy`, `X-Proxy-Secret` auth on `:11434`) — but every instance is
