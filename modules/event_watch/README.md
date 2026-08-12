@@ -73,7 +73,8 @@ Verified against the captured window — see `tests/fixtures/event_watch/README.
 
 ```bash
 # Normalize and log payloads, publish nothing. Do this first.
-docker compose run --rm cortex python -m service.cli run modules.event_watch --kwargs '{"dry_run": true}'
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test
