@@ -181,11 +181,15 @@ class TockifyScraper(BaseEventScraper):
             "source_series_uid": uid,
             "title": title,
             "organization": dict(ORGANIZATION),
-            "place": _place(content),
             "is_free": True,  # every library programme in the feed is free
             "audiences": _audiences(labels, f"{title}\n{description or ''}"),
             "topics": classify.from_labels(labels),
         }
+        # Omitted entirely rather than sent as null — the contract treats an
+        # absent place as "no venue", which is the honest answer for a
+        # system-wide notice.
+        if place := _place(content):
+            series["place"] = place
         if description:
             series["description"] = description
         if url := _detail_url(base.record):
@@ -234,9 +238,26 @@ def _audiences(labels: list[str], text: str) -> list[str]:
     return sorted(out)
 
 
-def _place(content: dict) -> dict:
+def _place(content: dict) -> dict | None:
+    """The venue, or None for a record that genuinely has none.
+
+    Two different things arrive looking similar, and conflating them is what
+    made system-wide notices unpublishable:
+
+    * **No venue at all** — the library uses these for notices that apply to
+      every branch and therefore to none of them ("LIBRARIES CLOSED FOR
+      THANKSGIVING"). ``series.place`` is optional in the contract, so these
+      publish without one rather than being assigned an invented venue.
+    * **A venue we do not recognize** — still fails loudly. Something named but
+      unmapped needs a VENUES entry with a deliberate area; guessing would put
+      an event in the wrong town.
+    """
     location = content.get("location") or {}
     place_id = location.get("place_id")
+    place_name = (content.get("place") or "").strip()
+    if not place_id and not place_name:
+        return None
+
     venue = VENUES.get(place_id or "")
     if not venue:
         raise ScraperError(

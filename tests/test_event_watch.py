@@ -57,27 +57,44 @@ def test_every_occurrence_is_published_or_explicitly_rejected(normalized, raw_ev
     assert len(payloads) + len(rejected) == len(raw_events)
 
 
-def test_placeless_record_is_rejected_not_guessed(normalized):
-    """The one record with no place at all must fail loudly (design §5).
+def test_placeless_record_is_published_with_no_place_at_all(normalized):
+    """System-wide notices ("LIBRARIES CLOSED FOR THANKSGIVING") have no venue.
 
-    The contract requires series.place.name, so there is no honest payload for
-    it; guessing an area would send families to the wrong town.
+    They apply to every branch and therefore to none. `series.place` is optional
+    in the contract, so the honest payload simply omits it — sending null, or
+    inventing a venue, would both be worse.
     """
-    _payloads, rejected = normalized
-    assert len(rejected) == 1
-    assert "unknown venue" in rejected[0]["reason"]
+    payloads, rejected = normalized
+    assert rejected == []
+    placeless = [p for p in payloads if "place" not in p["series"]]
+    assert len(placeless) == 1
+    assert "place" not in placeless[0]["series"]
+
+
+def test_an_unrecognized_named_venue_still_fails_loudly():
+    """The other half of the distinction: something named but unmapped is a
+    real error and must not be published with a guessed area."""
+    with pytest.raises(tockify.ScraperError) as e:
+        tockify._place({"place": "Somewhere New",
+                        "location": {"place_id": "ChIJ-not-in-the-map"}})
+    assert "unknown venue" in str(e.value)
+
+
+def test_a_named_venue_without_a_place_id_also_fails_loudly():
+    with pytest.raises(tockify.ScraperError):
+        tockify._place({"place": "Somewhere New", "location": {}})
 
 
 def test_all_published_places_carry_an_explicit_area(normalized):
     payloads, _ = normalized
-    areas = {p["series"]["place"]["area"] for p in payloads}
-    assert areas <= {"bryan", "college_station", "nearby"}
-    assert all(p["series"]["place"].get("name") for p in payloads)
+    places = [p["series"]["place"] for p in payloads if "place" in p["series"]]
+    assert {pl["area"] for pl in places} <= {"bryan", "college_station", "nearby"}
+    assert all(pl.get("name") for pl in places)
 
 
 def test_six_venues_including_the_two_the_design_missed(normalized):
     payloads, _ = normalized
-    slugs = {p["series"]["place"]["slug"] for p in payloads}
+    slugs = {p["series"]["place"]["slug"] for p in payloads if "place" in p["series"]}
     assert "heb-william-d-fitch" in slugs
     assert "bob-and-wanda-meyer-senior-and-community-center" in slugs
 
