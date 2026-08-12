@@ -97,6 +97,9 @@ def main() -> int:
                     default=vpn_client.DEFAULT_ROTATE_TIMEOUT,
                     help="seconds to wait for the tunnel after a restart")
     ap.add_argument("--probe-timeout", type=float, default=15.0)
+    ap.add_argument("--settle", type=float,
+                    default=vpn_client.VERIFY_SETTLE_SECONDS,
+                    help="pause before re-probing a target that failed once")
     ap.add_argument("--out-dir", default=DEFAULT_OUT)
     ap.add_argument("--force", action="store_true",
                     help="run even during career_watch hours (it will collide)")
@@ -149,8 +152,20 @@ def main() -> int:
             }
             if ip:
                 for name, url in DEFAULT_TARGETS:
-                    rec["targets"][name] = probe(args.proxy_url, url, args.probe_timeout)
+                    first = probe(args.proxy_url, url, args.probe_timeout)
+                    entry = {**first, "settled": False}
+                    if not first["ok"]:
+                        # Same discipline as vpn_client: one failure may only
+                        # mean the tunnel is still coming up. Recording both
+                        # attempts is the point — how often the retry rescues a
+                        # probe is what says whether the settle delay is right.
+                        time.sleep(args.settle)
+                        second = probe(args.proxy_url, url, args.probe_timeout)
+                        entry = {**second, "settled": True, "first": first}
+                    rec["targets"][name] = entry
             rec["all_ok"] = bool(ip) and all(t["ok"] for t in rec["targets"].values())
+            rec["rescued_by_settle"] = [
+                n for n, t in rec["targets"].items() if t.get("settled") and t["ok"]]
 
             fh.write(json.dumps(rec) + "\n")
             fh.flush()          # survive a kill mid-survey
@@ -190,6 +205,15 @@ def summarize(records: list[dict]) -> None:
     for name, c in per_target.items():
         total = c[True] + c[False]
         print(f"  {name:12} {c[True]:3}/{total:3} ok")
+
+    rescued = sum(len(r.get("rescued_by_settle") or []) for r in up)
+    probed_twice = sum(1 for r in up for t in r["targets"].values() if t.get("settled"))
+    if probed_twice:
+        print(f"\nfirst probe failed {probed_twice} time(s); the settle retry "
+              f"rescued {rescued}")
+        print("  -> rescued/probed_twice is how often an exit was merely slow, "
+              "not bad.\n     High here means condemning on one probe would "
+              "blacklist good servers.")
 
     by_country: dict[str, Counter] = defaultdict(Counter)
     for r in up:

@@ -389,3 +389,35 @@ def test_a_tunnel_with_no_ip_is_not_usable(monkeypatch, tmp_path):
     monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait", lambda self: None)
     out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u", attempts=2)
     assert not out.ok and "no public IP" in out.reason
+
+
+def test_a_slow_exit_is_re_probed_before_being_condemned(monkeypatch, tmp_path):
+    """gluetun publishes an IP before the tunnel reliably carries traffic.
+
+    Probing the instant an IP appears condemned 8 exits in minutes, 5 of which
+    had already served production — one of them 7 times. One failure is not
+    evidence; two, with a gap, is.
+    """
+    c = _client(tmp_path, verify_settle=0)
+    probes = []
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: "1.1.1.1")
+    monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait", lambda self: None)
+    monkeypatch.setattr(vpn_client.GluetunClient, "usable",
+                        lambda self, p, v: len(probes) > 0 or probes.append(1))
+
+    out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
+                                prefer_new_ip=False, attempts=1)
+    assert out.ok, "second probe succeeded, so the exit must not be condemned"
+    assert out.quarantined == []
+    assert not c._is_quarantined("1.1.1.1")
+
+
+def test_an_exit_failing_twice_is_still_quarantined(monkeypatch, tmp_path):
+    c = _client(tmp_path, verify_settle=0)
+    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: "9.9.9.9")
+    monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait", lambda self: None)
+    monkeypatch.setattr(vpn_client.GluetunClient, "usable", lambda self, p, v: False)
+
+    out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
+                                prefer_new_ip=False, attempts=1)
+    assert not out.ok and c._is_quarantined("9.9.9.9")

@@ -40,6 +40,15 @@ DEFAULT_QUARANTINE_TTL = 1800.0
 #: Seconds allowed for the through-proxy verification request.
 VERIFY_TIMEOUT = 12.0
 
+#: Pause before re-verifying an exit that failed its first probe.
+#:
+#: gluetun publishes a public IP before the tunnel reliably carries traffic, so
+#: a probe fired the instant an IP appears can fail on a perfectly good server.
+#: Without this pause the first version of this code quarantined 8 exits in a
+#: few minutes, 5 of which had already served production successfully — one of
+#: them 7 times. An exit is only condemned if it fails twice with a gap.
+VERIFY_SETTLE_SECONDS = 6.0
+
 
 @dataclass
 class SwitchOutcome:
@@ -66,7 +75,9 @@ class GluetunClient:
         rotate_timeout: float = DEFAULT_ROTATE_TIMEOUT,
         quarantine_path: str | None = None,
         quarantine_ttl: float = DEFAULT_QUARANTINE_TTL,
+        verify_settle: float = VERIFY_SETTLE_SECONDS,
     ) -> None:
+        self._verify_settle = verify_settle
         self._base = control_url.rstrip("/")
         self._timeout = timeout
         self._rotate_timeout = rotate_timeout
@@ -163,15 +174,16 @@ class GluetunClient:
                 out.reason = f"exit {ip} is quarantined"
                 continue
 
-            if self.usable(proxy_url, verify_url):
+            if self._verify_with_settle(proxy_url, verify_url):
                 out.tried.append((ip, True))
                 out.ok, out.ip = True, ip
                 out.changed = bool(before and ip != before)
                 out.reason = "verified"
                 break
 
-            # Has an IP but cannot reach the target: park it so the next
-            # attempt does not land straight back on it.
+            # Failed twice with a pause between, so this is the exit and not
+            # the tunnel still coming up. Park it so the next attempt does not
+            # land straight back on it.
             out.tried.append((ip, False))
             self._quarantine(ip)
             out.quarantined.append(ip)
@@ -182,6 +194,20 @@ class GluetunClient:
             LOG.warning("gluetun: no usable exit after %d attempt(s) in %.1fs (%s)",
                         out.attempts, out.seconds, out.reason)
         return out
+
+    def _verify_with_settle(self, proxy_url: str, verify_url: str) -> bool:
+        """Probe, and on failure wait and probe once more.
+
+        The retry is what separates "this exit cannot reach the target" from
+        "the tunnel was not ready yet" — a distinction worth the few seconds,
+        because getting it wrong quarantines working servers.
+        """
+        if self.usable(proxy_url, verify_url):
+            return True
+        LOG.info("gluetun: first probe failed, settling %.0fs before retry",
+                 self._verify_settle)
+        time.sleep(self._verify_settle)
+        return self.usable(proxy_url, verify_url)
 
     # ------------------------------------------------------------------
     # Quarantine: a short memory of exits that just failed
