@@ -117,7 +117,16 @@ class GluetunClient:
         not reach the target at all. This asks the real question.
 
         HEAD first, since most of these endpoints answer it and it costs almost
-        nothing; a server that rejects HEAD gets a GET.
+        nothing. But HEAD is an *optimisation, not the test*: only a successful
+        HEAD is trusted, and anything else — a bad status or an exception — hands
+        the question to GET, which decides.
+
+        Falling through on 405 alone was not enough, and the cost was total.
+        ``https://www.cloudflare.com/cdn-cgi/trace``, career_watch's default
+        verify URL, answers HEAD with **404** and GET with 200. So this returned
+        False for every exit on every attempt from 2026-08-12 15:02 until the
+        fix, quarantining healthy servers wholesale and failing every run with
+        "no usable VPN exit" while the tunnel was fine.
         """
         proxies = {"http": proxy_url, "https": proxy_url} if proxy_url else None
         for method in (requests.head, requests.get):
@@ -125,11 +134,13 @@ class GluetunClient:
                 r = method(verify_url, proxies=proxies, timeout=VERIFY_TIMEOUT,
                            allow_redirects=True)
             except Exception as exc:
-                LOG.warning("gluetun: verify %s failed: %s", verify_url, exc)
-                return False
-            if r.status_code == 405:      # HEAD not allowed here; try GET
+                LOG.warning("gluetun: verify %s (%s) failed: %s",
+                            verify_url, method.__name__.upper(), exc)
                 continue
-            return bool(r.status_code < 400)
+            if r.status_code < 400:
+                return True
+            LOG.info("gluetun: verify %s answered %s with %d",
+                     verify_url, method.__name__.upper(), r.status_code)
         return False
 
     def switch_until_usable(

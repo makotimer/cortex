@@ -42,13 +42,27 @@ from modules._shared import vpn_client
 
 DEFAULT_OUT = "/app/local/state/vpn_survey"
 
-#: Verified per exit. Each is a host something in cortex actually fetches, plus
-#: one neutral control: if the control passes and a real target does not, the
-#: exit is blocked rather than broken, which is a different problem.
+#: Probed on every exit. All three are purpose-built connectivity-check
+#: endpoints — they exist to be hit by arbitrary clients from arbitrary IPs, so
+#: walking a hundred exits past them is exactly the traffic they expect.
+#:
+#: The first version of this used the real targets (Tockify's ICS feed, Lever's
+#: posting API) on every exit. That is ~130 requests arriving from ~130 distinct
+#: IPs within two hours, which is a fine way to get cortex's actual scraping
+#: targets to blacklist the address pool it depends on. Not worth it for a
+#: diagnostic.
 DEFAULT_TARGETS = [
+    ("control", "https://www.cloudflare.com/cdn-cgi/trace"),
+    ("gstatic-204", "http://connectivitycheck.gstatic.com/generate_204"),
+    ("firefox-txt", "https://detectportal.firefox.com/success.txt"),
+]
+
+#: Hosts cortex genuinely scrapes. Sampled rather than probed every time: an
+#: exit that reaches the neutral targets but not these is *blocked*, not broken,
+#: and that distinction is worth keeping — just not at full volume.
+REAL_TARGETS = [
     ("tockify-ics", "https://tockify.com/api/feeds/ics/bcslibrary"),
     ("lever", "https://api.lever.co/v0/postings/palantir?mode=json&limit=1"),
-    ("control", "https://www.cloudflare.com/cdn-cgi/trace"),
 ]
 
 #: career_watch's schedule. Overlapping would restart the tunnel mid-scrape.
@@ -138,6 +152,21 @@ def main() -> int:
                          "target until one succeeds (default 0,2,4,8,15). This "
                          "is what turns 'the settle retry rescued it' into a "
                          "time-to-traffic distribution. Empty string disables")
+    ap.add_argument("--real-every", type=int, default=10, metavar="N",
+                    help="additionally probe the real scraping targets (Tockify, "
+                         "Lever) on every Nth exit, to keep detecting exits those "
+                         "services block without hammering them from every IP in "
+                         "the pool. 0 disables them entirely (default 10)")
+    ap.add_argument("--recycle", choices=("off", "prev", "any"), default="prev",
+                    help="switch again when the new exit is one we already have: "
+                         "'prev' matches only the exit surveyed immediately "
+                         "before (default), 'any' matches any exit seen this "
+                         "run and maximises distinct coverage, 'off' keeps "
+                         "every switch. Discarded switches are still recorded "
+                         "under 'recycled' — their latency is a datum too")
+    ap.add_argument("--recycle-max", type=int, default=3, metavar="N",
+                    help="give up recycling after N extra switches, so a small "
+                         "pool cannot spin the run in place (default 3)")
     ap.add_argument("--control-url", default="http://vpn:8000")
     ap.add_argument("--proxy-url", default="http://vpn:8888")
     ap.add_argument("--switch-timeout", type=float,
@@ -167,7 +196,9 @@ def main() -> int:
     out_path = out_dir / f"survey-{stamp}.jsonl"
 
     hours = (deadline - now).total_seconds() / 3600
-    print(f"switches={args.switches} targets={[n for n, _ in DEFAULT_TARGETS]}")
+    real = (f", real targets every {args.real_every}"
+            if args.real_every else ", real targets disabled")
+    print(f"switches={args.switches} targets={[n for n, _ in DEFAULT_TARGETS]}{real}")
     print(f"stopping by {deadline:%a %H:%M %Z} ({hours:.1f}h from now)")
     print(f"writing  {out_path}")
     if args.dry_run:
@@ -179,6 +210,8 @@ def main() -> int:
                                       rotate_timeout=args.switch_timeout)
     ladder = [float(s) for s in args.ladder.split(",") if s.strip()]
     records: list[dict] = []
+    prev_ip: str | None = None
+    seen: set[str] = set()
 
     stopped_early = ""
     with out_path.open("w", encoding="utf-8") as fh:
@@ -196,9 +229,23 @@ def main() -> int:
             if args.pause and i > 1:
                 time.sleep(args.pause)
 
-            t0 = time.monotonic()
-            ip = client._restart_and_wait()
-            switch_seconds = round(time.monotonic() - t0, 2)
+            # Switching does not guarantee moving: the pool re-serves servers,
+            # and two consecutive switches have landed on the same exit. Spending
+            # a slot re-probing an exit just measured buys nothing, so switch
+            # again — but keep the discarded switch, because its latency is a
+            # datum about rotation even when its exit is a repeat.
+            recycled: list[dict] = []
+            while True:
+                t0 = time.monotonic()
+                ip = client._restart_and_wait()
+                switch_seconds = round(time.monotonic() - t0, 2)
+                if not ip or args.recycle == "off":
+                    break
+                repeat = (ip == prev_ip) if args.recycle == "prev" else (ip in seen)
+                if not repeat or len(recycled) >= args.recycle_max:
+                    break
+                recycled.append({"ip": ip, "switch_seconds": switch_seconds,
+                                 "matched": "prev" if ip == prev_ip else "seen"})
 
             identity = exit_identity(args.control_url, 5.0) if ip else {}
             rec = {
@@ -208,6 +255,12 @@ def main() -> int:
                 "switch_timeout": args.switch_timeout,
                 "came_up": bool(ip),
                 "ip": ip,
+                # Switches discarded for landing on an exit we already had.
+                # Empty on the overwhelming majority of slots.
+                "recycled": recycled,
+                # True when recycling ran out of attempts and we surveyed a
+                # repeat anyway — otherwise a repeat looks like a fresh exit.
+                "is_repeat": bool(ip) and (ip == prev_ip or ip in seen),
                 "country": identity.get("country"),
                 "region": identity.get("region"),
                 "city": identity.get("city"),
@@ -223,8 +276,11 @@ def main() -> int:
                 control_url = dict(DEFAULT_TARGETS)["control"]
                 rec["time_to_traffic"] = time_to_traffic(
                     args.proxy_url, control_url, args.probe_timeout, ladder)
+            targets = list(DEFAULT_TARGETS)
+            if args.real_every and i % args.real_every == 0:
+                targets += REAL_TARGETS
             if ip:
-                for name, url in DEFAULT_TARGETS:
+                for name, url in targets:
                     first = probe(args.proxy_url, url, args.probe_timeout)
                     entry = {**first, "settled": False}
                     if not first["ok"]:
@@ -243,14 +299,19 @@ def main() -> int:
             fh.write(json.dumps(rec) + "\n")
             fh.flush()          # survive a kill mid-survey
             records.append(rec)
+            prev_ip = ip
+            if ip:
+                seen.add(ip)
 
             flags = "".join("." if t["ok"] else "X" for t in rec["targets"].values())
             ttt = rec.get("time_to_traffic") or {}
             ready = f"+{ttt['seconds']:.1f}s" if ttt.get("ready") else (
                 "never" if ttt else "")
+            recy = f" recycled x{len(recycled)}" if recycled else ""
+            repeat = " REPEAT" if rec["is_repeat"] else ""
             print(f"  {i:3}/{args.switches}  {switch_seconds:6.1f}s  "
                   f"{(ip or 'NO IP'):16} {(rec['country'] or '?')[:14]:14} "
-                  f"[{flags}] {ready}")
+                  f"[{flags}] {ready}{recy}{repeat}")
 
     summarize(records)
     if stopped_early:
