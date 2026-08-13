@@ -7,8 +7,6 @@ except 405, and career_watch's default verify URL
 returned False for every exit on every attempt, quarantining healthy servers
 and failing every run with "no usable VPN exit" while the tunnel was fine.
 """
-from unittest import mock
-
 import pytest
 
 from modules._shared import vpn_client

@@ -22,7 +22,11 @@ LOG = logging.getLogger(__name__)
 #: Seconds to wait for the tunnel to come back up after a rotation restart.
 #: Was 20 s, which timed out on ~22% of runs and left the scrape pointed at a
 #: still-reconnecting tunnel (see rotate() below).
-DEFAULT_ROTATE_TIMEOUT = 90.0
+#:
+#: 90 → 120 on 2026-08-13. Surveying 215 exits put the clean switch distribution
+#: at a ~12 s median and a 72-78 s maximum once restart-corrupted samples were
+#: excluded, so 90 s left only about 15% headroom over the observed worst case.
+DEFAULT_ROTATE_TIMEOUT = 120.0
 
 #: Seconds between public-IP polls while waiting for the tunnel.
 ROTATE_POLL_INTERVAL = 2.0
@@ -40,14 +44,31 @@ DEFAULT_QUARANTINE_TTL = 1800.0
 #: Seconds allowed for the through-proxy verification request.
 VERIFY_TIMEOUT = 12.0
 
-#: Pause before re-verifying an exit that failed its first probe.
+#: Gap between verification probes.
 #:
 #: gluetun publishes a public IP before the tunnel reliably carries traffic, so
 #: a probe fired the instant an IP appears can fail on a perfectly good server.
-#: Without this pause the first version of this code quarantined 8 exits in a
-#: few minutes, 5 of which had already served production successfully — one of
-#: them 7 times. An exit is only condemned if it fails twice with a gap.
-VERIFY_SETTLE_SECONDS = 6.0
+#: Without any pause the first version of this code quarantined 8 exits in a few
+#: minutes, 5 of which had already served production successfully — one of them
+#: 7 times.
+VERIFY_SETTLE_SECONDS = 2.0
+
+#: Total budget for deciding whether one exit carries traffic.
+#:
+#: This replaced a single fixed 6 s sleep, which measured the wrong thing. A
+#: probe ladder across 215 exits found ~97% carrying traffic on the very first
+#: probe (median 0.34 s), so 6 s was generous for almost every exit — but the
+#: tail ran to 7.5 s, 15.1 s, 20.7 s and 36.1 s, and each of those was a healthy
+#: exit that the fixed sleep condemned and quarantined for 30 minutes. One of
+#: them was watched directly: tun0's byte counters kept resetting for ~24 s
+#: after gluetun had already published the IP, i.e. WireGuard was still
+#: rebuilding the interface.
+#:
+#: A budget costs nothing in the 97% case and rescues the tail.
+VERIFY_DEADLINE_SECONDS = 45.0
+
+#: Hard cap on probes within that budget, so a zero gap cannot spin.
+VERIFY_MAX_PROBES = 6
 
 
 @dataclass
@@ -76,8 +97,10 @@ class GluetunClient:
         quarantine_path: str | None = None,
         quarantine_ttl: float = DEFAULT_QUARANTINE_TTL,
         verify_settle: float = VERIFY_SETTLE_SECONDS,
+        verify_deadline: float = VERIFY_DEADLINE_SECONDS,
     ) -> None:
         self._verify_settle = verify_settle
+        self._verify_deadline = verify_deadline
         self._base = control_url.rstrip("/")
         self._timeout = timeout
         self._rotate_timeout = rotate_timeout
@@ -185,7 +208,7 @@ class GluetunClient:
                 out.reason = f"exit {ip} is quarantined"
                 continue
 
-            if self._verify_with_settle(proxy_url, verify_url):
+            if self._verify_until_ready(proxy_url, verify_url):
                 out.tried.append((ip, True))
                 out.ok, out.ip = True, ip
                 out.changed = bool(before and ip != before)
@@ -206,19 +229,35 @@ class GluetunClient:
                         out.attempts, out.seconds, out.reason)
         return out
 
-    def _verify_with_settle(self, proxy_url: str, verify_url: str) -> bool:
-        """Probe, and on failure wait and probe once more.
+    def _verify_until_ready(self, proxy_url: str, verify_url: str) -> bool:
+        """Probe until the exit carries traffic, or the budget runs out.
 
-        The retry is what separates "this exit cannot reach the target" from
-        "the tunnel was not ready yet" — a distinction worth the few seconds,
-        because getting it wrong quarantines working servers.
+        This is what separates "this exit cannot reach the target" from "the
+        tunnel was not ready yet" — a distinction worth spending seconds on,
+        because getting it wrong quarantines working servers and shrinks the
+        pool the next attempt draws from.
+
+        Retrying to a deadline rather than once after a fixed sleep is the
+        difference between covering the median exit and covering the tail: 97%
+        answer the first probe, but the slowest healthy exit measured took
+        36 s, and a single 6 s sleep condemned it.
         """
-        if self.usable(proxy_url, verify_url):
-            return True
-        LOG.info("gluetun: first probe failed, settling %.0fs before retry",
-                 self._verify_settle)
-        time.sleep(self._verify_settle)
-        return self.usable(proxy_url, verify_url)
+        started = time.monotonic()
+        for probe_n in range(1, VERIFY_MAX_PROBES + 1):
+            if self.usable(proxy_url, verify_url):
+                if probe_n > 1:
+                    LOG.info("gluetun: exit became usable on probe %d after "
+                             "%.1fs", probe_n, time.monotonic() - started)
+                return True
+            elapsed = time.monotonic() - started
+            # Stop when the *next* probe could not finish inside the budget,
+            # rather than starting one that will overrun it.
+            if elapsed + self._verify_settle >= self._verify_deadline:
+                LOG.info("gluetun: exit still unusable after %d probe(s) in "
+                         "%.1fs", probe_n, elapsed)
+                break
+            time.sleep(self._verify_settle)
+        return False
 
     # ------------------------------------------------------------------
     # Quarantine: a short memory of exits that just failed
