@@ -20,15 +20,20 @@ import json
 import sys
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import pytest
 
 from modules.event_watch.lib import classify, engine, normalize, publish, state
 from modules.event_watch.lib.config import Settings
-from modules.event_watch.lib.scrapers import tockify
+from modules.event_watch.lib.scrapers import challenge, tockify
 from modules.event_watch.lib.scrapers.base import RawEvent
 
 FIXTURES = Path(__file__).parent / "fixtures" / "event_watch"
+
+#: The captured Challenge Entertainment week — Thursday to the following
+#: Wednesday, so every weekday the source runs a show on appears exactly once.
+CHALLENGE_WEEK = [date(2026, 8, 13) + timedelta(days=i) for i in range(7)]
 
 
 @pytest.fixture(scope="module")
@@ -496,3 +501,340 @@ def test_career_watch_env_fallback_still_works(monkeypatch):
     monkeypatch.setenv("CAREER_WATCH_PROXY_URL", "http://vpn:8888")
     from modules._shared.http import HttpClient
     assert HttpClient().session.proxies["https"] == "http://vpn:8888"
+
+
+# ======================================================================
+# Challenge Entertainment
+#
+# Driven from a captured week of the real ``filter_shows`` endpoint, one
+# fixture per date, plus one ``filter_map`` response. See the fixture README
+# for what that week contains.
+# ======================================================================
+@pytest.fixture(scope="module")
+def challenge_geo() -> dict:
+    return challenge.parse_map((FIXTURES / "challenge_map.html").read_text(encoding="utf-8"))
+
+
+@pytest.fixture(scope="module")
+def challenge_raw(challenge_geo) -> list[RawEvent]:
+    out: list[RawEvent] = []
+    for day in CHALLENGE_WEEK:
+        html = (FIXTURES / f"challenge_shows_{day.isoformat()}.html").read_text(encoding="utf-8")
+        out.extend(challenge.to_raw_events(html, day, challenge_geo))
+    return out
+
+
+@pytest.fixture(scope="module")
+def challenge_normalized(challenge_raw):
+    return challenge.ChallengeScraper().normalize(challenge_raw)
+
+
+# ----------------------------------------------------------------------
+# The captured week, as pinned by the fixture README
+# ----------------------------------------------------------------------
+def test_challenge_fixture_shape(challenge_raw):
+    """12 shows, each once — a weekly cadence covered exactly once by seven days."""
+    assert len(challenge_raw) == 12
+    assert len({r.series_uid for r in challenge_raw}) == 12
+
+
+def test_challenge_empty_day_is_empty_not_an_error():
+    """Four of the seven captured days have no shows at all.
+
+    The endpoint answers with an ``.ntl-empty-state`` div, which must parse to
+    zero cards rather than raising — a Friday with no trivia is not a fault.
+    """
+    html = (FIXTURES / "challenge_shows_2026-08-14.html").read_text(encoding="utf-8")
+    assert "ntl-empty-state" in html
+    assert challenge.parse_cards(html, date(2026, 8, 14)) == []
+
+
+def test_challenge_every_record_is_published_or_explicitly_rejected(challenge_normalized,
+                                                                    challenge_raw):
+    payloads, rejected = challenge_normalized
+    assert len(payloads) + len(rejected) == len(challenge_raw)
+    assert rejected == []
+
+
+# ----------------------------------------------------------------------
+# Identity: what makes re-sending safe
+# ----------------------------------------------------------------------
+def test_challenge_series_uid_is_venue_plus_game(challenge_normalized):
+    """Not the venue alone: one venue can host two different games."""
+    payloads, _ = challenge_normalized
+    uids = {p["series"]["source_series_uid"] for p in payloads}
+    assert "venue-3796:live-trivia" in uids
+    assert "venue-3650:singo" in uids
+
+
+def test_challenge_two_locations_of_one_chain_are_two_places(challenge_normalized):
+    """Both Rx Pizzas run trivia. Sharing a place slug would rewrite one row
+    with the other's address (contract §3)."""
+    payloads, _ = challenge_normalized
+    rx = {p["series"]["place"]["slug"] for p in payloads if p["series"]["place"]["name"] == "Rx Pizza"}
+    assert rx == {"rx-pizza-bryan", "rx-pizza-south-college-station"}
+
+
+def test_challenge_tid_is_epoch_millis_of_the_local_start(challenge_normalized):
+    """The engine places an occurrence in time by parsing this integer; a
+    non-numeric id is silently never eligible for cancellation."""
+    payloads, _ = challenge_normalized
+    for p in payloads:
+        tid = p["occurrence"]["source_occurrence_tid"]
+        assert isinstance(tid, str)
+        moment = datetime.fromtimestamp(int(tid) / 1000, tz=ZoneInfo(challenge.TZID))
+        assert moment.replace(tzinfo=None).isoformat() == p["occurrence"]["start_local"]
+
+
+def test_challenge_normalizing_twice_is_byte_identical(challenge_raw):
+    first, _ = challenge.ChallengeScraper().normalize(challenge_raw)
+    second, _ = challenge.ChallengeScraper().normalize(challenge_raw)
+    assert [state.payload_digest(p) for p in first] == [state.payload_digest(p) for p in second]
+
+
+# ----------------------------------------------------------------------
+# Dates come from the request, times from the card
+# ----------------------------------------------------------------------
+def test_challenge_date_comes_from_the_request_not_the_pill():
+    """The pill carries no year — ``"Tonight"`` and ``"Wed, Aug 19"``. Inferring
+    one is a bug that waits until December to appear, so the date we asked for
+    is the date we record."""
+    html = (FIXTURES / "challenge_shows_2026-08-13.html").read_text(encoding="utf-8")
+    assert "Tonight" in html
+    cards = challenge.parse_cards(html, date(2026, 8, 13))
+    assert {c["start_local"][:10] for c in cards} == {"2026-08-13"}
+
+
+@pytest.mark.parametrize(
+    "text,expected",
+    [
+        ("🎉 Tonight, 7:00 pm", (19, 0)),
+        ("📅 Wed, Aug 19, 8:00 pm", (20, 0)),
+        ("Wednesdays, 6:00 pm", (18, 0)),
+        ("12:30 am", (0, 30)),
+        ("12:00 pm", (12, 0)),
+        ("no time here", None),
+    ],
+)
+def test_challenge_clock_parsing(text, expected):
+    assert challenge._clock(text) == expected
+
+
+def test_challenge_times_are_wall_clock_local_with_a_separate_zone(challenge_normalized):
+    payloads, _ = challenge_normalized
+    for p in payloads:
+        occ = p["occurrence"]
+        assert occ["timezone"] == "America/Chicago"
+        assert "+" not in occ["start_local"] and not occ["start_local"].endswith("Z")
+        datetime.fromisoformat(occ["start_local"])
+
+
+# ----------------------------------------------------------------------
+# Cancellation is per date, not per series
+# ----------------------------------------------------------------------
+def test_challenge_one_night_is_cancelled_and_the_rest_of_the_series_stands(challenge_normalized):
+    """Duddley's Draw is cancelled on 19 Aug. Marking the series cancelled, or
+    dropping the card, would both remove a show that is running next week."""
+    payloads, _ = challenge_normalized
+    cancelled = [p for p in payloads if p["occurrence"]["status"] == "cancelled"]
+    assert len(cancelled) == 1
+    assert cancelled[0]["series"]["source_series_uid"] == "venue-1387:live-trivia"
+    assert cancelled[0]["occurrence"]["start_local"] == "2026-08-19T20:00:00"
+
+
+def test_challenge_uncancelled_cards_are_scheduled(challenge_normalized):
+    payloads, _ = challenge_normalized
+    assert sum(p["occurrence"]["status"] == "scheduled" for p in payloads) == 11
+
+
+# ----------------------------------------------------------------------
+# Venues: the editorial gate
+# ----------------------------------------------------------------------
+def test_challenge_an_unlisted_venue_is_rejected_loudly_not_guessed():
+    """A new bar must not default into a family guide because the parser
+    happened to understand its address."""
+    scraper = challenge.ChallengeScraper()
+    raw = [RawEvent(
+        series_uid="venue-9999:live-trivia",
+        occurrence_tid="1786665600000",
+        record={"venue_key": "venue-9999", "venue": "Somewhere New",
+                "address": "1 Nowhere Rd, Bryan, TX", "game": "Live Trivia",
+                "game_slug": "live-trivia", "start_local": "2026-08-13T19:00:00",
+                "cancelled": False, "city": "Bryan", "region": "TX",
+                "street": "1 Nowhere Rd", "area": "bryan", "place_slug": "somewhere-new",
+                "schedule": "", "permalink": None},
+    )]
+    payloads, rejected = scraper.normalize(raw)
+    assert payloads == []
+    assert len(rejected) == 1
+    assert "unknown venue" in rejected[0]["reason"]
+
+
+def test_challenge_bars_are_banded_adult_and_restaurants_all_ages(challenge_normalized):
+    """The one thing the source cannot tell us: "Live Trivia" reads identically
+    at a mini golf course and at a whiskey bar."""
+    payloads, _ = challenge_normalized
+    bands = {p["series"]["place"]["slug"]: p["series"]["audiences"] for p in payloads}
+    assert bands["popstroke-college-station"] == ["all-ages"]
+    assert bands["rx-pizza-bryan"] == ["all-ages"]
+    assert bands["rough-draught-whiskey-bar-college-station"] == ["adult"]
+    assert bands["duddleys-draw-college-station"] == ["adult"]
+
+
+def test_challenge_audiences_use_the_closed_vocabulary(challenge_normalized):
+    payloads, _ = challenge_normalized
+    valid = {"baby-toddler", "preschool", "elementary", "tween", "teen", "adult", "all-ages"}
+    for p in payloads:
+        assert p["series"]["audiences"]
+        assert set(p["series"]["audiences"]) <= valid
+
+
+def test_challenge_every_venue_in_the_table_is_banded():
+    for key, venue in challenge.VENUES.items():
+        assert venue["audiences"], f"{key} has no audience band"
+        assert set(venue["audiences"]) <= {"all-ages", "adult"}, key
+
+
+def test_challenge_topics_use_the_closed_vocabulary(challenge_normalized):
+    payloads, _ = challenge_normalized
+    for p in payloads:
+        assert set(p["series"]["topics"]) <= classify.TOPICS
+    assert set(challenge.GAME_TOPICS) >= {"live-trivia", "singo"}
+    for topics in challenge.GAME_TOPICS.values():
+        assert set(topics) <= classify.TOPICS
+
+
+# ----------------------------------------------------------------------
+# Places: facts from the feed, judgement from the table
+# ----------------------------------------------------------------------
+def test_challenge_every_place_carries_an_explicit_area(challenge_normalized):
+    payloads, _ = challenge_normalized
+    for p in payloads:
+        assert p["series"]["place"]["area"] in {"bryan", "college_station", "nearby"}
+
+
+def test_challenge_area_comes_from_the_city_the_source_states():
+    assert challenge.AREAS["bryan"] == "bryan"
+    assert challenge.AREAS["college station"] == "college_station"
+    # Anything else inside the radius is honestly "nearby", not guessed at.
+    assert challenge.AREAS.get("navasota", "nearby") == "nearby"
+
+
+def test_challenge_map_supplies_the_coordinates_the_cards_lack(challenge_normalized):
+    """Latitude, longitude and the postcode exist only in ``filter_map``."""
+    payloads, _ = challenge_normalized
+    for p in payloads:
+        place = p["series"]["place"]
+        assert isinstance(place["latitude"], float)
+        assert isinstance(place["longitude"], float)
+        assert place["postcode"].isdigit()
+
+
+def test_challenge_map_join_survives_a_missing_pin(challenge_raw):
+    """A card whose venue has no map pin still publishes, minus the precision."""
+    scraper = challenge.ChallengeScraper()
+    stripped = [RawEvent(r.series_uid, r.occurrence_tid, r.record, {"geo": {}}) for r in challenge_raw]
+    payloads, rejected = scraper.normalize(stripped)
+    assert rejected == []
+    assert len(payloads) == len(challenge_raw)
+    assert all("latitude" not in p["series"]["place"] for p in payloads)
+
+
+def test_challenge_bad_map_payload_degrades_to_no_geo():
+    assert challenge.parse_map("") == {}
+    assert challenge.parse_map("<script>window.gmapLocations = [oops;</script>") == {}
+
+
+@pytest.mark.parametrize(
+    "address,expected",
+    [
+        ("255 Ball St, College Station, TX", ("255 Ball St", "College Station", "TX")),
+        ("315 S Main St, Bryan, TX 77803", ("315 S Main St", "Bryan", "TX 77803")),
+        # Split from the right: the stray comma belongs to the street.
+        ("1 Main St, Suite B, Bryan, TX", ("1 Main St, Suite B", "Bryan", "TX")),
+    ],
+)
+def test_challenge_address_splits_from_the_right(address, expected):
+    assert challenge._split_address(address) == expected
+
+
+def test_challenge_recurrence_survives_into_the_description(challenge_normalized):
+    """The contract has no recurrence field, so "Thursdays, 7:00 pm" goes where
+    a reader can still act on it rather than being dropped."""
+    payloads, _ = challenge_normalized
+    popstroke = next(p for p in payloads
+                     if p["series"]["source_series_uid"] == "venue-3796:live-trivia")
+    assert "Thursdays, 7:00 pm" in popstroke["series"]["description"]
+    assert all("Recurring schedule:" in p["series"]["description"] for p in payloads)
+
+
+def test_challenge_source_url_is_the_venue_permalink(challenge_normalized):
+    payloads, _ = challenge_normalized
+    for p in payloads:
+        assert p["series"]["source_url"].startswith("https://challengeentertainment.com/venue/")
+
+
+# ----------------------------------------------------------------------
+# Window: this source is asked for one day at a time
+# ----------------------------------------------------------------------
+def test_challenge_declares_a_short_window():
+    """One HTTP request per day, so the window is the request budget. Five weeks
+    covers every frequency the source offers (weekly through monthly)."""
+    assert challenge.ChallengeScraper.max_window_days == 35
+
+
+def test_engine_narrows_the_window_to_the_source_horizon(tmp_path, monkeypatch):
+    """The clamp must reach reconcile(), not just fetch().
+
+    A scraper that clamped its own fetch would leave the engine measuring
+    disappearance over 270 days — and cancel eight months of a calendar it never
+    asked about.
+    """
+    monkeypatch.setattr(publish.Publisher, "_emit",
+                        lambda self, t, p, correlation_id=None: None)
+    seen: dict = {}
+
+    class _Clamped(_StubScraper):
+        max_window_days = 35
+
+        def fetch(self, window_start, window_end, *, skip_network):
+            seen["days"] = (window_end - window_start).days
+            return []
+
+    settings = _settings(tmp_path)
+    assert settings.window_days == 270
+    start = datetime.now(UTC).date()
+    far_ms = int(datetime.combine(start + timedelta(days=200), datetime.min.time(),
+                                  UTC).timestamp() * 1000)
+    state.save(str(tmp_path), "stub", {f"s|{far_ms}": "d"}, {"start_ms": 0, "end_ms": 0})
+
+    engine.run_once(settings, scrapers=[_Clamped()])
+    assert seen["days"] == 35
+    # Day 200 is outside the narrowed window, so it was never looked for and is
+    # not cancelled.
+    assert state.load(str(tmp_path), "stub")["sent"] == {}
+
+
+def test_challenge_is_in_the_default_scraper_set():
+    assert "challenge" in Settings.from_env_and_kwargs({}).kinds
+    scrapers = engine._default_scrapers(Settings.from_env_and_kwargs({"kinds": "challenge"}))
+    assert [s.kind for s in scrapers] == ["challenge"]
+    assert scrapers[0].source_slug == "challenge-entertainment"
+
+
+def test_challenge_skip_network_fetches_nothing():
+    assert challenge.ChallengeScraper().fetch(
+        date(2026, 8, 13), date(2026, 9, 17), skip_network=True) == []
+
+
+# ----------------------------------------------------------------------
+# Contract conformance against the site's REAL validator
+# ----------------------------------------------------------------------
+def test_conformance_challenge_payloads_pass_the_real_validator(challenge_normalized):
+    validator = _load_site_validator()
+    if validator is None:
+        pytest.skip("discoverbcs app not mounted; see this file's docstring")
+    payloads, _ = challenge_normalized
+    assert payloads
+    for payload in payloads:
+        validator.validate_upsert(json.loads(json.dumps(payload)))

@@ -48,6 +48,14 @@ class BaseEventScraper(ABC):
     #: the VPN exit can reach *this* source. A neutral check would pass on an
     #: exit that the source itself blocks.
     verify_url: str = ""
+    #: Hard cap on how far ahead this source is asked to look, in days, or None
+    #: for "whatever the run asked for".
+    #:
+    #: This is not a preference — the engine narrows the reconciliation window to
+    #: match. A source that can only answer five weeks ahead must not have week
+    #: six counted as "previously seen and now missing", or every run would
+    #: cancel a calendar it never actually looked at.
+    max_window_days: int | None = None
 
     @abstractmethod
     def fetch(

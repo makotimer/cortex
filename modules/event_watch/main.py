@@ -1,8 +1,8 @@
 """event_watch — scrape event sources and publish them onto events:<site>.
 
-The first source is the Bryan + College Station Public Library System's Tockify
-calendar. It is a family, not a one-off: source-specific parts sit behind the
-scraper interface in ``lib/scrapers/``.
+Sources are a family, not a one-off: everything source-specific sits behind the
+scraper interface in ``lib/scrapers/`` — today the Bryan + College Station Public
+Library System's Tockify calendar and Challenge Entertainment's show finder.
 """
 from __future__ import annotations
 

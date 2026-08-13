@@ -1,5 +1,14 @@
 # event_watch fixtures
 
+One set per source. Both were captured live on **2026-08-12**.
+
+- [Tockify — BCS Library](#tockify--bcs-library)
+- [Challenge Entertainment](#challenge-entertainment)
+
+---
+
+## Tockify — BCS Library
+
 Captured from the live Bryan + College Station Public Library System Tockify
 calendar on **2026-08-12**, window `2026-08-12 → 2026-09-11`.
 
@@ -31,7 +40,46 @@ Design §5 was written against an earlier sample. Numbers here are what the test
   example and is covered by a synthetic fixture instead.
 - 3 occurrences have no end time; 1 is all-day.
 
+---
+
+## Challenge Entertainment
+
+Captured **2026-08-12** from `https://challengeentertainment.com/wp-admin/admin-ajax.php`,
+POST, `geo_input=77840&geo_radius=25`, all other filters blank.
+
+| File | `action` | Extra |
+|---|---|---|
+| `challenge_shows_2026-08-13.html` … `_2026-08-19.html` | `filter_shows` | `selected_date=<that date>` |
+| `challenge_map.html` | `filter_map` | — |
+
+Seven consecutive days, Thursday to Wednesday. That is deliberate: every show in
+this radius runs weekly, so a seven-day capture contains each series exactly once
+and no series twice — which is what makes "12 raw records, 12 series" a meaningful
+assertion rather than an accident of the window.
+
+### What this week actually contains
+
+- **12 shows across 12 series** — 11 Live Trivia, 1 Singo. Four of the seven days
+  have no shows at all and answer with an `.ntl-empty-state` div.
+- **12 venues, 6 of them bars.** Every one is in `challenge.VENUES`; the live
+  five-week dry run found no unmapped venue.
+- **One cancellation** — Duddley's Draw on 19 Aug carries `ntl-card-cancelled` and
+  a `Cancelled This Week` label, and the *same series runs normally on 26 Aug*.
+  This is the fixture behind per-date rather than per-series cancellation.
+- **Two Rx Pizza locations**, same venue name, different `data-venue-key` and
+  different permalink slug. They must not collapse into one place row.
+- **The date pill carries no year** — `🎉 Tonight, 7:00 pm` and
+  `📅 Wed, Aug 19, 8:00 pm`. Only the clock time is read from it; the date is the
+  one we asked for.
+- **`filter_map` is the only source of coordinates and postcodes**, and it carries
+  no venue key — the join back to a card is on street + city. The postcode lives
+  inside a Google Maps directions URL in each pin's popup HTML.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh
 that changes counts means the tests asserting them should change in the same commit.
+
+The Challenge dates are hard-coded in the filenames and in `CHALLENGE_WEEK` in
+`tests/test_event_watch.py`; re-capturing a different week means changing both, and
+re-checking the cancellation assertion, which is pinned to a specific night.

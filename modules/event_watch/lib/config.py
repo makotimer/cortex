@@ -22,6 +22,13 @@ DEFAULT_WINDOW_DAYS = 270
 
 DEFAULT_STATE_DIR = "/app/local/state/event_watch"
 
+#: Scrapers a bare run executes, in order. Each keeps its own state file and its
+#: own failure blast radius, so one source failing never touches another.
+#:
+#: `challenge` narrows this window to its own `max_window_days` — it costs one
+#: request per day and cannot answer for a range.
+DEFAULT_KINDS = ["tockify", "challenge"]
+
 
 def truthy(value: Any) -> bool:
     return str(value).strip().lower() in {"1", "true", "yes", "on"}
@@ -29,8 +36,8 @@ def truthy(value: Any) -> bool:
 
 @dataclass
 class Settings:
-    #: Which scraper kinds to run. Only "tockify" exists today.
-    kinds: list[str] = field(default_factory=lambda: ["tockify"])
+    #: Which scraper kinds to run. See DEFAULT_KINDS.
+    kinds: list[str] = field(default_factory=lambda: list(DEFAULT_KINDS))
     site: str = "discoverbcs"
     window_days: int = DEFAULT_WINDOW_DAYS
     state_dir: str = DEFAULT_STATE_DIR
@@ -53,7 +60,7 @@ class Settings:
     def from_env_and_kwargs(cls, kw: dict[str, Any] | None = None) -> Settings:
         kw = dict(kw or {})
 
-        kinds = kw.get("kinds") or ["tockify"]
+        kinds = kw.get("kinds") or list(DEFAULT_KINDS)
         if isinstance(kinds, str):
             kinds = [k.strip() for k in kinds.split(",") if k.strip()]
 

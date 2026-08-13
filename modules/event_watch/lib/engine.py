@@ -153,6 +153,15 @@ def _run_source(
 ) -> dict:
     slug = scraper.source_slug
     attention: list[str] = []
+    # A source may see less far ahead than the run asked for. Narrowing happens
+    # here rather than inside fetch because reconcile() measures disappearance
+    # against this same window: a scraper that quietly clamped its own fetch
+    # would have every occurrence beyond its horizon counted as vanished, and a
+    # run would cancel a calendar it never actually looked at.
+    # getattr, because a scraper injected by a test need not declare one.
+    max_days = getattr(scraper, "max_window_days", None)
+    if max_days:
+        window_end = min(window_end, window_start + timedelta(days=int(max_days)))
     try:
         raw = scraper.fetch(window_start, window_end, skip_network=settings.skip_network)
     except Exception as exc:
@@ -286,9 +295,10 @@ def _check_vpn(settings: Settings, verify_url: str = "") -> None:
 
 
 def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
+    from .scrapers.challenge import ChallengeScraper
     from .scrapers.tockify import TockifyScraper
 
-    registry = {"tockify": TockifyScraper}
+    registry = {"tockify": TockifyScraper, "challenge": ChallengeScraper}
     out: list[BaseEventScraper] = []
     for kind in settings.kinds:
         cls = registry.get(kind)

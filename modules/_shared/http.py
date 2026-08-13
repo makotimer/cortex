@@ -82,6 +82,34 @@ class HttpClient:
             resp.encoding = resp.apparent_encoding
         return str(resp.text)
 
+    def post_text(
+        self,
+        url: str,
+        *,
+        data: Mapping[str, Any] | None = None,
+        headers: Mapping[str, str] | None = None,
+        timeout: float | None = None,
+        encoding: str | None = None,
+        **kwargs: Any,
+    ) -> str:
+        """POST a form body and return decoded text.
+
+        For endpoints that answer with a fragment rather than JSON — WordPress
+        ``admin-ajax.php`` being the case that prompted this. ``Retry`` already
+        lists POST in ``allowed_methods``, so this inherits the same backoff as
+        the GET helpers; that is only safe because the callers here are reads
+        dressed up as posts, not state changes.
+        """
+        resp = self.session.post(
+            url, data=data, headers=headers, timeout=timeout or self.timeout, **kwargs
+        )
+        resp.raise_for_status()
+        if encoding:
+            resp.encoding = encoding
+        elif not resp.encoding and resp.apparent_encoding:
+            resp.encoding = resp.apparent_encoding
+        return str(resp.text)
+
     def get_json(
         self,
         url: str,
