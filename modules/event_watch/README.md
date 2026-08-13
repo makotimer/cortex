@@ -13,21 +13,35 @@ Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
 
 ## Status
 
-**Not scheduled.** The module is built and tested but is not in `local/config.json`.
+**Live.** Both sources are scheduled in `local/config.json` (gitignored — the
+entries below are the record of what is there) and both have injected for real.
 
-1. ~~The site must learn `ingest.report`~~ — landed in discoverbcs
-   (`feat(intake): accept ingest.report so a quiet run is not silence`).
-2. **A `dry_run` against the live feed should be read by a human**, per design §10.
-   `challenge` has had one: 2026-08-12, window `2026-08-13 → 2026-09-17`,
-   48 upserted / 0 rejected / 0 unknown venues, 36 s. `tockify` still wants its own.
+| Job | Kind | When | kwargs |
+|---|---|---|---|
+| `event-watch-bcslibrary` | `tockify` | Wed/Sun 03:40 | `rotate_vpn_per_run: false` |
+| `event-watch-challenge` | `challenge` | Wed/Sun 03:55 | `proxy_url: ""` |
+
+First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
+**48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
+
+### Why two jobs and not one
+
+They need different network paths, and one job carries one `proxy_url`.
+`challengeentertainment.com` refuses every gluetun exit tried so far, so that kind
+runs direct; `tockify` keeps its proxy. Folding them together would mean either
+sending the library feed out un-proxied or letting the Challenge fetch fail on
+every run.
+
+That is also why **both jobs pin `kinds` explicitly**. The default is
+`["tockify", "challenge"]`, so a job that omits it silently picks up the other
+source — and the library job would then try Challenge through the proxy and email
+a fetch failure twice a week. If you add a third source, pin it too.
+
+The 15-minute offset is only politeness: the two runs share no state and no
+source, so overlapping would be harmless.
 
 Window length and schedule are deliberately unscoped by the design (§3, §11.3).
 `window_days` defaults to 270; a scraper may narrow it (see below).
-
-**`challenge` must run un-proxied.** Every gluetun exit tried so far is refused by
-`challengeentertainment.com`, and the VPN gate correctly fails the run closed
-rather than fetching nothing quietly. Until an exit works, run it with
-`proxy_url=`, or schedule the two kinds separately. `tockify` is unaffected.
 
 ## A source may see less far ahead than the run asks for
 
