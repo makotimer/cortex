@@ -30,9 +30,12 @@ if ! docker compose ps --status running --format '{{.Service}}' | grep -qx vpn; 
     exit 0
 fi
 
+# survey-*.jsonl only. The watcher writes watch-*.jsonl into the same directory
+# at one sample every 2 s, so counting *.jsonl reaches the target within a single
+# night's watching and the self-limit fires having collected almost no exits.
 collected=0
-if compgen -G "$OUT_DIR/*.jsonl" > /dev/null; then
-    collected=$(cat "$OUT_DIR"/*.jsonl | wc -l)
+if compgen -G "$OUT_DIR/survey-*.jsonl" > /dev/null; then
+    collected=$(cat "$OUT_DIR"/survey-*.jsonl | wc -l)
 fi
 
 if [ "$collected" -ge "$TARGET_RECORDS" ]; then
@@ -41,10 +44,25 @@ if [ "$collected" -ge "$TARGET_RECORDS" ]; then
     exit 0
 fi
 
+# Restarts by anything else on the host corrupt switch latency, and from inside
+# the container they are invisible. Sample from the host in parallel so records
+# can be labelled rather than reconstructed afterwards.
+STOP_AT="$STOP_AT" "$CORTEX_DIR/scripts/vpn_watch.sh" &
+watch_pid=$!
+trap 'kill "$watch_pid" 2>/dev/null || true' EXIT
+
 log "starting survey: have $collected records, target $TARGET_RECORDS, stop-at $STOP_AT"
-docker compose run --rm --no-deps -T cortex \
-    python scripts/vpn_survey.py \
+# scripts/ is mounted because the container otherwise runs the copy baked into
+# the image, which silently ignores every host-side edit until a rebuild.
+docker compose run --rm --no-deps -T \
+    -v "$CORTEX_DIR/scripts:/app/scripts" \
+    cortex python scripts/vpn_survey.py \
     --switches 5000 \
     --stop-at "$STOP_AT" \
-    --pause "$PAUSE"
+    --pause "$PAUSE" \
+    --switch-timeout 120 \
+    --ladder 0,2,4,8,15,30 \
+    --recycle any \
+    --real-every 10 \
+    --settle 6
 log "survey finished"

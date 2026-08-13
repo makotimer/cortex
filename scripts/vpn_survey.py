@@ -66,12 +66,20 @@ REAL_TARGETS = [
 ]
 
 #: career_watch's schedule. Overlapping would restart the tunnel mid-scrape.
+#:
+#: Minutes matter here. This was hour-granular (5..19), which made the window run
+#: to 18:59 — but career_watch's last scrape *starts* at 18:30 and is done within
+#: a few minutes, and the cron wrapper is deliberately set to 18:45 to use that
+#: gap. The mismatch meant the 2026-08-12 overnight run refused to start and
+#: collected nothing at all.
 BUSY_DAYS = {0, 1, 2, 3, 4, 5}          # Mon-Sat
-BUSY_START, BUSY_END = 5, 19            # 05:00-18:59 Central
+BUSY_START = (5, 0)                     # 05:00, career_watch's first scrape
+BUSY_END = (18, 40)                     # last scrape starts 18:30, done by ~18:35
 
 
 def in_busy_window(now: datetime) -> bool:
-    return now.weekday() in BUSY_DAYS and BUSY_START <= now.hour < BUSY_END
+    return (now.weekday() in BUSY_DAYS
+            and BUSY_START <= (now.hour, now.minute) < BUSY_END)
 
 
 def probe(proxy: str, url: str, timeout: float) -> dict:
