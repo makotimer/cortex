@@ -76,6 +76,36 @@ def probe(proxy: str, url: str, timeout: float) -> dict:
                 "seconds": round(time.monotonic() - started, 2)}
 
 
+def time_to_traffic(proxy: str, url: str, timeout: float,
+                    offsets: list[float]) -> dict:
+    """How long after gluetun reports an IP the tunnel actually carries traffic.
+
+    Probing once and calling a failure a bad exit conflates two things: an exit
+    that does not work, and an exit that is not ready yet. Walking a ladder of
+    delays and recording the first success separates them, and the resulting
+    distribution is what should set ``VERIFY_SETTLE_SECONDS`` — currently a
+    round 6.0 chosen by judgement.
+    """
+    started = time.monotonic()
+    attempts = []
+    waited = 0.0
+    for offset in offsets:
+        if offset > waited:
+            time.sleep(offset - waited)
+        result = probe(proxy, url, timeout)
+        elapsed = round(time.monotonic() - started, 2)
+        attempts.append({"offset": offset, "elapsed": elapsed, "ok": result["ok"],
+                         "error": result.get("error"), "status": result.get("status")})
+        if result["ok"]:
+            return {"ready": True, "seconds": elapsed, "offset": offset,
+                    "attempts": attempts}
+        # A probe that times out has already consumed wall-clock; measure the
+        # next rung from the start, not from now, or a slow failure would
+        # silently skip rungs.
+        waited = time.monotonic() - started
+    return {"ready": False, "seconds": None, "offset": None, "attempts": attempts}
+
+
 def exit_identity(control_url: str, timeout: float) -> dict:
     """Everything gluetun knows about the current exit, verbatim."""
     try:
@@ -102,6 +132,12 @@ def main() -> int:
                          "reconnects an hour is unusual traffic for a VPN "
                          "account; a pause makes a long run look less like a "
                          "hammer")
+    ap.add_argument("--ladder", default="0,2,4,8,15", metavar="SECS",
+                    help="comma-separated delays, measured from the moment "
+                         "gluetun reports an IP, at which to probe the control "
+                         "target until one succeeds (default 0,2,4,8,15). This "
+                         "is what turns 'the settle retry rescued it' into a "
+                         "time-to-traffic distribution. Empty string disables")
     ap.add_argument("--control-url", default="http://vpn:8000")
     ap.add_argument("--proxy-url", default="http://vpn:8888")
     ap.add_argument("--switch-timeout", type=float,
@@ -141,6 +177,7 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     client = vpn_client.GluetunClient(control_url=args.control_url,
                                       rotate_timeout=args.switch_timeout)
+    ladder = [float(s) for s in args.ladder.split(",") if s.strip()]
     records: list[dict] = []
 
     stopped_early = ""
@@ -176,8 +213,16 @@ def main() -> int:
                 "city": identity.get("city"),
                 "hostname": identity.get("hostname"),
                 "organization": identity.get("organization"),
+                # Gluetun's control API refuses connections outright while it
+                # restarts WireGuard, so a health check that lands in that gap
+                # reads as a failure. Record it rather than losing it to stderr.
+                "identity_error": identity.get("error"),
                 "targets": {},
             }
+            if ip and ladder:
+                control_url = dict(DEFAULT_TARGETS)["control"]
+                rec["time_to_traffic"] = time_to_traffic(
+                    args.proxy_url, control_url, args.probe_timeout, ladder)
             if ip:
                 for name, url in DEFAULT_TARGETS:
                     first = probe(args.proxy_url, url, args.probe_timeout)
@@ -200,8 +245,12 @@ def main() -> int:
             records.append(rec)
 
             flags = "".join("." if t["ok"] else "X" for t in rec["targets"].values())
+            ttt = rec.get("time_to_traffic") or {}
+            ready = f"+{ttt['seconds']:.1f}s" if ttt.get("ready") else (
+                "never" if ttt else "")
             print(f"  {i:3}/{args.switches}  {switch_seconds:6.1f}s  "
-                  f"{(ip or 'NO IP'):16} {(rec['country'] or '?')[:14]:14} [{flags}]")
+                  f"{(ip or 'NO IP'):16} {(rec['country'] or '?')[:14]:14} "
+                  f"[{flags}] {ready}")
 
     summarize(records)
     if stopped_early:
