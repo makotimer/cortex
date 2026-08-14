@@ -41,7 +41,22 @@ if [ -n "$STOP_AT" ]; then
     [ "$deadline" -le "$(date +%s)" ] && deadline=$(date -d "tomorrow $STOP_AT" +%s)
 fi
 
+# Gluetun's own account of a failed switch, which the survey cannot get.
+#
+# A switch that never produces an IP is recorded as `came_up: false` and nothing
+# else — no country, no server, no reason, because there is no exit to ask about.
+# That was ~4.5% of the first 457 records and is now the largest unexplained
+# thing in the data. The control server refuses connections during exactly this
+# window, so the answer is only reachable from the host, here.
+#
+# Dumped on every health transition rather than continuously: the log is only
+# interesting around a state change, and a tail per sample would be 30x the
+# volume of the samples themselves.
+LOGS="$OUT_DIR/gluetun-$(date +%Y%m%dT%H%M%S).log"
+prev_health=""
+
 echo "watching $CONTAINER every ${INTERVAL}s -> $OUT"
+echo "gluetun log tails on health transitions -> $LOGS"
 [ -n "$deadline" ] && echo "stopping at $STOP_AT"
 
 while true; do
@@ -50,6 +65,14 @@ while true; do
     ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     started=$(docker inspect "$CONTAINER" --format '{{.State.StartedAt}}' 2>/dev/null || echo "")
     health=$(docker inspect "$CONTAINER" --format '{{.State.Health.Status}}' 2>/dev/null || echo "")
+
+    if [ "$health" != "$prev_health" ]; then
+        {
+            echo "===== $ts  health: ${prev_health:-none} -> ${health:-unknown}"
+            docker logs --tail 40 --timestamps "$CONTAINER" 2>&1 || echo "(logs unavailable)"
+        } >> "$LOGS"
+        prev_health="$health"
+    fi
 
     # One exec for both counters; a failure here means mid-restart, not an error.
     dev=$(docker exec "$CONTAINER" cat /proc/net/dev 2>/dev/null | awk '/tun0:/ {print $2, $10}')

@@ -280,6 +280,7 @@ def _check_vpn(settings: Settings, verify_url: str = "") -> None:
         "attempts": outcome.attempts, "seconds": round(outcome.seconds, 2),
         "reason": outcome.reason, "quarantined": outcome.quarantined,
         "tried": [{"ip": ip, "ok": ok} for ip, ok in outcome.tried],
+        "restarts": outcome.restarts,
         "verify_url": verify_url,
     })
     if not outcome.ok:

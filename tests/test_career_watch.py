@@ -216,31 +216,30 @@ def test_rotate_timeout_default_is_generous():
     assert vpn_client.DEFAULT_ROTATE_TIMEOUT >= 60
 
 
-def test_rotate_records_duration_on_success(monkeypatch):
-    client = vpn_client.GluetunClient(control_url="http://vpn:8000")
-    monkeypatch.setattr(vpn_client.requests, "put", lambda *a, **kw: _StubResponse())
-    monkeypatch.setattr(vpn_client.time, "sleep", lambda _s: None)
-    # First call = "before" IP, later calls = the new IP after a few polls.
-    ips = iter(["1.1.1.1", "1.1.1.1", "1.1.1.1", "2.2.2.2"])
-    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: next(ips))
-
-    assert client.rotate() == "2.2.2.2"
-    assert client.last_rotate_polls == 3
-    assert client.last_rotate_seconds is not None
-    assert client.last_rotate_seconds >= 0
+# rotate() was deleted on 2026-08-14 — it had no production caller and its
+# "the IP must change" success test is exactly what produced the old false
+# failures. Restart latency is now measured on the path production actually
+# uses; see tests/test_vpn_switch_telemetry.py.
 
 
-def test_rotate_records_duration_on_timeout(monkeypatch):
-    # A tiny timeout keeps the test fast while exercising the timeout path.
-    client = vpn_client.GluetunClient(control_url="http://vpn:8000", rotate_timeout=0.05)
-    monkeypatch.setattr(vpn_client.requests, "put", lambda *a, **kw: _StubResponse())
-    monkeypatch.setattr(vpn_client.time, "sleep", lambda _s: None)
-    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: "1.1.1.1")
+def test_vpn_switch_event_reports_restart_latency(
+        fresh_settings, stub_scraper, monkeypatch):
+    """Switch latency has to reach the activity log to be worth measuring.
 
-    assert client.rotate() is None
-    # Duration is recorded on failure too — that's the number worth tracking.
-    assert client.last_rotate_seconds is not None
-    assert client.last_rotate_polls >= 1
+    Without this the number exists only inside the client and dies with the
+    run, which is why learning the switch distribution needed a dedicated
+    overnight survey against the live tunnel.
+    """
+    events: list[dict] = []
+    _patch_switch(monkeypatch, _outcome(restarts=[12.5, 118.0]))
+    monkeypatch.setattr(engine.logging_bridge, "activity", events.append)
+
+    engine.run_once(_vpn_settings(fresh_settings),
+                    get_scraper=lambda kind: stub_scraper)
+
+    switches = [e for e in events if e.get("op") == "vpn_switch"]
+    assert switches, "the switch must be logged"
+    assert switches[0]["restarts"] == [12.5, 118.0]
 
 
 def test_rotate_timeout_env_override(fresh_settings, stub_scraper, monkeypatch):

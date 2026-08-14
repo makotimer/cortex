@@ -109,6 +109,11 @@ def run_once(
             "reason": outcome.reason,
             "quarantined": outcome.quarantined,
             "tried": [{"ip": ip, "ok": ok} for ip, ok in outcome.tried],
+            # Seconds per tunnel restart. Watch the distribution here rather
+            # than running another live survey: a cluster near
+            # VPN_ROTATE_TIMEOUT means the ceiling is too low, and a restart
+            # that hit it exactly is one that never produced an IP at all.
+            "restarts": outcome.restarts,
         })
         if not outcome.ok:
             logging_bridge.activity({

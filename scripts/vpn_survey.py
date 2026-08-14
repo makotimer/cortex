@@ -65,6 +65,42 @@ REAL_TARGETS = [
     ("lever", "https://api.lever.co/v0/postings/palantir?mode=json&limit=1"),
 ]
 
+#: Countries gluetun is configured to draw exits from (SERVER_COUNTRIES in
+#: docker-compose.yaml). An exit outside this set is an anomaly worth flagging
+#: at collection time, not one to be found in a later analysis.
+#:
+#: The known cause is ProtonVPN's Tor-over-VPN servers: the Proton server sits
+#: in an allowed country, so gluetun's own filter passes it, but egress lands on
+#: a Tor exit relay somewhere else entirely. 18 of the first 457 surveyed exits
+#: (4.1%) were these — DFRI (171.25.193.x) and Zwiebelfreunde (185.220.101.x)
+#: ranges in Sweden, Germany, Norway, Slovenia, Luxembourg, Spain and Austria.
+#: They work, but they were 4.6x slower to first traffic, and vpn_client.usable()
+#: already recorded one holding a valid IP while unable to reach the target.
+DEFAULT_POOL_COUNTRIES = ("United States", "Canada", "Switzerland", "Netherlands")
+
+#: ipinfo returns both "Netherlands" and "The Netherlands" for the same country.
+#: Treating the article as a distinct country would manufacture a false ~2%
+#: out-of-pool rate on top of the real one.
+_COUNTRY_ALIASES = {"the netherlands": "netherlands"}
+
+
+def _normalise_country(name: str) -> str:
+    key = name.strip().lower()
+    return _COUNTRY_ALIASES.get(key, key)
+
+
+def outside_pool(country: str | None, pool: tuple[str, ...]) -> bool:
+    """Did this exit egress from a country gluetun was not asked for?
+
+    An unknown country means the switch never came up, which is a different
+    failure with its own rate (~4.5%) — not an out-of-pool exit.
+    """
+    if not country:
+        return False
+    allowed = {_normalise_country(c) for c in pool}
+    return _normalise_country(country) not in allowed
+
+
 #: career_watch's schedule. Overlapping would restart the tunnel mid-scrape.
 #:
 #: Minutes matter here. This was hour-granular (5..19), which made the window run
@@ -175,6 +211,12 @@ def main() -> int:
     ap.add_argument("--recycle-max", type=int, default=3, metavar="N",
                     help="give up recycling after N extra switches, so a small "
                          "pool cannot spin the run in place (default 3)")
+    ap.add_argument("--pool-countries", default=",".join(DEFAULT_POOL_COUNTRIES),
+                    metavar="A,B",
+                    help="comma-separated countries gluetun is configured to "
+                         "draw from (SERVER_COUNTRIES). Exits outside this set "
+                         "are flagged 'outside_pool' — in practice Tor-over-VPN "
+                         "servers, whose egress ignores the country filter")
     ap.add_argument("--control-url", default="http://vpn:8000")
     ap.add_argument("--proxy-url", default="http://vpn:8888")
     ap.add_argument("--switch-timeout", type=float,
@@ -217,6 +259,7 @@ def main() -> int:
     client = vpn_client.GluetunClient(control_url=args.control_url,
                                       rotate_timeout=args.switch_timeout)
     ladder = [float(s) for s in args.ladder.split(",") if s.strip()]
+    pool_countries = [c.strip() for c in args.pool_countries.split(",") if c.strip()]
     records: list[dict] = []
     prev_ip: str | None = None
     seen: set[str] = set()
@@ -274,6 +317,11 @@ def main() -> int:
                 "city": identity.get("city"),
                 "hostname": identity.get("hostname"),
                 "organization": identity.get("organization"),
+                # True when gluetun handed us an exit from outside
+                # SERVER_COUNTRIES — in practice a Tor-over-VPN server, whose
+                # egress ignores the country filter. See DEFAULT_POOL_COUNTRIES.
+                "outside_pool": outside_pool(identity.get("country"),
+                                             tuple(pool_countries)),
                 # Gluetun's control API refuses connections outright while it
                 # restarts WireGuard, so a health check that lands in that gap
                 # reads as a failure. Record it rather than losing it to stderr.
@@ -382,6 +430,16 @@ def summarize(records: list[dict]) -> None:
     for country, c in sorted(by_country.items(), key=lambda kv: -sum(kv[1].values())):
         total = c[True] + c[False]
         print(f"  {country[:22]:22} {c[True]:3}/{total:3}")
+
+    strays = [r for r in up if r.get("outside_pool")]
+    if strays:
+        orgs = Counter((r.get("organization") or "?") for r in strays)
+        print(f"\noutside the configured pool: {len(strays)}/{len(up)} "
+              f"({len(strays) / len(up):.1%})")
+        for org, n in orgs.most_common(6):
+            print(f"  {org[:44]:44} {n:3}")
+        print("  -> Tor-over-VPN servers: gluetun's country filter passes the\n"
+              "     Proton server, but egress lands on a Tor exit elsewhere.")
 
     repeats = Counter(r["ip"] for r in up if r["ip"])
     dupes = {ip: n for ip, n in repeats.items() if n > 1}

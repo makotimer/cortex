@@ -86,6 +86,15 @@ class SwitchOutcome:
     quarantined: list[str] = field(default_factory=list)
     #: (ip, ok) per attempt, so a run's log shows what was actually tried.
     tried: list[tuple[str | None, bool]] = field(default_factory=list)
+    #: Seconds each tunnel restart spent waiting for a public IP, in order.
+    #:
+    #: This is the number the overnight survey had to be built to learn, and
+    #: production discarded it entirely: only the unused rotate() ever recorded
+    #: switch latency. Reporting it here means a slow-switch problem shows up in
+    #: the vpn_switch activity event instead of needing a live survey to find.
+    #: A restart that timed out contributes its full wait, so three fast
+    #: failures stay distinguishable from one slow one.
+    restarts: list[float] = field(default_factory=list)
 
 
 class GluetunClient:
@@ -106,12 +115,12 @@ class GluetunClient:
         self._rotate_timeout = rotate_timeout
         self._quarantine_path = Path(quarantine_path) if quarantine_path else None
         self._quarantine_ttl = quarantine_ttl
-        #: Wall-clock seconds the last rotate() spent waiting for a new IP.
+        #: Wall-clock seconds the last tunnel restart spent waiting for an IP.
         #: Set on both success and timeout so reconnect latency can be tracked
-        #: over time; stays None if rotate() was never called.
-        self.last_rotate_seconds: float | None = None
-        #: Number of public-IP polls the last rotate() made.
-        self.last_rotate_polls: int = 0
+        #: over time; stays None until a restart has been attempted.
+        self.last_restart_seconds: float | None = None
+        #: Number of public-IP polls the last restart made.
+        self.last_restart_polls: int = 0
 
     def current_ip(self) -> str | None:
         """Return the current VPN public IP, or None on any failure."""
@@ -196,6 +205,8 @@ class GluetunClient:
             out.attempts = attempt
             if attempt > 1 or prefer_new_ip:
                 self._restart_and_wait()
+                if self.last_restart_seconds is not None:
+                    out.restarts.append(round(self.last_restart_seconds, 2))
 
             ip = self.current_ip()
             if not ip:
@@ -298,10 +309,18 @@ class GluetunClient:
     def _restart_and_wait(self) -> str | None:
         """Stop and start the tunnel, then wait for *any* public IP.
 
-        Unlike rotate(), this does not require the IP to change: a working
-        tunnel on the same exit is a perfectly good outcome, and demanding a
-        change is what produced false failures.
+        This deliberately does not require the IP to change: a working tunnel on
+        the same exit is a perfectly good outcome, and demanding a change is
+        what produced the old false failures.
+
+        Records the wait on ``last_restart_seconds`` (and the poll count on
+        ``last_restart_polls``) whether or not an IP appeared, so callers can
+        report reconnect latency and tune ``rotate_timeout`` from production
+        data rather than from a separate survey.
         """
+        self.last_restart_seconds = None
+        self.last_restart_polls = 0
+
         for status in ("stopped", "running"):
             try:
                 r = requests.put(f"{self._base}/v1/vpn/status",
@@ -313,65 +332,21 @@ class GluetunClient:
             if status == "stopped":
                 time.sleep(2)
 
-        deadline = time.monotonic() + self._rotate_timeout
-        while time.monotonic() < deadline:
-            ip = self.current_ip()
-            if ip:
-                return ip
-            time.sleep(ROTATE_POLL_INTERVAL)
-        return None
-
-    def rotate(self) -> str | None:
-        """
-        Restart the WireGuard tunnel so gluetun picks a new server from
-        SERVER_COUNTRIES.  Returns the new public IP, or None if rotation
-        timed out or failed.
-
-        Records the wait duration on ``last_rotate_seconds`` (and poll count on
-        ``last_rotate_polls``) whether or not it succeeded, so callers can log
-        reconnect latency and tune ``rotate_timeout`` from real data.
-
-        gluetun v3 control API paths:
-          - VPN (any type): PUT /v1/vpn/status
-          - Confirm: GET /v1/publicip/ip
-        """
-        self.last_rotate_seconds = None
-        self.last_rotate_polls = 0
-        before = self.current_ip()
-
-        for status in ("stopped", "running"):
-            try:
-                r = requests.put(
-                    f"{self._base}/v1/vpn/status",
-                    json={"status": status},
-                    timeout=self._timeout,
-                )
-                r.raise_for_status()
-            except Exception as exc:
-                LOG.warning("gluetun: rotate PUT status=%s failed: %s", status, exc)
-                return None
-            if status == "stopped":
-                time.sleep(2)
-
         # Wall-clock timed: a slow current_ip() call can overshoot the deadline
         # by at most one poll, so the worst case stays near rotate_timeout.
         started = time.monotonic()
         deadline = started + self._rotate_timeout
         while time.monotonic() < deadline:
-            self.last_rotate_polls += 1
+            self.last_restart_polls += 1
             ip = self.current_ip()
-            if ip and ip != before:
-                self.last_rotate_seconds = time.monotonic() - started
-                LOG.info(
-                    "gluetun: rotated %s → %s in %.1fs (%d polls)",
-                    before, ip, self.last_rotate_seconds, self.last_rotate_polls,
-                )
+            if ip:
+                self.last_restart_seconds = time.monotonic() - started
+                LOG.info("gluetun: tunnel back up on %s in %.1fs (%d polls)",
+                         ip, self.last_restart_seconds, self.last_restart_polls)
                 return ip
             time.sleep(ROTATE_POLL_INTERVAL)
 
-        self.last_rotate_seconds = time.monotonic() - started
-        LOG.warning(
-            "gluetun: rotation timed out after %.1fs (%d polls, still %s)",
-            self.last_rotate_seconds, self.last_rotate_polls, before,
-        )
+        self.last_restart_seconds = time.monotonic() - started
+        LOG.warning("gluetun: tunnel did not come up within %.1fs (%d polls)",
+                    self.last_restart_seconds, self.last_restart_polls)
         return None

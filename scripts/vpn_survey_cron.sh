@@ -44,6 +44,14 @@ if [ "$collected" -ge "$TARGET_RECORDS" ]; then
     exit 0
 fi
 
+# --real-every 1 (was 10) as of 2026-08-14. The whole production risk is an exit
+# that reaches the neutral targets but is *blocked* by a job board — which looks
+# exactly like a quiet day, the original symptom this survey exists to explain.
+# It was the only thing sampled at 1-in-10: 159 of the first 457 exits got a real
+# fetch. Those 159 came back 158/159 clean on both Tockify and Lever, so the
+# hammering the sampling guarded against is not materialising, and full coverage
+# is also the only way to get more than 5 samples on the Tor-over-VPN exits.
+
 # Restarts by anything else on the host corrupt switch latency, and from inside
 # the container they are invisible. Sample from the host in parallel so records
 # can be labelled rather than reconstructed afterwards.
@@ -63,6 +71,6 @@ docker compose run --rm --no-deps -T \
     --switch-timeout 120 \
     --ladder 0,2,4,8,15,30 \
     --recycle any \
-    --real-every 10 \
+    --real-every 1 \
     --settle 6
 log "survey finished"

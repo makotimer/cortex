@@ -109,17 +109,39 @@ See `.env.example` for all keys with descriptions.
 - **Dry-run** — set `CORTEX_DRY_RUN=1` in `.env` to suppress all outbound email.
 - **VPN sidecar** — the `vpn` service (gluetun/ProtonVPN WireGuard) must be running for `career_watch` to scrape. If `CAREER_WATCH_PROXY_URL` is set and gluetun is unreachable, `career_watch` skips the run (fail-closed). Bring it up with `docker compose up -d vpn`.
 - **VPN peer keys go stale** — ProtonVPN rotates WireGuard peer public keys periodically. If gluetun's server list is old, the tunnel will appear up (`tun0` gets an IP, `public_ip` returns empty) but pass no traffic. The server-list updater is `UPDATER_PERIOD=6h` in `docker-compose.yaml` (gluetun v3 renamed the old `SERVER_UPDATE_PERIOD`; that key no longer does anything). Symptom: gluetun logs show continuous `i/o timeout` healthcheck failures cycling through many servers. Fix: `docker compose up -d vpn` after ensuring `UPDATER_PERIOD` is not `0` — but if the updater is already running, suspect a stale `PROTON_WG_PRIVATE_KEY` instead, which produces the same silent no-traffic signature.
-- **A failed VPN rotation is silent and costs the whole run.** The health check runs
-  *before* rotation and is never re-checked after, so a rotation that doesn't finish
-  leaves the scrape pointed at a still-reconnecting tunnel. The run then logs
-  `ok: true` / `no_new` and emails nothing — it looks like a quiet day, not a failure.
-  Measured over 626 runs (2026-06-01 → 08-12): rotation failed on 22% of runs, and 54%
-  of those scraped **zero** results from every source, versus 0% when rotation
-  succeeded. Diagnose with the `vpn_rotated` activity event, which carries
-  `rotated`, `rotate_seconds`, `rotate_polls` and `rotate_timeout`; a `summary` whose
-  `found_by_source` is all-zero with multi-second `durations_us` is this, not an empty
-  job board. `VPN_ROTATE_TIMEOUT` (default 90 s) is the knob — raise it if
-  `rotate_seconds` clusters near the ceiling.
+- **A failed VPN switch used to be silent — it is not any more. Diagnose it with
+  `vpn_switch`.** The old gate checked health *before* rotating and never re-checked,
+  so a rotation that didn't finish left the scrape on a still-reconnecting tunnel and
+  the run logged `ok: true` / `no_new` — a quiet day, not a failure. Over 626 runs
+  (2026-06-01 → 08-12) rotation failed on 22% of them, and 54% of those scraped **zero**
+  results from every source.
+  That gate is gone. Both engines now call `vpn_client.switch_until_usable()`, which
+  re-reads the IP *and* fetches a real URL through the proxy after every restart, and
+  raises `VPNUnavailableError` when no exit works — the run fails loudly instead of
+  returning empty. `rotate()` was deleted on 2026-08-14 (no caller; its "the IP must
+  change" success test was itself a source of false failures).
+  The event to read is **`vpn_switch`**, not `vpn_rotated` — that op no longer exists.
+  It carries `ok`, `ip`, `changed`, `attempts`, `seconds`, `reason`, `quarantined`,
+  `tried[]`, and `restarts[]` (seconds per tunnel restart). `VPN_ROTATE_TIMEOUT`
+  (default **120 s**) is the knob: raise it if `restarts` clusters near the ceiling,
+  and note that a restart landing *exactly* on the ceiling is one that never produced
+  an IP at all. Surveying 457 live exits (2026-08-13/14) put clean switches at a 14 s
+  median and 46 s p90, with ~4.5% never coming up; every exit that did come up carried
+  traffic, at a 0.4 s median. So there is no "still settling" grey zone to wait out —
+  the outcome is binary, and `VERIFY_DEADLINE_SECONDS` exists for a measured 36 s tail,
+  not for the common case.
+- **`SERVER_COUNTRIES` does not bound where traffic actually exits.** ~4% of exits
+  (18 of 457 surveyed) egress from countries not in the list at all — Sweden, Germany,
+  Norway, Slovenia, Luxembourg, Spain, Austria against a configured pool of
+  US/Canada/Switzerland/Netherlands. These are ProtonVPN's **Tor-over-VPN** servers:
+  the Proton server sits in an allowed country so gluetun's filter passes it, but
+  egress lands on a Tor exit relay elsewhere. Recognise them by operator — DFRI
+  (`171.25.193.x`) and Zwiebelfreunde (`185.220.101.x`) are Tor exit ranges. They are
+  not broken (all 12 sampled worked) but they were 4.6× slower to first traffic, and
+  `vpn_client.usable()`'s docstring records one holding a valid IP while unable to
+  reach the target at all — the exact shape of a silently empty scrape. The survey
+  flags them as `outside_pool`; if they ever correlate with blocked scrapes, exclude
+  Tor servers from gluetun's pool rather than widening timeouts.
 - **No LLM is reachable from cortex.** `llm-proxy` exists and is well established —
   six sites under `/srv/docker/websites/` run one as a sidecar (multi-backend, tiers
   `light`/`middle`/`heavy`, `X-Proxy-Secret` auth on `:11434`) — but every instance is
