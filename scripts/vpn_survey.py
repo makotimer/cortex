@@ -6,14 +6,16 @@ Why this exists
 Production logs carry 750 rotations across 220 distinct exit IPs and not one
 recorded failure — because the exit IP was only ever logged when a switch
 *succeeded*, and nothing ever linked an exit to whether the fetch after it
-worked. So there is no evidence about which servers are good, and the
-quarantine in ``modules/_shared/vpn_client.py`` can only learn from real runs,
-which happen twice a week.
+worked. So there was no evidence about which servers are good, and the code was
+tuned on judgement.
 
 This walks a lot of exits on purpose and writes one JSONL record per exit:
 identity, how long the switch took, and whether each target was reachable
-through it. That is the raw material for choosing VPN_ROTATE_TIMEOUT,
-VPN_SWITCH_ATTEMPTS and the quarantine TTL from data instead of judgement.
+through it. That is the raw material for choosing VPN_ROTATE_TIMEOUT and
+VPN_SWITCH_ATTEMPTS from data instead of judgement.
+
+It has already retired one setting outright: 676 exits found no server that was
+ever persistently bad, and the quarantine was deleted on 2026-08-14.
 
 Run it inside the cortex container::
 

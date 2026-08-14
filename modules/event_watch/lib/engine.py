@@ -263,8 +263,6 @@ def _check_vpn(settings: Settings, verify_url: str = "") -> None:
     gluetun = vpn_client.GluetunClient(
         control_url=control_url,
         rotate_timeout=rotate_timeout,
-        quarantine_path=os.getenv("VPN_QUARANTINE_PATH",
-                                  "/app/local/state/vpn_quarantine.json"),
     )
     outcome = gluetun.switch_until_usable(
         proxy_url=settings.proxy_url,
@@ -273,12 +271,12 @@ def _check_vpn(settings: Settings, verify_url: str = "") -> None:
         prefer_new_ip=settings.rotate_vpn_per_run,
     )
     # Logged whether or not it worked: the (ip, ok) pairs are the only record
-    # of which exits were tried, and the raw material for any future reputation.
+    # of which exits were tried.
     logging_bridge.activity({
         "component": "event_watch.engine", "op": "vpn_switch",
         "ok": outcome.ok, "ip": outcome.ip, "changed": outcome.changed,
         "attempts": outcome.attempts, "seconds": round(outcome.seconds, 2),
-        "reason": outcome.reason, "quarantined": outcome.quarantined,
+        "reason": outcome.reason,
         "tried": [{"ip": ip, "ok": ok} for ip, ok in outcome.tried],
         "restarts": outcome.restarts,
         "verify_url": verify_url,

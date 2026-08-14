@@ -290,9 +290,9 @@ def test_render_build_tables_escapes_html():
 # switch_until_usable: the switching logic itself
 # ----------------------------------------------------------------------
 def _client(tmp_path, **kw):
-    return vpn_client.GluetunClient(
-        control_url="http://vpn:8000",
-        quarantine_path=str(tmp_path / "q.json"), **kw)
+    # tmp_path is vestigial since the quarantine file was removed on 2026-08-14;
+    # kept so these tests read the same as the rest of the module.
+    return vpn_client.GluetunClient(control_url="http://vpn:8000", **kw)
 
 
 def test_usable_is_true_on_a_2xx_through_the_proxy(monkeypatch, tmp_path):
@@ -332,7 +332,7 @@ def test_current_exit_is_verified_before_any_restart(monkeypatch, tmp_path):
     assert out.ok and out.attempts == 1 and restarts == []
 
 
-def test_a_bad_exit_is_quarantined_and_the_next_one_is_used(monkeypatch, tmp_path):
+def test_a_bad_exit_is_abandoned_and_the_next_one_is_used(monkeypatch, tmp_path):
     c = _client(tmp_path)
     current = {"ip": "9.9.9.9"}
     monkeypatch.setattr(vpn_client.GluetunClient, "current_ip",
@@ -345,28 +345,13 @@ def test_a_bad_exit_is_quarantined_and_the_next_one_is_used(monkeypatch, tmp_pat
     out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
                                 prefer_new_ip=False, attempts=3)
     assert out.ok and out.ip == "2.2.2.2"
-    assert out.quarantined == ["9.9.9.9"]
-    assert c._is_quarantined("9.9.9.9")
+    assert [ip for ip, ok in out.tried if not ok] == ["9.9.9.9"]
 
 
-def test_a_quarantined_exit_is_skipped_without_being_probed(monkeypatch, tmp_path):
-    c = _client(tmp_path)
-    c._quarantine("9.9.9.9")
-    probed = []
-    monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: "9.9.9.9")
-    monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait", lambda self: None)
-    monkeypatch.setattr(vpn_client.GluetunClient, "usable",
-                        lambda self, p, v: probed.append(True) or True)
-
-    out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
-                                prefer_new_ip=False, attempts=2)
-    assert not out.ok and probed == []
-
-
-def test_quarantine_expires(tmp_path):
-    c = _client(tmp_path, quarantine_ttl=-1)   # already expired on write
-    c._quarantine("9.9.9.9")
-    assert not c._is_quarantined("9.9.9.9")
+# test_a_quarantined_exit_is_skipped_without_being_probed and
+# test_quarantine_expires were deleted on 2026-08-14 with the quarantine itself.
+# Skipping an exit unprobed is now the opposite of intended: see
+# tests/test_vpn_no_quarantine.py for why nothing is remembered any more.
 
 
 def test_giving_up_reports_every_exit_it_tried(monkeypatch, tmp_path):
@@ -407,11 +392,10 @@ def test_a_slow_exit_is_re_probed_before_being_condemned(monkeypatch, tmp_path):
     out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
                                 prefer_new_ip=False, attempts=1)
     assert out.ok, "second probe succeeded, so the exit must not be condemned"
-    assert out.quarantined == []
-    assert not c._is_quarantined("1.1.1.1")
+    assert [ok for _ip, ok in out.tried] == [True]
 
 
-def test_an_exit_failing_twice_is_still_quarantined(monkeypatch, tmp_path):
+def test_an_exit_failing_every_probe_is_reported_as_failed(monkeypatch, tmp_path):
     c = _client(tmp_path, verify_settle=0)
     monkeypatch.setattr(vpn_client.GluetunClient, "current_ip", lambda self: "9.9.9.9")
     monkeypatch.setattr(vpn_client.GluetunClient, "_restart_and_wait", lambda self: None)
@@ -419,4 +403,4 @@ def test_an_exit_failing_twice_is_still_quarantined(monkeypatch, tmp_path):
 
     out = c.switch_until_usable(proxy_url="http://vpn:8888", verify_url="u",
                                 prefer_new_ip=False, attempts=1)
-    assert not out.ok and c._is_quarantined("9.9.9.9")
+    assert not out.ok and "9.9.9.9" in out.reason

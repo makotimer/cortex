@@ -82,8 +82,6 @@ def run_once(
         gluetun = vpn_client.GluetunClient(
             control_url=control_url,
             rotate_timeout=rotate_timeout,
-            quarantine_path=os.getenv("VPN_QUARANTINE_PATH",
-                                      "/app/local/state/vpn_quarantine.json"),
         )
         # Switch until an exit verifiably works, rather than until the IP
         # changes. Measured over 626 runs, the old check failed to rotate on
@@ -107,7 +105,6 @@ def run_once(
             "attempts": outcome.attempts,
             "seconds": round(outcome.seconds, 2),
             "reason": outcome.reason,
-            "quarantined": outcome.quarantined,
             "tried": [{"ip": ip, "ok": ok} for ip, ok in outcome.tried],
             # Seconds per tunnel restart. Watch the distribution here rather
             # than running another live survey: a cluster near

@@ -121,7 +121,7 @@ See `.env.example` for all keys with descriptions.
   returning empty. `rotate()` was deleted on 2026-08-14 (no caller; its "the IP must
   change" success test was itself a source of false failures).
   The event to read is **`vpn_switch`**, not `vpn_rotated` — that op no longer exists.
-  It carries `ok`, `ip`, `changed`, `attempts`, `seconds`, `reason`, `quarantined`,
+  It carries `ok`, `ip`, `changed`, `attempts`, `seconds`, `reason`,
   `tried[]`, and `restarts[]` (seconds per tunnel restart). `VPN_ROTATE_TIMEOUT`
   (default **120 s**) is the knob: raise it if `restarts` clusters near the ceiling,
   and note that a restart landing *exactly* on the ceiling is one that never produced
@@ -130,6 +130,12 @@ See `.env.example` for all keys with descriptions.
   traffic, at a 0.4 s median. So there is no "still settling" grey zone to wait out —
   the outcome is binary, and `VERIFY_DEADLINE_SECONDS` exists for a measured 36 s tail,
   not for the common case.
+  There is **no exit quarantine any more** (deleted 2026-08-14, along with
+  `VPN_QUARANTINE_PATH`). It guarded failure modes measured at zero — 0/633 verify
+  failures on live exits, 0/148 exits bad every time seen — and the one time it did
+  fire in production it condemned three healthy servers inside 66 seconds, all of
+  which were later measured working. A failed exit is switched away from, not
+  remembered.
 - **`SERVER_COUNTRIES` does not bound where traffic actually exits.** ~4% of exits
   (18 of 457 surveyed) egress from countries not in the list at all — Sweden, Germany,
   Norway, Slovenia, Luxembourg, Spain, Austria against a configured pool of

@@ -26,9 +26,7 @@ class _StubResponse:
 
 
 def _client(tmp_path, **kw):
-    return vpn_client.GluetunClient(
-        control_url="http://vpn:8000",
-        quarantine_path=str(tmp_path / "q.json"), **kw)
+    return vpn_client.GluetunClient(control_url="http://vpn:8000", **kw)
 
 
 @pytest.fixture

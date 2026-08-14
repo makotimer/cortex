@@ -6,13 +6,9 @@ Errors are always caught and logged — callers decide whether a failure is fata
 """
 from __future__ import annotations
 
-import json
 import logging
-import os
-import tempfile
 import time
 from dataclasses import dataclass, field
-from pathlib import Path
 
 import requests
 
@@ -31,15 +27,21 @@ DEFAULT_ROTATE_TIMEOUT = 120.0
 #: Seconds between public-IP polls while waiting for the tunnel.
 ROTATE_POLL_INTERVAL = 2.0
 
-#: How long a failed exit stays quarantined.
-#:
-#: Deliberately short. Across 750 recorded rotations and 220 distinct exit IPs,
-#: not one server was ever persistently bad — every failed run came from a
-#: switch that did not complete, not from a bad server. Exits do fail (a
-#: ProtonVPN address that was also a Tor exit relay could not reach the target
-#: at all), but treating that as a lasting property would shrink the usable pool
-#: on no evidence. This is a "do not immediately retry" note, not a reputation.
-DEFAULT_QUARANTINE_TTL = 1800.0
+# There was a quarantine here — a 30-minute memory of exits that failed
+# verification, so the next attempt would not land straight back on one. It was
+# deleted on 2026-08-14 after 676 surveyed exits measured every failure mode it
+# guarded against at exactly zero:
+#
+#   verify target failed on a live exit    0 / 633
+#   exit came up but carried no traffic    0 / 612
+#   real scraping target blocked the exit  0 / 181
+#   exit bad every time it was seen        0 / 148 exits seen more than once
+#
+# so it could never once have fired. Its cost was not zero: remembering a bad
+# exit shrinks the pool the next attempt draws from, during the run that is
+# already struggling, and the pool re-serves servers constantly. The only
+# failure that does occur is a switch that never produces an IP (6.36%), which
+# no amount of remembering helps. Failing an exit still switches away from it.
 
 #: Seconds allowed for the through-proxy verification request.
 VERIFY_TIMEOUT = 12.0
@@ -81,9 +83,6 @@ class SwitchOutcome:
     attempts: int = 0
     seconds: float = 0.0
     reason: str = ""
-    #: Exits parked during this call, with why. Feeds the quarantine file and
-    #: is the raw material any future server reputation would be built from.
-    quarantined: list[str] = field(default_factory=list)
     #: (ip, ok) per attempt, so a run's log shows what was actually tried.
     tried: list[tuple[str | None, bool]] = field(default_factory=list)
     #: Seconds each tunnel restart spent waiting for a public IP, in order.
@@ -103,8 +102,6 @@ class GluetunClient:
         control_url: str = "http://vpn:8000",
         timeout: float = 5.0,
         rotate_timeout: float = DEFAULT_ROTATE_TIMEOUT,
-        quarantine_path: str | None = None,
-        quarantine_ttl: float = DEFAULT_QUARANTINE_TTL,
         verify_settle: float = VERIFY_SETTLE_SECONDS,
         verify_deadline: float = VERIFY_DEADLINE_SECONDS,
     ) -> None:
@@ -113,8 +110,6 @@ class GluetunClient:
         self._base = control_url.rstrip("/")
         self._timeout = timeout
         self._rotate_timeout = rotate_timeout
-        self._quarantine_path = Path(quarantine_path) if quarantine_path else None
-        self._quarantine_ttl = quarantine_ttl
         #: Wall-clock seconds the last tunnel restart spent waiting for an IP.
         #: Set on both success and timeout so reconnect latency can be tracked
         #: over time; stays None until a restart has been attempted.
@@ -214,11 +209,6 @@ class GluetunClient:
                 out.reason = "tunnel reported no public IP"
                 continue
 
-            if self._is_quarantined(ip):
-                out.tried.append((ip, False))
-                out.reason = f"exit {ip} is quarantined"
-                continue
-
             if self._verify_until_ready(proxy_url, verify_url):
                 out.tried.append((ip, True))
                 out.ok, out.ip = True, ip
@@ -226,12 +216,11 @@ class GluetunClient:
                 out.reason = "verified"
                 break
 
-            # Failed twice with a pause between, so this is the exit and not
-            # the tunnel still coming up. Park it so the next attempt does not
-            # land straight back on it.
+            # Probed to the full budget, so this is the exit and not the tunnel
+            # still coming up. Move on to another one — but do not write it
+            # down: no surveyed exit was ever persistently bad, and a 30-minute
+            # grudge only shrinks the pool the next attempt draws from.
             out.tried.append((ip, False))
-            self._quarantine(ip)
-            out.quarantined.append(ip)
             out.reason = f"exit {ip} could not reach {verify_url}"
 
         out.seconds = time.monotonic() - started
@@ -245,8 +234,8 @@ class GluetunClient:
 
         This is what separates "this exit cannot reach the target" from "the
         tunnel was not ready yet" — a distinction worth spending seconds on,
-        because getting it wrong quarantines working servers and shrinks the
-        pool the next attempt draws from.
+        because getting it wrong throws away a working exit and spends one of
+        the few attempts a run has on replacing it.
 
         Retrying to a deadline rather than once after a fixed sleep is the
         difference between covering the median exit and covering the tail: 97%
@@ -269,42 +258,6 @@ class GluetunClient:
                 break
             time.sleep(self._verify_settle)
         return False
-
-    # ------------------------------------------------------------------
-    # Quarantine: a short memory of exits that just failed
-    # ------------------------------------------------------------------
-    def _load_quarantine(self) -> dict[str, float]:
-        if not self._quarantine_path:
-            return {}
-        try:
-            data = json.loads(self._quarantine_path.read_text(encoding="utf-8"))
-        except (FileNotFoundError, json.JSONDecodeError):
-            return {}
-        if not isinstance(data, dict):
-            return {}
-        now = time.time()
-        return {ip: exp for ip, exp in data.items()
-                if isinstance(exp, (int, float)) and exp > now}
-
-    def _is_quarantined(self, ip: str) -> bool:
-        return ip in self._load_quarantine()
-
-    def _quarantine(self, ip: str) -> None:
-        if not self._quarantine_path:
-            return
-        entries = self._load_quarantine()
-        entries[ip] = time.time() + self._quarantine_ttl
-        path = self._quarantine_path
-        try:
-            path.parent.mkdir(parents=True, exist_ok=True)
-            fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix=path.name,
-                                       suffix=".tmp")
-            with os.fdopen(fd, "w", encoding="utf-8") as fh:
-                json.dump(entries, fh, sort_keys=True)
-            os.replace(tmp, path)
-        except OSError as exc:
-            # Losing the note costs one wasted retry later, never the run.
-            LOG.warning("gluetun: could not persist quarantine: %s", exc)
 
     def _restart_and_wait(self) -> str | None:
         """Stop and start the tunnel, then wait for *any* public IP.
