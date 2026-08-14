@@ -44,6 +44,22 @@ if [ "$collected" -ge "$TARGET_RECORDS" ]; then
     exit 0
 fi
 
+# --switch-timeout 180 (was 120) as of 2026-08-14, to settle whether the ceiling
+# is manufacturing its own failures. A run cannot observe a switch slower than
+# its own timeout, so every "successful max" is censored by it -- which is how
+# 120 s came to look generous. Across 676 records the no-IP rate tracks the
+# ceiling, not the tunnel:
+#
+#     timeout  n     no-IP    slowest success
+#      90 s     24   12.5%     90.4 s
+#     120 s    542    7.2%    114.4 s   <- 1.2% of successes took >90 s
+#     180 s    110    0.9%    160.4 s   <- 2.8% of successes took >120 s
+#
+# The 180 s runs are a smaller morning sample and the 120 s runs mostly
+# overnight, so this is confounded. One full night at 180 s decides it. If the
+# no-IP rate collapses, DEFAULT_ROTATE_TIMEOUT should follow and roughly 6% of
+# runs stop losing an exit they had.
+
 # --real-every 1 (was 10) as of 2026-08-14. The whole production risk is an exit
 # that reaches the neutral targets but is *blocked* by a job board — which looks
 # exactly like a quiet day, the original symptom this survey exists to explain.
@@ -68,7 +84,7 @@ docker compose run --rm --no-deps -T \
     --switches 5000 \
     --stop-at "$STOP_AT" \
     --pause "$PAUSE" \
-    --switch-timeout 120 \
+    --switch-timeout 180 \
     --ladder 0,2,4,8,15,30 \
     --recycle any \
     --real-every 1 \
