@@ -79,6 +79,10 @@ class SwitchOutcome:
 
     ok: bool
     ip: str | None = None
+    #: The exit we were on when the call started. Paired with ``ip`` this is the
+    #: evidence a rotation actually moved — which ``changed`` asserts but does
+    #: not show, and which the dormant cycler logs as its whole reason to exist.
+    previous_ip: str | None = None
     changed: bool = False
     attempts: int = 0
     seconds: float = 0.0
@@ -177,6 +181,7 @@ class GluetunClient:
         verify_url: str,
         attempts: int = 3,
         prefer_new_ip: bool = True,
+        require_new_ip: bool = False,
     ) -> SwitchOutcome:
         """Switch exits until one can actually reach ``verify_url``.
 
@@ -191,10 +196,20 @@ class GluetunClient:
         ``prefer_new_ip=False`` verifies the current exit first and only
         switches if it is unusable — right for a public feed, where rotating
         buys nothing and restarting the tunnel disturbs other consumers.
+
+        ``require_new_ip=True`` additionally refuses to settle for the exit we
+        started on. It is **off by default and must stay that way for scrapes**:
+        demanding a change under time pressure is exactly what produced the old
+        false failures, and a working tunnel on the same exit is a fine outcome
+        when something is waiting. It exists for ``modules.vpn_cycle``, which
+        runs in the dormant window with 90 minutes to spend and whose entire
+        purpose is to guarantee the next scrape presents a different address —
+        1.54% of restarts land back on the previous exit, so without this the
+        guarantee leaks about once a week.
         """
         started = time.monotonic()
         before = self.current_ip()
-        out = SwitchOutcome(ok=False, reason="no attempts made")
+        out = SwitchOutcome(ok=False, previous_ip=before, reason="no attempts made")
 
         for attempt in range(1, max(1, attempts) + 1):
             out.attempts = attempt
@@ -207,6 +222,13 @@ class GluetunClient:
             if not ip:
                 out.tried.append((None, False))
                 out.reason = "tunnel reported no public IP"
+                continue
+
+            # Checked before verifying: an exit we are going to reject anyway
+            # is not worth spending the verify budget on.
+            if require_new_ip and before and ip == before:
+                out.tried.append((ip, False))
+                out.reason = f"restart returned the same exit {ip}"
                 continue
 
             if self._verify_until_ready(proxy_url, verify_url):

@@ -164,9 +164,45 @@ The same expansion applies to top-level `email_to_env`, `email_cc_env`, `email_b
       "kwargs": {
         "person_env": "SCRAPER_USER_1",
         "sqlite_path": "/app/local/state/careerwatch.db",
-        "max_threads": 8
+        "max_threads": 8,
+        "rotate_vpn_per_run": false
       }
+    },
+    {
+      "id": "vpn-cycle-career",
+      "module": "modules.vpn_cycle",
+      "summary": "VPN cycle — new exit 15 min before each career-watch scrape",
+      "trigger": {
+        "daily_time": {
+          "time": ["04:45", "06:15", "07:45", "09:15", "10:45"],
+          "day_of_week": "mon-sat"
+        }
+      },
+      "send_email": false,
+      "kwargs": {}
     }
   ]
 }
 ```
+
+### Pairing a scrape with `modules.vpn_cycle`
+
+The last two jobs above are a pair, and the pairing is the point.
+
+Rotation used to happen at the front of each scrape, where it had no room to
+fail: about 28 s expected cost, a 6.36% chance of producing no IP at all, and
+the scrape blocked behind it. Because the switch accepts an unchanged IP as
+success, 1.54% of restarts landed back on the exit the previous run had just
+used — presenting a source the same address twice running, which is the one
+thing the rotation exists to prevent.
+
+So the scrape sets `rotate_vpn_per_run: false` and only *verifies* the exit it
+finds, which already fails closed when the tunnel is broken. `modules.vpn_cycle`
+runs in the dormant window between scrapes and owns the rotating. Having no one
+waiting on it, it can insist on a genuinely different exit and retry until it
+gets one.
+
+Schedule the cycle far enough ahead of the scrape that a slow rotation cannot
+run into it — 15 minutes is ample against a ~28 s expected cost — and give every
+VPN-using scrape its own cycle slot. A failed cycle raises, so it lands in the
+error log; the following scrape will still run, on the previous exit.
