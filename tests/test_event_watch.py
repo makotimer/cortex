@@ -26,7 +26,7 @@ import pytest
 
 from modules.event_watch.lib import classify, engine, normalize, publish, state
 from modules.event_watch.lib.config import Settings
-from modules.event_watch.lib.scrapers import challenge, cityspark, kbtx, tamu, tockify
+from modules.event_watch.lib.scrapers import bryantx, challenge, cityspark, kbtx, tamu, tockify
 from modules.event_watch.lib.scrapers.base import RawEvent
 
 FIXTURES = Path(__file__).parent / "fixtures" / "event_watch"
@@ -1507,6 +1507,155 @@ def test_conformance_tamu_payloads_pass_the_real_validator(tamu_normalized):
     if validator is None:
         pytest.skip("discoverbcs app not mounted; see this file's docstring")
     payloads, _ = tamu_normalized
+    assert payloads
+    for payload in payloads:
+        validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
+# ======================================================================
+# City of Bryan calendar (GOVstack / CivicPlus _List)
+#
+# Two captured AJAX pages for window 2026-08-15 → 2027-05-12. See
+# tests/fixtures/event_watch/README.md.
+# ======================================================================
+@pytest.fixture(scope="module")
+def bryantx_raw() -> list[RawEvent]:
+    cards: list[dict] = []
+    for name in ("bryantx_list_page0.html", "bryantx_list_page1.html"):
+        cards.extend(bryantx.parse_list_html((FIXTURES / name).read_text(encoding="utf-8")))
+    return [bryantx.to_raw(c) for c in cards]
+
+
+@pytest.fixture(scope="module")
+def bryantx_normalized(bryantx_raw):
+    return bryantx.BryanTxScraper().normalize(bryantx_raw)
+
+
+def test_bryantx_fixture_shape(bryantx_raw):
+    assert len(bryantx_raw) == 46
+    assert len({r.series_uid for r in bryantx_raw}) == 17
+    assert all(r.series_uid and r.occurrence_tid for r in bryantx_raw)
+
+
+def test_bryantx_first_friday_is_one_series_per_month(bryantx_raw, bryantx_normalized):
+    fridays = [r for r in bryantx_raw if r.series_uid == "First-Friday"]
+    assert {r.occurrence_tid for r in fridays} == {
+        "2026-09-04-1700", "2026-10-02-1700", "2026-11-06-1700", "2026-12-04-1700",
+    }
+    payloads, _ = bryantx_normalized
+    ff = [p for p in payloads if p["series"]["source_series_uid"] == "First-Friday"]
+    assert len(ff) == 4
+    assert {p["occurrence"]["source_occurrence_tid"] for p in ff} == {
+        "2026-09-04-1700", "2026-10-02-1700", "2026-11-06-1700", "2026-12-04-1700",
+    }
+    assert {p["occurrence"]["start_local"] for p in ff} == {
+        "2026-09-04T17:00:00", "2026-10-02T17:00:00",
+        "2026-11-06T17:00:00", "2026-12-04T17:00:00",
+    }
+
+
+def test_bryantx_times_come_from_the_url_not_the_am_pm_string(bryantx_normalized):
+    payloads, _ = bryantx_normalized
+    senior = next(p for p in payloads if "Senior Citizens Day" in p["series"]["title"])
+    assert senior["occurrence"]["start_local"] == "2026-08-21T05:30:00"
+    assert senior["occurrence"]["all_day"] is False
+    assert senior["occurrence"]["timezone"] == "America/Chicago"
+
+
+def test_bryantx_midnight_listings_are_all_day(bryantx_normalized):
+    payloads, _ = bryantx_normalized
+    closed = next(p for p in payloads if p["occurrence"]["source_occurrence_tid"] == "2026-11-26-0000")
+    assert closed["occurrence"]["all_day"] is True
+    assert closed["occurrence"]["start_local"] == "2026-11-26T00:00:00"
+
+
+def test_bryantx_source_identity(bryantx_normalized):
+    payloads, _ = bryantx_normalized
+    assert payloads
+    for p in payloads:
+        assert p["source"]["slug"] == "bryantx"
+        assert p["source"]["name"] == "City of Bryan Calendar"
+        assert p["source"]["kind"] == "feed"
+        assert p["series"]["organization"]["slug"] == "bryantx"
+
+
+def test_bryantx_places_are_bryan(bryantx_normalized):
+    payloads, _ = bryantx_normalized
+    cities = {p["series"]["place"]["city"] for p in payloads}
+    assert cities <= {"Bryan", "College Station"}
+    for p in payloads:
+        place = p["series"]["place"]
+        assert place["area"] in {"bryan", "college_station"}
+        assert place["name"]
+        assert place.get("region") == "TX"
+    first = next(p for p in payloads if p["series"]["source_series_uid"] == "First-Friday")
+    assert first["series"]["place"]["name"] == "Historic Downtown Bryan"
+    assert first["series"]["place"]["street"] == "100 N. Main St."
+    assert first["series"]["place"]["postcode"] == "77803"
+    ringer = next(p for p in payloads if "Ringer" in p["series"]["place"]["name"])
+    assert ringer["series"]["place"]["city"] == "College Station"
+    assert ringer["series"]["place"]["area"] == "college_station"
+
+
+def test_bryantx_topics_come_from_the_category_chip(bryantx_normalized):
+    payloads, _ = bryantx_normalized
+    for p in payloads:
+        assert set(p["series"].get("topics") or []) <= classify.TOPICS
+    parks = next(p for p in payloads if "Senior Social" in p["series"]["title"])
+    assert parks["series"]["topics"] == ["outdoors"]
+    general = next(p for p in payloads if p["series"]["source_series_uid"] == "First-Friday")
+    assert general["series"]["topics"] == ["community"]
+    meeting = next(p for p in payloads if "Planning" in p["series"]["title"])
+    assert meeting["series"]["topics"] == ["community"]
+
+
+def test_bryantx_keeps_public_meetings(bryantx_normalized):
+    payloads, _ = bryantx_normalized
+    titles = {p["series"]["title"] for p in payloads}
+    assert any("Planning & Zoning" in t for t in titles)
+    assert any("Historic Landmark" in t for t in titles)
+    assert any("Zoning Board of Adjustment" in t for t in titles)
+
+
+def test_bryantx_free_and_family_only_when_stated(bryantx_normalized):
+    payloads, _ = bryantx_normalized
+    first = next(p for p in payloads if p["series"]["source_series_uid"] == "First-Friday")
+    assert first["series"]["is_free"] is True
+    assert "all-ages" in first["series"]["audiences"]
+    # Meetings do not say free or family.
+    meeting = next(p for p in payloads if "Planning" in p["series"]["title"])
+    assert "is_free" not in meeting["series"]
+
+
+def test_bryantx_fifty_five_plus_is_adult(bryantx_normalized):
+    payloads, _ = bryantx_normalized
+    senior = next(p for p in payloads if "Senior Social" in p["series"]["title"])
+    assert "adult" in senior["series"]["audiences"]
+
+
+def test_bryantx_is_registered_and_not_in_default_kinds():
+    assert "bryantx" not in Settings.from_env_and_kwargs({}).kinds
+    scrapers = engine._default_scrapers(Settings.from_env_and_kwargs({"kinds": "bryantx"}))
+    assert [s.kind for s in scrapers] == ["bryantx"]
+    assert scrapers[0].source_slug == "bryantx"
+
+
+def test_bryantx_skip_network_fetches_nothing():
+    assert bryantx.BryanTxScraper().fetch(
+        date(2026, 8, 15), date(2027, 5, 12), skip_network=True) == []
+
+
+def test_bryantx_normalizing_twice_is_byte_identical(bryantx_raw):
+    first, _ = bryantx.BryanTxScraper().normalize(bryantx_raw)
+    second, _ = bryantx.BryanTxScraper().normalize(bryantx_raw)
+    assert [state.payload_digest(p) for p in first] == [state.payload_digest(p) for p in second]
+
+
+def test_conformance_bryantx_payloads_pass_the_real_validator(bryantx_normalized):
+    validator = _load_site_validator()
+    if validator is None:
+        pytest.skip("discoverbcs app not mounted; see this file's docstring")
+    payloads, _ = bryantx_normalized
     assert payloads
     for payload in payloads:
         validator.validate_upsert(json.loads(json.dumps(payload)))

@@ -7,6 +7,7 @@ One set per source. Both were captured live on **2026-08-12**.
 - [KBTX Community Calendar](#kbtx-community-calendar)
 - [CitySpark — MyCenTX / FOX 44](#cityspark--mycentx--fox-44)
 - [TAMU LiveWhale](#tamu-livewhale)
+- [City of Bryan](#city-of-bryan)
 
 ---
 
@@ -142,6 +143,29 @@ Speakers, Forums, Conferences, Training & Workshops, window
   dropped. 170 records have no campus tag.
 - **Locations:** MSC, Forsyth, Stark, Virtual, Zoom, plus Socorro / Houston /
   San Antonio addresses.
+
+## City of Bryan
+
+Captured **2026-08-15** from the GOVstack `_List` fragment, window
+`2026-08-15 → 2027-05-12`.
+
+| File | Source |
+|---|---|
+| `bryantx_list_page0.html` | `GET /default/_List?StartDate=08/15/2026&EndDate=05/12/2027&Page=0` |
+| `bryantx_list_page1.html` | same, `Page=1` |
+
+Page 2 is empty. 25 + 21 = **46 cards, 17 series**.
+
+### What this window actually contains
+
+- **First Friday** is four monthly cards (Sep/Oct/Nov/Dec), one series.
+- **P&Z** is nine cards; **Maroon & White Night** five; cemetery cleanup five
+  consecutive days.
+- **No City Council** in this window — the Aug 11 meeting is before the start.
+- **Two Larry J. Ringer** author-series nights are College Station; everything
+  else is Bryan.
+- **`0000` + 12:00 AM** is how holiday closures are stored; those are all-day.
+- **Senior Citizens Day** is `0530` in the URL (5:30am). The 12-hour line agrees.
 
 ## Refreshing
 

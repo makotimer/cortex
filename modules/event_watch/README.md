@@ -10,6 +10,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `kbtx` | KBTX Community Calendar (Tockify `kbtx.calendar`) | run default (270d) | JSON + ICS; BCS only; address-kit fallback |
 | `tamu` | Texas A&M LiveWhale calendar | run default (270d) | JSON; public-interest filter; BCS only |
 | `cityspark` | FOX 44 / MyCenTX (CitySpark widget API) | run default (270d) | Bryan 15mi; direct, not fox44news.com |
+| `bryantx` | City of Bryan GOVstack calendar | run default (270d) | HTML `_List` pages; direct |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -26,6 +27,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-kbtx` | `kbtx` | Wed/Sun 04:10 | `rotate_vpn_per_run: false` |
 | `event-watch-tamu` | `tamu` | Wed/Sun 04:25 | `rotate_vpn_per_run: false` |
 | `event-watch-cityspark` | `cityspark` | *not scheduled yet* | `proxy_url: ""` |
+| `event-watch-bryantx` | `bryantx` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -39,8 +41,8 @@ sending the library feed out un-proxied or letting the Challenge fetch fail on
 every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
-`["tockify", "challenge"]` — `kbtx` and `cityspark` are opt-in so a bare run
-does not silently add them. A job that omits `kinds` would pick up Challenge
+`["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu` and `bryantx` are
+opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -174,6 +176,15 @@ The JSON endpoint silently caps around 400, so fetch walks the window a week at
 a time. Occurrence tid is start-time millis so disappearance reconciliation
 still works. `tamu` is not in `DEFAULT_KINDS`. Pin it.
 
+## City of Bryan
+
+GOVstack / CivicPlus HTML. `GET /default/_List?StartDate=&EndDate=&Page=`
+(0-based) until a page is empty. Times come from the detail path
+(`2026-09-04-1700`), not the `5:00 PM` string. `0000` is all-day.
+
+First Friday is one series with one occurrence per published month. Public
+meetings stay in. `bryantx` is not in `DEFAULT_KINDS`. Pin it and run direct.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -218,6 +229,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # TAMU LiveWhale
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=tamu --no-email
+
+# City of Bryan (HTML list; un-proxied)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=bryantx proxy_url= --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test
