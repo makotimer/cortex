@@ -7,6 +7,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 |---|---|---|---|
 | `tockify` | Bryan + College Station Public Library System | run default (270d) | JSON + ICS feeds |
 | `challenge` | Challenge Entertainment — pub trivia, Singo, bingo | **35d** (own cap) | AJAX API, one request per day |
+| `kbtx` | KBTX Community Calendar (Tockify `kbtx.calendar`) | run default (270d) | JSON + ICS; BCS only; address-kit fallback |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -20,6 +21,7 @@ entries below are the record of what is there) and both have injected for real.
 |---|---|---|---|
 | `event-watch-bcslibrary` | `tockify` | Wed/Sun 03:40 | `rotate_vpn_per_run: false` |
 | `event-watch-challenge` | `challenge` | Wed/Sun 03:55 | `proxy_url: ""` |
+| `event-watch-kbtx` | `kbtx` | Wed/Sun 04:10 | `rotate_vpn_per_run: false` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -32,10 +34,11 @@ runs direct; `tockify` keeps its proxy. Folding them together would mean either
 sending the library feed out un-proxied or letting the Challenge fetch fail on
 every run.
 
-That is also why **both jobs pin `kinds` explicitly**. The default is
-`["tockify", "challenge"]`, so a job that omits it silently picks up the other
-source — and the library job would then try Challenge through the proxy and email
-a fetch failure twice a week. If you add a third source, pin it too.
+That is also why **every job pins `kinds` explicitly**. The default is
+`["tockify", "challenge"]` — `kbtx` is opt-in so a bare run does not silently
+add a third source. A job that omits `kinds` would pick up Challenge through
+whatever proxy that job has, and the library job would then email a fetch
+failure twice a week.
 
 The 15-minute offset is only politeness: the two runs share no state and no
 source, so overlapping would be harmless.
@@ -116,6 +119,27 @@ so the table holds only judgement, and only judgement needs maintaining. The
 current banding (6 family, 6 bars) is a first pass; flip any entry that reads
 wrong.
 
+## KBTX: a second Tockify calendar, not a second library
+
+Fetch is the same JSON+ICS pair. Everything else is not.
+
+**Months-long all-day listings are dropped.** The feed uses all-day spans of
+months for PSAs and ongoing programmes (virtual school, Head Start, a pantry).
+Anything all-day and longer than 14 days is skipped. A timed play or exhibit
+that happens to last two weeks is kept.
+
+**Bryan and College Station only.** Brenham, Hearne, Leon County and Waco-area
+listings are dropped, not filed as `nearby`.
+
+**Venues are not a maintained table.** Most records already have `c_locality`
+and a Google `place_id`; those get `area` from the city. When the city is
+missing, fetch calls `address-kit` (Census → Geoapify → Google, BCS ZIPs only)
+and caches the result on `place_id` or the cleaned address, so a venue is
+looked up at most once. `out_of_area` is a quiet drop; `no_match` is an
+attention email. `normalize` never calls the kit.
+
+`kbtx` is not in `DEFAULT_KINDS`. Pin it.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -149,6 +173,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # One source only (and un-proxied, which challenge currently needs)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=challenge proxy_url= --no-email
+
+# KBTX (Tockify; uses the same proxy as the library job)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=kbtx --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test

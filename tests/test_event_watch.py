@@ -26,7 +26,7 @@ import pytest
 
 from modules.event_watch.lib import classify, engine, normalize, publish, state
 from modules.event_watch.lib.config import Settings
-from modules.event_watch.lib.scrapers import challenge, tockify
+from modules.event_watch.lib.scrapers import challenge, kbtx, tockify
 from modules.event_watch.lib.scrapers.base import RawEvent
 
 FIXTURES = Path(__file__).parent / "fixtures" / "event_watch"
@@ -827,6 +827,336 @@ def test_challenge_skip_network_fetches_nothing():
         date(2026, 8, 13), date(2026, 9, 17), skip_network=True) == []
 
 
+# ======================================================================
+# KBTX Community Calendar (Tockify calname=kbtx.calendar)
+#
+# Driven from a captured 270-day window of the real ngevent feed. See
+# tests/fixtures/event_watch/README.md for what that window contains.
+# ======================================================================
+@pytest.fixture(scope="module")
+def kbtx_raw() -> list[RawEvent]:
+    records = json.loads((FIXTURES / "kbtx_ngevent.json").read_text())["events"]
+    descriptions = tockify.parse_ics_descriptions(
+        (FIXTURES / "kbtx_feed.ics").read_text(encoding="utf-8"))
+    return [tockify._to_raw(r, descriptions) for r in records]
+
+
+@pytest.fixture(scope="module")
+def kbtx_normalized(kbtx_raw):
+    return kbtx.KbtxScraper().normalize(kbtx_raw)
+
+
+def test_kbtx_fixture_shape(kbtx_raw):
+    assert len(kbtx_raw) == 52
+    assert len({r.series_uid for r in kbtx_raw}) == 52
+    assert all(r.record.get("kind") == "singleton" for r in kbtx_raw)
+
+
+def test_kbtx_drops_all_day_events_longer_than_14_days(kbtx_normalized, kbtx_raw):
+    """Listings that occupy the calendar for months are not attendable dates."""
+    payloads, rejected = kbtx_normalized
+    titles = {p["series"]["title"] for p in payloads}
+    rejected_uids = {r["series_uid"] for r in rejected}
+    dropped = [
+        r for r in kbtx_raw
+        if r.series_uid not in {p["series"]["source_series_uid"] for p in payloads}
+        and r.series_uid not in rejected_uids
+    ]
+    assert len(dropped) >= 4
+    dropped_titles = {
+        ((r.record.get("content") or {}).get("summary") or {}).get("text") for r in dropped
+    }
+    assert any("Head Start" in (t or "") for t in dropped_titles)
+    assert any("Mobile Food Pantry" in (t or "") for t in dropped_titles)
+    assert any("HesFree" in (t or "") or "Virtual Charter" in (t or "") for t in dropped_titles)
+    assert not any("How to Succeed" in (t or "") for t in dropped_titles)
+    assert any("How to Succeed" in t for t in titles)
+    assert any("Art and Film" in t for t in titles)
+    assert any("Reboot Recovery" in t for t in titles)
+
+
+def test_kbtx_keeps_timed_multi_day_events(kbtx_normalized):
+    payloads, _ = kbtx_normalized
+    titles = {p["series"]["title"] for p in payloads}
+    assert any("How to Succeed in Business" in t for t in titles)
+    assert any("Art and Film" in t for t in titles)
+    assert any("Reboot Recovery" in t for t in titles)
+
+
+def test_kbtx_drops_non_bcs_cities(kbtx_normalized):
+    payloads, _ = kbtx_normalized
+    titles = {p["series"]["title"] for p in payloads}
+    cities = {p["series"]["place"]["city"] for p in payloads if "place" in p["series"]}
+    assert cities <= {"Bryan", "College Station"}
+    assert not any("The Dolly Show" in t for t in titles)
+    assert not any("Baylor Singing Seniors" in t for t in titles)
+    assert not any("Leon County" in t for t in titles)
+
+
+def test_kbtx_structured_bcs_place_carries_area(kbtx_normalized):
+    payloads, _ = kbtx_normalized
+    with_place = [p for p in payloads if "place" in p["series"]]
+    assert with_place
+    for p in with_place:
+        place = p["series"]["place"]
+        assert place["area"] in {"bryan", "college_station"}
+        assert place["name"]
+        assert place["city"] in {"Bryan", "College Station"}
+        assert place.get("region") == "TX"
+
+
+def test_kbtx_source_identity(kbtx_normalized):
+    payloads, _ = kbtx_normalized
+    assert payloads
+    for p in payloads:
+        assert p["source"]["slug"] == "kbtx"
+        assert p["source"]["name"] == "KBTX Community Calendar"
+        assert p["source"]["kind"] == "feed"
+        assert p["series"]["organization"]["slug"] == "kbtx"
+
+
+def test_kbtx_topics_come_from_known_tags_only(kbtx_normalized):
+    payloads, _ = kbtx_normalized
+    for p in payloads:
+        assert set(p["series"].get("topics") or []) <= classify.TOPICS
+    # A music listing in the fixture carries live-music / music tags.
+    music = [p for p in payloads if "music" in p["series"].get("topics", [])]
+    assert music, "expected at least one music-tagged series from the fixture"
+    arts = [p for p in payloads if "arts" in p["series"].get("topics", [])]
+    assert arts, "expected theater/arts tags to map"
+
+
+def test_kbtx_unknown_tags_are_dropped_not_sent():
+    assert "wizardry" not in kbtx.topics_from_tags(["wizardry", "live-music"])
+    assert kbtx.topics_from_tags(["live-music", "theater"]) == ["arts", "music"]
+    assert kbtx.topics_from_tags(["STEM", "4-H"]) == ["outdoors", "science"]
+
+
+def test_kbtx_family_friendly_is_all_ages():
+    assert kbtx.audiences_from_tags(["Family-Friendly"]) == ["all-ages"]
+    assert kbtx.audiences_from_tags(["Kids"]) == ["elementary"]
+    assert kbtx.audiences_from_tags(["chess"]) == []
+
+
+def test_kbtx_missing_city_without_resolution_is_rejected(kbtx_normalized):
+    _, rejected = kbtx_normalized
+    assert rejected, "garbled addresses with no city must fail loudly, not vanish"
+    assert any("address" in r["reason"].lower() or "resolv" in r["reason"].lower()
+               or "city" in r["reason"].lower() or "place" in r["reason"].lower()
+               for r in rejected)
+
+
+def test_kbtx_place_decision_routes_structured_and_foreign():
+    bcs = {"content": {"location": {"c_locality": "Bryan"}, "address": "201 E 26th St, Bryan, TX"}}
+    other = {"content": {"location": {"c_locality": "Brenham"}, "address": "600 Blinn Blvd, Brenham, TX"}}
+    missing = {"content": {"location": {}, "address": "2026 East 29th Street, Bryan, TX 77802",
+                           "place": "Medical Examiner"}}
+    empty = {"content": {"location": {}, "address": "", "place": ""}}
+    assert kbtx.place_decision(bcs) == "structured"
+    assert kbtx.place_decision(other) == "drop_geo"
+    assert kbtx.place_decision(missing) == "resolve"
+    assert kbtx.place_decision(empty) == "reject"
+
+
+def test_kbtx_enrich_skips_long_all_day_listings():
+    calls: list[str] = []
+
+    def resolve(address: str) -> dict:
+        calls.append(address)
+        return {"status": "no_match"}
+
+    raw = [tockify._to_raw({
+        "eid": {"uid": "30", "tid": 30},
+        "content": {
+            "summary": {"text": "Head Start"},
+            "location": {},
+            "address": "4001 East 29th Street, Bryan, TX",
+            "place": "BVCAP",
+        },
+        "when": {
+            "start": {"millis": 0, "tzid": "America/Chicago"},
+            "end": {"millis": 20 * 86400 * 1000, "tzid": "America/Chicago"},
+            "allDay": True,
+        },
+    }, {})]
+    kbtx.enrich_places(raw, resolve=resolve, cache={})
+    assert calls == []
+
+
+def test_kbtx_enrich_retries_place_name_when_address_misses():
+    calls: list[str] = []
+
+    def resolve(address: str) -> dict:
+        calls.append(address)
+        if "Veterans Park" in address:
+            return {
+                "status": "matched", "city": "Bryan", "zip_code": "77803",
+                "matched_address": "VETERANS PARK, BRYAN, TX, 77803",
+            }
+        return {"status": "no_match"}
+
+    raw = [tockify._to_raw({
+        "eid": {"uid": "31", "tid": 31},
+        "content": {
+            "summary": {"text": "Memorial"},
+            "location": {},
+            "address": "Veteransark, Bryan,ters ParkBryan, TX",
+            "place": "Veterans Park, Bryan, TX",
+        },
+        "when": {"start": {"millis": 31, "tzid": "America/Chicago"}, "allDay": False},
+    }, {})]
+    kbtx.enrich_places(raw, resolve=resolve, cache={})
+    assert calls[0] == "Veteransark, Bryan,ters ParkBryan, TX"
+    assert "Veterans Park, Bryan, TX" in calls
+    payloads, rejected = kbtx.KbtxScraper().normalize(raw)
+    assert rejected == []
+    assert payloads[0]["series"]["place"]["city"] == "Bryan"
+
+
+def test_kbtx_enrich_skips_resolver_when_city_is_already_known():
+    calls: list[str] = []
+
+    def resolve(address: str) -> dict:
+        calls.append(address)
+        return {"status": "matched", "city": "Bryan", "zip_code": "77803"}
+
+    raw = [
+        tockify._to_raw({
+            "eid": {"uid": "1", "tid": 1},
+            "content": {
+                "summary": {"text": "Known city"},
+                "location": {"c_locality": "Bryan", "place_id": "ChIJ-known"},
+                "address": "201 E 26th St, Bryan, TX",
+                "place": "Library",
+            },
+            "when": {"start": {"millis": 1, "tzid": "America/Chicago"}, "allDay": False},
+        }, {}),
+        tockify._to_raw({
+            "eid": {"uid": "2", "tid": 2},
+            "content": {
+                "summary": {"text": "Brenham show"},
+                "location": {"c_locality": "Brenham"},
+                "address": "600 Blinn Blvd, Brenham, TX",
+                "place": "PAC",
+            },
+            "when": {"start": {"millis": 2, "tzid": "America/Chicago"}, "allDay": False},
+        }, {}),
+    ]
+    cache: dict = {}
+    kbtx.enrich_places(raw, resolve=resolve, cache=cache)
+    assert calls == []
+
+
+def test_kbtx_enrich_calls_resolver_once_per_venue_identity():
+    calls: list[str] = []
+
+    def resolve(address: str) -> dict:
+        calls.append(address)
+        return {
+            "status": "matched", "city": "Bryan", "zip_code": "77802",
+            "lat": 30.67, "lng": -96.37, "matched_address": "2026 E 29TH ST, BRYAN, TX, 77802",
+        }
+
+    def raw_for(uid: str, tid: int) -> RawEvent:
+        return tockify._to_raw({
+            "eid": {"uid": uid, "tid": tid},
+            "content": {
+                "summary": {"text": "Tour"},
+                "location": {"place_id": "ChIJ-meo"},
+                "address": "2026 East 29th Street, Bryan, TX 77802",
+                "place": "Medical Examiner",
+            },
+            "when": {"start": {"millis": tid, "tzid": "America/Chicago"}, "allDay": False},
+        }, {})
+
+    first = [raw_for("10", 100), raw_for("11", 101)]
+    cache: dict = {}
+    kbtx.enrich_places(first, resolve=resolve, cache=cache)
+    assert len(calls) == 1
+    kbtx.enrich_places([raw_for("12", 102)], resolve=resolve, cache=cache)
+    assert len(calls) == 1
+    payloads, rejected = kbtx.KbtxScraper().normalize(first)
+    assert rejected == []
+    assert len(payloads) == 2
+    assert payloads[0]["series"]["place"]["city"] == "Bryan"
+    assert payloads[0]["series"]["place"]["area"] == "bryan"
+
+
+def test_kbtx_enrich_out_of_area_is_dropped_not_rejected():
+    def resolve(address: str) -> dict:
+        return {"status": "out_of_area", "city": "Snook"}
+
+    raw = [tockify._to_raw({
+        "eid": {"uid": "20", "tid": 20},
+        "content": {
+            "summary": {"text": "Sisterhood Social"},
+            "location": {},
+            "address": "9234 Slovacek Road Snook, Texas",
+            "place": "BackPorch Antiques",
+        },
+        "when": {"start": {"millis": 20, "tzid": "America/Chicago"}, "allDay": False},
+    }, {})]
+    kbtx.enrich_places(raw, resolve=resolve, cache={})
+    payloads, rejected = kbtx.KbtxScraper().normalize(raw)
+    assert payloads == []
+    assert rejected == []
+
+
+def test_kbtx_enrich_no_match_is_rejected_loudly():
+    def resolve(address: str) -> dict:
+        return {"status": "no_match"}
+
+    raw = [tockify._to_raw({
+        "eid": {"uid": "21", "tid": 21},
+        "content": {
+            "summary": {"text": "Mystery"},
+            "location": {},
+            "address": "??? nowhere",
+            "place": "Somewhere",
+        },
+        "when": {"start": {"millis": 21, "tzid": "America/Chicago"}, "allDay": False},
+    }, {})]
+    kbtx.enrich_places(raw, resolve=resolve, cache={})
+    payloads, rejected = kbtx.KbtxScraper().normalize(raw)
+    assert payloads == []
+    assert rejected
+    assert "resolv" in rejected[0]["reason"].lower() or "address" in rejected[0]["reason"].lower()
+
+
+def test_kbtx_address_cache_round_trips(tmp_path):
+    entry = {"status": "matched", "city": "Bryan", "zip_code": "77802"}
+    state.save_addresses(str(tmp_path), "kbtx", {"place:ChIJ-x": entry})
+    loaded = state.load_addresses(str(tmp_path), "kbtx")
+    assert loaded["place:ChIJ-x"]["city"] == "Bryan"
+
+
+def test_kbtx_is_registered_and_not_in_default_kinds():
+    assert "kbtx" not in Settings.from_env_and_kwargs({}).kinds
+    scrapers = engine._default_scrapers(Settings.from_env_and_kwargs({"kinds": "kbtx"}))
+    assert [s.kind for s in scrapers] == ["kbtx"]
+    assert scrapers[0].source_slug == "kbtx"
+
+
+def test_kbtx_skip_network_fetches_nothing():
+    assert kbtx.KbtxScraper().fetch(
+        date(2026, 8, 15), date(2027, 5, 12), skip_network=True) == []
+
+
+def test_kbtx_normalizing_twice_is_byte_identical(kbtx_raw):
+    first, _ = kbtx.KbtxScraper().normalize(kbtx_raw)
+    second, _ = kbtx.KbtxScraper().normalize(kbtx_raw)
+    assert [state.payload_digest(p) for p in first] == [state.payload_digest(p) for p in second]
+
+
+def test_kbtx_times_are_wall_clock_local(kbtx_normalized):
+    payloads, _ = kbtx_normalized
+    for p in payloads:
+        occ = p["occurrence"]
+        assert occ["timezone"] == "America/Chicago"
+        assert "+" not in occ["start_local"] and not occ["start_local"].endswith("Z")
+        datetime.fromisoformat(occ["start_local"])
+
+
 # ----------------------------------------------------------------------
 # Contract conformance against the site's REAL validator
 # ----------------------------------------------------------------------
@@ -835,6 +1165,16 @@ def test_conformance_challenge_payloads_pass_the_real_validator(challenge_normal
     if validator is None:
         pytest.skip("discoverbcs app not mounted; see this file's docstring")
     payloads, _ = challenge_normalized
+    assert payloads
+    for payload in payloads:
+        validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
+def test_conformance_kbtx_payloads_pass_the_real_validator(kbtx_normalized):
+    validator = _load_site_validator()
+    if validator is None:
+        pytest.skip("discoverbcs app not mounted; see this file's docstring")
+    payloads, _ = kbtx_normalized
     assert payloads
     for payload in payloads:
         validator.validate_upsert(json.loads(json.dumps(payload)))

@@ -57,6 +57,7 @@ services:
       - ./local:/app/local
       - ./local/command_history:/home/app/.bash_history
       - ../eventbus/eventbus-kit:/eventbus-kit:ro
+      - ../websites/address-kit:/address-kit:ro
     depends_on:
       cortex_bridge:
         condition: service_healthy
@@ -65,7 +66,7 @@ services:
       - mailnet
       - eventbus
     environment:
-      - PYTHONPATH=/eventbus-kit
+      - PYTHONPATH=/eventbus-kit:/address-kit
       - EVENTBUS_REDIS_HOST=eventbus-redis
       - EVENTBUS_REDIS_PORT=6379
     secrets:

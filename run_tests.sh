@@ -85,6 +85,22 @@ if [ -n "$_eventbus_kit" ]; then
   export PYTHONPATH="${_eventbus_kit}:${PYTHONPATH}"
 fi
 
+# address-kit (KBTX venue resolution). Same lookup pattern as eventbus-kit.
+_address_kit=""
+for _cand in \
+  "/address-kit" \
+  "/srv/docker/websites/address-kit" \
+  "$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)/websites/address-kit"
+do
+  if [ -f "${_cand}/address_kit/__init__.py" ]; then
+    _address_kit="$_cand"
+    break
+  fi
+done
+if [ -n "$_address_kit" ]; then
+  export PYTHONPATH="${_address_kit}:${PYTHONPATH}"
+fi
+
 if [ "$smoke" -eq 1 ]; then
   # Fast hermetic subset (no eventbus/docker). Live suites excluded.
   echo ">> pytest smoke (unit subset)"

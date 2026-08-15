@@ -78,6 +78,20 @@ def save_topics(state_dir: str, source_slug: str, topics: dict[str, list[str]]) 
     _write_atomic(_path(state_dir, source_slug, "topics"), topics)
 
 
+def load_addresses(state_dir: str, source_slug: str) -> dict[str, dict]:
+    """Venue-identity -> last address-kit result. Missing file is an empty cache."""
+    path = _path(state_dir, source_slug, "addresses")
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def save_addresses(state_dir: str, source_slug: str, addresses: dict[str, dict]) -> None:
+    _write_atomic(_path(state_dir, source_slug, "addresses"), addresses)
+
+
 def _write_atomic(path: Path, data: Any) -> None:
     """Write via a temp file in the same directory, then rename.
 

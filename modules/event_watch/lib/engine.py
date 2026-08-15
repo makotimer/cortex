@@ -295,13 +295,21 @@ def _check_vpn(settings: Settings, verify_url: str = "") -> None:
 
 def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.challenge import ChallengeScraper
+    from .scrapers.kbtx import KbtxScraper
     from .scrapers.tockify import TockifyScraper
 
-    registry = {"tockify": TockifyScraper, "challenge": ChallengeScraper}
+    registry = {
+        "tockify": TockifyScraper,
+        "challenge": ChallengeScraper,
+        "kbtx": KbtxScraper,
+    }
     out: list[BaseEventScraper] = []
     for kind in settings.kinds:
         cls = registry.get(kind)
         if cls is None:
             raise ScraperError(f"unknown event scraper kind {kind!r}")
-        out.append(cls(proxy_url=settings.proxy_url))
+        if cls is KbtxScraper:
+            out.append(cls(proxy_url=settings.proxy_url, state_dir=settings.state_dir))
+        else:
+            out.append(cls(proxy_url=settings.proxy_url))
     return out

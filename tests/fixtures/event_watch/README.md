@@ -4,6 +4,7 @@ One set per source. Both were captured live on **2026-08-12**.
 
 - [Tockify — BCS Library](#tockify--bcs-library)
 - [Challenge Entertainment](#challenge-entertainment)
+- [KBTX Community Calendar](#kbtx-community-calendar)
 
 ---
 
@@ -74,6 +75,33 @@ assertion rather than an accident of the window.
 - **`filter_map` is the only source of coordinates and postcodes**, and it carries
   no venue key — the join back to a card is on street + city. The postcode lives
   inside a Google Maps directions URL in each pin's popup HTML.
+
+## KBTX Community Calendar
+
+Captured **2026-08-15** from the live Tockify calendar `kbtx.calendar`, window
+`2026-08-15 → 2027-05-12` (270 days).
+
+| File | Source |
+|---|---|
+| `kbtx_ngevent.json` | `https://tockify.com/api/ngevent?calname=kbtx.calendar&startms=…&endms=…&start=0&max=200` — verbatim |
+| `kbtx_feed.ics` | `https://tockify.com/api/feeds/ics/kbtx.calendar` — VEVENT blocks verbatim, filtered |
+
+The ICS feed is the whole calendar (96 VEVENTs). Only the 52 blocks whose series
+uid appears in the JSON window are kept.
+
+### What this window actually contains
+
+- **52 singletons, 52 series** — no recurrences.
+- **4 all-day listings longer than 14 days** — a statewide virtual-school PSA
+  (397d), two Head Start enrollment notices (294d), and a mobile food pantry
+  (149d). These are dropped, not rejected.
+- **3 timed multi-day events that are kept** — a 16-day play, a 33-day exhibit,
+  and a 12-week evening program.
+- **Cities:** Bryan 22, College Station 8, no `c_locality` 14, then Brenham /
+  Buffalo / Hearne / Woodway / Jewett. Non-BCS cities are dropped.
+- **13 events after the duration filter still have no city** — garbled
+  addresses (`Univery Drive`, `Briarest Dve`). Those reject loudly unless
+  `enrich_places` has already attached an address-kit result.
 
 ## Refreshing
 

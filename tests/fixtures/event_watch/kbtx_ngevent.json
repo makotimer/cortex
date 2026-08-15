@@ -1,0 +1,4004 @@
+{
+  "events": [
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4552",
+        "seq": 0,
+        "tid": 1756357200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1756357200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1790658000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "URGENT PUBLIC SERVICE ANNOUNCEMENT from HesFree’s Texas Virtual Charter High School, a Full-time Virtual Campus for students aged 18 to 50, throughout the state of Texas"
+        },
+        "description": {
+          "text": "Hello everyone, I thank you for taking the time out of your busy schedule to read this post. I pray that each of you is having and will continue to have a Blessed day. The following public service announcement is being posted to inform everyone that HesFree’s Texas Virtual Charter High School is a Full-time Virtual Campus and will begin registration on September 11, 2025, for adult learners aged 1"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Full-time Virtual Campus for students aged 18 to 50, throughout the state of Texas",
+        "address": "Full-time Virtual Campus",
+        "directions": "Full-time Virtual Campus",
+        "vlocation": {},
+        "imageId": "BWC_68b757d5982e950128b9c347",
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "68b757d5982e950128b9c347",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "68b757d5982e950128b9c347",
+            "name": "user-image: Image for HesFree's Texas VCHS",
+            "altText": "Full-time Virtual Campus for students aged 18 to 50, throughout the state of Texas",
+            "width": 475,
+            "height": 225,
+            "size": 10681,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "oldId": "BWC_68b757d5982e950128b9c347",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01BEAA2C_0901_01BEAA2C-0-01C7634C_4552-01BEAA2C-0-0",
+      "ctstamp": 1756846038339,
+      "dtstamp": 1756846038339,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4922",
+        "seq": 0,
+        "tid": 1775797200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1775797200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1788670800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "Mobile Food Pantry"
+        },
+        "description": {
+          "text": "Church of Kingdom Focus Ministries mobile food pantry. Call 979-422-7507 or 979-985-0498."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Food",
+              "Free",
+              "Pantry"
+            ]
+          }
+        },
+        "place": "Church of Kingdom Focus Ministries",
+        "address": "1706 East 29th Street, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJcfdmZHCBRoYRbIjwWwiuo40",
+          "name": "1706 E 29th St",
+          "latitude": 30.6611206,
+          "longitude": -96.3567819,
+          "c_street": "1706 East 29th Street",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "69dea3e6cef9e1612c12a69c",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "69dea3e6cef9e1612c12a69c",
+            "name": "user-image: IMG_2305",
+            "altText": "",
+            "width": 1360,
+            "height": 1881,
+            "size": 222530,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C39BCC_0901_01C39BCC-0-01C6E1EC_4922-01C39BCC-0-0",
+      "ctstamp": 1776198632750,
+      "dtstamp": 1776198632750,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4952",
+        "seq": 0,
+        "tid": 1778562000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1778562000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1803967200000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "Head Start & Early Head Start Brazos Valley Community Action Programs"
+        },
+        "description": {
+          "text": "Now accepting applications! Head Start is a federal program for preschool children from low-income families. Children who attend Head Start participate in a variety of educational activities. They also receive medical and dental care, have meals and snacks, and enjoy playing indoors and outdoors in a safe setting."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Education",
+              "Kids",
+              "Family"
+            ]
+          }
+        },
+        "address": "4001 East 29th Street suite 175, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "Ei80MDAxIEVhc3QgMjl0aCBTdHJlZXQgc3VpdGUgMTc1LCBCcnlhbiwgVFgsIFVTQSIlGiMKFgoUChIJVQr8w_yDRoYR2skyjUcXwe0SCXN1aXRlIDE3NQ",
+          "name": "4001 E 29th St suite 175",
+          "latitude": 30.6461334,
+          "longitude": -96.33149709999999,
+          "c_street": "4001 East 29th Street",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "BVCAP",
+        "customButtonLink": "https://capbv.org/programs/head-startearly-head-start/",
+        "noDetail": false,
+        "imageIdNg": "6a04921b64f49cafacb1f587",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a04921b64f49cafacb1f587",
+            "name": "user-image: doc00227920260512145857 3",
+            "altText": "",
+            "width": 1406,
+            "height": 1820,
+            "size": 339687,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C44FCC_0901_01C44FCC-0-01CAC5C8_4952-01C44FCC-0-0",
+      "ctstamp": 1778684445575,
+      "dtstamp": 1778684445575,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4953",
+        "seq": 0,
+        "tid": 1778562000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1778562000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1803967200000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "Head Start & Early Head Start Brazos Valley Community Action Programs"
+        },
+        "description": {
+          "text": "¡Ahora aceptando solicitudes! Head Start es un programa federal para niños en edad preescolar de familias de bajos ingresos. Los niños que asisten a Head Start participan en una variedad de actividades educativas. También reciben atención médica y dental, tienen comidas y meriendas, y disfrutan jugando en interiores y exteriores en un entorno seguro."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Education",
+              "Kids",
+              "Family"
+            ]
+          }
+        },
+        "address": "4001 East 29th Street suite 175, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "Ei80MDAxIEVhc3QgMjl0aCBTdHJlZXQgc3VpdGUgMTc1LCBCcnlhbiwgVFgsIFVTQSIlGiMKFgoUChIJVQr8w_yDRoYR2skyjUcXwe0SCXN1aXRlIDE3NQ",
+          "name": "4001 E 29th St suite 175",
+          "latitude": 30.6461334,
+          "longitude": -96.33149709999999,
+          "c_street": "4001 East 29th Street",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "BVCAP",
+        "customButtonLink": "https://capbv.org/programs/head-startearly-head-start/",
+        "noDetail": false,
+        "imageIdNg": "6a04923464f49cafacb2d016",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a04923464f49cafacb2d016",
+            "name": "user-image: doc00227920260512145857 2",
+            "altText": "",
+            "width": 1406,
+            "height": 1820,
+            "size": 351056,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C44FCC_0901_01C44FCC-0-01CAC5C8_4953-01C44FCC-0-0",
+      "ctstamp": 1778684470730,
+      "dtstamp": 1778684470730,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5014",
+        "seq": 0,
+        "tid": 1786806000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1786806000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1786820400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Brazos County 4-H Club Fair"
+        },
+        "description": {
+          "text": "Join us Saturday, August 15th at the Brazos County Club Fair; a come and go event from 10:00 AM to 2:00 PM at the Brazos County Extension Office (4153 County Park Ct., Bryan). Brazos County 4-H is a youth development program that empowers young people to discover their passions, develop leadership and life skills, and gain hands-on experiences through projects, service, and competition. Whether yo"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "youth",
+              "agriculture",
+              "stem",
+              "4h"
+            ]
+          }
+        },
+        "place": "Brazos County Extension Office",
+        "address": "4153 County Park Court, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJtZoOM5mGRoYRfIF-eM2nDNk",
+          "name": "4153 County Park Ct",
+          "latitude": 30.6574533,
+          "longitude": -96.2978081,
+          "c_street": "4153 County Park Court",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a4bd428892b27f8db2537e0",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a4bd428892b27f8db2537e0",
+            "name": "user-image: 2026 Club Fair Flyer (3)",
+            "altText": "",
+            "width": 940,
+            "height": 788,
+            "size": 307046,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C66884_0901_01C66884-1-01C66974_5014-01C66884-0-0",
+      "ctstamp": 1783354409457,
+      "dtstamp": 1783354409457,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5004",
+        "seq": 0,
+        "tid": 1786827600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1786827600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1786842000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Sisterhood Social"
+        },
+        "description": {
+          "text": "A fun, laid-back hangout where women connect, share laughs, and build awesome friendships in person! Join Us at the Sisterhood Social! Sisterhood Social - A Night Created Just for Women by Women! Grab your girlfriends and join us for an unforgettable evening of shopping, sipping, relaxing, and celebrating all things women! Hosted by BackPorch Antiques & Boutique, the Sisterhood Social will feature"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "womens-event",
+              "sip-and-shop",
+              "live-music",
+              "artist"
+            ]
+          }
+        },
+        "place": "BackPorch Antiques & Boutique",
+        "address": "9234 Slovacek Road Snook, Texas",
+        "directions": "We are at corner of FM 60 and Slovacek Road in Snook... use to be the old Pivo Point Beer Gardens",
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "facebook event",
+        "customButtonLink": "https://www.facebook.com/events/1504088603969639/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22search_results%22%2C%22surface%22%3A%22bookmark_search%22%7D]%2C%22ref_notif_type%22%3Anull%7D",
+        "noDetail": false,
+        "imageIdNg": "6a399b9455a8c60bf952abd7",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a399b9455a8c60bf952abd7",
+            "name": "user-image: snipit shot",
+            "altText": "Sisterhood Social at BackPorch Antiques in Snook Texas",
+            "width": 800,
+            "height": 537,
+            "size": 270525,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C669EC_0901_01C669EC-1-01C66ADC_5004-01C669EC-0-0",
+      "ctstamp": 1782160277396,
+      "dtstamp": 1782160277396,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4983",
+        "seq": 0,
+        "tid": 1786836600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1786836600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1786854600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Bryan ISD Education Foundation Hometown Reunion 2026"
+        },
+        "description": {
+          "text": "Bryan ISD Education Foundation Hometown Reunion 2026 Boot scoot the night away for a great cause! Join us for our 4th Annual Hometown Reunion, a special evening for our community to show support of Bryan ISD students and educators. The evening features live music from Diamond Rio and Mason Creager, dancing, cocktails, dinner, live auction, and more! Proceeds will benefit the Bryan ISD Education Fo"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Bryan",
+              "Bryan-ISD",
+              "BISD-Education-Foundation",
+              "live-music-event"
+            ]
+          }
+        },
+        "place": "Legends Event Center",
+        "address": "2533 Midtown Park Boulevard, Bryan, TX 77801, USA",
+        "location": {
+          "place_id": "ChIJyRc53Z-DRoYRfDAa8ZJXLPE",
+          "name": "2533 Midtown Pk Blvd",
+          "latitude": 30.642305,
+          "longitude": -96.3651917,
+          "c_street": "2533 Midtown Park Boulevard",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77801"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a2738e4c7779976fdc808fd",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a2738e4c7779976fdc808fd",
+            "name": "user-image: Untitled design (3)",
+            "altText": "",
+            "width": 1080,
+            "height": 1350,
+            "size": 1131270,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C66A82_0901_01C66A82-1-01C66BAE_4983-01C66A82-0-0",
+      "ctstamp": 1780955366534,
+      "dtstamp": 1780955366534,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5064",
+        "seq": 0,
+        "tid": 1786896000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1786896000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1786908600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Old Elam Missionary Baptist Church Deacon Ordination Service"
+        },
+        "description": {
+          "text": "Celebrating a truly special and sacred occasion; the ordination service of two faithful servants of God, Brother Richard Britton and Brother Lonnie Stewart. This sacred service marks a significant milestone in their spiritual journey as they are prayerfully set apart to service the Lord and His people with unwavering faith, humility, wisdom, an devotion. As they embrace God's divine calling, we re"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Old Elam Missionary Baptist Church",
+        "address": "1202 West 2nd Street, Hearne, TX 77859, USA",
+        "location": {
+          "place_id": "ChIJC58UN7fPRYYR4R-jslp89Uo",
+          "name": "1202 W 2nd St",
+          "latitude": 30.8750166,
+          "longitude": -96.6044859,
+          "c_street": "1202 W 2nd St",
+          "c_locality": "Hearne",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77859"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a734f3d9cce07b9ccb96957",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a734f3d9cce07b9ccb96957",
+            "name": "user-image: Deacon Ordination Flyer (1)",
+            "altText": "",
+            "width": 1080,
+            "height": 1080,
+            "size": 125071,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C66E60_0901_01C66E60-1-01C66F32_5064-01C66E60-0-0",
+      "ctstamp": 1785941822688,
+      "dtstamp": 1785941822688,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5048",
+        "seq": 0,
+        "tid": 1786914000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1786914000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1786921200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Brazos Valley TROUPE Open House"
+        },
+        "description": {
+          "text": "Join us for our Annual Open House! Class Showcase will be 4:30-5:30 See our current TROUPErs display their talents in the showcase, earn prizes in the raffle, take advantage of our Membership Drive (discounts on annual membership), meet the creative staff, and hear about our 2026-2027 classes & shows! We hope to see y’all there! Fall Enrollment will open in early August!"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "youth",
+              "theater",
+              "arts"
+            ]
+          }
+        },
+        "place": "Brazos Valley TROUPE",
+        "address": "3705 East 29th Street, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJ25DKpeKDRoYRKbGYnd8-NkI",
+          "name": "3705 E 29th St",
+          "latitude": 30.6494126,
+          "longitude": -96.3340662,
+          "c_street": "3705 E 29th St",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Event Link",
+        "customButtonLink": "https://www.facebook.com/share/1DHoQ6fKnA/",
+        "noDetail": false,
+        "imageIdNg": "6a67837d7f09c36e0f5c780a",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a67837d7f09c36e0f5c780a",
+            "name": "user-image: Brazos Valley TROUPE Star Logo w_ Extra wording for Ads (In Digital Colors)",
+            "altText": "",
+            "width": 2000,
+            "height": 1545,
+            "size": 163759,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C66F8C_0901_01C66F8C-1-01C67004_5048-01C66F8C-0-0",
+      "ctstamp": 1785168768069,
+      "dtstamp": 1785168768069,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5032",
+        "seq": 0,
+        "tid": 1786975200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1786975200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1786982400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Baylor Singing Seniors Fall Registration"
+        },
+        "description": {
+          "text": "The Baylor Singing Seniors, under the direction of Phillip Sitton, will hold Fall Semester Registration on Monday, August 17. Registration will begin at 9:00 am in the foyer outside the sanctuary at Woodway United Methodist Church, 21000 Woodway Drive. Rehearsal will begin at 9:30 am. The semester registration fee is $75. Membership in the Singing Seniors is open to all senior adults 55 and above."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Music",
+              "senior-choir"
+            ]
+          }
+        },
+        "place": "Woodway United Methodist Church",
+        "address": "21000 Woodway Drive, Woodway, TX 76712, USA",
+        "location": {
+          "place_id": "ChIJAREytSSGT4YRJO7TL8GZ58U",
+          "name": "21000 Woodway Dr",
+          "latitude": 31.4844108,
+          "longitude": -97.2550976,
+          "c_street": "21000 Woodway Drive",
+          "c_locality": "Woodway",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "76712"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a513d136b88f2832076a6e4",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a513d136b88f2832076a6e4",
+            "name": "user-image: Fall Registration 2026",
+            "altText": "",
+            "width": 1275,
+            "height": 1650,
+            "size": 151748,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C67388_0901_01C67388-1-01C67400_5032-01C67388-0-0",
+      "ctstamp": 1783708948949,
+      "dtstamp": 1783708948949,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5074",
+        "seq": 0,
+        "tid": 1787151600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1787151600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1787169600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Medical Examiner's Office Public Tours"
+        },
+        "description": {
+          "text": "Come tour the new Brazos County Medical Examiner's Office before they start taking cases."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Brazos-County",
+              "Medical-Examiner",
+              "Tour"
+            ]
+          }
+        },
+        "place": "Brazos County Medical Examiner's Office",
+        "address": "2026 East 29th Street, Bryan, TX 77802",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7a2acd8746b1611a9d3c65",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7a2acd8746b1611a9d3c65",
+            "name": "user-image: MEOPublicTourDay6",
+            "altText": "",
+            "width": 1200,
+            "height": 630,
+            "size": 956709,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C67F04_0901_01C67F04-1-01C68030_5074-01C67F04-0-0",
+      "ctstamp": 1786391247032,
+      "dtstamp": 1786391247032,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5039",
+        "seq": 0,
+        "tid": 1787263200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1787263200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1787266800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Closing the Gap of Mental and Medical Care"
+        },
+        "description": {
+          "text": "Closing the Gap of Mental and Medical Care Children navigating medical care face challenges that extend beyond diagnosis and treatment. This one-hour session explores the integration of medical and mental health care. By the end of this session, participants will be able to: (1) recognize the importance of supporting social developmental throughout a child's medical treatment; (2) identify opportu"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Medical-Care",
+              "Children's-Health",
+              "Mental-Health",
+              "cleft-lip-and-palate"
+            ]
+          }
+        },
+        "address": "2809 EARL RUDDER FWY S STE 207",
+        "vlocation": {
+          "url": "https://us06web.zoom.us/j/84890075901",
+          "info": "When you open the ACPA registration page, you may see a login prompt. Simply click the \"X\" to close it -- you do not need an account to register."
+        },
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C68648_0901_01C68648-1-01C68684_5039-01C68648-0-0",
+      "ctstamp": 1784574216671,
+      "dtstamp": 1784574216671,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5047",
+        "seq": 0,
+        "tid": 1787356800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1787356800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1787365800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Adult Improv Show"
+        },
+        "description": {
+          "text": "Summer Adult Improv Show Come Laugh with TROUPE's Adult Improv Team From our Rookies to our Oxymorons coaches, this team is sure to bring the laughter Show rating: up to PG13 Doors open at 6:30, Laughing starts at 7:00. Concessions available"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "theater",
+              "arts",
+              "comedy"
+            ]
+          }
+        },
+        "place": "Brazos Valley TROUPE",
+        "address": "3705 East 29th Street, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJ25DKpeKDRoYRKbGYnd8-NkI",
+          "name": "3705 E 29th St",
+          "latitude": 30.6494126,
+          "longitude": -96.3340662,
+          "c_street": "3705 E 29th St",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Tickets",
+        "customButtonLink": "https://www.zeffy.com/en-US/ticketing/summer-adult-improv-show",
+        "noDetail": false,
+        "imageIdNg": "6a6783727f09c36e0f5c12fc",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a6783727f09c36e0f5c12fc",
+            "name": "user-image: Brazos Valley TROUPE Star Logo w_ Extra wording for Ads (In Digital Colors)",
+            "altText": "",
+            "width": 2000,
+            "height": 1545,
+            "size": 163759,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C68C60_0901_01C68C60-1-01C68CF6_5047-01C68C60-0-0",
+      "ctstamp": 1785168757452,
+      "dtstamp": 1785168757452,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5080",
+        "seq": 0,
+        "tid": 1787356800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1787356800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1787518800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "35mm"
+        },
+        "description": {
+          "text": "A picture is worth 1,000 words — what about a song? Can a picture inspire a song or fifteen? In 35mm, each photo creates an unique song, moments frozen in time; a glimmer of a life unfolding, a glimpse of something happening. A stunning new multimedia musical which explores a groundbreaking new concept in musical theatre... This intricately woven collection of stories told through song reimagines "
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "The Theatre Company of Bryan College Station",
+        "address": "3125 South Texas Avenue, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJccenTtmDRoYRS9sk_kqLKbA",
+          "name": "3125 S Texas Ave",
+          "latitude": 30.6442621,
+          "longitude": -96.3496961,
+          "c_street": "3125 S Texas Ave",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7de5438746b1611a7b1100",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7de5438746b1611a7b1100",
+            "name": "user-image: 35MM Aud",
+            "altText": "",
+            "width": 2000,
+            "height": 2000,
+            "size": 356161,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C68C60_0901_01C68C60-1-01C696EC_5080-01C68C60-0-0",
+      "ctstamp": 1786635592104,
+      "dtstamp": 1786635592104,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5063",
+        "seq": 0,
+        "tid": 1787358600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1787358600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1787362200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "A Visit to the McDonald Observatory and Astrophotography at Ft. Davis"
+        },
+        "description": {
+          "text": "Several club members who have returned from the McDonald Observatory in Ft. Davis will have a presentation about their experience, including the Board of Visitors meeting and the astrophotography they conducted there. The meeting is open to the public."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Astronomy",
+              "Presentations",
+              "General-Interest"
+            ]
+          }
+        },
+        "place": "TAMU Physics Teaching Observatory Classroom",
+        "address": "1897 Observatory Road, College Station, TX 77843, USA",
+        "directions": "1. From George Bush Drive, cross over FM 2818. (You will have to turn right at the light at the intersection of FM 2818 and George Bush Drive, get in the left lane and turn left at the first traffic signal to make the U turn to travel in the south bound lane of traffic on FM 2818.\n2. Turn right on George Bush Dr West.\n3. Turn left on Nuclear Science Rd.\n4. Follow Nuclear Science Rd around the airport.\n5. Turn Left at the Nuclear Science Center\n6. Follow the road past the main gate.\n7. This road will end in the parking lot of the TAMU Physics Teaching Observatory Classroom.",
+        "location": {
+          "place_id": "ChIJGz6w29iCRoYR5Fwbk1ZhFKc",
+          "name": "1897 Observatory Rd",
+          "latitude": 30.5728178,
+          "longitude": -96.3673642,
+          "c_street": "1897 Observatory Rd",
+          "c_locality": "College Station",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77843"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Club Website",
+        "customButtonLink": "https://brazosvalleyastronomyclub.org",
+        "noDetail": false,
+        "imageIdNg": "6a734efb9cce07b9ccb7925a",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a734efb9cce07b9ccb7925a",
+            "name": "user-image: IMG_3977",
+            "altText": "Hobby Eberly Telescope, McDonald Observatory",
+            "width": 1306,
+            "height": 1959,
+            "size": 461519,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C68C7E_0901_01C68C7E-1-01C68CBA_5063-01C68C7E-0-0",
+      "ctstamp": 1785941757608,
+      "dtstamp": 1785941757608,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5046",
+        "seq": 0,
+        "tid": 1787443200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1787443200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1787452200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Adult Improv Show"
+        },
+        "description": {
+          "text": "Summer Adult Improv Show Come Laugh with TROUPE's Adult Improv Team From our Rookies to our Oxymorons coaches, this team is sure to bring the laughter Show rating: up to PG13 Doors open at 6:30, Laughing starts at 7:00. Concessions available"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "theater",
+              "arts",
+              "comedy"
+            ]
+          }
+        },
+        "place": "Brazos Valley TROUPE",
+        "address": "3705 East 29th Street, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJ25DKpeKDRoYRKbGYnd8-NkI",
+          "name": "3705 E 29th St",
+          "latitude": 30.6494126,
+          "longitude": -96.3340662,
+          "c_street": "3705 E 29th St",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Tickets",
+        "customButtonLink": "https://www.zeffy.com/en-US/ticketing/summer-adult-improv-show",
+        "noDetail": false,
+        "imageIdNg": "6a6783667f09c36e0f5b6aa1",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a6783667f09c36e0f5b6aa1",
+            "name": "user-image: Brazos Valley TROUPE Star Logo w_ Extra wording for Ads (In Digital Colors)",
+            "altText": "",
+            "width": 2000,
+            "height": 1545,
+            "size": 163759,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C69200_0901_01C69200-1-01C69296_5046-01C69200-0-0",
+      "ctstamp": 1785168744919,
+      "dtstamp": 1785168744919,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5079",
+        "seq": 0,
+        "tid": 1787958000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1787958000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1790802000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Art and Film/Film as Art at The Kimbell Cultural Event Center"
+        },
+        "description": {
+          "text": "The Queen’s Film Society and the Program in Performance and Visual Studies at Texas A&M University Present: Art & Film/Film as Art Step into a world where cinema and canvas collide. The art exhibition “Art and Film/Film as Art”, opening Friday, August 28 and continuing through September at the Kimbell Cultural Event Center, brings together bold new work by artists including F. C. Zuke, Beast Syndi"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Kimbell Cultural Event Center",
+        "address": "607 North Main Street, Bryan, TX 77803, USA",
+        "directions": "North Main Street, Downtown Bryan, next to Blackwater Draw Brewing Company.",
+        "location": {
+          "place_id": "ChIJT41bTqSBRoYRAH1smqPOjd8",
+          "name": "607 N Main St",
+          "latitude": 30.6790147,
+          "longitude": -96.37233549999999,
+          "c_street": "607 N Main St",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77803"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7de5178746b1611a7918a2",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7de5178746b1611a7918a2",
+            "name": "user-image: download",
+            "altText": "Logo for Art & Film/Film as Art exhibition",
+            "width": 1420,
+            "height": 898,
+            "size": 88396,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C6B384_0901_01C6B384-1-01C76CAC_5079-01C6B384-0-0",
+      "ctstamp": 1786635544341,
+      "dtstamp": 1786635544341,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5073",
+        "seq": 0,
+        "tid": 1788015600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1788015600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1788030000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Medical Examiner's Office Public Tours"
+        },
+        "description": {
+          "text": "Come tour the new Brazos County Medical Examiner's Office before they start taking cases."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Brazos-County",
+              "Medical-Examiner",
+              "Tour"
+            ]
+          }
+        },
+        "place": "Brazos County Medical Examiner's Office",
+        "address": "2026 East 29th Street, Bryan, TX 77802",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7a2ac48746b1611a9d0fd1",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7a2ac48746b1611a9d0fd1",
+            "name": "user-image: MEOPublicTourDay7",
+            "altText": "",
+            "width": 1200,
+            "height": 630,
+            "size": 1012743,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C6B744_0901_01C6B744-1-01C6B834_5073-01C6B744-0-0",
+      "ctstamp": 1786391238196,
+      "dtstamp": 1786391238196,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5083",
+        "seq": 0,
+        "tid": 1788129000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1788129000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1788134400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Leon County 4-H Kick Off Event"
+        },
+        "description": {
+          "text": "Leon County 4-H Kick Off Event: Bring your Friends & Family! 5:30-7:00pm • August 30 • Jewett Civic Center 4-H Club & Project Booths, Games, Informational Sessions, & So Much More! New 4-H Family Informational @ 6:00pm! Major Show/Livestock Informational @ 6:45pm! PRIZES!!!! FREE DRINKS!!!! & SO MUCH MORE! Kona Ice Will Be Available for Purchase!!! Pre-Register for 4-H Kick Off @ https://forms.gle"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "4-H",
+              "Youth",
+              "Community-Service",
+              "Leadership"
+            ]
+          }
+        },
+        "place": "Jewett Civic Center",
+        "address": "111 Robinson Avenue, Jewett, TX 75846, USA",
+        "location": {
+          "place_id": "ChIJJVCh7GUZRoYRjr26AvZXopI",
+          "name": "111 Robinson Ave",
+          "latitude": 31.3602716,
+          "longitude": -96.1430705,
+          "c_street": "111 Robinson Ave",
+          "c_locality": "Jewett",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "75846"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7f8a5a8746b1611ae4efa6",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7f8a5a8746b1611ae4efa6",
+            "name": "user-image: 4-H Kick Off Event 8-30-26 at JACC (2)",
+            "altText": "",
+            "width": 940,
+            "height": 788,
+            "size": 127756,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C6BEA6_0901_01C6BEA6-1-01C6BF00_5083-01C6BEA6-0-0",
+      "ctstamp": 1786743386945,
+      "dtstamp": 1786743386945,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5072",
+        "seq": 0,
+        "tid": 1788476400000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1788476400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1795132800000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Reboot Recovery Trauma Healing Program"
+        },
+        "description": {
+          "text": "Trauma reboot is a 12 week, peer led, faith based trauma recovery program. During this time we explore topics like safety, how to handle big emotions, grief, forgiveness, shame and guilt. We welcome anyone who is seeking healing in a supportive group setting. More information can be found at Rebootrecovery.com or by calling 979-218-7395."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "trauma"
+            ]
+          }
+        },
+        "place": "Renew Us BCS",
+        "address": "1733 Briarcrest Drive suite 214, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "EiwxNzMzIEJyaWFyY3Jlc3QgRHIgc3VpdGUgMjE0LCBCcnlhbiwgVFgsIFVTQSIlGiMKFgoUChIJr1eitF6BRoYRe0znt7rMc6cSCXN1aXRlIDIxNA",
+          "name": "1733 Briarcrest Dr suite 214",
+          "latitude": 30.6543794,
+          "longitude": -96.3386386,
+          "c_street": "1733 Briarcrest Dr",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7a2ab38746b1611a9cac2e",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7a2ab38746b1611a9cac2e",
+            "name": "user-image: Join-us-for",
+            "altText": "",
+            "width": 830,
+            "height": 830,
+            "size": 43835,
+            "masterFormat": "png",
+            "variantFormat": "png",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C6D544_0901_01C6D544-1-01C886A0_5072-01C6D544-0-0",
+      "ctstamp": 1786391220382,
+      "dtstamp": 1786391220382,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5038",
+        "seq": 0,
+        "tid": 1788562800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1788562800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1788570000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "First Friday Open House at Made Well"
+        },
+        "description": {
+          "text": "Tour the Brazos Valley's first holistic health campus! Before heading downtown for the festivities, park at the Made Well House and discover our groundbreaking approach to support your health and wellness. All are welcome! Light snacks and drinks served."
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Free",
+              "wellness",
+              "Family",
+              "First-Friday"
+            ]
+          }
+        },
+        "place": "Made Well House",
+        "address": "600 East 27th Street, Bryan, TX 77803, USA",
+        "directions": "Park in the lot between Made Well and St. Joseph Church.",
+        "location": {
+          "place_id": "ChIJyXMnNaCBRoYR2EjLtme5rFc",
+          "name": "600 E 27th St",
+          "latitude": 30.6723758,
+          "longitude": -96.36780809999999,
+          "c_street": "600 East 27th Street",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77803"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a5a3d28c28228239b80b98d",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a5a3d28c28228239b80b98d",
+            "name": "user-image: Sep. First Friday Graphic",
+            "altText": "",
+            "width": 1080,
+            "height": 1350,
+            "size": 1339052,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C6DAE4_0901_01C6DAE4-1-01C6DB5C_5038-01C6DAE4-0-0",
+      "ctstamp": 1784298794164,
+      "dtstamp": 1784298794164,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4794",
+        "seq": 0,
+        "tid": 1789131600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1789131600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1789146000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Pink Alliance THINK PINK Mammogram Days - 2nd Fridays of each Month  [8:00 a.m. until 12 noon]"
+        },
+        "description": {
+          "text": "Pink Alliance THINK PINK Mammogram Days - 2nd Fridays of each Month [8:00 a.m. until 12 noon] Take care of yourself or someone you love by taking advantage of Pink Alliance's THINK PINK Mammograms. Free screening mammograms are available to all women and men in the Brazos Valley at Brazos Valley Women's Center - 1602 Rock Prairie Road [West Bldg, Suite 230] in College Station. Easy to schedule - A"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "breast-cancer",
+              "awareness",
+              "mammogram"
+            ]
+          }
+        },
+        "place": "Brazos Valley Women's Center",
+        "address": "1602 Rock Prairie Road West suite 230, College Station, TX 77845, USA",
+        "location": {
+          "place_id": "Ej8xNjAyIFJvY2sgUHJhaXJpZSBSb2FkIFdlc3Qgc3VpdGUgMjMwLCBDb2xsZWdlIFN0YXRpb24sIFRYLCBVU0EiJRojChYKFAoSCceTqY1Vg0aGEUBBYD-yCPbBEglzdWl0ZSAyMzA",
+          "name": "1602 Rock Prairie Rd W suite 230",
+          "latitude": 30.5628251,
+          "longitude": -96.3231299,
+          "c_street": "1602 Rock Prairie Road West",
+          "c_locality": "College Station",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77845"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "69835d51d7224e478dc104b9",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "69835d51d7224e478dc104b9",
+            "name": "user-image: ThinkPINK_mamogramDAYS_logo",
+            "altText": "",
+            "width": 1800,
+            "height": 1000,
+            "size": 123312,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C6FFEC_0901_01C6FFEC-1-01C700DC_4794-01C6FFEC-0-0",
+      "ctstamp": 1770216786605,
+      "dtstamp": 1770216786605,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5057",
+        "seq": 0,
+        "tid": 1789138800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1789138800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1789140600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "25th Anniversary of 9-11-2001 Bench Dedications"
+        },
+        "description": {
+          "text": ""
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "September-11",
+              "Dedication",
+              "Bryan",
+              "25th-anniversary"
+            ]
+          }
+        },
+        "place": "Bryan City Cemetery Annex - Committal Shelter",
+        "address": "1608 North Washington Avenue, Bryan, TX 77803, USA",
+        "location": {
+          "place_id": "ChIJ8c7CnamBRoYRRe16qLQw2Rs",
+          "name": "1608 N Washington Ave",
+          "latitude": 30.6872832,
+          "longitude": -96.3677409,
+          "c_street": "1608 N Washington Ave",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77803"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a6bbb5f7f09c36e0fc65e07",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a6bbb5f7f09c36e0fc65e07",
+            "name": "user-image: 9.11.26 DRAFT 25th Anniversary Bench Dedication",
+            "altText": "",
+            "width": 1401,
+            "height": 1826,
+            "size": 294116,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C70064_0901_01C70064-1-01C70082_5057-01C70064-0-0",
+      "ctstamp": 1785445218325,
+      "dtstamp": 1785445218325,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4835",
+        "seq": 0,
+        "tid": 1789223400000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1789223400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1789248600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "BVCA September Swiss - Chess Tournament"
+        },
+        "description": {
+          "text": "Monthly USCF-Rated Chess Tournaments - All Ages & Skill Levels Welcome! The Brazos Valley Chess Association hosts USCF-rated chess tournaments one Saturday every month at First Baptist Church Bryan (9:30 AM - 4:30 PM). Whether you're a seasoned veteran or just a beginner, our tournaments offer an excellent opportunity to test your skills and connect with the local chess community! What to Expect: "
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "chess",
+              "chess-tournament",
+              "USCF",
+              "educational"
+            ]
+          }
+        },
+        "place": "First Baptist Bryan",
+        "address": "3100 Cambridge Drive, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJ5fysa1SBRoYREMPsmEDGbzU",
+          "name": "3100 Cambridge Dr",
+          "latitude": 30.65471699999999,
+          "longitude": -96.32641120000001,
+          "c_street": "3100 Cambridge Drive",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Register Now",
+        "customButtonLink": "https://www.brazosvalleychess.com/events",
+        "noDetail": false,
+        "imageIdNg": "698f513b28e35b43638b2ecb",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "698f513b28e35b43638b2ecb",
+            "name": "user-image: 8x11 Chess Tournament Flyer",
+            "altText": "Brazos Valley Chess Association Swiss ",
+            "width": 1406,
+            "height": 1820,
+            "size": 306841,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C705E6_0901_01C705E6-1-01C7078A_4835-01C705E6-0-0",
+      "ctstamp": 1771000125427,
+      "dtstamp": 1771000125427,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5016",
+        "seq": 0,
+        "tid": 1789336800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1789336800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1789344000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "BCS A&M Club: Aggies vs. Notre Dame Away Game Watch"
+        },
+        "description": {
+          "text": "Join the Bryan-College Station A&M Club for an exciting away game watch party as the Texas A&M Aggies take on the Notre Dame Fighting Irish! Capacity is limited to 200 fans. $10 cover charge with all proceeds benefiting the 12th Man Foundation. This is the first event in our fan watch party series for away games during the 2026 football season. Gig 'em!"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Texas-A&M",
+              "Aggies",
+              "watch-party",
+              "football"
+            ]
+          }
+        },
+        "place": "Chimy's on Northgate",
+        "address": "316 Univery Drive, College Station, Texas",
+        "directions": "Located on Northgate, across from the Texas A&M campus. 316 University Dr, College Station, TX 77840.",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C70D48_0901_01C70D48-1-01C70DC0_5016-01C70D48-0-0",
+      "ctstamp": 1783354695108,
+      "dtstamp": 1783354695108,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5078",
+        "seq": 0,
+        "tid": 1789776000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1789776000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791147600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "How to Succeed in Business Without Really Trying"
+        },
+        "description": {
+          "text": "A satire of big business and all it holds sacred, How to Succeed in Business without Really Trying follows the rise of J. Pierrepont Finch, who uses a little handbook called How to Succeed in Business without Really Trying to climb the corporate ladder from lowly window washer to high-powered executive, tackling such familiar but potent dangers as the aggressively compliant \"company man,\" the offi"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "The Theatre Company of Bryan College Station",
+        "address": "3125 South Texas Avenue, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJccenTtmDRoYRS9sk_kqLKbA",
+          "name": "3125 S Texas Ave",
+          "latitude": 30.6442621,
+          "longitude": -96.3496961,
+          "c_street": "3125 S Texas Ave",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7de4ed8746b1611a775e94",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7de4ed8746b1611a775e94",
+            "name": "user-image: How to Succeed_FULL_LOGO_RGB",
+            "altText": "",
+            "width": 1000,
+            "height": 946,
+            "size": 229354,
+            "masterFormat": "png",
+            "variantFormat": "png",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C729E0_0901_01C729E0-1-01C7832C_5078-01C729E0-0-0",
+      "ctstamp": 1786635502715,
+      "dtstamp": 1786635502715,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5076",
+        "seq": 0,
+        "tid": 1790179200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1790179200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1790190000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "RELLIS Recruitment Fair"
+        },
+        "description": {
+          "text": "Join us at the Blinn-Bryan Campus to learn more about the RELLIS Academic Alliance! The RELLIS Academic Alliance offers affordable tuition rates through 8 top Texas Universities, all on one campus. Stop by and ask questions to campus recruiters. On-site assistance will be available for applications! Register with the button!"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "College",
+              "Student",
+              "Recruitment"
+            ]
+          }
+        },
+        "place": "Blinn-Bryan Campus",
+        "address": "2423 Blinn Boulevard, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "Eh8yNDIzIEJsaW5uIEJsdmQsIEJyeWFuLCBUWCwgVVNBIjESLwoUChIJ0YGTvG-BRoYRiXfONb_d66QQ9xIqFAoSCXdI9DpvgUaGEW9sQm4iPag5",
+          "name": "2423 Blinn Blvd",
+          "latitude": 30.6620971,
+          "longitude": -96.3525975,
+          "c_street": "2423 Blinn Blvd",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "REGISTER",
+        "customButtonLink": "https://go.pardot.com/l/548402/2021-08-10/f29vgw",
+        "noDetail": false,
+        "imageIdNg": "6a7c9c808746b1611a5faff8",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7c9c808746b1611a5faff8",
+            "name": "user-image: NEW recruitment fair blinn 9-23",
+            "altText": "",
+            "width": 2211,
+            "height": 1157,
+            "size": 226665,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C74420_0901_01C74420-1-01C744D4_5076-01C74420-0-0",
+      "ctstamp": 1786551426096,
+      "dtstamp": 1786551426096,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5062",
+        "seq": 0,
+        "tid": 1790431200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1790431200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1790440200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Wings In The Garden"
+        },
+        "description": {
+          "text": "Bring your kids to discover how butterflies, birds and bees bring life to The DIG, the Brazos County Master Gardeners' Demonstration Idea Garden in Bryan. Come wear your favorite pollinator costume and enjoy kids crafts and a scavenger hunt!"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "The Demonstration Idea Garden",
+        "address": "2619 Texas 21, Bryan, TX 77803",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a734ec89cce07b9ccb5f34b",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a734ec89cce07b9ccb5f34b",
+            "name": "user-image: Wings flyer bl1",
+            "altText": "",
+            "width": 1545,
+            "height": 1999,
+            "size": 289989,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C75488_0901_01C75488-1-01C7551E_5062-01C75488-0-0",
+      "ctstamp": 1785941707555,
+      "dtstamp": 1785941707555,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5058",
+        "seq": 0,
+        "tid": 1791205200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791205200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791324000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "AI Symposium 2026"
+        },
+        "description": {
+          "text": "AI Across the AEC Industry: Data to Design The symposium sits at the meeting point of academic research and industry practice. It is the College’s first college-wide AI event, and the first to convene all three departments (Architecture, Landscape Architecture and Urban Planning, and Construction Science) together with the wider Architecture, Engineering, and Construction (AEC) industry around the"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "ai",
+              "symposium",
+              "architecture",
+              "construction"
+            ]
+          }
+        },
+        "place": "Annenberg Presidential Conference Center",
+        "address": "1002 George Bush Drive West, College Station, TX 77845, USA",
+        "location": {
+          "place_id": "Ei8xMDAyIEdlb3JnZSBCdXNoIERyIFcsIENvbGxlZ2UgU3RhdGlvbiwgVFgsIFVTQSIxEi8KFAoSCVXNyrcPg0aGEfS0cCCY9n2REOoHKhQKEgmx6PP7C4NGhhHljttJ_D6V4g",
+          "name": "1002 George Bush Dr W",
+          "latitude": 30.5932682,
+          "longitude": -96.35223769999999,
+          "c_street": "1002 George Bush Dr W",
+          "c_locality": "College Station",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77845"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "AI Symposium 2026",
+        "customButtonLink": "https://www.arch.tamu.edu/ai-symposium/",
+        "noDetail": false,
+        "imageIdNg": "6a6d07607f09c36e0f87ab0a",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a6d07607f09c36e0f87ab0a",
+            "name": "user-image: COA-AI-CES-Symposium-Event-Web-Banner-centered",
+            "altText": "AI Symposium logo",
+            "width": 1920,
+            "height": 1080,
+            "size": 129165,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C786EC_0901_01C786EC-1-01C78EA8_5058-01C786EC-0-0",
+      "ctstamp": 1785530210849,
+      "dtstamp": 1785530210849,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5017",
+        "seq": 0,
+        "tid": 1791217800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791217800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791248400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "National Rideshare Week Kickoff"
+        },
+        "description": {
+          "text": "Join the Brazos Valley Carpooling Network for our National Rideshare Week Kickoff! Enjoy free pizza and carpool matching assistance at the Texas A&M Evans Library plaza."
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Texas A&M Evans Library plaza",
+        "address": "College Station TX 778",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C787BE_0901_01C787BE-1-01C789BC_5017-01C787BE-0-0",
+      "ctstamp": 1783354817629,
+      "dtstamp": 1783354817629,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5018",
+        "seq": 0,
+        "tid": 1791246600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791246600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791255600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Brahms & Beethoven: An Evening of German Masters"
+        },
+        "description": {
+          "text": "Join the Brazos Valley Symphony Orchestra for the 2026-2027 season opening concert! Experience an unforgettable evening featuring masterworks by Brahms and Beethoven. Tickets range from $25 to $75. Don't miss this spectacular celebration of German classical music at Rudder Auditorium."
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Rudder Auditorium",
+        "address": "401 Joe utt BlvdllegSt01 JoRoutt Blvd College Station TX 77843",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C7899E_0901_01C7899E-1-01C78A34_5018-01C7899E-0-0",
+      "ctstamp": 1783354835475,
+      "dtstamp": 1783354835475,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5071",
+        "seq": 0,
+        "tid": 1791504000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791504000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791511200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Ricky Nelson Remembered Starring Matthew and Gunnar Nelson"
+        },
+        "description": {
+          "text": "The season opens with an interactive, multimedia rock ’n’ roll concert experience celebrating the groundbreaking career of Rock and Roll Hall of Famer Ricky Nelson. Rising to fame on the television series “The Adventures of Ozzie & Harriet,” Ricky Nelson became one of America’s first teen idols and one of the most influential rock artists of his generation. He sold more than 140 million recordings"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "music",
+              "live-music",
+              "performing-arts"
+            ]
+          }
+        },
+        "place": "Dr. W.W. O'Donnell Performing Arts Center",
+        "address": "600 Blinn Boulevard, Brenham, TX 77833, USA",
+        "location": {
+          "place_id": "ChIJA3LvWp4CRIYRaHTmzhZX_l8",
+          "name": "600 Blinn Blvd",
+          "latitude": 30.1604113,
+          "longitude": -96.4098953,
+          "c_street": "600 Blinn Blvd",
+          "c_locality": "Brenham",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77833"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Tickets",
+        "customButtonLink": "https://www.blinn.edu/boxoffice",
+        "noDetail": false,
+        "imageIdNg": "6a7a2a398746b1611a97b57d",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7a2a398746b1611a97b57d",
+            "name": "user-image: Performing Arts Series-Ricky Nelson-2026-27_SQ",
+            "altText": "",
+            "width": 1500,
+            "height": 1500,
+            "size": 224504,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C79A60_0901_01C79A60-1-01C79AD8_5071-01C79A60-0-0",
+      "ctstamp": 1786391099726,
+      "dtstamp": 1786391099726,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4795",
+        "seq": 0,
+        "tid": 1791550800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791550800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791565200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Pink Alliance THINK PINK Mammogram Days - 2nd Fridays of each Month  [8:00 a.m. until 12 noon]"
+        },
+        "description": {
+          "text": "Pink Alliance THINK PINK Mammogram Days - 2nd Fridays of each Month [8:00 a.m. until 12 noon] Take care of yourself or someone you love by taking advantage of Pink Alliance's THINK PINK Mammograms. Free screening mammograms are available to all women and men in the Brazos Valley at Brazos Valley Women's Center - 1602 Rock Prairie Road [West Bldg, Suite 230] in College Station. Easy to schedule - A"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "breast-cancer",
+              "awareness",
+              "mammogram"
+            ]
+          }
+        },
+        "place": "Brazos Valley Women's Center",
+        "address": "1602 Rock Prairie Road West suite 230, College Station, TX 77845, USA",
+        "location": {
+          "place_id": "Ej8xNjAyIFJvY2sgUHJhaXJpZSBSb2FkIFdlc3Qgc3VpdGUgMjMwLCBDb2xsZWdlIFN0YXRpb24sIFRYLCBVU0EiJRojChYKFAoSCceTqY1Vg0aGEUBBYD-yCPbBEglzdWl0ZSAyMzA",
+          "name": "1602 Rock Prairie Rd W suite 230",
+          "latitude": 30.5628251,
+          "longitude": -96.3231299,
+          "c_street": "1602 Rock Prairie Road West",
+          "c_locality": "College Station",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77845"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "69835d56d7224e478dc104d5",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "69835d56d7224e478dc104d5",
+            "name": "user-image: ThinkPINK_mamogramDAYS_logo",
+            "altText": "",
+            "width": 1800,
+            "height": 1000,
+            "size": 123312,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C79D6C_0901_01C79D6C-1-01C79E5C_4795-01C79D6C-0-0",
+      "ctstamp": 1770216791677,
+      "dtstamp": 1770216791677,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5070",
+        "seq": 0,
+        "tid": 1791635400000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791635400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791640800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Buffalo Stampede 5K Race and Fun Run at the Brazos Valley Museum of Natural History"
+        },
+        "description": {
+          "text": "Race into Boonville Days with the annual Buffalo Stampede 5K and 1 Mile Fun Run! This is the 18th annual Buffalo Stampede and is fun for the whole family! Registration for the race has early bird pricing available: February 28 - August 9: $30 for 5K, $20 for 1 Mile Fun Run August 10 - September 27: $35 for 5K, $25 for 1 Mile Fun Run September 28 - October 9: $40 for 5K, $30 for 1 Mile Fun Run Race"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Family-Friendly",
+              "Fun",
+              "Museum",
+              "Annual-Event"
+            ]
+          }
+        },
+        "place": "Brazos Valley Museum of Natural History",
+        "address": "3232 Briarcrest Drive, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJR7YBb7OGRoYRf0ZuqpUVcRU",
+          "name": "3232 Briarcrest Dr",
+          "latitude": 30.6667859,
+          "longitude": -96.3207947,
+          "c_street": "3232 Briarcrest Dr",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Website/Tickets",
+        "customButtonLink": "https://www.brazosvalleymuseum.org/buffalo-stampede",
+        "noDetail": false,
+        "imageIdNg": "6a7a2a2f8746b1611a97828a",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7a2a2f8746b1611a97828a",
+            "name": "user-image: Buffalo Stampede Image",
+            "altText": "Buffalo Stampede - BVMNH",
+            "width": 1080,
+            "height": 346,
+            "size": 66795,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C7A2EE_0901_01C7A2EE-1-01C7A348_5070-01C7A2EE-0-0",
+      "ctstamp": 1786391087827,
+      "dtstamp": 1786391087827,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5069",
+        "seq": 0,
+        "tid": 1791640800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791640800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791666000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Boonville Days at The Brazos Valley Natural History Museum"
+        },
+        "description": {
+          "text": "Join the Brazos Valley Museum of Natural History on October 10, 2026, for the 21st annual Boonville Days: Texas Heritage Festival! To kick off the festival, runners and walkers of all ages are welcome to join in the 17th Annual Buffalo Stampede 5K Race and 1 Mile Fun Run at 7:30 am starting at the Brazos Center. After the race, the entire family can enjoy other fun activities highlighting Texas Hi"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Family-Friendly",
+              "Educational",
+              "History",
+              "Annual-Event"
+            ]
+          }
+        },
+        "place": "Brazos Valley Museum of Natural History",
+        "address": "3232 Briarcrest Drive, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJR7YBb7OGRoYRf0ZuqpUVcRU",
+          "name": "3232 Briarcrest Dr",
+          "latitude": 30.6667859,
+          "longitude": -96.3207947,
+          "c_street": "3232 Briarcrest Dr",
+          "c_locality": "Bryan",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Website",
+        "customButtonLink": "https://www.brazosvalleymuseum.org/copy-of-boonville-days-1",
+        "noDetail": false,
+        "imageIdNg": "6a7a29a78746b1611a93449e",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7a29a78746b1611a93449e",
+            "name": "user-image: BoonvilleDay",
+            "altText": "Boonville Days - BVMNH ",
+            "width": 953,
+            "height": 611,
+            "size": 828681,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C7A348_0901_01C7A348-1-01C7A4EC_5069-01C7A348-0-0",
+      "ctstamp": 1786390953174,
+      "dtstamp": 1786390953174,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4836",
+        "seq": 0,
+        "tid": 1791642600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791642600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791667800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "BVCA October Swiss - Chess Tournament"
+        },
+        "description": {
+          "text": "Monthly USCF-Rated Chess Tournaments - All Ages & Skill Levels Welcome! The Brazos Valley Chess Association hosts USCF-rated chess tournaments one Saturday every month at First Baptist Church Bryan (9:30 AM - 4:30 PM). Whether you're a seasoned veteran or just a beginner, our tournaments offer an excellent opportunity to test your skills and connect with the local chess community! What to Expect: "
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "chess",
+              "chess-tournament",
+              "USCF",
+              "educational"
+            ]
+          }
+        },
+        "place": "First Baptist Bryan",
+        "address": "3100 Cambridge Drive, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJ5fysa1SBRoYREMPsmEDGbzU",
+          "name": "3100 Cambridge Dr",
+          "latitude": 30.65471699999999,
+          "longitude": -96.32641120000001,
+          "c_street": "3100 Cambridge Drive",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Register Now",
+        "customButtonLink": "https://www.brazosvalleychess.com/events",
+        "noDetail": false,
+        "imageIdNg": "698f514028e35b43638b2ecc",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "698f514028e35b43638b2ecc",
+            "name": "user-image: 8x11 Chess Tournament Flyer",
+            "altText": "Brazos Valley Chess Association Swiss ",
+            "width": 1406,
+            "height": 1820,
+            "size": 306841,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C7A366_0901_01C7A366-1-01C7A50A_4836-01C7A366-0-0",
+      "ctstamp": 1771000129838,
+      "dtstamp": 1771000129838,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5077",
+        "seq": 0,
+        "tid": 1791646200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1791646200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1791658800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Field to Family Fall Festival"
+        },
+        "description": {
+          "text": "Join us for the Field to Family Fall Festival, a fun-filled celebration of community, local businesses, and all things fall! Enjoy a local vendor market, live music from Dallas Shippe, a BBQ competition, and family-friendly activities for all ages. Shop unique handmade goods, boutique items, home décor, baked goods, artwork, and more while supporting local makers, artisans, and entrepreneurs from "
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "shopping",
+              "vendorevent",
+              "food",
+              "games"
+            ]
+          }
+        },
+        "place": "Field to Family",
+        "address": "6800 Hardy Weedon Road, College Station, TX 77845, USA",
+        "location": {
+          "place_id": "ChIJhZxlvqiIRoYRyUMphXU5-s8",
+          "name": "6800 Hardy Weedon Rd",
+          "latitude": 30.6649086,
+          "longitude": -96.2337048,
+          "c_street": "6800 Hardy Weedon Rd",
+          "c_locality": "College Station",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77845"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7de4cf8746b1611a75cb25",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7de4cf8746b1611a75cb25",
+            "name": "user-image: Colorful Simple Illustrative Autumn Leaves Hello Fall Festival Flyer",
+            "altText": "",
+            "width": 1545,
+            "height": 1999,
+            "size": 546765,
+            "masterFormat": "png",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C7A3A2_0901_01C7A3A2-1-01C7A474_5077-01C7A3A2-0-0",
+      "ctstamp": 1786635474773,
+      "dtstamp": 1786635474773,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4936",
+        "seq": 0,
+        "tid": 1792107000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1792107000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1792117800000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Celebrate America Benefitting Unlimited Potential of the Brazos"
+        },
+        "description": {
+          "text": "Please join us at Miramont Country Club for our annual Gala benefitting former foster youth in the Brazos Valley! Dinner, drinks, live auction and more!"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "gala",
+              "nonprofit",
+              "unkimitedpotential",
+              "miramont"
+            ]
+          }
+        },
+        "place": "Miramont Country Club",
+        "address": "1 Miramont Boulevard, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "EiQxIE1pcmFtb250IEJvdWxldmFyZCwgQnJ5YW4sIFRYLCBVU0EiMBIuChQKEgnDQXVguIZGhhEGdlwrE0OYAhABKhQKEgmrSNvZuYZGhhGbRgEowQQ5-w",
+          "name": "1 Miramont Blvd",
+          "latitude": 30.672913,
+          "longitude": -96.30887399999999,
+          "c_street": "1 Miramont Boulevard",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "69f4f449e5e873960dd2f079",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "69f4f449e5e873960dd2f079",
+            "name": "user-image: IMG_5831",
+            "altText": "",
+            "width": 184,
+            "height": 50,
+            "size": 11278,
+            "masterFormat": "png",
+            "variantFormat": "png",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C7C1A2_0901_01C7C1A2-1-01C7C256_4936-01C7C1A2-0-0",
+      "ctstamp": 1777661002121,
+      "dtstamp": 1777661002121,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5082",
+        "seq": 0,
+        "tid": 1792245600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1792245600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1792260000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Leon County Salute to our Veterans Appreciation Event- Veterans Luncheon"
+        },
+        "description": {
+          "text": "Leon County Salute to Our Veterans Appreciation Event 2 Events- 1 Day! Saturday, October 17, 2026 Leon County Expo Center Veterans Luncheon & Fort Hood Calvary Performance Doors Open at 8:30am/Program at 9:00am FREE Lunch for Veterans and Spouses Door Prizes, Music, Guest Speakers, Vendors & Entertainment! Donate Canned Goods for local veterans! Skeet Shoot Competition $50 Entry Fee Registration O"
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Leon County Expo Center",
+        "address": "3637 County Road 305, Buffalo, TX 75831, USA",
+        "location": {
+          "place_id": "ChIJH5fe5MQjRoYRjalFv7P9XMY",
+          "name": "3637 Co Rd 305",
+          "latitude": 31.3828596,
+          "longitude": -96.0118684,
+          "c_street": "3637 Co Rd 305",
+          "c_locality": "Buffalo",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "75831"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7f8a538746b1611ae48eb6",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7f8a538746b1611ae48eb6",
+            "name": "user-image: Veterans Appreciation Event 10-17-2026",
+            "altText": "",
+            "width": 1545,
+            "height": 1999,
+            "size": 471438,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C7CAA8_0901_01C7CAA8-1-01C7CB98_5082-01C7CAA8-0-0",
+      "ctstamp": 1786743381709,
+      "dtstamp": 1786743381709,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5081",
+        "seq": 0,
+        "tid": 1792274400000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1792274400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1792292400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Leon County Salute to our Veterans Appreciation Event- Veterans Gala"
+        },
+        "description": {
+          "text": "Leon County Salute to Our Veterans Appreciation Event 2 Events- 1 Day! Saturday, October 17, 2026 Leon County Expo Center Veterans Gala Doors Open at 5:00pm/Dinner at 6:00pm Free Dinner for Veterans and Spouses Live/Silent Auctions, Raffles, Guest Speaker USMC Doug Gresenz & Entertainment by J.R. Herrera Public- $50/Admission (includes Dinner & Drinks) Skeet Shoot Competition $50 Entry Fee Registr"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "veterans",
+              "Gala",
+              "USMC",
+              "Entertainment"
+            ]
+          }
+        },
+        "place": "Leon County Expo Center",
+        "address": "3637 County Road 305, Buffalo, TX 75831, USA",
+        "location": {
+          "place_id": "ChIJH5fe5MQjRoYRjalFv7P9XMY",
+          "name": "3637 Co Rd 305",
+          "latitude": 31.3828596,
+          "longitude": -96.0118684,
+          "c_street": "3637 Co Rd 305",
+          "c_locality": "Buffalo",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "75831"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "6a7f8a358746b1611ae3a936",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7f8a358746b1611ae3a936",
+            "name": "user-image: Veterans Appreciation Event 10-17-2026",
+            "altText": "",
+            "width": 1545,
+            "height": 1999,
+            "size": 471438,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C7CC88_0901_01C7CC88-1-01C7CDB4_5081-01C7CC88-0-0",
+      "ctstamp": 1786743352468,
+      "dtstamp": 1786743352468,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5019",
+        "seq": 0,
+        "tid": 1792422000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1792422000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1792443600000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Fall Festival Week - Senior Citizens Art Show"
+        },
+        "description": {
+          "text": "Join us for the City of Bryan's Fall Festival Week! Monday kicks off with the Senior Citizens Art Show at the Bryan Civic Center from 10:00 AM to 4:00 PM CDT. Celebrate the artistic talents of our senior community members with paintings, sculptures, crafts, and more. Free admission for all ages."
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Bryan Civic Center",
+        "address": "3232 Briarest Dve, B, TX 77802",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C7D624_0901_01C7D624-1-01C7D78C_5019-01C7D624-0-0",
+      "ctstamp": 1783354844204,
+      "dtstamp": 1783354844204,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5020",
+        "seq": 0,
+        "tid": 1792537200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1792537200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1792544400000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Fall Festival Week - Youth Talent Show"
+        },
+        "description": {
+          "text": "City of Bryan's Fall Festival Week continues on Tuesday with the Youth Talent Show at the Palace Theater from 6:00 PM to 8:00 PM CDT. Watch talented young performers showcase their skills in singing, dancing, comedy, and more. Open to all ages. Free admission."
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Palace Theater",
+        "address": "105 S Main , Bryan, TX 778",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C7DDA4_0901_01C7DDA4-1-01C7DE1C_5020-01C7DDA4-0-0",
+      "ctstamp": 1783354856222,
+      "dtstamp": 1783354856222,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5059",
+        "seq": 0,
+        "tid": 1793685600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1793685600000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1793772000000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": true
+      },
+      "content": {
+        "summary": {
+          "text": "Texas A&M College of Architecture Annual Showcase"
+        },
+        "description": {
+          "text": "The Texas A&M College of Architecture 4th Annual Showcase connects students, faculty, industry leaders and members of the community in College Station with the exchange of ideas and research. Building on the foundation of past events, the 2026 Showcase explores the critical role of professional judgment in an increasingly automated world. While we embrace artificial intelligence and robotics, we c"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "showcase",
+              "architecture",
+              "research"
+            ]
+          }
+        },
+        "place": "Rudder Complex",
+        "address": "401 Joe Routt Boulevard, College Station, TX 77840, USA",
+        "location": {
+          "place_id": "ChIJI_X1pJmDRoYRwy1hUjtulY4",
+          "name": "401 Joe Routt Blvd",
+          "latitude": 30.6128446,
+          "longitude": -96.3403051,
+          "c_street": "401 Joe Routt Blvd",
+          "c_locality": "College Station",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77840"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Showcase 2026",
+        "customButtonLink": "https://www.arch.tamu.edu/showcase/",
+        "noDetail": false,
+        "imageIdNg": "6a6d07a97f09c36e0f8a28e9",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a6d07a97f09c36e0f8a28e9",
+            "name": "user-image: COA-Showcase-1920x1080 1",
+            "altText": "College of Architecture Showcase logo",
+            "width": 1920,
+            "height": 1080,
+            "size": 47116,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C82868_0901_01C82868-0-01C82E08_5059-01C82868-0-0",
+      "ctstamp": 1785530283706,
+      "dtstamp": 1785530283706,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5021",
+        "seq": 0,
+        "tid": 1794412800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1794412800000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1794420000000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "2026 Brazos Valley Veterans Memorial Ceremony"
+        },
+        "description": {
+          "text": "Join us for the 2026 Brazos Valley Veterans Memorial Ceremony honoring our brave veterans on Veterans Day. This solemn and patriotic event will take place at Veterans Park in Bryan, TX from 10:00 AM to 12:00 PM CDT. Event Schedule: - 10:00 AM: Opening remarks and welcome - 11:00 AM: 21-gun salute in honor of fallen heroes - Keynote address by Brigadier General Patricia Wells - Wreath-laying ceremo"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "Veterans",
+              "Memorial",
+              "Ceremony",
+              "Brazos-Valley"
+            ]
+          }
+        },
+        "place": "Veterans Park, Bryan, TX",
+        "address": "Veteransark, Bryan,ters ParkBryan, TX",
+        "directions": "Veterans Park is located in Bryan, TX. Free parking is available on site. The ceremony wll be held at the main memorial area within the park.",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C857C0_0901_01C857C0-1-01C85838_5021-01C857C0-0-0",
+      "ctstamp": 1783354865572,
+      "dtstamp": 1783354865572,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4796",
+        "seq": 0,
+        "tid": 1794578400000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1794578400000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1794592800000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Pink Alliance THINK PINK Mammogram Days - 2nd Fridays of each Month  [8:00 a.m. until 12 noon]"
+        },
+        "description": {
+          "text": "Pink Alliance THINK PINK Mammogram Days - 2nd Fridays of each Month [8:00 a.m. until 12 noon] Take care of yourself or someone you love by taking advantage of Pink Alliance's THINK PINK Mammograms. Free screening mammograms are available to all women and men in the Brazos Valley at Brazos Valley Women's Center - 1602 Rock Prairie Road [West Bldg, Suite 230] in College Station. Easy to schedule - A"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "breast-cancer",
+              "awareness",
+              "mammogram"
+            ]
+          }
+        },
+        "place": "Brazos Valley Women's Center",
+        "address": "1602 Rock Prairie Road West suite 230, College Station, TX 77845, USA",
+        "location": {
+          "place_id": "Ej8xNjAyIFJvY2sgUHJhaXJpZSBSb2FkIFdlc3Qgc3VpdGUgMjMwLCBDb2xsZWdlIFN0YXRpb24sIFRYLCBVU0EiJRojChYKFAoSCceTqY1Vg0aGEUBBYD-yCPbBEglzdWl0ZSAyMzA",
+          "name": "1602 Rock Prairie Rd W suite 230",
+          "latitude": 30.5628251,
+          "longitude": -96.3231299,
+          "c_street": "1602 Rock Prairie Road West",
+          "c_locality": "College Station",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77845"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "69835d5bd7224e478dc104f8",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "69835d5bd7224e478dc104f8",
+            "name": "user-image: ThinkPINK_mamogramDAYS_logo",
+            "altText": "",
+            "width": 1800,
+            "height": 1000,
+            "size": 123312,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C86288_0901_01C86288-1-01C86378_4796-01C86288-0-0",
+      "ctstamp": 1770216796993,
+      "dtstamp": 1770216796993,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4818",
+        "seq": 0,
+        "tid": 1794670200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1794670200000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1794695400000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "BVCA November Swiss - Chess Tournament"
+        },
+        "description": {
+          "text": "Monthly USCF-Rated Chess Tournaments - All Ages & Skill Levels Welcome! The Brazos Valley Chess Association hosts USCF-rated chess tournaments one Saturday every month at First Baptist Church Bryan (9:30 AM - 4:30 PM). Whether you're a seasoned veteran or just a beginner, our tournaments offer an excellent opportunity to test your skills and connect with the local chess community! What to Expect: "
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "chess",
+              "chess-tournament",
+              "USCF",
+              "educational"
+            ]
+          }
+        },
+        "place": "First Baptist Bryan",
+        "address": "3100 Cambridge Drive, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJ5fysa1SBRoYREMPsmEDGbzU",
+          "name": "3100 Cambridge Dr",
+          "latitude": 30.65471699999999,
+          "longitude": -96.32641120000001,
+          "c_street": "3100 Cambridge Drive",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Register Now",
+        "customButtonLink": "https://www.brazosvalleychess.com/events",
+        "noDetail": false,
+        "imageIdNg": "698f4fe528e35b43638b2e91",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "698f4fe528e35b43638b2e91",
+            "name": "user-image: 8x11 Chess Tournament Flyer",
+            "altText": "Brazos Valley Chess Association Swiss ",
+            "width": 1406,
+            "height": 1820,
+            "size": 306841,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C86882_0901_01C86882-1-01C86A26_4818-01C86882-0-0",
+      "ctstamp": 1770999783693,
+      "dtstamp": 1770999783693,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5022",
+        "seq": 0,
+        "tid": 1794787200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1794787200000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1794803400000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Bryan Rotary 75th Anniversary Gala"
+        },
+        "description": {
+          "text": "Join us for the Bryan Rotary Club's 75th Anniversary Gala, a black-tie celebration at the Brazos Center's main ballroom. This milestone event will feature a live auction, dinner ($100 per plate), and a retrospective of 75 years of community service. Capacity is limited to 400 guests. Dress code: Black-tie. For tickets and information, contact the Bryan Rotary Club."
+        },
+        "tagset": {
+          "tags": {
+            "default": []
+          }
+        },
+        "place": "Brazos Center - Main Ballroom",
+        "address": "3232 Brarcres, Brya TX 7780",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C87020_0901_01C87020-1-01C8712E_5022-01C87020-0-0",
+      "ctstamp": 1783354889181,
+      "dtstamp": 1783354889181,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5023",
+        "seq": 0,
+        "tid": 1795276800000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1795276800000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1795388400000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Grand Reopening Weekend - Brazos Valley Museum of Natural History"
+        },
+        "description": {
+          "text": "Grand Reopening Weekend - Brazos Valley Museum of Natural History Join us for an exciting Grand Reopening Weekend celebrating our newly renovated facility! SATURDAY, NOVEMBER 21, 2026: - 10:00 AM: Ribbon Cutting Ceremony - 11:00 AM: New Dinosaur Exhibit Gallery Tour - 1:00 PM - 4:00 PM: Children's Fossil Dig - 7:00 PM: Planetarium Show \"Stars Over the Brazos Valley\" SUNDAY, NOVEMBER 22, 2026: - 10"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "museum",
+              "grand-reopening",
+              "dinosaur-exhibit",
+              "planetarium"
+            ]
+          }
+        },
+        "place": "Brazos Valley Museum of Natural History",
+        "address": "3232 Briarcrt D Bry, TX 77",
+        "directions": "oated at 3232 Briarcrest Dr, Bryan, TX 77802. The museum is situated near the intersection of Briarcrest Dr and E 29th St in Bryan. Free parking available on-site.",
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageSets": [],
+        "performers": []
+      },
+      "sorter": "999_01C89000_0901_01C89000-1-01C89744_5023-01C89000-0-0",
+      "ctstamp": 1783354903138,
+      "dtstamp": 1783354903138,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4819",
+        "seq": 0,
+        "tid": 1796484600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1796484600000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1796509800000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "BVCA December Swiss - Chess Tournament"
+        },
+        "description": {
+          "text": "Monthly USCF-Rated Chess Tournaments - All Ages & Skill Levels Welcome! The Brazos Valley Chess Association hosts USCF-rated chess tournaments one Saturday every month at First Baptist Church Bryan (9:30 AM - 4:30 PM). Whether you're a seasoned veteran or just a beginner, our tournaments offer an excellent opportunity to test your skills and connect with the local chess community! What to Expect: "
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "chess",
+              "chess-tournament",
+              "USCF",
+              "educational"
+            ]
+          }
+        },
+        "place": "First Baptist Bryan",
+        "address": "3100 Cambridge Drive, Bryan, TX 77802, USA",
+        "location": {
+          "place_id": "ChIJ5fysa1SBRoYREMPsmEDGbzU",
+          "name": "3100 Cambridge Dr",
+          "latitude": 30.65471699999999,
+          "longitude": -96.32641120000001,
+          "c_street": "3100 Cambridge Drive",
+          "c_locality": "Bryan",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77802"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Register Now",
+        "customButtonLink": "https://www.brazosvalleychess.com/events",
+        "noDetail": false,
+        "imageIdNg": "698f501a28e35b43638b2e94",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "698f501a28e35b43638b2e94",
+            "name": "user-image: 8x11 Chess Tournament Flyer",
+            "altText": "Brazos Valley Chess Association Swiss ",
+            "width": 1406,
+            "height": 1820,
+            "size": 306841,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C8DEA2_0901_01C8DEA2-1-01C8E046_4819-01C8DEA2-0-0",
+      "ctstamp": 1770999836660,
+      "dtstamp": 1770999836660,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "4797",
+        "seq": 0,
+        "tid": 1796997600000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1796997600000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1797012000000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Pink Alliance THINK PINK Mammogram Days - 2nd Fridays of each Month  [8:00 a.m. until 12 noon]"
+        },
+        "description": {
+          "text": "Pink Alliance THINK PINK Mammogram Days - 2nd Fridays of each Month [8:00 a.m. until 12 noon] Take care of yourself or someone you love by taking advantage of Pink Alliance's THINK PINK Mammograms. Free screening mammograms are available to all women and men in the Brazos Valley at Brazos Valley Women's Center - 1602 Rock Prairie Road [West Bldg, Suite 230] in College Station. Easy to schedule - A"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "breast-cancer",
+              "awareness",
+              "mammogram"
+            ]
+          }
+        },
+        "place": "Brazos Valley Women's Center",
+        "address": "1602 Rock Prairie Road West suite 230, College Station, TX 77845, USA",
+        "location": {
+          "place_id": "Ej8xNjAyIFJvY2sgUHJhaXJpZSBSb2FkIFdlc3Qgc3VpdGUgMjMwLCBDb2xsZWdlIFN0YXRpb24sIFRYLCBVU0EiJRojChYKFAoSCceTqY1Vg0aGEUBBYD-yCPbBEglzdWl0ZSAyMzA",
+          "name": "1602 Rock Prairie Rd W suite 230",
+          "latitude": 30.5628251,
+          "longitude": -96.3231299,
+          "c_street": "1602 Rock Prairie Road West",
+          "c_locality": "College Station",
+          "c_region": "Texas",
+          "c_country": "United States",
+          "c_postcode": "77845"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "noDetail": false,
+        "imageIdNg": "69835d62d7224e478dc1050f",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "69835d62d7224e478dc1050f",
+            "name": "user-image: ThinkPINK_mamogramDAYS_logo",
+            "altText": "",
+            "width": 1800,
+            "height": 1000,
+            "size": 123312,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01C90008_0901_01C90008-1-01C900F8_4797-01C90008-0-0",
+      "ctstamp": 1770216803974,
+      "dtstamp": 1770216803974,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5068",
+        "seq": 0,
+        "tid": 1801789200000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1801789200000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "end": {
+          "millis": 1801796400000,
+          "tzid": "America/Chicago",
+          "ltz": "CST",
+          "offset": -21600000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "Uptown: A Celebration of Motown and Soul"
+        },
+        "description": {
+          "text": "With the style of the Temptations, the moves of the Jackson 5, and the energy of Bruno Mars, Uptown brings a fresh, contemporary approach to classic Motown, soul, and rhythm and blues. Uptown combines world-class vocals, dynamic choreography, and charismatic stage presence in a high-energy production designed to get audiences on their feet. Each member is an accomplished soloist, but together they"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "music",
+              "live-music",
+              "performing-arts"
+            ]
+          }
+        },
+        "place": "Dr. W.W. O'Donnell Performing Arts Center",
+        "address": "600 Blinn Boulevard, Brenham, TX 77833, USA",
+        "location": {
+          "place_id": "ChIJA3LvWp4CRIYRaHTmzhZX_l8",
+          "name": "600 Blinn Blvd",
+          "latitude": 30.1604113,
+          "longitude": -96.4098953,
+          "c_street": "600 Blinn Blvd",
+          "c_locality": "Brenham",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77833"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Tickets",
+        "customButtonLink": "https://www.blinn.edu/boxoffice",
+        "noDetail": false,
+        "imageIdNg": "6a7a29158746b1611a8d123e",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7a29158746b1611a8d123e",
+            "name": "user-image: Performing Arts Series-Uptown-2026-27_SQ",
+            "altText": "",
+            "width": 1500,
+            "height": 1500,
+            "size": 186173,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01CA37FC_0901_01CA37FC-1-01CA3874_5068-01CA37FC-0-0",
+      "ctstamp": 1786390806880,
+      "dtstamp": 1786390806880,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    },
+    {
+      "calid": "5ecb146bdf82fe11f677e795",
+      "eid": {
+        "uid": "5067",
+        "seq": 0,
+        "tid": 1806624000000,
+        "rid": 0
+      },
+      "when": {
+        "start": {
+          "millis": 1806624000000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "end": {
+          "millis": 1806631200000,
+          "tzid": "America/Chicago",
+          "ltz": "CDT",
+          "offset": -18000000
+        },
+        "allDay": false
+      },
+      "content": {
+        "summary": {
+          "text": "The Dolly Show"
+        },
+        "description": {
+          "text": "Blinn's 2026-27 Performing Arts Series concludes with rhinestones, powerhouse vocals, comedy, and country music as “The Dolly Show” brings the spirit, sound, and sparkle of Dolly Parton to the O’Donnell Center stage. Backed by a live band, the theatrical concert takes audiences on a journey through six decades of Parton’s greatest songs. The production combines dazzling costumes, storytelling, hum"
+        },
+        "tagset": {
+          "tags": {
+            "default": [
+              "music",
+              "live-music",
+              "performing-arts"
+            ]
+          }
+        },
+        "place": "Dr. W.W. O'Donnell Performing Arts Center",
+        "address": "600 Blinn Boulevard, Brenham, TX 77833, USA",
+        "location": {
+          "place_id": "ChIJA3LvWp4CRIYRaHTmzhZX_l8",
+          "name": "600 Blinn Blvd",
+          "latitude": 30.1604113,
+          "longitude": -96.4098953,
+          "c_street": "600 Blinn Blvd",
+          "c_locality": "Brenham",
+          "c_region": "TX",
+          "c_country": "US",
+          "c_postcode": "77833"
+        },
+        "vlocation": {},
+        "attachments": [],
+        "customButtonText": "Tickets",
+        "customButtonLink": "https://www.blinn.edu/boxoffice",
+        "noDetail": false,
+        "imageIdNg": "6a7a28c08746b1611a89812e",
+        "imageSets": [
+          {
+            "ownerId": "5ecba0689c3fbcfddcf11bf1",
+            "ownerType": "user",
+            "id": "6a7a28c08746b1611a89812e",
+            "name": "user-image: Performing Arts Series-Dolly Show-2026-27_SQ",
+            "altText": "",
+            "width": 1500,
+            "height": 1500,
+            "size": 263193,
+            "masterFormat": "jpg",
+            "variantFormat": "jpg",
+            "tags": []
+          }
+        ],
+        "performers": []
+      },
+      "sorter": "999_01CB72C0_0901_01CB72C0-1-01CB7338_5067-01CB72C0-0-0",
+      "ctstamp": 1786390722773,
+      "dtstamp": 1786390722773,
+      "status": {
+        "name": "scheduled"
+      },
+      "kind": "singleton",
+      "isExternal": false
+    }
+  ],
+  "metaData": {
+    "to": 5866,
+    "from": 4835,
+    "end": 53,
+    "hasNext": false,
+    "start": 0,
+    "hasPrev": false
+  }
+}
