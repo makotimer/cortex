@@ -297,8 +297,8 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.bryantx import BryanTxScraper
     from .scrapers.challenge import ChallengeScraper
     from .scrapers.cityspark import CitySparkScraper
-    from .scrapers.destbryan import DestBryanScraper
     from .scrapers.kbtx import KbtxScraper
+    from .scrapers.lakewalk import LakeWalkScraper
     from .scrapers.tamu import TamuScraper
     from .scrapers.tockify import TockifyScraper
 
@@ -309,14 +309,22 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "cityspark": CitySparkScraper,
         "tamu": TamuScraper,
         "bryantx": BryanTxScraper,
-        "destbryan": DestBryanScraper,
+        "lakewalk": LakeWalkScraper,
     }
+    extra_state: set[type] = {KbtxScraper, TamuScraper}
+    try:
+        from .scrapers.destbryan import DestBryanScraper
+    except ImportError:
+        DestBryanScraper = None  # type: ignore[misc, assignment]
+    else:
+        registry["destbryan"] = DestBryanScraper
+        extra_state.add(DestBryanScraper)
     out: list[BaseEventScraper] = []
     for kind in settings.kinds:
         cls = registry.get(kind)
         if cls is None:
             raise ScraperError(f"unknown event scraper kind {kind!r}")
-        if cls in {KbtxScraper, TamuScraper, DestBryanScraper}:
+        if cls in extra_state:
             out.append(cls(proxy_url=settings.proxy_url, state_dir=settings.state_dir))
         else:
             out.append(cls(proxy_url=settings.proxy_url))
