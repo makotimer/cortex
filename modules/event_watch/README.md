@@ -20,6 +20,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `bvso` | Brazos Valley Symphony Orchestra | run default (270d) | `/concerts/` + Tickera; year fail-closed |
 | `hyperbole` | Hyperbole Bookstore (Bookmanager) | run default (270d) | `event/getList`; LA wall-clock → Chicago |
 | `bcschamber` | BCS Chamber of Commerce (GrowthZone) | run default (270d) | `/api/events` XML; LocationDesc over Map*; direct |
+| `ttc` | The Theater Company of Bryan / College Station | run default (270d) | Squarespace `/calendar?format=json`; one night per occurrence |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -46,6 +47,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bvso` | `bvso` | Wed/Sun 05:20 | `proxy_url: ""` |
 | `event-watch-hyperbole` | `hyperbole` | Wed/Sun 05:35 | `rotate_vpn_per_run: false` |
 | `event-watch-bcschamber` | `bcschamber` | *not scheduled yet* | `proxy_url: ""` |
+| `event-watch-ttc` | `ttc` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -279,6 +281,16 @@ guess. Lucky Goat “Hudson Oaks” is at 3349 University Dr E in Bryan.
 Ribbon Cuttings / Business After Hours / Government map to `community`.
 `bcschamber` is not in `DEFAULT_KINDS`. Pin it and run direct.
 
+## The Theater Company
+
+Squarespace. `GET /calendar?format=json` is the upcoming catalog (74
+nights today). Each listed night is one occurrence of the production
+series (cleaned title; `(Copy)` joins the real show). `startDate` is
+epoch-ms, wall-clock `America/Chicago`, microseconds dropped. The
+Squarespace map pin is empty NYC — venue is 3125 S Texas Ave, Ste 500,
+Bryan. `TTC Work Week` is dropped. No category labels. `ttc` is not in
+`DEFAULT_KINDS`. Pin it and run direct.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -363,6 +375,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # BCS Chamber (GrowthZone XML; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=bcschamber proxy_url= --no-email
+
+# Theater Company (Squarespace JSON; un-proxied)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=ttc proxy_url= --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test

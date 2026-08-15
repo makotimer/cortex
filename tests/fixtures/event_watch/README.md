@@ -209,6 +209,20 @@ Captured **2026-08-15** from
 - Lucky Goat “Hudson Oaks” is 3349 University Dr E, Bryan, TX 77802.
 - Four rows have no usable city (Lobsterfest, St. Joseph After Hours, Youth Career Fair / Expo, BVCOG Lunch & Learn).
 
+## The Theater Company
+
+Captured **2026-08-15** from
+`GET https://www.theatrecompany.com/calendar?format=json`.
+Upcoming items only; bodies and image blobs stripped.
+
+| File | Source |
+|---|---|
+| `ttc_calendar.json` | 74 upcoming nights, Aug 21 2026 → Drowsy Chaperone 2027 |
+
+- 17 raw titles; ``(Copy)`` and trailing spaces collapse How to Succeed to 12 nights.
+- ``location`` is empty with a NYC default pin on every row.
+- One ``TTC Work Week`` (Jan 4–9 2027) is dropped as internal.
+
 ## Brazos Valley Museum
 
 Captured **2026-08-15** from `https://www.brazosvalleymuseum.org/`.
