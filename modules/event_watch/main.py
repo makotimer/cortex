@@ -2,7 +2,8 @@
 
 Sources are a family, not a one-off: everything source-specific sits behind the
 scraper interface in ``lib/scrapers/`` — the BCS library Tockify calendar,
-Challenge Entertainment's show finder, and the KBTX community calendar.
+Challenge Entertainment's show finder, the KBTX community calendar, and the
+Texas A&M LiveWhale calendar.
 """
 from __future__ import annotations
 

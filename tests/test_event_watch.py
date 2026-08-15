@@ -1392,13 +1392,9 @@ def test_tamu_drops_houston_and_mcallen(tamu_normalized):
 
 def test_tamu_drops_students_only(tamu_normalized):
     payloads, _ = tamu_normalized
-    for p in payloads:
-        # Students-only was dropped; remaining student-tagged events also
-        # carry Visitors, Residents, or Youth.
-        assert True
-    # A known Students-only Howdy/Rec title must not appear; use a non-Howdy one.
     titles = {p["series"]["title"] for p in payloads}
-    assert "INTRAMURAL SPORTS: Win A FREE Play Pass" not in titles
+    assert "Now Hiring: Intramural Sports Official" not in titles
+    assert "The 12th Worker - Student Employment 101" not in titles
 
 
 def test_tamu_drops_virtual_without_bcs_campus(tamu_normalized):
@@ -1419,12 +1415,9 @@ def test_tamu_campus_galleries_are_college_station(tamu_normalized):
 
 def test_tamu_downtown_bryan_is_bryan(tamu_normalized):
     payloads, _ = tamu_normalized
-    bryan = [
-        p for p in payloads
-        if "First Friday" in p["series"]["title"] or "Downtown Bryan" in p["series"].get("description", "")
-    ]
     named = [p for p in payloads if p["series"].get("place", {}).get("area") == "bryan"]
     assert named, "expected at least one downtown Bryan event"
+    assert any("First Friday" in p["series"]["title"] for p in named)
 
 
 def test_tamu_series_uses_parent_and_tid_is_start_millis(tamu_raw):
@@ -1473,6 +1466,13 @@ def test_tamu_drop_reason_helpers():
         "title": "Photo Contest", "location_title": "Virtual",
         "event_types_campus": [],
     }) == "virtual"
+
+
+def test_tamu_no_location_no_campus_is_dropped_not_rejected():
+    raw = [tamu.to_raw({"id": 1, "title": "Mystery", "date_ts": 1786813200})]
+    payloads, rejected = tamu.TamuScraper().normalize(raw)
+    assert payloads == []
+    assert rejected == []
 
 
 def test_tamu_is_registered_and_not_in_default_kinds():

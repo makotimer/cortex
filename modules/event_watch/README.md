@@ -8,6 +8,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `tockify` | Bryan + College Station Public Library System | run default (270d) | JSON + ICS feeds |
 | `challenge` | Challenge Entertainment — pub trivia, Singo, bingo | **35d** (own cap) | AJAX API, one request per day |
 | `kbtx` | KBTX Community Calendar (Tockify `kbtx.calendar`) | run default (270d) | JSON + ICS; BCS only; address-kit fallback |
+| `tamu` | Texas A&M LiveWhale calendar | run default (270d) | JSON; public-interest filter; BCS only |
 | `cityspark` | FOX 44 / MyCenTX (CitySpark widget API) | run default (270d) | Bryan 15mi; direct, not fox44news.com |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
@@ -23,6 +24,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bcslibrary` | `tockify` | Wed/Sun 03:40 | `rotate_vpn_per_run: false` |
 | `event-watch-challenge` | `challenge` | Wed/Sun 03:55 | `proxy_url: ""` |
 | `event-watch-kbtx` | `kbtx` | Wed/Sun 04:10 | `rotate_vpn_per_run: false` |
+| `event-watch-tamu` | `tamu` | Wed/Sun 04:25 | `rotate_vpn_per_run: false` |
 | `event-watch-cityspark` | `cityspark` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
@@ -155,6 +157,23 @@ captured window, so `is_free` is omitted rather than sent as a lie.
 
 `cityspark` is not in `DEFAULT_KINDS`. Pin it, and run it un-proxied.
 
+## TAMU LiveWhale
+
+Public `/live/json/events`. The listing HTML is just a LiveWhale shell.
+
+**Public-interest filter, not an audience gate.** Drop title matches
+(`training`, `orientation`, `office hours`, `retreat`, `new student`), groups
+Howdy Week / CTE / Faculty Affairs, and Students-only unless Visitors,
+Residents, or Youth (K-12) is also tagged. Untagged talks stay.
+
+**Bryan–College Station only.** The campus filter leaks. Virtual/Zoom without a
+BCS campus tag is dropped. Named campus buildings become `college_station`
+without a geocoder; street addresses that need a city go through address-kit.
+
+The JSON endpoint silently caps around 400, so fetch walks the window a week at
+a time. Occurrence tid is start-time millis so disappearance reconciliation
+still works. `tamu` is not in `DEFAULT_KINDS`. Pin it.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -195,6 +214,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # KBTX (Tockify; uses the same proxy as the library job)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=kbtx --no-email
+
+# TAMU LiveWhale
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=tamu --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test

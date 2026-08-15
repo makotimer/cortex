@@ -6,6 +6,7 @@ One set per source. Both were captured live on **2026-08-12**.
 - [Challenge Entertainment](#challenge-entertainment)
 - [KBTX Community Calendar](#kbtx-community-calendar)
 - [CitySpark — MyCenTX / FOX 44](#cityspark--mycentx--fox-44)
+- [TAMU LiveWhale](#tamu-livewhale)
 
 ---
 
@@ -122,6 +123,25 @@ station's public URL: Bryan, TX, 15 miles, sort Popularity, start 2026-08-15.
 - **`DateStart` is wall-clock Central with a fake `Z`.** Mikey B is listed at 8:00pm; the JSON says `2026-08-28T20:00:00Z`, which is 3pm CDT if believed. The injector strips the Z.
 - **`Free` is false on every row.** `is_free` is omitted, not sent as false.
 - **`18+` arrives escaped** as `18\\+` in Mikey B's description.
+
+## TAMU LiveWhale
+
+Captured **2026-08-15** from
+`https://calendar.tamu.edu/live/json/events` for campus
+`Bryan-College Station` and categories Arts & Entertainment | General Interest |
+Speakers, Forums, Conferences, Training & Workshops, window
+`2026-08-15 → 2026-09-16`, `max=400`. Thumbnails and editor fields stripped.
+
+### What this window actually contains
+
+- **400 occurrences.** The endpoint caps; production fetch walks week chunks.
+- **Howdy Week 73, CTE 12, Faculty Affairs 4** — all dropped by group.
+- **9 titles contain `training`**, 4 contain `orientation`.
+- **Audiences:** Students-only is common (career-center and hiring listings).
+- **Campus filter leaks:** McAllen / Dallas / Fort Worth still appear and are
+  dropped. 170 records have no campus tag.
+- **Locations:** MSC, Forsyth, Stark, Virtual, Zoom, plus Socorro / Houston /
+  San Antonio addresses.
 
 ## Refreshing
 
