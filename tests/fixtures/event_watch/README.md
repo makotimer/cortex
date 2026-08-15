@@ -181,6 +181,20 @@ Stroller Barre on 18 Aug (24 copies). Dated slugs
 all remapped to the same `start_date`. Normalize keeps one per
 `(series, start)`.
 
+## BCS Chamber of Commerce
+
+Captured **2026-08-15** from
+`GET https://business.bcschamber.org/api/events` (verbatim XML).
+
+| File | Source |
+|---|---|
+| `bcschamber_events.xml` | 32 ``EventDisplay`` rows, 2026-08-18 → 2026-11-19 |
+
+- ``from`` / ``to`` query params do not change the payload.
+- 9 rows carry ``MapAddr1``; several of those pin 2700 Earl Rudder Fwy while ``LocationDesc`` is a different Bryan/CS street.
+- Lucky Goat “Hudson Oaks” is 3349 University Dr E, Bryan, TX 77802.
+- Four rows have no usable city (Lobsterfest, St. Joseph After Hours, Youth Career Fair / Expo, BVCOG Lunch & Learn).
+
 ## Brazos Valley Museum
 
 Captured **2026-08-15** from `https://www.brazosvalleymuseum.org/`.

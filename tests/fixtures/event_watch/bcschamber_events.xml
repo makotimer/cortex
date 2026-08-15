@@ -1,0 +1,1437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEventDisplay xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EventDisplay>
+    <EventID>3745</EventID>
+    <CCID>2263</CCID>
+    <Name>Business After Hours 2026 - Frost Bank</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>Frost Bank Tower Point Branch&lt;br /&gt;
+4425 Texas 6 Frontage Rd in College Station</Description>
+    <StartDate>2026-09-24T17:30:00</StartDate>
+    <EndDate>2026-09-24T19:00:00</EndDate>
+    <MemID>0</MemID>
+    <ContactEmail>carrie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2025-12-02T09:33:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>business-after-hours-2026-frost-bank</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3745</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories />
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3747</EventID>
+    <CCID>2263</CCID>
+    <Name>Business After Hours 2026 - Parc at Traditions</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>Parc at Traditions&lt;br /&gt;
+3095 Club Drive in Bryan</Description>
+    <StartDate>2026-08-27T17:30:00</StartDate>
+    <EndDate>2026-08-27T19:00:00</EndDate>
+    <MemID>0</MemID>
+    <ContactEmail>carrie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2025-12-02T14:48:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>business-after-hours-2026-parc-at-traditions</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3747</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>2</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3755</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - Zeal Design Studio</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Deluxe Ribbon Cutting for&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#0000cd"&gt;&lt;span style="font-size: 18px;"&gt;&lt;b&gt;Zeal Design Studio&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-10-02T16:30:00</StartDate>
+    <EndDate>2026-10-02T17:30:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;font color="#000000" face="arial"&gt;&lt;span style="font-size: 16px;"&gt;The Kimbell Cultural Event Center&lt;br /&gt;
+607 N Main Street&lt;br /&gt;
+Bryan, TX 77803&lt;/span&gt;&lt;/font&gt;</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Friday, October 2nd&lt;br /&gt;
+4:30 pm - 5:30 pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Nicole Holmes</ContactDesc>
+    <ContactEmail>Nicole@zealdesignstudio.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2025-12-12T09:41:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-zeal-design-studio</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3755</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3774</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - Texas Aggie Corps of Cadets Association</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting &amp;amp; Community Celebration for&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;Texas Aggie Corps of Cadets Association&amp;nbsp;&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-08-28T16:30:00</StartDate>
+    <EndDate>2026-08-28T17:00:00</EndDate>
+    <URL>https://www.corpsofcadets.org/</URL>
+    <MemID>0</MemID>
+    <LocationDesc>1507 S College Ave&lt;br /&gt;
+Bryan, TX 77801</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Friday, August&amp;nbsp;28th&amp;nbsp;&lt;br /&gt;
+4:30 pm - 5 pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Corey Keniston</ContactDesc>
+    <ContactEmail>corey@corpsofcadets.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-01-21T14:11:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-texas-aggie-corps-of-cadets-association</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3774</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3837</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - Aggieland Tattoo Company</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting for:&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;Aggieland Tattoo Company&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-08-21T11:30:00</StartDate>
+    <EndDate>2026-08-21T12:00:00</EndDate>
+    <URL>https://aggielandtattooco.com/</URL>
+    <MemID>0</MemID>
+    <LocationDesc>12815 Farm to Market Rd 2154, Suite 120&lt;br /&gt;
+College Station, TX 77845</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Friday, August 21st&lt;br /&gt;
+11:30 am - 12&amp;nbsp;pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>catfish@aggielandtattoo.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-05-13T15:26:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-aggieland-tattoo-company</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3837</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3839</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - Kerr Surveying</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Deluxe Ribbon Cutting for&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;strong&gt;&lt;span style="font-size:20px;"&gt;&lt;em&gt;&lt;span style="color:#FF0000;"&gt;&lt;span style="font-family:arial;"&gt;Kerr Surveying&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/strong&gt;</Description>
+    <StartDate>2026-10-16T13:00:00</StartDate>
+    <EndDate>2026-10-16T14:00:00</EndDate>
+    <URL>https://kerrlandsurveying.com/</URL>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;font color="#000000" face="arial"&gt;&lt;span style="font-size: 16px;"&gt;1718 Briarcrest Drive&lt;br /&gt;
+Bryan, TX 77802&lt;/span&gt;&lt;/font&gt;&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Friday, October 16th&lt;br /&gt;
+1:00 pm - 2:00 pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Eric Bryant</ContactDesc>
+    <ContactEmail>eric@kerrsurveying.net</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-05-19T14:14:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-kerr-surveying</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3839</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3840</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - Wright Naeger Dentistry</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting for&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:#B22222;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;strong&gt;Wright Naeger Dentistry&lt;/strong&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;
+&amp;nbsp;</Description>
+    <StartDate>2026-10-22T16:30:00</StartDate>
+    <EndDate>2026-10-22T17:00:00</EndDate>
+    <URL>http://www.wrightnaegerdentistry.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;span style="font-size:18px;"&gt;1461 Greens Prairie Rd&lt;br /&gt;
+College Station, TX 77845&lt;/span&gt;&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style="color: gray;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 18px;"&gt;Thursday, October 22nd&lt;br /&gt;
+4:30 pm&amp;nbsp;to 5:00&amp;nbsp;pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>wrightnaegerdentistry@gmail.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>GOOGLE_MAPS</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-05-20T16:51:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-wright-naeger-dentistry</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3840</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3849</EventID>
+    <CCID>2263</CCID>
+    <Name>Lunch &amp; Learn "Employee Benefits 101"</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size:14px;"&gt;&lt;span style="font-family:arial;"&gt;The B/CS Chamber of Commerce and &lt;/span&gt;Colonial Life &amp;ndash; Baker Insurance Agency&lt;span style="font-family:arial;"&gt;&amp;nbsp;invite you to a Lunch and Learn event covering &amp;quot;Employee Benefits 101: What Every Employer Should Know&lt;/span&gt;&amp;quot;&lt;span style="font-family:arial;"&gt;&lt;strong&gt;&lt;span style="color:black;"&gt;&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;on Monday, September 14th from 11:45 a.m. until 1 p.m.&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style="font-family:arial;"&gt;&lt;strong&gt;&lt;span style="font-size:13.5pt;"&gt;Employee Benefits 101: What Every Employer Should Know&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;
+&lt;ol&gt;
+	&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;&lt;strong&gt;Why Employee Benefits Matter&lt;/strong&gt;&lt;/span&gt;
+	&lt;ul&gt;
+		&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;How benefits help attract, retain, and engage employees.&lt;/span&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;&lt;strong&gt;Understanding the Core Benefits&lt;/strong&gt;&lt;/span&gt;
+	&lt;ul&gt;
+		&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;Medical, dental, vision, life insurance, and disability coverage explained.&lt;/span&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;&lt;strong&gt;Voluntary Benefits and Employee Choice&lt;/strong&gt;&lt;/span&gt;
+	&lt;ul&gt;
+		&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;Accident, critical illness, hospital indemnity, and supplemental benefits that help employees manage out-of-pocket expenses.&lt;/span&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;&lt;strong&gt;Tax-Advantaged Benefits &amp;amp; COBRA&lt;/strong&gt;&lt;/span&gt;
+	&lt;ul&gt;
+		&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;Understanding HRAs, HSAs, Healthcare FSAs, Dependent Care FSAs, and COBRA continuation coverage, including how these programs can reduce costs and create tax advantages for employers and employees.&lt;/span&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;&lt;strong&gt;Building a Benefits Package on Any Budget&lt;/strong&gt;&lt;/span&gt;
+	&lt;ul&gt;
+		&lt;li style="line-height:normal;"&gt;&lt;span style="font-family:arial;"&gt;Practical benefit strategies for small and growing businesses that balance cost and employee value.&lt;/span&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;
+&lt;span style="font-family:arial;"&gt;&lt;strong&gt;Employee Benefits 101: A Practical Guide for Employers&lt;/strong&gt;&lt;br /&gt;
+Employee benefits can be confusing, but they don&amp;#39;t have to be. This session will provide business owners, managers, and HR professionals with a straightforward overview of today&amp;#39;s employee benefits landscape. Learn the basics of core and voluntary benefits, explore tax-saving tools such as HRAs, HSAs, Healthcare FSAs, Dependent Care FSAs, and COBRA, and discover practical strategies for creating a competitive benefits package that fits your budget. Whether you have 2 employees or 3,000, you&amp;#39;ll leave with practical knowledge and actionable ideas you can use immediately.&lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&amp;nbsp;</Description>
+    <StartDate>2026-09-14T11:45:00</StartDate>
+    <EndDate>2026-09-14T13:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>Brazos Valley Council of Governments&lt;br /&gt;
+3991 East 29th Street&lt;br /&gt;
+Brazos Room A&amp;amp;B</LocationDesc>
+    <AdmissionDesc>This event is FREE and open to the public.&lt;br /&gt;
+Lunch will be provided!&lt;br /&gt;
+You will need to RSVP.&amp;nbsp;Registration is limited to the first 40 attendees.</AdmissionDesc>
+    <ContactEmail>carrie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>ChamberInternal Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-06-04T11:58:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>lunch-learn-employee-benefits-101</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3849</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories />
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3854</EventID>
+    <CCID>2263</CCID>
+    <Name>Economic Outlook Briefing Luncheon 2026</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>Join the&amp;nbsp;&lt;strong&gt;Chamber of Commerce&lt;/strong&gt;&amp;nbsp;and&amp;nbsp;&lt;strong&gt;Title Sponsor McLane Intelligent Solutions&lt;/strong&gt;&amp;nbsp;for our&amp;nbsp;2026 Economic Outlook Briefing!&lt;br /&gt;
+featuring&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&amp;nbsp;&lt;br /&gt;
+Kevin Brady, Senior Consultant with Akin Consulting&lt;/b&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;b style="font-size: 20px;"&gt;Former United States Congressman and Chairman of the House And an Economic Update from&lt;br /&gt;
+Tom Johnson, President &amp;amp; CEO&lt;br /&gt;
+Greater Brazos Partnership&lt;/b&gt;&lt;br /&gt;
+&lt;br /&gt;
+Tickets:&lt;br /&gt;
+&lt;strong&gt;Reserved Table for 8 for $600&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;$60/each for Chamber members&lt;br /&gt;
+$65/each for non-Chamber members&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;br /&gt;
+&lt;br /&gt;
+Please click &amp;quot;Register Now&amp;quot; to secure yours today!</Description>
+    <StartDate>2026-08-19T11:30:00</StartDate>
+    <EndDate>2026-08-19T13:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>Hilton College Station</LocationDesc>
+    <AdmissionDesc>&lt;span style="font-family:tahoma;"&gt;Table Sponsor - $600&lt;br /&gt;
+Individual ticket for members - $60&lt;br /&gt;
+Individual ticket for non-members - $65&lt;/span&gt;&lt;br /&gt;
+&amp;nbsp;</AdmissionDesc>
+    <HoursDesc>&lt;span style="font-family:tahoma;"&gt;August 19, 2026&lt;br /&gt;
+11:30&amp;nbsp;am - 1:00&amp;nbsp;pm&lt;/span&gt;</HoursDesc>
+    <ContactDesc>Jamie Hill</ContactDesc>
+    <ContactEmail>jamie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-06-15T12:09:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>economic-outlook-briefing-luncheon-2026</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3854</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories />
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3855</EventID>
+    <CCID>2263</CCID>
+    <Name>Lobsterfest &amp; Golf Classic 2026</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;p class="isSelectedEnd"&gt;&lt;span style="font-size:14px;"&gt;Join us for the Bryan/College Station Chamber of Commerce&amp;#39;s premier fundraising events, Lobsterfest &amp;amp; Golf Classic!&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span style="font-size:14px;"&gt;Lobsterfest will take place on Friday, September 18, followed by the Golf Classic on Monday, September 21. These annual events bring together business and community leaders from across the Brazos Valley for networking, relationship-building, and fun, all while supporting Chamber programs and initiatives.&lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style="font-size:20px;"&gt;&lt;span style="font-family:times new roman;"&gt;&lt;span style="color: rgba(0, 0, 0, 0.9);"&gt;**Lobsterfest tickets do not include admission into the golf tournament.&amp;nbsp;For more information on golf teams and sponsorship opportunities, contact Jamie Hill at jamie@bcschamber.org.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+</Description>
+    <StartDate>2026-09-18T19:00:00</StartDate>
+    <EndDate>2026-09-18T22:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;p&gt;&lt;br /&gt;
+&amp;nbsp;&lt;/p&gt;
+</LocationDesc>
+    <AdmissionDesc>&lt;br /&gt;
+&amp;nbsp;</AdmissionDesc>
+    <HoursDesc>&lt;br /&gt;
+&lt;br /&gt;
+&amp;nbsp;</HoursDesc>
+    <ContactDesc>Jamie Hill</ContactDesc>
+    <ContactEmail>jamie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-06-15T14:47:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>lobsterfest-golf-classic-2026</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3855</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories />
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3857</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - BP Services</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting &amp;amp; Grand Opening for&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;BP Services&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-08-25T11:30:00</StartDate>
+    <EndDate>2026-08-25T12:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>7125 Coyote Run&lt;br /&gt;
+Bryan, TX 77808</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Tuesday, August 25th&lt;br /&gt;
+11:30 am - 12&amp;nbsp;pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>info@bpservicestx.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-06-16T10:15:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-bp-services</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3857</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3862</EventID>
+    <CCID>2263</CCID>
+    <Name>Youth Career Fair 2026</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <StartDate>2026-10-07T08:00:00</StartDate>
+    <EndDate>2026-10-07T15:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>Brazos County Expo</LocationDesc>
+    <AdmissionDesc>Attendance is free for the students and vendors. Please click on registration form to complete registration.&amp;nbsp;</AdmissionDesc>
+    <HoursDesc>Wednesday, October 07, 2026&lt;br /&gt;
+9:00am - 3:00pm</HoursDesc>
+    <ContactDesc>Payton Williams</ContactDesc>
+    <ContactEmail>Payton@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public</VisibilityFlags>
+    <CreatedDate>2026-06-24T09:36:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>youth-career-fair-2026</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3862</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories />
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3864</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - Brazos County Medical Examiner's Office</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting &amp;amp; Grand Opening for&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:#B22222;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;strong&gt;Brazos County Medical Examiner&amp;#39;s Office&lt;/strong&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;
+&amp;nbsp;</Description>
+    <StartDate>2026-08-18T14:00:00</StartDate>
+    <EndDate>2026-08-18T14:30:00</EndDate>
+    <URL>https://brazoscountytx.gov/674/County-Projects-Latest-Updates</URL>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;span style="font-size:18px;"&gt;3037 East 29th Street&lt;br /&gt;
+Bryan, TX 77802&lt;/span&gt;&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style="color: gray;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 18px;"&gt;Tuesday, August 18th&lt;br /&gt;
+2:00 pm&amp;nbsp;to 2:30&amp;nbsp;pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>GOOGLE_MAPS</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-06-25T15:02:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-brazos-county-medical-examiner-s-office</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3864</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3870</EventID>
+    <CCID>2263</CCID>
+    <Name>Lunch &amp; Learn "Understanding Senior Living Options"</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;strong&gt;&lt;span style="color:black;"&gt;Lunch &amp;amp; Learn: Understanding Senior Living Options&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style="color:black;"&gt;Making decisions about senior care can feel overwhelming&amp;mdash;but it doesn&amp;#39;t have to be.&lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;span style="color:black;"&gt;Join the Bryan/College Station Chamber of Commerce for an informative Lunch &amp;amp; Learn featuring a panel of local senior living and healthcare professionals who will help you understand the differences between today&amp;#39;s senior care options. Whether you&amp;#39;re planning ahead for yourself, helping aging parents navigate their next chapter, or simply want to be prepared for the future, this conversation will provide valuable insights and practical guidance.&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:black;"&gt;Our expert panel will discuss:&lt;/span&gt;
+&lt;ul&gt;
+	&lt;li style="color:black;"&gt;Independent Living&lt;/li&gt;
+	&lt;li style="color:black;"&gt;Assisted Living&lt;/li&gt;
+	&lt;li style="color:black;"&gt;Skilled Nursing &amp;amp; Rehabilitation&lt;/li&gt;
+	&lt;li style="color:black;"&gt;Memory Care&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span style="color:black;"&gt;Learn what services each option provides, who may benefit most from each level of care, when it may be time to consider a transition, and how to begin planning before a crisis occurs. You&amp;#39;ll also have the opportunity to ask questions and hear from professionals who work with seniors and their families every day.&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:black;"&gt;This program is ideal for:&lt;/span&gt;
+
+&lt;ul&gt;
+	&lt;li style="color:black;"&gt;Adult children helping parents explore senior living options&lt;/li&gt;
+	&lt;li style="color:black;"&gt;Seniors planning for their future independence and care&lt;/li&gt;
+	&lt;li style="color:black;"&gt;Caregivers and family members seeking trusted local resources&lt;/li&gt;
+	&lt;li style="color:black;"&gt;Professionals who work with older adults and their families&lt;/li&gt;
+&lt;/ul&gt;
+&lt;span style="color:black;"&gt;Enjoy lunch while gaining the knowledge and confidence to make informed decisions for yourself or your loved ones.&lt;/span&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&amp;nbsp;</Description>
+    <StartDate>2026-08-31T11:30:00</StartDate>
+    <EndDate>2026-08-31T13:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;strong&gt;&lt;span style="color:black;"&gt;Thursday, August 31 | 11:30 AM &amp;ndash; 1:00 PM&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;span style="color:black;"&gt;&lt;strong&gt;Hudson Oaks Senior Community&lt;/strong&gt;&lt;br /&gt;
+3345 University Dr. E, Bryan, TX 77802&lt;/span&gt;</LocationDesc>
+    <AdmissionDesc>This event is FREE and open to the public.&lt;br /&gt;
+Lunch will be Provided.&lt;br /&gt;
+You will need to RSVP.&amp;nbsp;Registration is limited to the first 40 attendees.</AdmissionDesc>
+    <ContactEmail>carrie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>ChamberInternal Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-07T16:02:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>lunch-learn-understanding-senior-living-options</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3870</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories />
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3871</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - KORE Payment</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting &amp;amp; Grand Opening for&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;KORE Payment&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-09-01T16:30:00</StartDate>
+    <EndDate>2026-09-01T17:00:00</EndDate>
+    <URL>https://korepayment.com/home</URL>
+    <MemID>0</MemID>
+    <LocationDesc>1733 Briarcrest Drive&lt;br /&gt;
+Bryan, TX 77802&lt;br /&gt;
+(1st floor courtyard)</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Tuesday, September 1st&lt;br /&gt;
+4:30 pm - 5:00 pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Ambroise Asselin</ContactDesc>
+    <ContactEmail>ambroise.korepayment@gmail.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-07T16:07:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-kore-payment-3871</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3871</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3872</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - FloorCo. Premium Flooring &amp; More</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting &amp;amp; Grand Opening for&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;FloorCo. Premium Flooring &amp;amp; More&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-09-15T11:30:00</StartDate>
+    <EndDate>2026-09-15T12:00:00</EndDate>
+    <URL>http://www.floorcopremium.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>1301 Pavilion Avenue&lt;br /&gt;
+College Station, TX 77845&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Tuesday, September 15th&lt;br /&gt;
+11:30 am - 12&amp;nbsp;pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Jeremy Johnson</ContactDesc>
+    <ContactEmail>j.johnson@floorcopremium.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-09T10:29:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-floorco-premium-flooring-more</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3872</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3873</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - Liberty Hearing Center</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Deluxe Ribbon Cutting for:&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;Liberty Hearing Center&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-09-08T11:30:00</StartDate>
+    <EndDate>2026-09-08T12:30:00</EndDate>
+    <URL>http://www.libertyhearingcentertx.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>2405 Texas Avenue S, Suite 307&lt;br /&gt;
+College Station, TX 77840</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Tuesday, September 8th&lt;br /&gt;
+11:30 am - 12:30 pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>Info@libertyhearingcentertx.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-13T11:45:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-liberty-hearing-center</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3873</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3874</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - JD Ranch Boutique</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting &amp;amp; New Location Grand Opening for:&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;JD Ranch Boutique&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-09-10T11:30:00</StartDate>
+    <EndDate>2026-09-10T12:00:00</EndDate>
+    <URL>http://Jdranchboutique.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>505 University Drive E, Suite 100&lt;br /&gt;
+College Station, TX 77840</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Thursday, September 10th&lt;br /&gt;
+11:30 am - 12&amp;nbsp;pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>Jdranchboutique@gmail.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-13T12:43:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-jd-ranch-boutique-3874</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3874</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3875</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - Kept Classic Homes</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Deluxe Ribbon Cutting &amp;amp; Model Home Grand Opening for:&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;strong&gt;&lt;span style="font-size:20px;"&gt;&lt;em&gt;&lt;span style="color:#FF0000;"&gt;&lt;span style="font-family:arial;"&gt;Kept Classic Homes&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/strong&gt;</Description>
+    <StartDate>2026-09-02T11:30:00</StartDate>
+    <EndDate>2026-09-02T12:30:00</EndDate>
+    <URL>http://www.keptclassichomes.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;span style="font-size:16px;"&gt;Lakeside at Millican Reserve&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#000000" face="arial"&gt;&lt;span style="font-size: 16px;"&gt;3900 Millican Creek Trail&lt;br /&gt;
+College Station, TX 77845&lt;/span&gt;&lt;/font&gt;&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Wednesday, September 2nd&lt;br /&gt;
+11:30 am - 12:30 pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>lily@keptclassichomes.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-13T13:56:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-kept-classic-homes</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3875</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3877</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - C.E. Borman &amp; Associates</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Ribbon Cutting &amp;amp; New Office Grand Opening for&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#800080"&gt;&lt;span style="font-size: 18px;"&gt;&lt;b&gt;C.E. Borman &amp;amp; Associates&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-08-26T16:30:00</StartDate>
+    <EndDate>2026-08-26T17:00:00</EndDate>
+    <URL>http://www.ceborman.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>1733 Briarcrest Drive, Suite 100&lt;br /&gt;
+Bryan, TX 77802</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Wednesday, August 26th&lt;br /&gt;
+4:30 pm - 5:00 pm&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>kclifton@ceborman.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-22T11:07:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-c-e-borman-associates</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3877</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3878</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - BrightStar Care of Bryan/College Station</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Deluxe Ribbon Cutting &amp;amp; New Office Grand Opening for&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:#0000FF;"&gt;&lt;strong&gt;&lt;span style="font-size:20px;"&gt;&lt;em&gt;&lt;span style="font-family:arial;"&gt;BrightStar Care of Bryan/College Station&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;</Description>
+    <StartDate>2026-10-15T16:30:00</StartDate>
+    <EndDate>2026-10-15T17:30:00</EndDate>
+    <URL>http://www.brightstarcare.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;span style="font-family:arial;"&gt;&lt;span style="font-size:16px;"&gt;307 S. Main St, Suite 201&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;span style="font-family:arial;"&gt;&lt;font color="#000000"&gt;&lt;span style="font-size: 16px;"&gt;Bryan, TX 77803&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Thursday, October 15th&lt;br /&gt;
+4:30 pm - 5:30 pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>Jennifer.Lewis@brightstarcare.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-22T16:24:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-brightstar-care-of-bryan-college-station-3878</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3878</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3879</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - Pratt Homes</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Deluxe Ribbon Cutting for&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#800080"&gt;&lt;span style="font-size: 18px;"&gt;&lt;b&gt;Pratt Homes&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-11-03T11:30:00</StartDate>
+    <EndDate>2026-11-03T12:30:00</EndDate>
+    <URL>https://www.PrattModular.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>1333 N Earl Rudder Freeway&lt;br /&gt;
+Bryan, TX 77803</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Tuesday, November 3rd&lt;br /&gt;
+11:30 am - 12:30 pm&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Marketing</ContactDesc>
+    <ContactEmail>marketing@prattmodular.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-28T15:52:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-pratt-homes</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3879</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3880</EventID>
+    <CCID>2263</CCID>
+    <Name>Business After Hours 2026 - First Financial Bank</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>First Financial Bank&amp;nbsp;&lt;br /&gt;
+2445 Harvey Mitchell Parkway South&lt;br /&gt;
+College Station</Description>
+    <StartDate>2026-10-29T17:30:00</StartDate>
+    <EndDate>2026-10-29T19:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>Thursday, October 29th&lt;br /&gt;
+5:30 to 7 p.m.</LocationDesc>
+    <ContactEmail>carrie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-30T10:46:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>business-after-hours-2026-first-financial-bank</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3880</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>2</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3881</EventID>
+    <CCID>2263</CCID>
+    <Name>Business After Hours 2026 - Hilton Garden Inn</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <StartDate>2026-10-08T17:30:00</StartDate>
+    <EndDate>2026-10-08T19:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;strong&gt;&lt;span style="color:#4D9D92;"&gt;&lt;span style="font-family:century gothic,sans-serif;"&gt;Hilton Garden Inn College Station&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;span style="font-family:century gothic,sans-serif;"&gt;3081 University Drive East | Bryan, Texas 77802&lt;/span&gt;</LocationDesc>
+    <ContactEmail>carrie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>ChamberInternal Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-07-31T14:03:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>business-after-hours-2026-hilton-garden-inn</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3881</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories />
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3882</EventID>
+    <CCID>2263</CCID>
+    <Name>Local Candidates Forum - October 2026</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <StartDate>2026-10-13T18:00:00</StartDate>
+    <EndDate>2026-10-13T20:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;strong&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size:14px;"&gt;Brazos Center&lt;/span&gt;&lt;/span&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;span style="color: rgb(31, 31, 31); font-family: Roboto, Arial, sans-serif; font-size: 14px;"&gt;3232 Briarcrest Drive&lt;br /&gt;
+Bryan, TX 77802&lt;/span&gt;</LocationDesc>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public</VisibilityFlags>
+    <CreatedDate>2026-08-03T15:14:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>local-candidates-forum-october-2026</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3882</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>4</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3883</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - Lucky Goat Coffee | Hudson Oaks</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting and Grand Opening for&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;Lucky Goat Coffee | Hudson Oaks&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-08-20T11:30:00</StartDate>
+    <EndDate>2026-08-20T12:00:00</EndDate>
+    <URL>https://www.instagram.com/luckygoathudsonoaks/</URL>
+    <MemID>0</MemID>
+    <LocationDesc>3349 University Drive E&lt;br /&gt;
+Suite 100&lt;br /&gt;
+Bryan, TX 77802</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Thursday, August 20th&lt;br /&gt;
+11:30 am - 12&amp;nbsp;pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Contact</ContactDesc>
+    <ContactEmail>hudsonoaks@luckygoatcoffee.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-08-04T15:32:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-lucky-goat-coffee-hudson-oaks</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3883</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3884</EventID>
+    <CCID>2263</CCID>
+    <Name>Ribbon Cutting - The Back Nine Golf - Aggieland</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="font-size: 18px;"&gt;Come Celebrate a Ribbon Cutting for:&lt;/span&gt;&lt;br /&gt;
+&lt;font color="#ff0000"&gt;&lt;span style="font-size: 20px;"&gt;&lt;b&gt;&lt;i&gt;The Back Nine Golf - Aggieland&lt;/i&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;</Description>
+    <StartDate>2026-09-25T11:30:00</StartDate>
+    <EndDate>2026-09-25T12:00:00</EndDate>
+    <URL>https://thebackninegolf.com/college-station-tx-south/</URL>
+    <MemID>0</MemID>
+    <LocationDesc>2709 Texas Avenue South&lt;br /&gt;
+Suite 900&lt;br /&gt;
+College Station, TX 77840</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;font color="#000000"&gt;Friday, September 25th&lt;br /&gt;
+11:30 am - 12&amp;nbsp;pm&lt;/font&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>aggielandsouth@thebackninegolf.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-08-05T13:32:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>ribbon-cutting-the-back-nine-golf-aggieland</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3884</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3885</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - Vital Care of College Station</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Deluxe Ribbon Cutting &amp;amp; Grand Opening for&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:#0000FF;"&gt;&lt;strong&gt;&lt;span style="font-size:20px;"&gt;&lt;em&gt;&lt;span style="font-family:arial;"&gt;Vital Care of College Station&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;</Description>
+    <StartDate>2026-09-22T16:30:00</StartDate>
+    <EndDate>2026-09-22T17:30:00</EndDate>
+    <URL>http://www.vccollegestation.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;font color="#000000" face="arial"&gt;&lt;span style="font-size: 16px;"&gt;2425 Earl Rudder Fwy S&lt;br /&gt;
+College Station, TX 77845&lt;/span&gt;&lt;/font&gt;&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Tuesday, September 22nd&lt;br /&gt;
+4:30 pm - 5:30 pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>omolaosun@vitalcare.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-08-06T10:58:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-vital-care-of-college-station</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3885</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3886</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - Bock Realty Group</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Deluxe Ribbon Cutting &amp;amp; New Office Grand Opening for&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;
+&lt;span style="color:#0000FF;"&gt;&lt;strong&gt;&lt;span style="font-size:20px;"&gt;&lt;em&gt;&lt;span style="font-family:arial;"&gt;Bock Realty Group&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/strong&gt;&lt;/span&gt;</Description>
+    <StartDate>2026-10-20T16:30:00</StartDate>
+    <EndDate>2026-10-20T17:30:00</EndDate>
+    <URL>http://bockrealtygroup.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;font color="#000000" face="arial"&gt;&lt;span style="font-size: 16px;"&gt;2800 Barron Road, Unit 305&lt;br /&gt;
+College Station, TX 77845&lt;/span&gt;&lt;/font&gt;&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Tuesday, October 20th&lt;br /&gt;
+4:30 pm - 5:30 pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <ContactDesc>Office</ContactDesc>
+    <ContactEmail>admin@bockrealtygroup.com</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-08-06T12:18:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-bock-realty-group</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3886</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3887</EventID>
+    <CCID>2263</CCID>
+    <Name>Deluxe Ribbon Cutting - Readfield Meat Revival Grand Opening</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>&lt;span style="color:#000000;"&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="font-size: 18px;"&gt;&lt;span style="font-size:16px;"&gt;Come celebrate a Deluxe Ribbon Cutting and Readfield Meat Revival Grand Opening for:&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;strong&gt;&lt;span style="font-size:20px;"&gt;&lt;em&gt;&lt;span style="color:#FF0000;"&gt;&lt;span style="font-family:arial;"&gt;Readfield Meats and Deli&lt;/span&gt;&lt;/span&gt;&lt;/em&gt;&lt;/span&gt;&lt;/strong&gt;</Description>
+    <StartDate>2026-08-29T11:00:00</StartDate>
+    <EndDate>2026-08-29T12:00:00</EndDate>
+    <URL>http://www.readfieldmeats.com</URL>
+    <MemID>0</MemID>
+    <LocationDesc>&lt;font color="#000000" face="arial"&gt;&lt;span style="font-size: 16px;"&gt;2701 S Texas Avenue&lt;br /&gt;
+Bryan, TX 77802&lt;/span&gt;&lt;/font&gt;&lt;br /&gt;
+&amp;nbsp;</LocationDesc>
+    <HoursDesc>&lt;div style=""&gt;&lt;span style="font-family:arial;"&gt;&lt;span style="color:#000000;"&gt;&lt;span style="font-size: 16px;"&gt;Saturday, August 29th&lt;br /&gt;
+11:00 am - 12:00 pm&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+</HoursDesc>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapAddr1>2700 Earl Rudder Fwy</MapAddr1>
+    <MapCity>College Station</MapCity>
+    <MapState>Texas</MapState>
+    <MapPostalCode>77845</MapPostalCode>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-08-06T15:06:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>deluxe-ribbon-cutting-readfield-meat-revival-grand-opening</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3887</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>6</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3888</EventID>
+    <CCID>2263</CCID>
+    <Name>New &amp; Prospective Member Orientation - October 2026</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>New &amp;amp; Prospective Member Orientation</Description>
+    <StartDate>2026-10-26T12:00:00</StartDate>
+    <EndDate>2026-10-26T14:00:00</EndDate>
+    <MemID>0</MemID>
+    <LocationDesc>Coopers Old Time Pit BBQ&lt;br /&gt;
+3055 Earl Rudder Freeway South, College Station, TX 77845</LocationDesc>
+    <HoursDesc>Monday, October 26th&amp;nbsp;&lt;br /&gt;
+&lt;br /&gt;
+12:00p.m. - 12:30 p.m.: Lunch &amp;amp; Networking&lt;br /&gt;
+Thanks to Coopers BBQ&amp;#39;s generosity with the use of their room, we encourage all attendees to arrive early and enjoy some delicious BBQ by ordering through the line!&lt;br /&gt;
+&lt;br /&gt;
+12:30 PM to 2:00 PM: Presentation</HoursDesc>
+    <ContactEmail>carrie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly Featured</VisibilityFlags>
+    <CreatedDate>2026-08-10T13:33:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>new-prospective-member-orientation-october-2026</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3888</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories />
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+  <EventDisplay>
+    <EventID>3889</EventID>
+    <CCID>2263</CCID>
+    <Name>Business After Hours 2026 - St. Joseph Health</Name>
+    <DisplayFlags />
+    <Status>APPROVED</Status>
+    <Description>St. Joseph Health</Description>
+    <StartDate>2026-11-19T17:30:00</StartDate>
+    <EndDate>2026-11-19T19:00:00</EndDate>
+    <MemID>0</MemID>
+    <ContactEmail>carrie@bcschamber.org</ContactEmail>
+    <IsAllDayEvent>false</IsAllDayEvent>
+    <MapService>NONE</MapService>
+    <VisibilityFlags>Public MemberOnly</VisibilityFlags>
+    <CreatedDate>2026-08-13T08:37:00</CreatedDate>
+    <Version>2</Version>
+    <Slug>business-after-hours-2026-st-joseph-health</Slug>
+    <Recurrence>
+      <CCID>2263</CCID>
+      <DateType>NoRecurrance</DateType>
+      <DayOfWeek>0</DayOfWeek>
+      <EndDate xsi:nil="true" />
+      <EventID>3889</EventID>
+      <Frequency>FREQ_NONE</Frequency>
+      <Iteration>1</Iteration>
+      <SeriesEventId xsi:nil="true" />
+      <SeriesOverride>false</SeriesOverride>
+    </Recurrence>
+    <Categories>
+      <int>2</int>
+    </Categories>
+    <MemberBillingMethod xsi:nil="true" />
+    <NonMemberBillingMethod xsi:nil="true" />
+    <RegistrationCutoff xsi:nil="true" />
+  </EventDisplay>
+</ArrayOfEventDisplay>

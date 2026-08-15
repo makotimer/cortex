@@ -16,6 +16,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `bvmuseum` | Brazos Valley Museum of Natural History | run default (270d) | Homepage Upcoming Events repeater; year from the run; direct |
 | `visitcstx` | Visit College Station (Algolia Events) | run default (270d) | InstantSearch index; all categories; not destbryan |
 | `bush41` | George H.W. Bush Presidential Library | upcoming list | Drupal Views; date + optional body clock |
+| `bcschamber` | BCS Chamber of Commerce (GrowthZone) | run default (270d) | `/api/events` XML; LocationDesc over Map*; direct |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -38,6 +39,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bvmuseum` | `bvmuseum` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-visitcstx` | `visitcstx` | Wed/Sun 04:50 | `rotate_vpn_per_run: false` |
 | `event-watch-bush41` | `bush41` | Wed/Sun 05:05 | `rotate_vpn_per_run: false` |
+| `event-watch-bcschamber` | `bcschamber` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -52,7 +54,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk` and `bvmuseum` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum` and `bcschamber` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -226,6 +228,18 @@ The museum is at 3232 Briarcrest Dr, Bryan. No topic or audience labels
 are on the cards, so those stay empty. `bvmuseum` is not in
 `DEFAULT_KINDS`. Pin it and run direct.
 
+## BCS Chamber of Commerce
+
+GrowthZone. The search HTML is a 10-card first paint; do not scroll it.
+`GET /api/events` is the upcoming catalog (date query params are ignored).
+`StartDate` / `EndDate` are wall-clock Central with no `Z`. `MapCity` is
+often a dummy pin at 2700 Earl Rudder Fwy — venue comes from
+`LocationDesc`, then the description. No city is a loud reject, not a
+guess. Lucky Goat “Hudson Oaks” is at 3349 University Dr E in Bryan.
+
+Ribbon Cuttings / Business After Hours / Government map to `community`.
+`bcschamber` is not in `DEFAULT_KINDS`. Pin it and run direct.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -294,6 +308,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Brazos Valley Museum (homepage repeater; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=bvmuseum proxy_url= --no-email
+
+# BCS Chamber (GrowthZone XML; un-proxied)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=bcschamber proxy_url= --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test
