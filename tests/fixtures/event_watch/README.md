@@ -230,6 +230,18 @@ Highlight/snippet fields stripped.
   is listed 9:00–11:00 a.m. and the stamp is `1786784400` (09:00Z).
 - One multi-day listing, Spirit of 150 Week (7 days), is under the 14-day drop.
 
+## Bush 41 Library
+
+Captured **2026-08-15** from
+``https://www.bush41library.gov/events/upcoming-events`` plus the three detail
+nodes. Listing HTML is the ``.view-id-events`` block; details are
+``h1`` + ``.region-content``.
+
+- **3 upcoming programs** (Sep 8, Oct 22, Nov 7). No JSON/ICS; ``/events/all-events`` 404s.
+- Date is month/day/year on the listing. Clock time is only in the body when
+  they write it (Birdwell: ``at 10 a.m.``). The other two have none.
+- Register link is ``#event-registration-form`` on all three.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh

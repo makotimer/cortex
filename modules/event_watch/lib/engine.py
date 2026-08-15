@@ -295,6 +295,7 @@ def _check_vpn(settings: Settings, verify_url: str = "") -> None:
 
 def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.bryantx import BryanTxScraper
+    from .scrapers.bush41 import Bush41Scraper
     from .scrapers.bvmuseum import BvMuseumScraper
     from .scrapers.challenge import ChallengeScraper
     from .scrapers.cityspark import CitySparkScraper
@@ -316,6 +317,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "destbryan": DestBryanScraper,
         "visitcstx": VisitCstxScraper,
         "bvmuseum": BvMuseumScraper,
+        "bush41": Bush41Scraper,
     }
     out: list[BaseEventScraper] = []
     for kind in settings.kinds:
