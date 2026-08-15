@@ -202,6 +202,19 @@ Listing HTML is slimmed to the result counter plus ``article.card`` blocks.
 - Some JSON-LD start/end values wear a fake ``Z`` (Cadillac Ranch 19:00Z is
   7pm Central, same CitySpark lie).
 
+## Visit College Station
+
+Captured **2026-08-15** from Algolia index
+``prod-visit-college-station-listings`` with ``filters=sectionName:Events``.
+Highlight/snippet fields stripped.
+
+- **86 hits, 67 series.** Aggieland Farmers Market is one series with 20 Saturday
+  occurrences (`isPrimaryEvent` only on the first).
+- **Cities:** College Station 82, Bryan 4. No nearby towns in this snapshot.
+- **`startDate`/`endDate` are Central wall-clock stored as UTC unix.** Harvest
+  is listed 9:00–11:00 a.m. and the stamp is `1786784400` (09:00Z).
+- One multi-day listing, Spirit of 150 Week (7 days), is under the 14-day drop.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh
