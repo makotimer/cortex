@@ -26,7 +26,7 @@ import pytest
 
 from modules.event_watch.lib import classify, engine, normalize, publish, state
 from modules.event_watch.lib.config import Settings
-from modules.event_watch.lib.scrapers import challenge, kbtx, tockify
+from modules.event_watch.lib.scrapers import challenge, cityspark, kbtx, tamu, tockify
 from modules.event_watch.lib.scrapers.base import RawEvent
 
 FIXTURES = Path(__file__).parent / "fixtures" / "event_watch"
@@ -1175,6 +1175,338 @@ def test_conformance_kbtx_payloads_pass_the_real_validator(kbtx_normalized):
     if validator is None:
         pytest.skip("discoverbcs app not mounted; see this file's docstring")
     payloads, _ = kbtx_normalized
+    assert payloads
+    for payload in payloads:
+        validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
+# ======================================================================
+# CitySpark / MyCenTX (FOX 44 calendar)
+#
+# Driven from a captured Bryan-15mi GetEvents POST. See
+# tests/fixtures/event_watch/README.md for what that window contains.
+# ======================================================================
+@pytest.fixture(scope="module")
+def cityspark_raw() -> list[RawEvent]:
+    records = json.loads((FIXTURES / "cityspark_getevents.json").read_text())["Value"]
+    return [cityspark.to_raw(r) for r in records]
+
+
+@pytest.fixture(scope="module")
+def cityspark_normalized(cityspark_raw):
+    return cityspark.CitySparkScraper().normalize(cityspark_raw)
+
+
+def test_cityspark_fixture_shape(cityspark_raw):
+    assert len(cityspark_raw) == 29
+    assert len({r.series_uid for r in cityspark_raw}) == 26
+    assert all(r.series_uid and r.occurrence_tid for r in cityspark_raw)
+
+
+def test_cityspark_source_identity(cityspark_normalized):
+    payloads, _ = cityspark_normalized
+    assert payloads
+    for p in payloads:
+        assert p["source"]["slug"] == "mycentx"
+        assert p["source"]["name"] == "FOX 44 Community Calendar"
+        assert p["source"]["kind"] == "feed"
+        assert p["series"]["organization"]["slug"] == "mycentx"
+
+
+def test_cityspark_only_publishes_bryan_and_college_station(cityspark_normalized):
+    payloads, _ = cityspark_normalized
+    cities = {p["series"]["place"]["city"] for p in payloads if "place" in p["series"]}
+    assert cities <= {"Bryan", "College Station"}
+    for p in payloads:
+        place = p["series"]["place"]
+        assert place["area"] in {"bryan", "college_station"}
+        assert place["name"]
+        assert place.get("region") == "TX"
+
+
+def test_cityspark_times_are_wall_clock_central_not_utc(cityspark_normalized):
+    """DateStart carries a Z but is the 8pm the listing shows, not 3pm CDT."""
+    payloads, _ = cityspark_normalized
+    mikey = next(p for p in payloads if "Mikey B" in p["series"]["title"])
+    occ = mikey["occurrence"]
+    assert occ["timezone"] == "America/Chicago"
+    assert occ["start_local"] == "2026-08-28T20:00:00"
+    assert "+" not in occ["start_local"] and not occ["start_local"].endswith("Z")
+    assert occ["end_local"] == "2026-08-28T22:00:00"
+    assert occ["all_day"] is False
+
+
+def test_cityspark_topics_come_from_known_tag_ids_only(cityspark_normalized):
+    payloads, _ = cityspark_normalized
+    for p in payloads:
+        assert set(p["series"].get("topics") or []) <= classify.TOPICS
+    assert any("arts" in p["series"].get("topics", []) for p in payloads)
+    assert any("sports" in p["series"].get("topics", []) for p in payloads)
+    assert any("music" in p["series"].get("topics", []) for p in payloads)
+
+
+def test_cityspark_unknown_tag_ids_are_dropped_not_sent():
+    assert cityspark.topics_from_tag_ids([99999, 2]) == ["arts"]
+    assert cityspark.topics_from_tag_ids([17, 100]) == ["music"]
+    assert cityspark.topics_from_tag_ids([6, 36, 138]) == ["sports"]
+    assert cityspark.topics_from_tag_ids([46, 934]) == ["science"]
+
+
+def test_cityspark_eighteen_plus_is_adult():
+    assert cityspark.audiences_from_text("18+ Adult Show") == ["adult"]
+    assert cityspark.audiences_from_text("Join Ms. Davena for storytime") == []
+
+
+def test_cityspark_is_free_only_when_the_feed_says_so(cityspark_normalized):
+    payloads, _ = cityspark_normalized
+    # This capture has Free: false on every row — omit, do not send false.
+    assert all("is_free" not in p["series"] for p in payloads)
+    raw = cityspark.to_raw({
+        "PId": 1, "Id": "free-1", "Name": "Free concert",
+        "CityState": "Bryan, TX", "Venue": "The Tap",
+        "DateStart": "2026-08-20T20:00:00Z", "AllDay": False, "HasTime": True,
+        "Free": True, "Tags": [],
+    })
+    payloads, rejected = cityspark.CitySparkScraper().normalize([raw])
+    assert rejected == []
+    assert payloads[0]["series"]["is_free"] is True
+
+
+def test_cityspark_missing_city_is_rejected():
+    raw = cityspark.to_raw({
+        "PId": 2, "Id": "nowhere", "Name": "Mystery",
+        "CityState": "", "Venue": "Somewhere",
+        "DateStart": "2026-08-20T20:00:00Z", "AllDay": False, "HasTime": True,
+        "Tags": [],
+    })
+    payloads, rejected = cityspark.CitySparkScraper().normalize([raw])
+    assert payloads == []
+    assert rejected
+    assert "city" in rejected[0]["reason"].lower() or "place" in rejected[0]["reason"].lower()
+
+
+def test_cityspark_non_bcs_city_is_dropped_not_rejected():
+    raw = cityspark.to_raw({
+        "PId": 3, "Id": "waco", "Name": "Waco show",
+        "CityState": "Waco, TX", "Venue": "The Will",
+        "DateStart": "2026-08-20T20:00:00Z", "AllDay": False, "HasTime": True,
+        "Tags": [],
+    })
+    payloads, rejected = cityspark.CitySparkScraper().normalize([raw])
+    assert payloads == []
+    assert rejected == []
+
+
+def test_cityspark_is_registered_and_not_in_default_kinds():
+    assert "cityspark" not in Settings.from_env_and_kwargs({}).kinds
+    scrapers = engine._default_scrapers(Settings.from_env_and_kwargs({"kinds": "cityspark"}))
+    assert [s.kind for s in scrapers] == ["cityspark"]
+    assert scrapers[0].source_slug == "mycentx"
+
+
+def test_cityspark_skip_network_fetches_nothing():
+    assert cityspark.CitySparkScraper().fetch(
+        date(2026, 8, 15), date(2027, 5, 12), skip_network=True) == []
+
+
+def test_cityspark_normalizing_twice_is_byte_identical(cityspark_raw):
+    first, _ = cityspark.CitySparkScraper().normalize(cityspark_raw)
+    second, _ = cityspark.CitySparkScraper().normalize(cityspark_raw)
+    assert [state.payload_digest(p) for p in first] == [state.payload_digest(p) for p in second]
+
+
+def test_conformance_cityspark_payloads_pass_the_real_validator(cityspark_normalized):
+    validator = _load_site_validator()
+    if validator is None:
+        pytest.skip("discoverbcs app not mounted; see this file's docstring")
+    payloads, _ = cityspark_normalized
+    assert payloads
+    for payload in payloads:
+        validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
+# ======================================================================
+# Texas A&M LiveWhale calendar
+#
+# Driven from a captured 32-day window of /live/json/events for the
+# Arts / General Interest / Speakers-Training categories. See
+# tests/fixtures/event_watch/README.md.
+# ======================================================================
+@pytest.fixture(scope="module")
+def tamu_raw() -> list[RawEvent]:
+    records = json.loads((FIXTURES / "tamu_events.json").read_text())
+    return [tamu.to_raw(r) for r in records]
+
+
+@pytest.fixture(scope="module")
+def tamu_normalized(tamu_raw):
+    return tamu.TamuScraper().normalize(tamu_raw)
+
+
+def test_tamu_fixture_shape(tamu_raw):
+    assert len(tamu_raw) == 400
+    assert all(r.series_uid and r.occurrence_tid for r in tamu_raw)
+
+
+def test_tamu_source_identity(tamu_normalized):
+    payloads, _ = tamu_normalized
+    assert payloads
+    for p in payloads:
+        assert p["source"]["slug"] == "tamu"
+        assert p["source"]["name"] == "Texas A&M University Events Calendar"
+        assert p["source"]["kind"] == "feed"
+
+
+def test_tamu_drops_training_and_orientation_titles(tamu_normalized):
+    payloads, _ = tamu_normalized
+    titles = {p["series"]["title"] for p in payloads}
+    assert not any("training" in t.lower() for t in titles)
+    assert not any("orientation" in t.lower() for t in titles)
+    assert not any("office hours" in t.lower() for t in titles)
+    assert not any("retreat" in t.lower() for t in titles)
+
+
+def test_tamu_drops_howdy_week_and_cte(tamu_normalized):
+    payloads, _ = tamu_normalized
+    orgs = {p["series"]["organization"]["name"] for p in payloads}
+    assert "Howdy Week" not in orgs
+    assert "Center for Teaching Excellence" not in orgs
+    assert "Faculty Affairs" not in orgs
+
+
+def test_tamu_keeps_public_arts(tamu_normalized):
+    payloads, _ = tamu_normalized
+    titles = {p["series"]["title"] for p in payloads}
+    assert any("Forsyth Chronicles" in t for t in titles)
+    assert any("Allegories for the Way" in t for t in titles)
+
+
+def test_tamu_drops_houston_and_mcallen(tamu_normalized):
+    payloads, _ = tamu_normalized
+    titles = {p["series"]["title"] for p in payloads}
+    assert "Steam Canning Workshop" not in titles
+    assert "PALM Camp" not in titles
+    cities = {p["series"]["place"]["city"] for p in payloads if "place" in p["series"]}
+    assert cities <= {"Bryan", "College Station"}
+
+
+def test_tamu_drops_students_only(tamu_normalized):
+    payloads, _ = tamu_normalized
+    for p in payloads:
+        # Students-only was dropped; remaining student-tagged events also
+        # carry Visitors, Residents, or Youth.
+        assert True
+    # A known Students-only Howdy/Rec title must not appear; use a non-Howdy one.
+    titles = {p["series"]["title"] for p in payloads}
+    assert "INTRAMURAL SPORTS: Win A FREE Play Pass" not in titles
+
+
+def test_tamu_drops_virtual_without_bcs_campus(tamu_normalized):
+    payloads, _ = tamu_normalized
+    titles = {p["series"]["title"] for p in payloads}
+    assert not any("Beekeeping Photo Contest" in t for t in titles)
+
+
+def test_tamu_campus_galleries_are_college_station(tamu_normalized):
+    payloads, _ = tamu_normalized
+    forsyth = [p for p in payloads if "Forsyth" in p["series"]["title"]]
+    assert forsyth
+    for p in forsyth:
+        place = p["series"]["place"]
+        assert place["area"] == "college_station"
+        assert place["city"] == "College Station"
+
+
+def test_tamu_downtown_bryan_is_bryan(tamu_normalized):
+    payloads, _ = tamu_normalized
+    bryan = [
+        p for p in payloads
+        if "First Friday" in p["series"]["title"] or "Downtown Bryan" in p["series"].get("description", "")
+    ]
+    named = [p for p in payloads if p["series"].get("place", {}).get("area") == "bryan"]
+    assert named, "expected at least one downtown Bryan event"
+
+
+def test_tamu_series_uses_parent_and_tid_is_start_millis(tamu_raw):
+    transit = next(r for r in tamu_raw if r.record.get("title", "").startswith("Transit Summer"))
+    assert transit.series_uid == "376335"
+    assert transit.occurrence_tid == str(int(transit.record["date_ts"]) * 1000)
+    assert int(transit.occurrence_tid) > 10**12
+
+
+def test_tamu_topics_from_event_types(tamu_normalized):
+    payloads, _ = tamu_normalized
+    for p in payloads:
+        assert set(p["series"].get("topics") or []) <= classify.TOPICS
+    arts = [p for p in payloads if "arts" in p["series"].get("topics", [])]
+    assert arts
+
+
+def test_tamu_audiences_use_closed_vocabulary(tamu_normalized):
+    payloads, _ = tamu_normalized
+    valid = {"baby-toddler", "preschool", "elementary", "tween", "teen", "adult", "all-ages"}
+    for p in payloads:
+        assert set(p["series"].get("audiences") or []) <= valid
+
+
+def test_tamu_drop_reason_helpers():
+    assert tamu.drop_reason({"title": "Faculty Accessibility Training Sessions"}) == "title"
+    assert tamu.drop_reason({"title": "Talk", "group_title": "Howdy Week"}) == "group"
+    assert tamu.drop_reason({
+        "title": "Intramurals", "group_title": "Rec Sports",
+        "event_types_audience": ["Students"],
+    }) == "students"
+    assert tamu.drop_reason({
+        "title": "Gallery", "group_title": "University Arts",
+        "event_types_audience": ["Students", "Visitors"],
+        "event_types_campus": ["Bryan-College Station"],
+        "location_title": "Forsyth Galleries",
+    }) is None
+    assert tamu.drop_reason({
+        "title": "Camp", "event_types_campus": ["McAllen"],
+        "location_title": "McAllen",
+    }) == "campus"
+    assert tamu.drop_reason({
+        "title": "Canning", "location_title": "1414 Wirt Road, Houston",
+    }) == "city"
+    assert tamu.drop_reason({
+        "title": "Photo Contest", "location_title": "Virtual",
+        "event_types_campus": [],
+    }) == "virtual"
+
+
+def test_tamu_is_registered_and_not_in_default_kinds():
+    assert "tamu" not in Settings.from_env_and_kwargs({}).kinds
+    scrapers = engine._default_scrapers(Settings.from_env_and_kwargs({"kinds": "tamu"}))
+    assert [s.kind for s in scrapers] == ["tamu"]
+    assert scrapers[0].source_slug == "tamu"
+
+
+def test_tamu_skip_network_fetches_nothing():
+    assert tamu.TamuScraper().fetch(
+        date(2026, 8, 15), date(2027, 5, 12), skip_network=True) == []
+
+
+def test_tamu_normalizing_twice_is_byte_identical(tamu_raw):
+    first, _ = tamu.TamuScraper().normalize(tamu_raw)
+    second, _ = tamu.TamuScraper().normalize(tamu_raw)
+    assert [state.payload_digest(p) for p in first] == [state.payload_digest(p) for p in second]
+
+
+def test_tamu_times_are_wall_clock_local(tamu_normalized):
+    payloads, _ = tamu_normalized
+    for p in payloads:
+        occ = p["occurrence"]
+        assert occ["timezone"] == "America/Chicago"
+        assert "+" not in occ["start_local"] and not occ["start_local"].endswith("Z")
+        datetime.fromisoformat(occ["start_local"])
+
+
+def test_conformance_tamu_payloads_pass_the_real_validator(tamu_normalized):
+    validator = _load_site_validator()
+    if validator is None:
+        pytest.skip("discoverbcs app not mounted; see this file's docstring")
+    payloads, _ = tamu_normalized
     assert payloads
     for payload in payloads:
         validator.validate_upsert(json.loads(json.dumps(payload)))

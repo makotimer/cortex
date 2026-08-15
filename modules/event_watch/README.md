@@ -8,6 +8,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `tockify` | Bryan + College Station Public Library System | run default (270d) | JSON + ICS feeds |
 | `challenge` | Challenge Entertainment — pub trivia, Singo, bingo | **35d** (own cap) | AJAX API, one request per day |
 | `kbtx` | KBTX Community Calendar (Tockify `kbtx.calendar`) | run default (270d) | JSON + ICS; BCS only; address-kit fallback |
+| `cityspark` | FOX 44 / MyCenTX (CitySpark widget API) | run default (270d) | Bryan 15mi; direct, not fox44news.com |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -22,6 +23,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bcslibrary` | `tockify` | Wed/Sun 03:40 | `rotate_vpn_per_run: false` |
 | `event-watch-challenge` | `challenge` | Wed/Sun 03:55 | `proxy_url: ""` |
 | `event-watch-kbtx` | `kbtx` | Wed/Sun 04:10 | `rotate_vpn_per_run: false` |
+| `event-watch-cityspark` | `cityspark` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -35,10 +37,11 @@ sending the library feed out un-proxied or letting the Challenge fetch fail on
 every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
-`["tockify", "challenge"]` — `kbtx` is opt-in so a bare run does not silently
-add a third source. A job that omits `kinds` would pick up Challenge through
-whatever proxy that job has, and the library job would then email a fetch
-failure twice a week.
+`["tockify", "challenge"]` — `kbtx` and `cityspark` are opt-in so a bare run
+does not silently add them. A job that omits `kinds` would pick up Challenge
+through whatever proxy that job has, and the library job would then email a
+fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
+fox44news.com; it goes direct like Challenge.
 
 The 15-minute offset is only politeness: the two runs share no state and no
 source, so overlapping would be harmless.
@@ -140,6 +143,18 @@ attention email. `normalize` never calls the kit.
 
 `kbtx` is not in `DEFAULT_KINDS`. Pin it.
 
+## CitySpark / MyCenTX
+
+FOX 44 embeds CitySpark. The page on fox44news.com is PerimeterX; the feed is
+`POST https://portal.cityspark.com/api/events/GetEvents/MyCenTX` with no auth.
+The filter is Bryan + 15 miles — the same one as the station's public URL.
+
+`DateStart` is wall-clock Central wearing a `Z`. Believing the suffix would
+shift every timed listing five or six hours. `Free` is false on the whole
+captured window, so `is_free` is omitted rather than sent as a lie.
+
+`cityspark` is not in `DEFAULT_KINDS`. Pin it, and run it un-proxied.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -170,9 +185,12 @@ For `challenge`, against a captured week and a live five-week dry run:
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true --no-email
 
-# One source only (and un-proxied, which challenge currently needs)
+# One source only (and un-proxied, which challenge and cityspark currently need)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=challenge proxy_url= --no-email
+
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=cityspark proxy_url= --no-email
 
 # KBTX (Tockify; uses the same proxy as the library job)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \

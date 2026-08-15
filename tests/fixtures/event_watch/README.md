@@ -5,6 +5,7 @@ One set per source. Both were captured live on **2026-08-12**.
 - [Tockify — BCS Library](#tockify--bcs-library)
 - [Challenge Entertainment](#challenge-entertainment)
 - [KBTX Community Calendar](#kbtx-community-calendar)
+- [CitySpark — MyCenTX / FOX 44](#cityspark--mycentx--fox-44)
 
 ---
 
@@ -102,6 +103,25 @@ uid appears in the JSON window are kept.
 - **13 events after the duration filter still have no city** — garbled
   addresses (`Univery Drive`, `Briarest Dve`). Those reject loudly unless
   `enrich_places` has already attached an address-kit result.
+
+## CitySpark — MyCenTX / FOX 44
+
+Captured **2026-08-15** from the widget API the FOX 44 calendar actually
+calls, not from fox44news.com (PerimeterX). Filter is the same as the
+station's public URL: Bryan, TX, 15 miles, sort Popularity, start 2026-08-15.
+
+| File | Source |
+|---|---|
+| `cityspark_getevents.json` | `POST https://portal.cityspark.com/api/events/GetEvents/MyCenTX` — both pages concatenated into one `Value` array |
+
+### What this window actually contains
+
+- **29 occurrences, 26 series.**
+- **Cities:** College Station 23, Bryan 6. Nothing else survived the 15-mile filter.
+- **8 listings have no venue name** (mostly A&M sports). City + lat/lng are still present; the place name falls back to the city.
+- **`DateStart` is wall-clock Central with a fake `Z`.** Mikey B is listed at 8:00pm; the JSON says `2026-08-28T20:00:00Z`, which is 3pm CDT if believed. The injector strips the Z.
+- **`Free` is false on every row.** `is_free` is omitted, not sent as false.
+- **`18+` arrives escaped** as `18\\+` in Mikey B's description.
 
 ## Refreshing
 
