@@ -8,6 +8,7 @@ One set per source. Both were captured live on **2026-08-12**.
 - [CitySpark — MyCenTX / FOX 44](#cityspark--mycentx--fox-44)
 - [TAMU LiveWhale](#tamu-livewhale)
 - [City of Bryan](#city-of-bryan)
+- [Lake Walk](#lake-walk)
 
 ---
 
@@ -166,6 +167,19 @@ Page 2 is empty. 25 + 21 = **46 cards, 17 series**.
   else is Bryan.
 - **`0000` + 12:00 AM** is how holiday closures are stored; those are all-day.
 - **Senior Citizens Day** is `0530` in the URL (5:30am). The 12-hour line agrees.
+
+## Lake Walk
+
+Captured **2026-08-15**, page 1 of
+`GET /wp-json/tribe/events/v1/events?start_date=2026-08-15&end_date=2027-05-12&per_page=50`.
+Image blobs and venue HTML stripped.
+
+The endpoint reports **2711 / 55 pages**. Page 1 is 50 rows that are only
+**two real occurrences**: Community Yoga on 15 Aug (26 ghost copies) and
+Stroller Barre on 18 Aug (24 copies). Dated slugs
+(`community-yoga-at-lake-walk-2-2-2026-03-07`) are TEC recurrence debris
+all remapped to the same `start_date`. Normalize keeps one per
+`(series, start)`.
 
 ## Refreshing
 

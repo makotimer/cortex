@@ -26,7 +26,9 @@ import pytest
 
 from modules.event_watch.lib import classify, engine, normalize, publish, state
 from modules.event_watch.lib.config import Settings
-from modules.event_watch.lib.scrapers import bryantx, challenge, cityspark, kbtx, tamu, tockify
+from modules.event_watch.lib.scrapers import (
+    bryantx, challenge, cityspark, kbtx, lakewalk, tamu, tockify,
+)
 from modules.event_watch.lib.scrapers.base import RawEvent
 
 FIXTURES = Path(__file__).parent / "fixtures" / "event_watch"
@@ -1656,6 +1658,149 @@ def test_conformance_bryantx_payloads_pass_the_real_validator(bryantx_normalized
     if validator is None:
         pytest.skip("discoverbcs app not mounted; see this file's docstring")
     payloads, _ = bryantx_normalized
+    assert payloads
+    for payload in payloads:
+        validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
+# ======================================================================
+# Lake Walk (The Events Calendar REST)
+#
+# One captured page of the tribe/events/v1 feed. TEC repeats each real
+# occurrence ~25 times with dated slugs; normalize keeps one per
+# (series, start). See tests/fixtures/event_watch/README.md.
+# ======================================================================
+@pytest.fixture(scope="module")
+def lakewalk_raw() -> list[RawEvent]:
+    records = json.loads((FIXTURES / "lakewalk_events.json").read_text())["events"]
+    return [lakewalk.to_raw(r) for r in records]
+
+
+@pytest.fixture(scope="module")
+def lakewalk_normalized(lakewalk_raw):
+    return lakewalk.LakeWalkScraper().normalize(lakewalk_raw)
+
+
+def test_lakewalk_fixture_shape(lakewalk_raw):
+    assert len(lakewalk_raw) == 50
+    # TEC ghosts: 26 yoga + 24 barre copies of two real dates.
+    assert {r.record.get("title") for r in lakewalk_raw} == {
+        "Lake Walk Community Yoga", "Stroller Barre",
+    }
+
+
+def test_lakewalk_dedupes_ghost_occurrences(lakewalk_normalized):
+    payloads, rejected = lakewalk_normalized
+    assert rejected == []
+    assert len(payloads) == 2
+    by_series = {p["series"]["source_series_uid"]: p for p in payloads}
+    assert set(by_series) == {
+        "community-yoga-at-lake-walk-2-2", "stroller-barre",
+    }
+    yoga = by_series["community-yoga-at-lake-walk-2-2"]
+    assert yoga["occurrence"]["start_local"] == "2026-08-15T08:00:00"
+    assert yoga["occurrence"]["end_local"] == "2026-08-15T09:00:00"
+    assert yoga["occurrence"]["timezone"] == "America/Chicago"
+    barre = by_series["stroller-barre"]
+    assert barre["occurrence"]["start_local"] == "2026-08-18T09:30:00"
+
+
+def test_lakewalk_series_uid_strips_dated_slug_suffix():
+    assert lakewalk.series_uid("community-yoga-at-lake-walk-2-2") == \
+        "community-yoga-at-lake-walk-2-2"
+    assert lakewalk.series_uid("community-yoga-at-lake-walk-2-2-2026-03-07") == \
+        "community-yoga-at-lake-walk-2-2"
+    assert lakewalk.series_uid("stroller-barre-2025-02-11") == "stroller-barre"
+
+
+def test_lakewalk_source_identity(lakewalk_normalized):
+    payloads, _ = lakewalk_normalized
+    for p in payloads:
+        assert p["source"]["slug"] == "lakewalk"
+        assert p["source"]["name"] == "Lake Walk"
+        assert p["source"]["kind"] == "feed"
+        assert p["series"]["organization"]["slug"] == "lakewalk"
+
+
+def test_lakewalk_pavilion_is_bryan(lakewalk_normalized):
+    payloads, _ = lakewalk_normalized
+    for p in payloads:
+        place = p["series"]["place"]
+        assert place["name"] == "The Pavilion at Lake Walk"
+        assert place["street"] == "4107 Lake Atlas Dr"
+        assert place["city"] == "Bryan"
+        assert place["postcode"] == "77807"
+        assert place["area"] == "bryan"
+        assert place["region"] == "TX"
+
+
+def test_lakewalk_venue_list_uses_the_first_entry():
+    raw = lakewalk.to_raw({
+        "id": 1,
+        "title": "Stroller Barre",
+        "slug": "stroller-barre",
+        "start_date": "2026-08-18 09:30:00",
+        "end_date": "2026-08-18 10:30:00",
+        "timezone": "America/Chicago",
+        "all_day": False,
+        "categories": [{"slug": "family-friendly", "name": "Family Friendly"}],
+        "venue": [
+            {"venue": "The Pavilion at Lake Walk", "address": "4107 Lake Atlas Dr",
+             "city": "Bryan", "zip": "77807", "stateprovince": "TX"},
+            {"venue": "The Pavilion at Lake Walk", "address": "4107 Lake Atlas Dr",
+             "city": "Bryan", "zip": "77807", "stateprovince": "TX"},
+        ],
+    })
+    payloads, rejected = lakewalk.LakeWalkScraper().normalize([raw])
+    assert rejected == []
+    assert payloads[0]["series"]["place"]["name"] == "The Pavilion at Lake Walk"
+
+
+def test_lakewalk_topics_and_audiences_from_categories(lakewalk_normalized):
+    payloads, _ = lakewalk_normalized
+    yoga = next(p for p in payloads if "Yoga" in p["series"]["title"])
+    assert yoga["series"]["topics"] == ["sports"]
+    assert yoga["series"].get("audiences") == []
+    barre = next(p for p in payloads if "Barre" in p["series"]["title"])
+    assert "all-ages" in barre["series"]["audiences"]
+    assert "is_free" not in barre["series"]
+
+
+def test_lakewalk_unknown_category_slugs_are_dropped():
+    assert lakewalk.topics_from_categories(["wellness", "yoga"]) == []
+    assert lakewalk.topics_from_categories(["athletics", "live-music"]) == ["music", "sports"]
+    assert lakewalk.topics_from_categories(["community", "dining"]) == ["community"]
+
+
+def test_lakewalk_is_free_only_when_cost_says_so():
+    assert lakewalk.is_free("", {"values": []}) is False
+    assert lakewalk.is_free("Free", {"values": []}) is True
+    assert lakewalk.is_free("$0", {"values": ["0"]}) is True
+
+
+def test_lakewalk_is_registered_and_not_in_default_kinds():
+    assert "lakewalk" not in Settings.from_env_and_kwargs({}).kinds
+    scrapers = engine._default_scrapers(Settings.from_env_and_kwargs({"kinds": "lakewalk"}))
+    assert [s.kind for s in scrapers] == ["lakewalk"]
+    assert scrapers[0].source_slug == "lakewalk"
+
+
+def test_lakewalk_skip_network_fetches_nothing():
+    assert lakewalk.LakeWalkScraper().fetch(
+        date(2026, 8, 15), date(2027, 5, 12), skip_network=True) == []
+
+
+def test_lakewalk_normalizing_twice_is_byte_identical(lakewalk_raw):
+    first, _ = lakewalk.LakeWalkScraper().normalize(lakewalk_raw)
+    second, _ = lakewalk.LakeWalkScraper().normalize(lakewalk_raw)
+    assert [state.payload_digest(p) for p in first] == [state.payload_digest(p) for p in second]
+
+
+def test_conformance_lakewalk_payloads_pass_the_real_validator(lakewalk_normalized):
+    validator = _load_site_validator()
+    if validator is None:
+        pytest.skip("discoverbcs app not mounted; see this file's docstring")
+    payloads, _ = lakewalk_normalized
     assert payloads
     for payload in payloads:
         validator.validate_upsert(json.loads(json.dumps(payload)))
