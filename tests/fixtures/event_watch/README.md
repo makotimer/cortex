@@ -181,6 +181,21 @@ Stroller Barre on 18 Aug (24 copies). Dated slugs
 all remapped to the same `start_date`. Normalize keeps one per
 `(series, start)`.
 
+## Brazos Valley Museum
+
+Captured **2026-08-15** from `https://www.brazosvalleymuseum.org/`.
+Slimmed to the Upcoming Events repeater (`#comp-k5cycbh5`) plus the
+exhibits repeater so the parser has to pick the right strip.
+
+| File | Source |
+|---|---|
+| `bvmuseum_home.html` | homepage Upcoming Events + exhibits cards |
+
+- **4 upcoming cards**, yearless: Summer Nature Camp (Jun 2–Aug 8, 9 a.m.–3 p.m.), Wish Upon a Butterfly (Jul 25, 9 a.m.–12 p.m.), Buffalo Stampede (Oct 18, 7:30 a.m. in the body), Boonville Days (Oct 18, 9 a.m.–4 p.m.).
+- **3 exhibit cards** (Discovery Room, etc.) must not be parsed as events.
+- Camp's Learn More is the homepage; the others have dedicated paths.
+- Against a window starting 2026-08-15, camp and butterfly drop as past.
+
 ## Destination Bryan
 
 Captured **2026-08-15** from

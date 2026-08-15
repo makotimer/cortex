@@ -13,6 +13,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `bryantx` | City of Bryan GOVstack calendar | run default (270d) | HTML `_List` pages; direct |
 | `lakewalk` | Lake Walk (The Events Calendar) | run default (270d) | tribe REST; dedupe TEC ghosts; direct |
 | `destbryan` | Destination Bryan Craft directory | run default (270d) | HTML list + JSON-LD; all categories; nearby ZIPs |
+| `bvmuseum` | Brazos Valley Museum of Natural History | run default (270d) | Homepage Upcoming Events repeater; year from the run; direct |
 | `visitcstx` | Visit College Station (Algolia Events) | run default (270d) | InstantSearch index; all categories; not destbryan |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
@@ -33,6 +34,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bryantx` | `bryantx` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-lakewalk` | `lakewalk` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-destbryan` | `destbryan` | Wed/Sun 04:40 | `rotate_vpn_per_run: false` |
+| `event-watch-bvmuseum` | `bvmuseum` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-visitcstx` | `visitcstx` | Wed/Sun 04:50 | `rotate_vpn_per_run: false` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
@@ -47,8 +49,8 @@ sending the library feed out un-proxied or letting the Challenge fetch fail on
 every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
-`["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx` and
-`lakewalk` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
+`lakewalk` and `bvmuseum` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -206,6 +208,22 @@ Venue is almost always The Pavilion at Lake Walk in Bryan. `wellness` /
 `yoga` are not in the site vocab and are dropped. `lakewalk` is not in
 `DEFAULT_KINDS`. Pin it and run direct.
 
+## Brazos Valley Museum
+
+The `/calendar` page is a Wix Events widget whose API holds only ended
+rows (a 2020 camp plus leftover demo shows). What they actually maintain
+is the homepage **Upcoming Events** repeater (`#comp-k5cycbh5`).
+
+Cards carry month, day and a clock, but no year. Fetch assigns the run
+window's year and drops a card whose whole span is already past. Detail
+pages are not a second clock — Learn More is the permalink only. One
+card is one series and one occurrence; camp weeks and the 5K / 1-mile
+are not expanded.
+
+The museum is at 3232 Briarcrest Dr, Bryan. No topic or audience labels
+are on the cards, so those stay empty. `bvmuseum` is not in
+`DEFAULT_KINDS`. Pin it and run direct.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -266,6 +284,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Lake Walk (TEC REST; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=lakewalk proxy_url= --no-email
+
+# Brazos Valley Museum (homepage repeater; un-proxied)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=bvmuseum proxy_url= --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test
