@@ -1,0 +1,425 @@
+{
+  "rows": [
+    {
+      "id": 50500,
+      "from": 1786815027,
+      "to": 1786816800,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On August 15th, we'll be reading books about octopuses! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/octopus.jpg?cb=1778023676",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 50999,
+      "from": 1787419841,
+      "to": 1787421600,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On August 22nd, we'll be reading books about school! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/alpaca.jpg?cb=1783011373",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 50518,
+      "from": 1787432443,
+      "to": 1787437843,
+      "info": {
+        "name": "Annie Hartnett Author Event",
+        "description": "<p>Annie Hartnett is the bestselling author of three award-winning novels: Rabbit Cake, Unlikely Animals, and The Road to Tender Hearts. Her latest novel, The Road to Tender Hearts, won&nbsp;the 2025 New England Book Award for fiction.&nbsp;Annie currently lives in Massachusetts with her husband, daughter, and dog.</p><p>\r\nAnnie will be visiting Mounce on Saturday, August 22nd for a presentation, Q&amp;A, and book signing. This event is free to attend, and you can find more details and register at https://www.bcslibrary.org/programs/author-series/.\r\n</p><p> \r\n**This event is happening at Clara B. Mounce Library&nbsp;and NOT Hyperbole Bookstore.**</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/Author_Event2.jpg?cb=1778095302",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 50996,
+      "from": 1787882431,
+      "to": 1787887800,
+      "info": {
+        "name": "Thriller Book Club",
+        "description": "<p>Hyperbole Bookstore's monthly thriller book club is open to all adult readers! For July, we are reading Pretty Dead Things by Kelsey Cox,&nbsp;a tense and twisty psychological thriller. According to Publishers Weekly, \"Cox builds to satisfying reveals and delivers well-honed critiques of pageant culture. Fans of suburban suspense will enjoy themselves.\" </p><p> \r\nJoin us at Downtown Uncorked for beverages, books, and bountiful conversation. Downtown Uncorked is located in south College Station at 1551 Greens Prairie Road, Suite 102. This month's book is 15% off both in store and online. Reserve your copy today!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/m__41_.jpeg?cb=1783009504",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 50997,
+      "from": 1788024625,
+      "to": 1788026400,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On August 29th, we'll be reading books about unicorns! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/unicorn.jpg?cb=1783009997",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 50998,
+      "from": 1788629425,
+      "to": 1788631200,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On September 5th, we'll be reading books about farms! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/farms.jpg?cb=1783010051",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51088,
+      "from": 1788919219,
+      "to": 1788924600,
+      "info": {
+        "name": "September Book Club",
+        "description": "<p>Hyperbole Bookstore's own book club is open to all adult readers! For September, we are reading Meet Me in the Garden by Nina LaCour, a sweeping and profound historical family saga. According to Publishers Weekly, \"LaCour\u2019s sensuous novel is steeped in rich details of jazz, Creole cooking, and California glamour, and the characters are pitch-perfect.\u201d</p><p>\r\nJoin us at Downtown Uncorked for beverages, books, and bountiful conversation. Downtown Uncorked is located in south College Station at 1551 Greens Prairie Road, Suite 102. This month's book is 15% off both in store and online. Reserve your copy today!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/garden.jpg?cb=1784064028",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51210,
+      "from": 1789234204,
+      "to": 1789236000,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On September 12th, we'll be reading books about dragons! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/dragon.jpg?cb=1785608812",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 50840,
+      "from": 1789605027,
+      "to": 1789610400,
+      "info": {
+        "name": "Amanda Churchill Author Event",
+        "description": "<p>Amanda Churchill is the author of The Turtle House, the 2025 winner of the Reading the West Award in Debut Fiction. Her work has been featured in Lit Hub, Hobart Pulp, Witness, and other outlets. She holds a master\u2019s degree in creative writing from the University of North Texas. She lives in Keller, Texas, with her family.</p><p>Amanda will be visiting Mounce Library on Wednesday, September 16th for a presentation, Q&amp;A, and book signing. This event is free to attend, and you can find more details and register at https://www.bcslibrary.org/programs/author-series/.\r\n</p><p>\r\n**This event is happening at Mounce Library and NOT Hyperbole Bookstore.**</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/Author_Event2__1_.jpg?cb=1781198004",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51211,
+      "from": 1789839006,
+      "to": 1789840800,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On September 19th, we'll be reading books about fire! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/fire.jpg?cb=1785608869",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51089,
+      "from": 1790301630,
+      "to": 1790307000,
+      "info": {
+        "name": "Thriller Book Club",
+        "description": "<p>Hyperbole Bookstore's monthly thriller book club is open to all adult readers! For September, we are reading Three Reasons for Revenge by Dervla McTiernan, a moody, character-driven thriller. According to Library Journal, it's a \"well-paced, complex thriller with disparate threads expertly woven into a satisfying whole.\"\r\n</p><p>\r\nJoin us at Downtown Uncorked for beverages, books, and bountiful conversation. Downtown Uncorked is located in south College Station at 1551 Greens Prairie Road, Suite 102. This month's book is 15% off both in store and online. Reserve your copy today!</p>",
+        "img_path": "/i/9932461/revenge.jfif?cb=1784064355",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51212,
+      "from": 1790443825,
+      "to": 1790445600,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On September 26th, we'll be reading books about mushrooms! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/mushrooms.jpg?cb=1785608950",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51141,
+      "from": 1790658003,
+      "to": 1790663400,
+      "info": {
+        "name": "Threshing Day Release Party",
+        "description": "<p>The next book in the bestselling Empyrean series by Rebecca Yarros arrives&nbsp;on September 29th, so join us at Hyperbole Bookstore on September&nbsp;28th at 10 PM to count down the minutes until the official release of Threshing Day. This deluxe first edition features thirteen original stories set on Threshing Day as well as brand new full-color art. The book is available to pre-order now through our website (which we strongly encourage!!). </p><p>We are not allowed to sell the book until 11 PM, but you can expect snacks, trivia, and plenty of other Fourth Wing fans to socialize with as we await Threshing Day. We'll be opening the doors at 10 PM, and non-reserved books will be reserved on a first-come, first-serve basis if you haven't pre-ordered. It will likely be crowded, so please leave your human and furry children at home for this one.&nbsp;</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/threshing.jpg?cb=1784841014",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51213,
+      "from": 1791048642,
+      "to": 1791050400,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On October 3rd, we'll be reading books about cheese! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/cheese.jpg?cb=1785609041",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51214,
+      "from": 1791653455,
+      "to": 1791655200,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On October 10th, we'll be reading books about pumpkins! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/pumpkin.jpg?cb=1785609102",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51136,
+      "from": 1791943245,
+      "to": 1791948600,
+      "info": {
+        "name": "October Book Club",
+        "description": "<p>Hyperbole Bookstore's own book club is open to all adult readers! For October, we are reading Whistler by Ann Patchett, an evocative and moving novel. According to Booklist, \"Patchett is even more entrancing, radiant, and heart-seizing than she is in Tom Lake in this tale of complicated marriages, secret love, fear, fury, courage, and reconciliation.\u201d </p><p>\r\nJoin us at Downtown Uncorked for beverages, books, and bountiful conversation. Downtown Uncorked is located in south College Station at 1551 Greens Prairie Road, Suite 102. This month's book is 15% off both in store and online. Reserve your copy today!</p>",
+        "img_path": "/i/9932461/m__4_.jfif?cb=1784838637",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51227,
+      "from": 1792026044,
+      "to": 1792031400,
+      "info": {
+        "name": "Sarah Beth Durst Author Visit",
+        "description": "<p>Sarah Beth Durst is the New York Times bestselling author of over 25 books for adults, teens and kids, including cozy fantasy, The Spellshop. She\u2019s been awarded the American Library Association\u2019s Alex Award, the Libby Book Award for Best Fantasy, and the Mythopoeic Fantasy Award. She lives in Stony Brook, New York, with her husband, her children, and her ill-mannered cat.</p><p>Sarah will be visiting Ringer Library on Wednesday, October 14th for a presentation, Q&amp;A, and book signing. This event is free to attend, and you can find more details and register at https://www.bcslibrary.org/programs/author-series/.</p><p>\r\n**This event is happening at Ringer Library and NOT Hyperbole Bookstore.**</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/6.jpg?cb=1785617019",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51215,
+      "from": 1792258251,
+      "to": 1792260000,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On October 17th, we'll be reading books about insects! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/bugs.jpg?cb=1785609145",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51137,
+      "from": 1792720847,
+      "to": 1792726200,
+      "info": {
+        "name": "Thriller Book Club",
+        "description": "<p>Hyperbole Bookstore's monthly thriller book club is open to all adult readers! For October, we are reading Marion by Leah Rowan, a fiendishly clever feminist remix of Psycho. According to Library Journal, \"beyond being a superior thriller/slasher blend, the book is also a thoughtful exploration of the bonds that connect sisters, as well as sisterhood writ large.\"</p><p>\r\nJoin us at Downtown Uncorked for beverages, books, and bountiful conversation. Downtown Uncorked is located in south College Station at 1551 Greens Prairie Road, Suite 102. This month's book is 15% off both in store and online. Reserve your copy today!</p>",
+        "img_path": "/i/9932461/marion.jfif?cb=1784838817",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51216,
+      "from": 1792863057,
+      "to": 1792864800,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On October 24th, we'll be reading books about spooky cats! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/cats.jpg?cb=1785609225",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51335,
+      "from": 1793080859,
+      "to": 1793086218,
+      "info": {
+        "name": "ACOTAR #6 Midnight Release Party",
+        "description": "<p>The next book in the bestselling A Court of Thorns and Roses series by Sarah J . Maas arrives on October 27th, so join us at Hyperbole Bookstore on October 26th at 11 PM to count down the minutes until the official release of ACOTAR #6. The book is available to pre-order now through our website (which we strongly encourage!!).\r\n</p><p>\r\nWe are not allowed to sell the book until midnight, but you can expect snacks, trivia, and plenty of other ACOTAR fans to socialize with as we await release day. We'll be opening the doors at 11 PM, and non-reserved books will be reserved on a first-come, first-serve basis if you haven't pre-ordered. It will likely be crowded, so please leave your human and furry children at home for this one. </p>",
+        "img_path": "/i/9932461/m__6_.jfif?cb=1786472623",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51217,
+      "from": 1793467854,
+      "to": 1793469600,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On October 31st, we'll be reading books about monsters! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/monsters.jpg?cb=1785609324",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51229,
+      "from": 1793840437,
+      "to": 1793845800,
+      "info": {
+        "name": "Elle Cosimano Author Visit",
+        "description": "<p>Elle Cosimano is a New York Times and USA Today bestselling author, an International Thriller Award winner, a Bran Stoker Award finalist, and an Edgar Award nominee.&nbsp;In addition to writing novels for teens and adults, her essays have appeared in The Huffington Post and Time. Elle lives with her husband and two sons in Virginia.</p><p>Elle will be visiting Ringer Library on Wednesday, November 4th for a presentation, Q&amp;A, and book signing. This event is free to attend, and you can find more details and register at https://www.bcslibrary.org/programs/author-series/.</p><p>\r\n**This event is happening at Ringer Library and NOT Hyperbole Bookstore.**\r\n\r\n</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/elle_cosimano.jpg?cb=1785618032",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51218,
+      "from": 1794072659,
+      "to": 1794074400,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On November 7th, we'll be reading books about cows! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/cow.jpg?cb=1785609413",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51138,
+      "from": 1794362406,
+      "to": 1794367800,
+      "info": {
+        "name": "November Book Club",
+        "description": "<p>Hyperbole Bookstore's own book club is open to all adult readers! For November, we are reading Exit Party by Emily St. John Mandel, a kaleidoscopic work of speculative fiction.&nbsp;According to Library Journal,&nbsp;this \"perceptive new dystopian novel explores what is lost in a rush to safety; it\u2019s a hymn to what falls when the center doesn\u2019t hold.\u201d</p><p>\r\nJoin us at Downtown Uncorked for beverages, books, and bountiful conversation. Downtown Uncorked is located in south College Station at 1551 Greens Prairie Road, Suite 102. This month's book is 15% off both in store and online. Reserve your copy today!</p>",
+        "img_path": "/i/9932461/m__5_.jfif?cb=1784839114",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51219,
+      "from": 1794677429,
+      "to": 1794679200,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On November 14th, we'll be reading books about sheep! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/sheep.jpg?cb=1785609646",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51297,
+      "from": 1795109450,
+      "to": 1795111200,
+      "info": {
+        "name": "Thriller Book Club",
+        "description": "<p>Hyperbole Bookstore's monthly thriller book club is open to all adult readers! For November, we are reading The Cloak and Dagger Club by Jackie McMahon, a classic 1930s mystery with modern humor. According to Kirkus Reviews, it's a \"wonderfully tricky golden age\u2013style mystery whose clever sleuths are faced with countless motives for murders.\"\r\n</p><p>\r\nJoin us at Downtown Uncorked for beverages, books, and bountiful conversation. Downtown Uncorked is located in south College Station at 1551 Greens Prairie Road, Suite 102. This month's book is 15% off both in store and online. Reserve your copy today!</p>",
+        "img_path": "/i/9932461/cloak_dagger.jfif?cb=1786202161",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51220,
+      "from": 1795282200,
+      "to": 1795284049,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On November 21st, we'll be reading books about imagination! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/imagination.jpg?cb=1785609794",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51221,
+      "from": 1795887010,
+      "to": 1795888800,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On November 28th, we'll be reading books about ponies! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/pony.jpg?cb=1785614863",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51222,
+      "from": 1796491849,
+      "to": 1796493600,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On December 5th, we'll be reading books about cookies! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/cookies.jpg?cb=1785614917",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51298,
+      "from": 1796751007,
+      "to": 1796752800,
+      "info": {
+        "name": "December Book Club",
+        "description": "<p>Hyperbole Bookstore's own book club is open to all adult readers! For December, we are reading Small Things Like These by Claire Keegan, a sparse and breathtaking short novel. According to the Sunday Times, it's \u201ca feat of compression, concerned with the nature of goodness and the texture of everyday life.\"\r\n</p><p>\r\nJoin us at Downtown Uncorked for beverages, books, and bountiful conversation. Downtown Uncorked is located in south College Station at 1551 Greens Prairie Road, Suite 102. This month's book is 15% off both in store and online. Reserve your copy today!</p>",
+        "img_path": "/i/9932461/smallthingslikethese.jfif?cb=1786202382",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51223,
+      "from": 1797096648,
+      "to": 1797098400,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On December 12th, we'll be reading books about rocks (but definitely not Christmas)! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/xmasrocks.jpg?cb=1785614999",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51224,
+      "from": 1797701454,
+      "to": 1797703200,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On December 19th, we'll be reading books about animals at Christmas! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/xmasanimal.jpg?cb=1785615153",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51225,
+      "from": 1798306238,
+      "to": 1798308000,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On December 26th, we'll be reading books about swamp animals! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/swamp.jpg?cb=1785615199",
+        "ticket": [],
+        "book": []
+      }
+    },
+    {
+      "id": 51226,
+      "from": 1798911033,
+      "to": 1798912800,
+      "info": {
+        "name": "Children's Storytime",
+        "description": "<p>Every Saturday at 10:30 AM is storytime at Hyperbole Bookstore! On January 2nd, we'll be reading books about magic! There will be books for sale and a simple craft for the kids after we finish reading. All ages are welcome to attend!</p>",
+        "img_path": "https://cdn1.bookmanager.com/i/9932461/magic.jpg?cb=1785615247",
+        "ticket": [],
+        "book": []
+      }
+    }
+  ],
+  "custom_content": []
+}

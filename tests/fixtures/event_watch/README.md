@@ -287,6 +287,20 @@ Captured **2026-08-15** from ``https://bvso.org/concerts/``,
 - Bach to Tchaikovsky is a leftover ``21 September`` with no year.
 - Season Release Party is April 14 at Benjamin Knox Gallery, no year.
 
+## Hyperbole Bookstore
+
+Captured **2026-08-15** from Bookmanager
+``POST https://api.bookmanager.com/customer/event/getList``
+(``store_id=1110171``, ``from=20260815``). Session id stripped by using
+the saved ``rows`` only.
+
+- **35 events, 15 series.** Children's Storytime is 21 Saturdays.
+- ``from``/``to`` unix stamps display in ``America/Los_Angeles``.
+  Storytime ``1786815027`` is 10:30 PDT (the advertised 10:30 AM), not
+  12:30 CDT.
+- ``ticket`` is empty on every row in this snapshot.
+- Author-visit titles overlap the library series; venue is the shop.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh

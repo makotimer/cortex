@@ -18,6 +18,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `visitcstx` | Visit College Station (Algolia Events) | run default (270d) | InstantSearch index; all categories; not destbryan |
 | `bush41` | George H.W. Bush Presidential Library | upcoming list | Drupal Views; date + optional body clock |
 | `bvso` | Brazos Valley Symphony Orchestra | run default (270d) | `/concerts/` + Tickera; year fail-closed |
+| `hyperbole` | Hyperbole Bookstore (Bookmanager) | run default (270d) | `event/getList`; LA wall-clock → Chicago |
 | `bcschamber` | BCS Chamber of Commerce (GrowthZone) | run default (270d) | `/api/events` XML; LocationDesc over Map*; direct |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
@@ -43,6 +44,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-visitcstx` | `visitcstx` | Wed/Sun 04:50 | `rotate_vpn_per_run: false` |
 | `event-watch-bush41` | `bush41` | Wed/Sun 05:05 | `rotate_vpn_per_run: false` |
 | `event-watch-bvso` | `bvso` | Wed/Sun 05:20 | `proxy_url: ""` |
+| `event-watch-hyperbole` | `hyperbole` | Wed/Sun 05:35 | `rotate_vpn_per_run: false` |
 | `event-watch-bcschamber` | `bcschamber` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
@@ -58,7 +60,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso` and `bcschamber` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole` and `bcschamber` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -255,6 +257,16 @@ College Station halls; any other named venue fails loudly.
 `bvso` is not in `DEFAULT_KINDS`. Pin it and run direct — gluetun
 exits get 403 from bvso.org.
 
+## Hyperbole Bookstore
+
+Bookmanager, not the HTML. `POST /customer/session/get` then
+`event/getList` (`store_id=1110171`). Unix `from`/`to` are shown in
+`America/Los_Angeles`; wall-clock 10:30 there is the 10:30 the store
+prints, filed as `America/Chicago`. Storytime is one series, one
+occurrence per Saturday (`source_occurrence_tid` is the Bookmanager
+id). One pinned College Station shop. `hyperbole` is not in
+`DEFAULT_KINDS`. Pin it.
+
 ## BCS Chamber of Commerce
 
 GrowthZone. The search HTML is a 10-card first paint; do not scroll it.
@@ -331,6 +343,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Brazos Valley Symphony Orchestra (direct; the site 403s gluetun)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=bvso proxy_url= --no-email
+
+# Hyperbole Bookstore (Bookmanager)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=hyperbole --no-email
 
 # City of Bryan (HTML list; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
