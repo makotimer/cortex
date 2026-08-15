@@ -8,6 +8,7 @@
 	up down reload reload-bridge rebuild \
 	logs logs-f tail tail-f \
 	career-report \
+	event-probe \
 	live-test \
 	trigger-reading \
 	clean
@@ -51,6 +52,14 @@ reload: ; ./scripts/reload.sh ## Rebuild and restart cortex container
 reload-bridge: ; ./scripts/reload.sh --bridge ## Rebuild and restart bridge + cortex
 rebuild: ; docker compose build --pull && docker compose up -d --force-recreate ## Pull base images, rebuild, and restart
 career-report: ; $(PYTHON) scripts/career_check.py ## Run career report script locally
+event-probe: ## Fetch a calendar URL through the VPN (URL='https://...')
+	@if [ -z "$(URL)" ]; then \
+	  echo "Usage: make event-probe URL='https://example.com/calendar/'"; \
+	  echo "  NO_ROTATE=1 keeps the current exit (use during career_watch hours)"; \
+	  exit 1; \
+	fi
+	docker compose run --rm -v "$(CURDIR)/scripts:/app/scripts" cortex \
+	  python scripts/event_probe.py $(if $(filter 1,$(NO_ROTATE)),--no-rotate,) "$(URL)"
 
 # ──────── Logs ────────
 logs: ; docker compose logs cortex ## Show cortex logs

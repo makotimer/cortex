@@ -110,3 +110,36 @@ python scripts/proton_query.py subjects INBOX --search "SINCE 1-May-2026"
 | `--limit N` | Max messages to show |
 | `--unseen` | Only unseen messages |
 | `--search TEXT` | Raw IMAP search criteria |
+
+---
+
+## `event_probe.py`
+
+Fetch a candidate calendar page through gluetun and print what it actually is.
+Use this when standing up a new `event_watch` source: a host-side curl from
+this box is not the path a scraper will take, and news-site calendars are
+often a widget behind a bot wall.
+
+```bash
+# Inside the cortex container (needs the vpn service)
+docker compose run --rm cortex python scripts/event_probe.py \
+  'https://www.fox44news.com/calendar/'
+
+# Keep the current exit (do this during career_watch's daytime window)
+docker compose run --rm cortex python scripts/event_probe.py \
+  --no-rotate \
+  'https://www.fox44news.com/calendar/'
+```
+
+Writes `local/state/event_probe/<host>-<utc>.html` and a sibling `.meta.json`
+(status, headers, fingerprint, vpn switch). A 403 is saved, not treated as a
+dead tunnel — the exit is verified against a neutral URL so PerimeterX cannot
+burn three rotations and leave us with no body.
+
+| Option | Description |
+|---|---|
+| `--out DIR` | Capture directory (default `/app/local/state/event_probe`) |
+| `--no-proxy` | Skip the VPN; fetch from the container's own address |
+| `--no-rotate` | Keep the current exit if it already carries traffic |
+| `--verify-url URL` | Neutral reachability check (default: Cloudflare trace) |
+| `--timeout SEC` | Per-request timeout (default 20) |
