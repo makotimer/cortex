@@ -17,6 +17,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `bvmuseum` | Brazos Valley Museum of Natural History | run default (270d) | Homepage Upcoming Events repeater; year from the run; direct |
 | `visitcstx` | Visit College Station (Algolia Events) | run default (270d) | InstantSearch index; all categories; not destbryan |
 | `bush41` | George H.W. Bush Presidential Library | upcoming list | Drupal Views; date + optional body clock |
+| `bvso` | Brazos Valley Symphony Orchestra | run default (270d) | `/concerts/` + Tickera; year fail-closed |
 | `bcschamber` | BCS Chamber of Commerce (GrowthZone) | run default (270d) | `/api/events` XML; LocationDesc over Map*; direct |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
@@ -41,6 +42,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bvmuseum` | `bvmuseum` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-visitcstx` | `visitcstx` | Wed/Sun 04:50 | `rotate_vpn_per_run: false` |
 | `event-watch-bush41` | `bush41` | Wed/Sun 05:05 | `rotate_vpn_per_run: false` |
+| `event-watch-bvso` | `bvso` | Wed/Sun 05:20 | `rotate_vpn_per_run: false` |
 | `event-watch-bcschamber` | `bcschamber` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
@@ -56,7 +58,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum` and `bcschamber` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso` and `bcschamber` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -239,6 +241,19 @@ The museum is at 3232 Briarcrest Dr, Bryan. No topic or audience labels
 are on the cards, so those stay empty. `bvmuseum` is not in
 `DEFAULT_KINDS`. Pin it and run direct.
 
+## Brazos Valley Symphony Orchestra
+
+`/concerts/` is the 2026–27 season list (day + month; year from that
+heading: Sep–Dec = first year, Jan–Aug = second). Tickera
+`/wp-json/wp/v2/tc_events` is the same slugs plus leftovers. Dates live
+on `/show-item/{slug}/`. A leftover without a 4-digit year on the page
+is dropped — last season's "21 September" is not rolled into this one.
+404 show pages are skipped. Clock is **Concert Starts**, never the
+reception. Rudder Theatre / Auditorium and Christ Church are pinned
+College Station halls; any other named venue fails loudly.
+
+`bvso` is not in `DEFAULT_KINDS`. Pin it.
+
 ## BCS Chamber of Commerce
 
 GrowthZone. The search HTML is a 10-card first paint; do not scroll it.
@@ -311,6 +326,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Bush 41 Library
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=bush41 --no-email
+
+# Brazos Valley Symphony Orchestra
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=bvso --no-email
 
 # City of Bryan (HTML list; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \

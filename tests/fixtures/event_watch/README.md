@@ -270,6 +270,23 @@ nodes. Listing HTML is the ``.view-id-events`` block; details are
   they write it (Birdwell: ``at 10 a.m.``). The other two have none.
 - Register link is ``#event-registration-form`` on all three.
 
+## Brazos Valley Symphony Orchestra
+
+Captured **2026-08-15** from ``https://bvso.org/concerts/``,
+``/wp-json/wp/v2/tc_events``, and five ``/show-item/{slug}/`` pages
+(trimmed to the date/title/description blocks).
+
+- **7 season cards** on `/concerts/` under ``2026-2027 Concerts``. Day +
+  month only. Read More is the show page; Get Tickets is Tickera.
+- **19 published ``tc_events``**. The seven season slugs are in that
+  list; the rest are leftovers. REST has no performance date.
+- Season show pages: ``Concert Starts: 5:00 PM``, reception at 4:00 if
+  any, Rudder Theatre or Christ Church. Holiday Concert has no reception.
+- Nutcracker prints ``December 5, 2025 | 7 PM`` and
+  ``December 6, 2025 | 2 PM & 6:30 PM`` at Rudder Auditorium.
+- Bach to Tchaikovsky is a leftover ``21 September`` with no year.
+- Season Release Party is April 14 at Benjamin Knox Gallery, no year.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh
