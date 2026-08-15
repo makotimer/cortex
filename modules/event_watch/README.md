@@ -42,7 +42,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bvmuseum` | `bvmuseum` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-visitcstx` | `visitcstx` | Wed/Sun 04:50 | `rotate_vpn_per_run: false` |
 | `event-watch-bush41` | `bush41` | Wed/Sun 05:05 | `rotate_vpn_per_run: false` |
-| `event-watch-bvso` | `bvso` | Wed/Sun 05:20 | `rotate_vpn_per_run: false` |
+| `event-watch-bvso` | `bvso` | Wed/Sun 05:20 | `proxy_url: ""` |
 | `event-watch-bcschamber` | `bcschamber` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
@@ -252,7 +252,8 @@ is dropped — last season's "21 September" is not rolled into this one.
 reception. Rudder Theatre / Auditorium and Christ Church are pinned
 College Station halls; any other named venue fails loudly.
 
-`bvso` is not in `DEFAULT_KINDS`. Pin it.
+`bvso` is not in `DEFAULT_KINDS`. Pin it and run direct — gluetun
+exits get 403 from bvso.org.
 
 ## BCS Chamber of Commerce
 
@@ -327,9 +328,9 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=bush41 --no-email
 
-# Brazos Valley Symphony Orchestra
+# Brazos Valley Symphony Orchestra (direct; the site 403s gluetun)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
-  --kwargs dry_run=true kinds=bvso --no-email
+  --kwargs dry_run=true kinds=bvso proxy_url= --no-email
 
 # City of Bryan (HTML list; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
