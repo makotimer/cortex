@@ -181,6 +181,27 @@ Stroller Barre on 18 Aug (24 copies). Dated slugs
 all remapped to the same `start_date`. Normalize keeps one per
 `(series, start)`.
 
+## Destination Bryan
+
+Captured **2026-08-15** from
+`https://www.destinationbryan.com/events/?date-from=2026-08-15&date-to=2026-09-15`.
+Listing HTML is slimmed to the result counter plus ``article.card`` blocks.
+
+| File | Source |
+|---|---|
+| `destbryan_list_page1.html` | page 1 (results 1–12 of 219) |
+| `destbryan_list_page2.html` | page 2 (results 13–24) |
+| `destbryan_details.json` | schema.org Event JSON-LD from three of those cards |
+
+- **219 listings** in that month; 12 per page.
+- Cards carry Craft ``data-entry-id``, one primary category, street, lat/lng,
+  and a Google Maps query with city/ZIP. Clock times are only on the detail
+  JSON-LD.
+- Month-long exhibits use ``August 15 to October 24`` (no year) or
+  ``August 15 to May 16, 2027``.
+- Some JSON-LD start/end values wear a fake ``Z`` (Cadillac Ranch 19:00Z is
+  7pm Central, same CitySpark lie).
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh

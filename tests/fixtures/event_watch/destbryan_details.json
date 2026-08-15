@@ -1,0 +1,77 @@
+{
+  "https://www.destinationbryan.com/events/the-brazos-legacy-of-a-mighty-river-at-the-brazos-valley-river-at-museum-of-natural-history/": {
+    "@type": "Event",
+    "description": "Experience an exclusive in-house exhibition at The Brazos Valley Museum of Natural History — The Brazos: Legacy of a Mighty River, on display from November 14,",
+    "endDate": "2026-10-24T17:00:00-05:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "image": "/imager/cmsimages/995675/Boonville-Days-2023_Destination-Bryan-156-medium_91852798b59be8b28fc00edfe4aec23a.jpg",
+    "inLanguage": "en-us",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "USA",
+        "addressLocality": "Bryan",
+        "addressRegion": "TX",
+        "postalCode": "77802",
+        "streetAddress": "3232 Briarcrest Drive"
+      },
+      "name": "Brazos Valley Museum of Natural History"
+    },
+    "mainEntityOfPage": "https://www.destinationbryan.com/events/the-brazos-legacy-of-a-mighty-river-at-the-brazos-valley-river-at-museum-of-natural-history/",
+    "name": "The Brazos: Legacy of a Mighty River Exhibit at The Brazos Valley Museum of Natural History",
+    "startDate": "2025-11-15T10:00:00-06:00",
+    "url": "https://www.destinationbryan.com/events/the-brazos-legacy-of-a-mighty-river-at-the-brazos-valley-river-at-museum-of-natural-history/"
+  },
+  "https://www.destinationbryan.com/events/e-pluribus-unum-at-george-bush-library-musuem/": {
+    "@type": "Event",
+    "description": "In honor of America’s semiquincentennial, E Pluribus Unum: Celebrating the American Experience will explore all the different areas of our culture that are",
+    "endDate": "2027-05-16T11:00:00-05:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "image": "/imager/cmsimages/920788/George-Bush-LIbrary-Museum_Destination-Bryan-001_91852798b59be8b28fc00edfe4aec23a.jpg",
+    "inLanguage": "en-us",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "USA",
+        "addressLocality": "College Station",
+        "addressRegion": "TX",
+        "postalCode": "77845",
+        "streetAddress": "1000 George Bush Dr. W"
+      },
+      "name": "George H.W. Bush Presidential Library and Museum"
+    },
+    "mainEntityOfPage": "https://www.destinationbryan.com/events/e-pluribus-unum-at-george-bush-library-musuem/",
+    "name": "E Pluribus Unum: Celebrating the American Experience at George H.W. Bush Presidential Library and Museum",
+    "startDate": "2026-06-30T07:00:00-05:00",
+    "url": "https://www.destinationbryan.com/events/e-pluribus-unum-at-george-bush-library-musuem/"
+  },
+  "https://www.destinationbryan.com/events/live-music-at-cadillac-ranch-2-2/": {
+    "@type": "Event",
+    "description": "Head to Cadillac Ranch Bar & Grill for live music and scenic views on Lake Bryan every Friday and Saturday! \nAugust 14th JB Elwood & Sebastian Romeo",
+    "endDate": "2026-08-15T22:00:00.000000Z",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "image": "/imager/cmsimages/1138664/Screen-Shot-2024-03-22-at-9.34.35-AM_91852798b59be8b28fc00edfe4aec23a.png",
+    "inLanguage": "en-us",
+    "location": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "USA",
+        "addressLocality": "Bryan",
+        "addressRegion": "TX",
+        "postalCode": "77807",
+        "streetAddress": "8200 Sandy Point Road"
+      },
+      "name": "Cadillac Ranch Bar & Grill"
+    },
+    "mainEntityOfPage": "https://www.destinationbryan.com/events/live-music-at-cadillac-ranch-2-2/",
+    "name": "Live Music at Cadillac Ranch",
+    "startDate": "2026-08-15T19:00:00.000000Z",
+    "url": "https://www.destinationbryan.com/events/live-music-at-cadillac-ranch-2-2/"
+  }
+}

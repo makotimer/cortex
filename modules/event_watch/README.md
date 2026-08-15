@@ -12,6 +12,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `cityspark` | FOX 44 / MyCenTX (CitySpark widget API) | run default (270d) | Bryan 15mi; direct, not fox44news.com |
 | `bryantx` | City of Bryan GOVstack calendar | run default (270d) | HTML `_List` pages; direct |
 | `lakewalk` | Lake Walk (The Events Calendar) | run default (270d) | tribe REST; dedupe TEC ghosts; direct |
+| `destbryan` | Destination Bryan Craft directory | run default (270d) | HTML list + JSON-LD; all categories; nearby ZIPs |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -30,6 +31,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-cityspark` | `cityspark` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-bryantx` | `bryantx` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-lakewalk` | `lakewalk` | *not scheduled yet* | `proxy_url: ""` |
+| `event-watch-destbryan` | `destbryan` | Wed/Sun 04:40 | `rotate_vpn_per_run: false` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -246,6 +248,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # TAMU LiveWhale
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=tamu --no-email
+
+# Destination Bryan
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=destbryan --no-email
 
 # City of Bryan (HTML list; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
