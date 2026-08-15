@@ -145,6 +145,20 @@ Speakers, Forums, Conferences, Training & Workshops, window
 - **Locations:** MSC, Forsyth, Stark, Virtual, Zoom, plus Socorro / Houston /
   San Antonio addresses.
 
+## TAMU Music Activities
+
+Captured **2026-08-15** from
+`GET /live/json/events/group/Music%20Activities` for
+`2026-08-15 → 2027-05-12`. Thumbnails stripped.
+
+| File | Source |
+|---|---|
+| `tamumusic_events.json` | 8 concerts, Sep 25–Nov 20 2026 |
+
+- All gid 151, parent empty. Same titles appear on the campus feed as gid 5 copies with ``parent`` set to these ids.
+- All at Rudder Theater / Auditorium, campus Bryan–College Station.
+- Audiences include Visitors, Residents, and Youth (K-12).
+
 ## City of Bryan
 
 Captured **2026-08-15** from the GOVstack `_List` fragment, window

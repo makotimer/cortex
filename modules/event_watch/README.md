@@ -9,6 +9,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `challenge` | Challenge Entertainment — pub trivia, Singo, bingo | **35d** (own cap) | AJAX API, one request per day |
 | `kbtx` | KBTX Community Calendar (Tockify `kbtx.calendar`) | run default (270d) | JSON + ICS; BCS only; address-kit fallback |
 | `tamu` | Texas A&M LiveWhale calendar | run default (270d) | JSON; public-interest filter; BCS only |
+| `tamumusic` | TAMU Music Activities (LiveWhale group) | run default (270d) | group JSON; same concerts also appear in `tamu` |
 | `cityspark` | FOX 44 / MyCenTX (CitySpark widget API) | run default (270d) | Bryan 15mi; direct, not fox44news.com |
 | `bryantx` | City of Bryan GOVstack calendar | run default (270d) | HTML `_List` pages; direct |
 | `lakewalk` | Lake Walk (The Events Calendar) | run default (270d) | tribe REST; dedupe TEC ghosts; direct |
@@ -32,6 +33,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-challenge` | `challenge` | Wed/Sun 03:55 | `proxy_url: ""` |
 | `event-watch-kbtx` | `kbtx` | Wed/Sun 04:10 | `rotate_vpn_per_run: false` |
 | `event-watch-tamu` | `tamu` | Wed/Sun 04:25 | `rotate_vpn_per_run: false` |
+| `event-watch-tamumusic` | `tamumusic` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 | `event-watch-cityspark` | `cityspark` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-bryantx` | `bryantx` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-lakewalk` | `lakewalk` | *not scheduled yet* | `proxy_url: ""` |
@@ -188,6 +190,15 @@ The JSON endpoint silently caps around 400, so fetch walks the window a week at
 a time. Occurrence tid is start-time millis so disappearance reconciliation
 still works. `tamu` is not in `DEFAULT_KINDS`. Pin it.
 
+## TAMU Music Activities
+
+Same LiveWhale JSON, group `Music Activities` (`/music-activities/all`).
+Native ids (385689…) differ from the copies on the campus calendar
+(386730…, `parent` = native id). `tamu` already sees those copies; this
+kind publishes the native rows with source `tamu-music` and a `music`
+topic. Downstream duplicate detection owns the overlap. `tamumusic` is
+not in `DEFAULT_KINDS`. Pin it.
+
 ## City of Bryan
 
 GOVstack / CivicPlus HTML. `GET /default/_List?StartDate=&EndDate=&Page=`
@@ -284,6 +295,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # TAMU LiveWhale
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=tamu --no-email
+
+# TAMU Music Activities
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=tamumusic --no-email
 
 # Destination Bryan
 docker compose run --rm cortex python -m service.cli run modules.event_watch \

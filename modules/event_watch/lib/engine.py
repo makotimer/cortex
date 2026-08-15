@@ -304,6 +304,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.kbtx import KbtxScraper
     from .scrapers.lakewalk import LakeWalkScraper
     from .scrapers.tamu import TamuScraper
+    from .scrapers.tamumusic import TamuMusicScraper
     from .scrapers.tockify import TockifyScraper
     from .scrapers.visitcstx import VisitCstxScraper
 
@@ -313,6 +314,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "kbtx": KbtxScraper,
         "cityspark": CitySparkScraper,
         "tamu": TamuScraper,
+        "tamumusic": TamuMusicScraper,
         "bryantx": BryanTxScraper,
         "lakewalk": LakeWalkScraper,
         "destbryan": DestBryanScraper,
@@ -326,7 +328,10 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         cls = registry.get(kind)
         if cls is None:
             raise ScraperError(f"unknown event scraper kind {kind!r}")
-        if cls in {KbtxScraper, TamuScraper, DestBryanScraper, VisitCstxScraper}:
+        if cls in {
+            KbtxScraper, TamuScraper, TamuMusicScraper,
+            DestBryanScraper, VisitCstxScraper,
+        }:
             out.append(cls(proxy_url=settings.proxy_url, state_dir=settings.state_dir))
         else:
             out.append(cls(proxy_url=settings.proxy_url))
