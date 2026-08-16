@@ -378,6 +378,18 @@ events-viewer shell (no cards).
 - ``scheduling.config.timeZoneId`` is ``America/Chicago``; start/end are UTC.
 - CANCELED ``Story time`` (space) is a different series from ``Storytime``.
 
+## Painting with a Twist
+
+Captured **2026-08-16** through gluetun from
+``https://www.paintingwithatwist.com/studio/college-station/calendar/``.
+
+| File | Source |
+|---|---|
+| `pwat_calendar.html` | studio calendar, August–September 2026 |
+
+- **27 events.** ``time.event-datetime="2026-08-16T03:00"`` is 3pm.
+- Family Day owl is ``4368685``, ``$28``, 3:00–4:30pm Sep 5.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh

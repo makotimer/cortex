@@ -24,6 +24,9 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `stage12` | Stage 12 (Brookshire Brothers, College Station) | run default (270d) | Drupal month calendar + node details; direct |
 | `rei` | REI Co-op College Station | run default (270d) | `#modelData` JSON; store 214 only; try direct |
 | `wonderfulwords` | Wonderful Words Bookshoppe (Wix Events) | run default (270d) | `_api/wix-events-web`; instance from dynamicmodel |
+| `pwat` | Painting with a Twist College Station | run default (270d) | SSR calendar HTML; 12-hour `datetime` trap |
+| `lowes` | Lowe's Kids Club | run default (270d) | `/workshopdata` JSON; CS store 3032; VPN |
+| `homedepot` | Home Depot Kids Workshop | run default (270d) | first Saturday + Canada kit names; CS #6559; VPN |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -54,6 +57,9 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-stage12` | `stage12` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-rei` | `rei` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-wonderfulwords` | `wonderfulwords` | *not scheduled yet* | `rotate_vpn_per_run: false` |
+| `event-watch-pwat` | `pwat` | *not scheduled yet* | `rotate_vpn_per_run: false` |
+| `event-watch-lowes` | `lowes` | *not scheduled yet* | `proxy_url: ""` |
+| `event-watch-homedepot` | `homedepot` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -68,7 +74,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei` and `wonderfulwords` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `lowes` and `homedepot` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -331,6 +337,40 @@ Storytime / bookclub → `reading`; First Friday → `community`. Bookclub
 is `adult`; everything else `all-ages`. `wonderfulwords` is not in
 `DEFAULT_KINDS`. Pin it.
 
+## Painting with a Twist
+
+SSR calendar at `/studio/college-station/calendar/`. One page is the
+whole horizon today (Aug–Sep). `time.event-datetime` is a 12-hour
+clock wearing an ISO `T` (`T03:00` + "3:00 pm" = 15:00). Times come
+from `.event-time`. Family Day / ALL AGES titles are `all-ages`; the
+sip nights are `adult`. `pwat` is not in `DEFAULT_KINDS`. Pin it.
+
+## Lowe's Kids Club
+
+`/workshopdata?template=REGISTRATION&types=WORKSHOP&closed=false` is
+the list. Keep `subType == KIDS`, drop paid (MrBeast) and
+`NO_LOCATION` / Senior Builder rows. Registration is
+`/events/register/{url}`.
+
+`start`/`end` are Eastern wall-clock wearing a `Z`. The calendar date
+is taken from America/New_York; the published window is 10:00–13:00
+America/Chicago, which is what the registration page states. College
+Station store 3032 only.
+
+workshopdata 403s the VPN probe's default UA, so this kind runs
+direct (`proxy_url: ""`) like Challenge. `lowes` is not in
+`DEFAULT_KINDS`. Pin it.
+
+## Home Depot Kids Workshop
+
+US HTML is Akamai 403 through the host and through gluetun. Dates are
+generated: first Saturday, 9:00–12:00 America/Chicago, ages 5–12,
+College Station #6559. Kit names come from the Canada workshops page
+(same national kits, different Saturday) and are joined by month —
+Canada dates are discarded. A month with no name publishes as
+`Kids Workshop`. Registration is the national
+`/c/kids-workshop` page. `homedepot` is not in `DEFAULT_KINDS`. Pin it.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -431,6 +471,18 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Wonderful Words Bookshoppe (Wix Events)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=wonderfulwords --no-email
+
+# Painting with a Twist College Station
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=pwat --no-email
+
+# Lowe's Kids Club (workshopdata JSON; un-proxied — VPN probe 403s)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=lowes proxy_url= --no-email
+
+# Home Depot Kids Workshop (Canada kit names + generated first Saturdays; VPN)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=homedepot --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test

@@ -305,6 +305,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.hyperbole import HyperboleScraper
     from .scrapers.kbtx import KbtxScraper
     from .scrapers.lakewalk import LakeWalkScraper
+    from .scrapers.pwat import PwatScraper
     from .scrapers.rei import ReiScraper
     from .scrapers.stage12 import Stage12Scraper
     from .scrapers.tamu import TamuScraper
@@ -334,6 +335,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "stage12": Stage12Scraper,
         "rei": ReiScraper,
         "wonderfulwords": WonderfulWordsScraper,
+        "pwat": PwatScraper,
     }
     out: list[BaseEventScraper] = []
     for kind in settings.kinds:
