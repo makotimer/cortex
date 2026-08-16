@@ -390,6 +390,18 @@ Captured **2026-08-16** through gluetun from
 - **27 events.** ``time.event-datetime="2026-08-16T03:00"`` is 3pm.
 - Family Day owl is ``4368685``, ``$28``, 3:00–4:30pm Sep 5.
 
+## Sew Much Class
+
+Captured **2026-08-16** through gluetun. Fixture is a trimmed
+``.calEvent`` grid (not the full 300KB Rain POS chrome).
+
+| File | Source |
+|---|---|
+| `sewmuchclass_calendar.html` | PHD + closed + four classes + ByAnnie + bus trip |
+
+Keep six: Fun-damentals, Bird Song, Sashiko, Summer Wedding, ByAnnie,
+Houston BUS TRIP. Drop PHD / 4-PACK / Studio Closed / Training.
+
 ## Lowe's Kids Club
 
 Captured **2026-08-16** from

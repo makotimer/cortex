@@ -310,6 +310,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.lowes import LowesScraper
     from .scrapers.pwat import PwatScraper
     from .scrapers.rei import ReiScraper
+    from .scrapers.sewmuchclass import SewMuchClassScraper
     from .scrapers.stage12 import Stage12Scraper
     from .scrapers.tamu import TamuScraper
     from .scrapers.tamumusic import TamuMusicScraper
@@ -339,6 +340,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "rei": ReiScraper,
         "wonderfulwords": WonderfulWordsScraper,
         "pwat": PwatScraper,
+        "sewmuchclass": SewMuchClassScraper,
         "lowes": LowesScraper,
         "homedepot": HomeDepotScraper,
         "americangi": AmericanGiScraper,
