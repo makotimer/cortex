@@ -1,0 +1,1033 @@
+{
+  "events": [
+    {
+      "id": 17763,
+      "global_id": "americangimuseum.org?id=17763",
+      "global_id_lineage": [
+        "americangimuseum.org?id=17763"
+      ],
+      "author": "8",
+      "status": "publish",
+      "date": "2026-04-03 10:21:12",
+      "date_utc": "2026-04-03 15:21:12",
+      "modified": "2026-04-03 10:21:12",
+      "modified_utc": "2026-04-03 15:21:12",
+      "url": "https://americangimuseum.org/events/tank-or-treat-2026/",
+      "rest_url": "https://americangimuseum.org/wp-json/tribe/events/v1/events/17763",
+      "title": "Tank or Treat 2026",
+      "description": "<p>\ud83c\udf83 <strong>Tank or Treat at the Museum of the American G.I.</strong> \ud83c\udf83</p>\n<p>Looking for family-friendly Halloween fun? Join us at the Museum of the American G.I. on <strong>Sunday, October 25th, from 1:00\u20133:00 PM</strong> for an afternoon packed with spook-tacular games, crafts, and activities!</p>\n<p>Kids can test their skills at <strong>pumpkin chuckin&#8217; </strong>and<strong> pumpkin bowling</strong>, decode hidden messages using a <strong>Halloween spy decoder</strong>, play a game of <strong>spooky cornhole</strong>, or brave the mystery of the <strong>eyeball surprise</strong>. Create your own Halloween keepsakes at the <strong>make-a-mask station</strong> and <strong>slimy Halloween table</strong>, then treat your sweet tooth with <strong>marshmallow ghosts</strong>.</p>\n<p>Of course, the fun doesn\u2019t stop there\u2014explore the museum, enjoy the festive atmosphere, and snap some photos of your costumed crew with real WWII tanks and vehicles as the backdrop.</p>\n<p>\ud83d\udc7b <strong>Special Treat:</strong> Kids 12 and under who come in costume get in free!</p>\n<p>Bring the whole family and celebrate Halloween with history, fun, and a few frightfully good surprises!</p>",
+      "excerpt": "",
+      "slug": "tank-or-treat-2026",
+      "image": {
+        "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Tank-or-Treat-Flyer-Website.png",
+        "id": 17764,
+        "extension": "png",
+        "width": 825,
+        "height": 429,
+        "filesize": 129256,
+        "sizes": {
+          "medium": {
+            "width": 300,
+            "height": 156,
+            "mime-type": "image/png",
+            "filesize": 33804,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Tank-or-Treat-Flyer-Website-300x156.png"
+          },
+          "thumbnail": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/png",
+            "filesize": 18883,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Tank-or-Treat-Flyer-Website-150x150.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 399,
+            "mime-type": "image/png",
+            "filesize": 127708,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Tank-or-Treat-Flyer-Website-768x399.png"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2026-10-25 13:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "10",
+        "day": "25",
+        "hour": "13",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-10-25 15:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "10",
+        "day": "25",
+        "hour": "15",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-10-25 18:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "10",
+        "day": "25",
+        "hour": "18",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-10-25 20:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "10",
+        "day": "25",
+        "hour": "20",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Chicago",
+      "timezone_abbr": "CDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Museum Events",
+          "slug": "events",
+          "term_group": 0,
+          "term_taxonomy_id": 2,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 91,
+          "filter": "raw",
+          "id": 2,
+          "urls": {
+            "self": "https://americangimuseum.org/wp-json/tribe/events/v1/categories/2",
+            "collection": "https://americangimuseum.org/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 10318,
+        "author": "7",
+        "status": "publish",
+        "date": "2022-05-05 13:33:53",
+        "date_utc": "2022-05-05 18:33:53",
+        "modified": "2022-05-05 13:33:53",
+        "modified_utc": "2022-05-05 18:33:53",
+        "url": "https://americangimuseum.org/venue/museum-of-the-american-gi/",
+        "venue": "Museum of the American GI",
+        "slug": "museum-of-the-american-gi",
+        "address": "19124 Highway 6 South",
+        "city": "College Station",
+        "province": "Texas",
+        "zip": "77845",
+        "phone": "979-690-0501",
+        "website": "https://americangimuseum.org/",
+        "stateprovince": "Texas",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "americangimuseum.org?id=10318",
+        "global_id_lineage": [
+          "americangimuseum.org?id=10318"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 10319,
+          "author": "7",
+          "status": "publish",
+          "date": "2022-06-30 17:18:06",
+          "date_utc": "2022-06-30 22:18:06",
+          "modified": "2022-06-30 17:18:06",
+          "modified_utc": "2022-06-30 22:18:06",
+          "url": "https://americangimuseum.org/organizer/museum-of-the-american-gi-2/",
+          "organizer": "Museum of the American GI",
+          "slug": "museum-of-the-american-gi-2",
+          "phone": "979-690-0501",
+          "website": "https://americangimuseum.org/",
+          "email": "info@americangimuseum.org",
+          "global_id": "americangimuseum.org?id=10319",
+          "global_id_lineage": [
+            "americangimuseum.org?id=10319"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 17580,
+      "global_id": "americangimuseum.org?id=17580",
+      "global_id_lineage": [
+        "americangimuseum.org?id=17580"
+      ],
+      "author": "8",
+      "status": "publish",
+      "date": "2026-01-04 18:38:45",
+      "date_utc": "2026-01-05 00:38:45",
+      "modified": "2026-01-04 18:48:04",
+      "modified_utc": "2026-01-05 00:48:04",
+      "url": "https://americangimuseum.org/events/history-in-motion-2026/",
+      "rest_url": "https://americangimuseum.org/wp-json/tribe/events/v1/events/17580",
+      "title": "History in Motion 2026",
+      "description": "<p><b><strong>Coming November 7 &amp; 8, 2026<br />\n</strong></b></p>\n<p data-start=\"95\" data-end=\"483\"><strong data-start=\"95\" data-end=\"119\">Tanks, Tanks, Tanks!</strong><br data-start=\"119\" data-end=\"122\" />Feel the ground shake and engines roar at the Museum of the American G.I.\u2019s <em data-start=\"198\" data-end=\"217\">History in Motion</em>! Watch historic tanks, military vehicles, and artillery spring to life in a thrilling, action-filled weekend that brings the past into the present. You\u2019ll experience one of the South\u2019s premier collections of fully restored WWII and Vietnam-era vehicles\u2014<em data-start=\"471\" data-end=\"482\">in motion</em>.</p>\n<p data-start=\"485\" data-end=\"796\">This family-friendly event is packed with exciting activities for all ages! Tanks and vehicles will run throughout the day, with special demonstrations featuring historic weapons, artillery, and rare vehicles. Between shows, explore the displays up close\u2014or climb aboard for a ride in a WWII tank or Half-Track!</p>\n<p data-start=\"798\" data-end=\"1034\">We begin each day with a\u00a0<strong data-start=\"1404\" data-end=\"1463\">special presentation of the National Anthem at 10:00 AM</strong>, setting the stage for the day&#8217;s events.\u00a0 The event will showcase special weapons demonstrations, and <strong>TWO BIG Vehicle Demonstrations.\u00a0 </strong>Make sure you do not\u00a0leave early or you will miss the finale: a powerful <strong data-start=\"1876\" data-end=\"1903\" data-is-only-node=\"\">artillery demonstration</strong>\u00a0that ends the day with a BOOM!</p>\n<p data-start=\"1036\" data-end=\"1118\"><strong data-start=\"1036\" data-end=\"1061\">Gates open at 9:00 AM</strong><br data-start=\"1061\" data-end=\"1064\" /><strong data-start=\"1064\" data-end=\"1118\">Event hours: Saturday &amp; Sunday, 10:00 AM \u2013 3:00 PM</strong></p>\n<p data-start=\"1120\" data-end=\"1306\"><strong data-start=\"1120\" data-end=\"1136\"><span style=\"color: #000000;\"><span style=\"color: #ff0000;\">FREE Parking</span></span></strong> is available at <span style=\"color: #000000;\"><span style=\"color: #ff0000;\">Santa&#8217;s Wonderland&#8217;s Blitzen Lot</span></span>. From there, you enter the museum grounds through the admission tent.</p>\n<h3>TICKET INFORMATION</h3>\n<p><strong>One Day Tickets (Cash price)\u00a0 \u00a0$25 Adults, $10 Kids (5-17), Under 5 free</strong></p>\n<p><strong>Speed through the line by purchasing admission tickets online!\u00a0 Available starting September 9, 2026, at 10 AM</strong></p>\n<h4>Click the button below for a list of activities!</h4>\n<p><a href=\"https://americangimuseum.org/discover/living-history/history-in-motion/\"><img decoding=\"async\" class=\"alignnone wp-image-17098 size-full\" src=\"https://americangimuseum.org/wp-content/uploads/2025/01/Learn-More-5.png\" alt=\"\" width=\"120\" height=\"40\" /></a></p>\n<p>&nbsp;</p>\n<p>History in Motion is a \u201cSpecial Event Day\u2019 and regular admission prices are not valid.</p>\n<p><em><strong>This is an outdoor event, and the museum building will not be open during History in Motion.</strong></em></p>\n<p><strong>\u00a0</strong></p>\n<p>&nbsp;</p>",
+      "excerpt": "",
+      "slug": "history-in-motion-2026",
+      "image": {
+        "url": "https://americangimuseum.org/wp-content/uploads/2026/01/History-in-Motion-2026.png",
+        "id": 17581,
+        "extension": "png",
+        "width": 825,
+        "height": 429,
+        "filesize": 644918,
+        "sizes": {
+          "medium": {
+            "width": 300,
+            "height": 156,
+            "mime-type": "image/png",
+            "filesize": 90587,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/01/History-in-Motion-2026-300x156.png"
+          },
+          "thumbnail": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/png",
+            "filesize": 45141,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/01/History-in-Motion-2026-150x150.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 399,
+            "mime-type": "image/png",
+            "filesize": 513321,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/01/History-in-Motion-2026-768x399.png"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2026-11-07 10:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "11",
+        "day": "07",
+        "hour": "10",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-11-08 15:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "11",
+        "day": "08",
+        "hour": "15",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-11-07 16:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "11",
+        "day": "07",
+        "hour": "16",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-11-08 21:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "11",
+        "day": "08",
+        "hour": "21",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Chicago",
+      "timezone_abbr": "CST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Museum Events",
+          "slug": "events",
+          "term_group": 0,
+          "term_taxonomy_id": 2,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 91,
+          "filter": "raw",
+          "id": 2,
+          "urls": {
+            "self": "https://americangimuseum.org/wp-json/tribe/events/v1/categories/2",
+            "collection": "https://americangimuseum.org/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 10318,
+        "author": "7",
+        "status": "publish",
+        "date": "2022-05-05 13:33:53",
+        "date_utc": "2022-05-05 18:33:53",
+        "modified": "2022-05-05 13:33:53",
+        "modified_utc": "2022-05-05 18:33:53",
+        "url": "https://americangimuseum.org/venue/museum-of-the-american-gi/",
+        "venue": "Museum of the American GI",
+        "slug": "museum-of-the-american-gi",
+        "address": "19124 Highway 6 South",
+        "city": "College Station",
+        "province": "Texas",
+        "zip": "77845",
+        "phone": "979-690-0501",
+        "website": "https://americangimuseum.org/",
+        "stateprovince": "Texas",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "americangimuseum.org?id=10318",
+        "global_id_lineage": [
+          "americangimuseum.org?id=10318"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 10319,
+          "author": "7",
+          "status": "publish",
+          "date": "2022-06-30 17:18:06",
+          "date_utc": "2022-06-30 22:18:06",
+          "modified": "2022-06-30 17:18:06",
+          "modified_utc": "2022-06-30 22:18:06",
+          "url": "https://americangimuseum.org/organizer/museum-of-the-american-gi-2/",
+          "organizer": "Museum of the American GI",
+          "slug": "museum-of-the-american-gi-2",
+          "phone": "979-690-0501",
+          "website": "https://americangimuseum.org/",
+          "email": "info@americangimuseum.org",
+          "global_id": "americangimuseum.org?id=10319",
+          "global_id_lineage": [
+            "americangimuseum.org?id=10319"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 17766,
+      "global_id": "americangimuseum.org?id=17766",
+      "global_id_lineage": [
+        "americangimuseum.org?id=17766"
+      ],
+      "author": "8",
+      "status": "publish",
+      "date": "2026-04-03 10:25:03",
+      "date_utc": "2026-04-03 15:25:03",
+      "modified": "2026-04-03 10:25:03",
+      "modified_utc": "2026-04-03 15:25:03",
+      "url": "https://americangimuseum.org/events/crafts-with-mrs-claus-2026/",
+      "rest_url": "https://americangimuseum.org/wp-json/tribe/events/v1/events/17766",
+      "title": "Crafts with Mrs. Claus 2026",
+      "description": "<p class=\"cvGsUA direction-ltr align-start para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Join us on Saturday, December 5, for a holly jolly day filled with holiday crafts and photos with Mrs. Claus!\u00a0 \u00a0</span><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">From 11 am-1 pm, kids can create a special Christmas craft to take home and then snap a festive photo with Mrs. Claus herself!</span></p>\n<p class=\"cvGsUA direction-ltr align-start para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Bring your holiday spirit and make lasting memories with the whole family. We can\u2019t wait to celebrate the season with you!</span></p>\n<p><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Admission to the event is $6 for parents and children.</span></p>",
+      "excerpt": "",
+      "slug": "crafts-with-mrs-claus-2026",
+      "image": {
+        "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Crafts-with-Mrs-Claus-2026.png",
+        "id": 17767,
+        "extension": "png",
+        "width": 825,
+        "height": 429,
+        "filesize": 517797,
+        "sizes": {
+          "medium": {
+            "width": 300,
+            "height": 156,
+            "mime-type": "image/png",
+            "filesize": 78929,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Crafts-with-Mrs-Claus-2026-300x156.png"
+          },
+          "thumbnail": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/png",
+            "filesize": 38689,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Crafts-with-Mrs-Claus-2026-150x150.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 399,
+            "mime-type": "image/png",
+            "filesize": 415054,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Crafts-with-Mrs-Claus-2026-768x399.png"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2026-12-05 11:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "12",
+        "day": "05",
+        "hour": "11",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-12-05 13:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "12",
+        "day": "05",
+        "hour": "13",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-12-05 17:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "12",
+        "day": "05",
+        "hour": "17",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-12-05 19:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "12",
+        "day": "05",
+        "hour": "19",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Chicago",
+      "timezone_abbr": "CST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Museum Events",
+          "slug": "events",
+          "term_group": 0,
+          "term_taxonomy_id": 2,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 91,
+          "filter": "raw",
+          "id": 2,
+          "urls": {
+            "self": "https://americangimuseum.org/wp-json/tribe/events/v1/categories/2",
+            "collection": "https://americangimuseum.org/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 10318,
+        "author": "7",
+        "status": "publish",
+        "date": "2022-05-05 13:33:53",
+        "date_utc": "2022-05-05 18:33:53",
+        "modified": "2022-05-05 13:33:53",
+        "modified_utc": "2022-05-05 18:33:53",
+        "url": "https://americangimuseum.org/venue/museum-of-the-american-gi/",
+        "venue": "Museum of the American GI",
+        "slug": "museum-of-the-american-gi",
+        "address": "19124 Highway 6 South",
+        "city": "College Station",
+        "province": "Texas",
+        "zip": "77845",
+        "phone": "979-690-0501",
+        "website": "https://americangimuseum.org/",
+        "stateprovince": "Texas",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "americangimuseum.org?id=10318",
+        "global_id_lineage": [
+          "americangimuseum.org?id=10318"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 10319,
+          "author": "7",
+          "status": "publish",
+          "date": "2022-06-30 17:18:06",
+          "date_utc": "2022-06-30 22:18:06",
+          "modified": "2022-06-30 17:18:06",
+          "modified_utc": "2022-06-30 22:18:06",
+          "url": "https://americangimuseum.org/organizer/museum-of-the-american-gi-2/",
+          "organizer": "Museum of the American GI",
+          "slug": "museum-of-the-american-gi-2",
+          "phone": "979-690-0501",
+          "website": "https://americangimuseum.org/",
+          "email": "info@americangimuseum.org",
+          "global_id": "americangimuseum.org?id=10319",
+          "global_id_lineage": [
+            "americangimuseum.org?id=10319"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 17769,
+      "global_id": "americangimuseum.org?id=17769",
+      "global_id_lineage": [
+        "americangimuseum.org?id=17769"
+      ],
+      "author": "8",
+      "status": "publish",
+      "date": "2026-04-03 10:28:12",
+      "date_utc": "2026-04-03 15:28:12",
+      "modified": "2026-04-03 10:32:16",
+      "modified_utc": "2026-04-03 15:32:16",
+      "url": "https://americangimuseum.org/events/paws-with-mrs-claus-2026/",
+      "rest_url": "https://americangimuseum.org/wp-json/tribe/events/v1/events/17769",
+      "title": "Paws with Mrs. Claus 2026",
+      "description": "<p class=\"cvGsUA direction-ltr align-start para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Bring your furry friends for a festive photo with Mrs. Claus at the Museum of the American G.I.!\u00a0 On Sunday, December 6, from 12 pm to 2 pm, bring your pet to the museum, whether they\u2019ve been naughty or nice, for a festive picture with Mrs. Claus!</span></p>\n<p class=\"cvGsUA direction-ltr align-start para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">A perfect way to capture a holiday memory you\u2019ll treasure all season long! While you\u2019re here, enjoy our seasonal decorations and explore the museum\u2019s exhibits.</span></p>\n<p class=\"cvGsUA direction-ltr align-start para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Dress your pets in their holiday best \u2014 we can\u2019t wait to see those festive outfits!</span></p>\n<p class=\"cvGsUA direction-ltr align-start para-style-body\"><span class=\"a_GcMg font-feature-liga-off font-feature-clig-off font-feature-calt-off text-decoration-none text-strikethrough-none\">Pet photos with Mrs. Claus and admission to the museum are $10 on December 6 </span><span style=\"font-size: 16px; font-style: normal; font-weight: 400;\">\u00a0</span><span style=\"font-size: 16px;\">from 12:00 p.m. to 2:00 p.m.</span></p>\n<p class=\"cvGsUA direction-ltr align-start para-style-body\">",
+      "excerpt": "",
+      "slug": "paws-with-mrs-claus-2026",
+      "image": {
+        "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Paws-with-Mrs-Claus-2026.png",
+        "id": 17770,
+        "extension": "png",
+        "width": 825,
+        "height": 429,
+        "filesize": 574085,
+        "sizes": {
+          "medium": {
+            "width": 300,
+            "height": 156,
+            "mime-type": "image/png",
+            "filesize": 85130,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Paws-with-Mrs-Claus-2026-300x156.png"
+          },
+          "thumbnail": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/png",
+            "filesize": 40511,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Paws-with-Mrs-Claus-2026-150x150.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 399,
+            "mime-type": "image/png",
+            "filesize": 457995,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/Paws-with-Mrs-Claus-2026-768x399.png"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2026-12-06 12:00:00",
+      "start_date_details": {
+        "year": "2026",
+        "month": "12",
+        "day": "06",
+        "hour": "12",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2026-12-06 14:00:00",
+      "end_date_details": {
+        "year": "2026",
+        "month": "12",
+        "day": "06",
+        "hour": "14",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2026-12-06 18:00:00",
+      "utc_start_date_details": {
+        "year": "2026",
+        "month": "12",
+        "day": "06",
+        "hour": "18",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2026-12-06 20:00:00",
+      "utc_end_date_details": {
+        "year": "2026",
+        "month": "12",
+        "day": "06",
+        "hour": "20",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Chicago",
+      "timezone_abbr": "CST",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Museum Events",
+          "slug": "events",
+          "term_group": 0,
+          "term_taxonomy_id": 2,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 91,
+          "filter": "raw",
+          "id": 2,
+          "urls": {
+            "self": "https://americangimuseum.org/wp-json/tribe/events/v1/categories/2",
+            "collection": "https://americangimuseum.org/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 10318,
+        "author": "7",
+        "status": "publish",
+        "date": "2022-05-05 13:33:53",
+        "date_utc": "2022-05-05 18:33:53",
+        "modified": "2022-05-05 13:33:53",
+        "modified_utc": "2022-05-05 18:33:53",
+        "url": "https://americangimuseum.org/venue/museum-of-the-american-gi/",
+        "venue": "Museum of the American GI",
+        "slug": "museum-of-the-american-gi",
+        "address": "19124 Highway 6 South",
+        "city": "College Station",
+        "province": "Texas",
+        "zip": "77845",
+        "phone": "979-690-0501",
+        "website": "https://americangimuseum.org/",
+        "stateprovince": "Texas",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "americangimuseum.org?id=10318",
+        "global_id_lineage": [
+          "americangimuseum.org?id=10318"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 10319,
+          "author": "7",
+          "status": "publish",
+          "date": "2022-06-30 17:18:06",
+          "date_utc": "2022-06-30 22:18:06",
+          "modified": "2022-06-30 17:18:06",
+          "modified_utc": "2022-06-30 22:18:06",
+          "url": "https://americangimuseum.org/organizer/museum-of-the-american-gi-2/",
+          "organizer": "Museum of the American GI",
+          "slug": "museum-of-the-american-gi-2",
+          "phone": "979-690-0501",
+          "website": "https://americangimuseum.org/",
+          "email": "info@americangimuseum.org",
+          "global_id": "americangimuseum.org?id=10319",
+          "global_id_lineage": [
+            "americangimuseum.org?id=10319"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 17736,
+      "global_id": "americangimuseum.org?id=17736",
+      "global_id_lineage": [
+        "americangimuseum.org?id=17736"
+      ],
+      "author": "8",
+      "status": "publish",
+      "date": "2026-04-02 20:42:30",
+      "date_utc": "2026-04-03 01:42:30",
+      "modified": "2026-04-02 20:42:30",
+      "modified_utc": "2026-04-03 01:42:30",
+      "url": "https://americangimuseum.org/events/living-history-school-day-2027/",
+      "rest_url": "https://americangimuseum.org/wp-json/tribe/events/v1/events/17736",
+      "title": "Living History School Day 2027",
+      "description": "<p data-pm-slice=\"1 1 []\">We invite you to join us on April 2, 2027 for the Museum of the American G.I.\u2019s Living History School Day\u2014where history comes alive.</p>\n<p>Through a series of living history camps, students will explore U.S. military history from the Civil War to the present day. Each station offers a unique perspective\u2014whether through equipment displays, demonstrations, or first-person interpretation\u2014designed to engage curiosity and encourage questions.</p>\n<p data-start=\"1975\" data-end=\"2138\">Students move through the program on a <strong data-start=\"2014\" data-end=\"2041\">timed rotation schedule</strong>, ensuring each group has the opportunity to participate in multiple stations throughout the day.</p>\n<p data-start=\"2140\" data-end=\"2203\">Free parking is provided at <strong data-start=\"2168\" data-end=\"2202\">Santa\u2019s Wonderland Blitzen Lot</strong>.</p>\n<p data-start=\"2205\" data-end=\"2361\"><strong data-start=\"2205\" data-end=\"2256\">Registration opens January 27, 2027, at 10:00 AM</strong><br data-start=\"2256\" data-end=\"2259\" />$10 Students | $7 Parents and Extended Family<br data-start=\"2304\" data-end=\"2307\" />Private/Public Schools: 1 teacher at no charge for every 10 students</p>\n<p data-start=\"2363\" data-end=\"2453\">Space is limited to 300 students. Registration closes March 19 or when capacity is reached.</p>\n<p data-start=\"2455\" data-end=\"2553\">This is an <strong data-start=\"2466\" data-end=\"2491\">outdoor special event</strong>, and the museum building will not be open during the program.</p>\n<h4>Click the button below for more information!</h4>\n<p><a href=\"https://americangimuseum.org/discover/living-history/living-history-school-day/\"><img decoding=\"async\" class=\"alignnone size-full wp-image-17098\" src=\"https://americangimuseum.org/wp-content/uploads/2025/01/Learn-More-5.png\" alt=\"\" width=\"120\" height=\"40\" /></a></p>",
+      "excerpt": "",
+      "slug": "living-history-school-day-2027",
+      "image": {
+        "url": "https://americangimuseum.org/wp-content/uploads/2026/04/LHSD-2027.png",
+        "id": 17737,
+        "extension": "png",
+        "width": 825,
+        "height": 429,
+        "filesize": 804116,
+        "sizes": {
+          "medium": {
+            "width": 300,
+            "height": 156,
+            "mime-type": "image/png",
+            "filesize": 82147,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/LHSD-2027-300x156.png"
+          },
+          "thumbnail": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/png",
+            "filesize": 37534,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/LHSD-2027-150x150.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 399,
+            "mime-type": "image/png",
+            "filesize": 402252,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/LHSD-2027-768x399.png"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2027-04-02 09:30:00",
+      "start_date_details": {
+        "year": "2027",
+        "month": "04",
+        "day": "02",
+        "hour": "09",
+        "minutes": "30",
+        "seconds": "00"
+      },
+      "end_date": "2027-04-02 15:30:00",
+      "end_date_details": {
+        "year": "2027",
+        "month": "04",
+        "day": "02",
+        "hour": "15",
+        "minutes": "30",
+        "seconds": "00"
+      },
+      "utc_start_date": "2027-04-02 14:30:00",
+      "utc_start_date_details": {
+        "year": "2027",
+        "month": "04",
+        "day": "02",
+        "hour": "14",
+        "minutes": "30",
+        "seconds": "00"
+      },
+      "utc_end_date": "2027-04-02 20:30:00",
+      "utc_end_date_details": {
+        "year": "2027",
+        "month": "04",
+        "day": "02",
+        "hour": "20",
+        "minutes": "30",
+        "seconds": "00"
+      },
+      "timezone": "America/Chicago",
+      "timezone_abbr": "CDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Museum Events",
+          "slug": "events",
+          "term_group": 0,
+          "term_taxonomy_id": 2,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 91,
+          "filter": "raw",
+          "id": 2,
+          "urls": {
+            "self": "https://americangimuseum.org/wp-json/tribe/events/v1/categories/2",
+            "collection": "https://americangimuseum.org/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 10318,
+        "author": "7",
+        "status": "publish",
+        "date": "2022-05-05 13:33:53",
+        "date_utc": "2022-05-05 18:33:53",
+        "modified": "2022-05-05 13:33:53",
+        "modified_utc": "2022-05-05 18:33:53",
+        "url": "https://americangimuseum.org/venue/museum-of-the-american-gi/",
+        "venue": "Museum of the American GI",
+        "slug": "museum-of-the-american-gi",
+        "address": "19124 Highway 6 South",
+        "city": "College Station",
+        "province": "Texas",
+        "zip": "77845",
+        "phone": "979-690-0501",
+        "website": "https://americangimuseum.org/",
+        "stateprovince": "Texas",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "americangimuseum.org?id=10318",
+        "global_id_lineage": [
+          "americangimuseum.org?id=10318"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 10319,
+          "author": "7",
+          "status": "publish",
+          "date": "2022-06-30 17:18:06",
+          "date_utc": "2022-06-30 22:18:06",
+          "modified": "2022-06-30 17:18:06",
+          "modified_utc": "2022-06-30 22:18:06",
+          "url": "https://americangimuseum.org/organizer/museum-of-the-american-gi-2/",
+          "organizer": "Museum of the American GI",
+          "slug": "museum-of-the-american-gi-2",
+          "phone": "979-690-0501",
+          "website": "https://americangimuseum.org/",
+          "email": "info@americangimuseum.org",
+          "global_id": "americangimuseum.org?id=10319",
+          "global_id_lineage": [
+            "americangimuseum.org?id=10319"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    },
+    {
+      "id": 17750,
+      "global_id": "americangimuseum.org?id=17750",
+      "global_id_lineage": [
+        "americangimuseum.org?id=17750"
+      ],
+      "author": "8",
+      "status": "publish",
+      "date": "2026-04-02 21:02:40",
+      "date_utc": "2026-04-03 02:02:40",
+      "modified": "2026-04-02 21:02:40",
+      "modified_utc": "2026-04-03 02:02:40",
+      "url": "https://americangimuseum.org/events/living-history-weekend-2027/",
+      "rest_url": "https://americangimuseum.org/wp-json/tribe/events/v1/events/17750",
+      "title": "Living History Weekend 2027",
+      "description": "<p>Join us for the Living History Weekend on April 3 &amp; 4, 2027! <span style=\"box-sizing: border-box;\">Visitors will view Living History Displays, witness the roar of tanks in our WWII ETO skirmishes, and see a WWII Marine Tactical demonstration.\u00a0 Visitors will<span style=\"font-size: 16px;\"> step back in history as they view WWI skirmishes, see History in Action during our Vietnam Era Skirmish and Flame Thrower demonstration, and view historic military vehicles.</span></span><span style=\"font-size: 16px;\">\u00a0This family-friendly event is sure to have something for everyone!</span></p>\n<p>Everyone will enjoy the free parking at Santa\u2019s Wonderland\u2019s new Blitzen Lot (no parking on site).</p>\n<p>Come early and stay all day! You will not want to miss anything. Food vendors will be on-site to make sure no one goes hungry!\u00a0 On Saturday, you can eat your fill of everyone\u2019s favorite Big Dawg Barbecue and Raging Bull Street Tacos.\u00a0 Of course, you will want to quench your thirst and cool off with Kona Ice!</p>\n<p>One Day Tickets (Cash price)<br />\n$25 Adults, $10 Kids (5-17), Under five free</p>\n<p>Two-Day Tickets<br />\n$40 Adults, $17.50 Kids, Under five free (Cash price)</p>\n<p>Admission tickets will go on sale on February 3rd at 10 AM.</p>\n<h4>Click the button below for a list of activities and a tentative schedule!</h4>\n<p><a href=\"https://americangimuseum.org/discover/living-history/living-history-weekend/\"><img decoding=\"async\" class=\"alignnone size-full wp-image-17098\" src=\"https://americangimuseum.org/wp-content/uploads/2025/01/Learn-More-5.png\" alt=\"\" width=\"120\" height=\"40\" /></a></p>",
+      "excerpt": "",
+      "slug": "living-history-weekend-2027",
+      "image": {
+        "url": "https://americangimuseum.org/wp-content/uploads/2026/04/LHW-2027.png",
+        "id": 17751,
+        "extension": "png",
+        "width": 825,
+        "height": 429,
+        "filesize": 664814,
+        "sizes": {
+          "medium": {
+            "width": 300,
+            "height": 156,
+            "mime-type": "image/png",
+            "filesize": 88682,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/LHW-2027-300x156.png"
+          },
+          "thumbnail": {
+            "width": 150,
+            "height": 150,
+            "mime-type": "image/png",
+            "filesize": 43151,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/LHW-2027-150x150.png"
+          },
+          "medium_large": {
+            "width": 768,
+            "height": 399,
+            "mime-type": "image/png",
+            "filesize": 517053,
+            "url": "https://americangimuseum.org/wp-content/uploads/2026/04/LHW-2027-768x399.png"
+          }
+        }
+      },
+      "all_day": false,
+      "start_date": "2027-04-03 10:00:00",
+      "start_date_details": {
+        "year": "2027",
+        "month": "04",
+        "day": "03",
+        "hour": "10",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "end_date": "2027-04-04 15:00:00",
+      "end_date_details": {
+        "year": "2027",
+        "month": "04",
+        "day": "04",
+        "hour": "15",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_start_date": "2027-04-03 15:00:00",
+      "utc_start_date_details": {
+        "year": "2027",
+        "month": "04",
+        "day": "03",
+        "hour": "15",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "utc_end_date": "2027-04-04 20:00:00",
+      "utc_end_date_details": {
+        "year": "2027",
+        "month": "04",
+        "day": "04",
+        "hour": "20",
+        "minutes": "00",
+        "seconds": "00"
+      },
+      "timezone": "America/Chicago",
+      "timezone_abbr": "CDT",
+      "cost": "",
+      "cost_details": {
+        "currency_symbol": "$",
+        "currency_code": "USD",
+        "currency_position": "prefix",
+        "values": []
+      },
+      "website": "",
+      "show_map": true,
+      "show_map_link": true,
+      "hide_from_listings": false,
+      "sticky": false,
+      "featured": false,
+      "categories": [
+        {
+          "name": "Museum Events",
+          "slug": "events",
+          "term_group": 0,
+          "term_taxonomy_id": 2,
+          "taxonomy": "tribe_events_cat",
+          "description": "",
+          "parent": 0,
+          "count": 91,
+          "filter": "raw",
+          "id": 2,
+          "urls": {
+            "self": "https://americangimuseum.org/wp-json/tribe/events/v1/categories/2",
+            "collection": "https://americangimuseum.org/wp-json/tribe/events/v1/categories"
+          }
+        }
+      ],
+      "tags": [],
+      "venue": {
+        "id": 10318,
+        "author": "7",
+        "status": "publish",
+        "date": "2022-05-05 13:33:53",
+        "date_utc": "2022-05-05 18:33:53",
+        "modified": "2022-05-05 13:33:53",
+        "modified_utc": "2022-05-05 18:33:53",
+        "url": "https://americangimuseum.org/venue/museum-of-the-american-gi/",
+        "venue": "Museum of the American GI",
+        "slug": "museum-of-the-american-gi",
+        "address": "19124 Highway 6 South",
+        "city": "College Station",
+        "province": "Texas",
+        "zip": "77845",
+        "phone": "979-690-0501",
+        "website": "https://americangimuseum.org/",
+        "stateprovince": "Texas",
+        "show_map": true,
+        "show_map_link": true,
+        "global_id": "americangimuseum.org?id=10318",
+        "global_id_lineage": [
+          "americangimuseum.org?id=10318"
+        ]
+      },
+      "organizer": [
+        {
+          "id": 10319,
+          "author": "7",
+          "status": "publish",
+          "date": "2022-06-30 17:18:06",
+          "date_utc": "2022-06-30 22:18:06",
+          "modified": "2022-06-30 17:18:06",
+          "modified_utc": "2022-06-30 22:18:06",
+          "url": "https://americangimuseum.org/organizer/museum-of-the-american-gi-2/",
+          "organizer": "Museum of the American GI",
+          "slug": "museum-of-the-american-gi-2",
+          "phone": "979-690-0501",
+          "website": "https://americangimuseum.org/",
+          "email": "info@americangimuseum.org",
+          "global_id": "americangimuseum.org?id=10319",
+          "global_id_lineage": [
+            "americangimuseum.org?id=10319"
+          ]
+        }
+      ],
+      "custom_fields": [],
+      "is_virtual": false,
+      "virtual_url": null,
+      "virtual_video_source": ""
+    }
+  ],
+  "rest_url": "https://americangimuseum.org/wp-json/tribe/events/v1/events/?page=1&per_page=50&start_date=2026-08-16 00:00:00&end_date=2027-12-31 23:59:59&status=publish",
+  "total": 6,
+  "total_pages": 1
+}

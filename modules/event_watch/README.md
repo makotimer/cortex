@@ -27,6 +27,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `pwat` | Painting with a Twist College Station | run default (270d) | SSR calendar HTML; 12-hour `datetime` trap |
 | `lowes` | Lowe's Kids Club | run default (270d) | `/workshopdata` JSON; CS store 3032; VPN |
 | `homedepot` | Home Depot Kids Workshop | run default (270d) | first Saturday + Canada kit names; CS #6559; VPN |
+| `americangi` | Museum of the American G.I. | run default (270d) | TEC REST; photo view is a shell; direct |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -60,6 +61,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-pwat` | `pwat` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 | `event-watch-lowes` | `lowes` | Wed/Sun 05:50 | `proxy_url: ""` |
 | `event-watch-homedepot` | `homedepot` | Wed/Sun 06:05 | `proxy_url: ""` |
+| `event-watch-americangi` | `americangi` | Wed/Sun 06:20 | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -74,7 +76,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `lowes` and `homedepot` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `lowes`, `homedepot` and `americangi` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -373,6 +375,17 @@ publishes as `Kids Workshop`. Registration is the national
 `/c/kids-workshop` page. Runs direct (`proxy_url: ""`).
 `homedepot` is not in `DEFAULT_KINDS`. Pin it.
 
+## Museum of the American G.I.
+
+The public `/event/` page is a TEC Pro photo grid. Fetch
+`/wp-json/tribe/events/v1/events`. Times are wall-clock Chicago
+(`2026-10-25 13:00:00`). Multi-day listings (History in Motion,
+Living History Weekend) keep the feed's start/end. All current
+rows share venue 19124 Highway 6 South. Cost is blank — do not
+send `is_free`. Topics: `history`, plus `crafts` / `community`
+from the title. Living History School Day is `field_trip`.
+`americangi` is not in `DEFAULT_KINDS`. Pin it; run direct.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -485,6 +498,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Home Depot Kids Workshop (Canada kit names + generated first Saturdays; VPN)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=homedepot --no-email
+
+# Museum of the American G.I. (TEC REST; un-proxied)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=americangi proxy_url= --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test

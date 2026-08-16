@@ -417,6 +417,20 @@ Kit names by month: School Bus Organizer (Sep), Witch Candy Box
 (Oct), Dump Truck (Nov — first of two Canada kits), Holiday Train
 (Dec). Canada Saturdays are not US dates.
 
+## Museum of the American G.I.
+
+Captured **2026-08-16** from
+``https://americangimuseum.org/wp-json/tribe/events/v1/events``.
+
+| File | Source |
+|---|---|
+| `americangi_events.json` | verbatim tribe REST |
+
+Six published events matching the public photo view: Tank or Treat,
+History in Motion (two-day), Crafts / Paws with Mrs. Claus, Living
+History School Day and Weekend. One venue, `America/Chicago`, blank
+cost.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh
