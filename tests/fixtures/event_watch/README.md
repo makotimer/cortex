@@ -361,6 +361,23 @@ on ``www.rei.com``).
 - Three free (member and non-member $0), three paid (member $15 / $25
   / $40).
 
+## Wonderful Words Bookshoppe
+
+Captured **2026-08-16** from
+``GET https://www.wonderfulwordsbookshoppe.com/_api/wix-events-web/v1/events``
+with the Events app instance from ``/_api/v2/dynamicmodel``.
+``event_probe`` of ``/event-list`` through gluetun is 200 and an
+events-viewer shell (no cards).
+
+| File | Source |
+|---|---|
+| `wonderfulwords_events.json` | scheduled rows ``2026-08-16 → 2027-05-13`` plus one canceled sample |
+
+- **95 scheduled:** Storytime 75, First Friday 9, Bookclub 9, Special Storytime 2.
+- Default list order is future-first. ``description`` / ``about`` are empty.
+- ``scheduling.config.timeZoneId`` is ``America/Chicago``; start/end are UTC.
+- CANCELED ``Story time`` (space) is a different series from ``Storytime``.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh

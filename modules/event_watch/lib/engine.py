@@ -312,6 +312,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.tockify import TockifyScraper
     from .scrapers.ttc import TtcScraper
     from .scrapers.visitcstx import VisitCstxScraper
+    from .scrapers.wonderfulwords import WonderfulWordsScraper
 
     registry = {
         "tockify": TockifyScraper,
@@ -332,6 +333,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "ttc": TtcScraper,
         "stage12": Stage12Scraper,
         "rei": ReiScraper,
+        "wonderfulwords": WonderfulWordsScraper,
     }
     out: list[BaseEventScraper] = []
     for kind in settings.kinds:

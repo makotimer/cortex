@@ -23,6 +23,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `ttc` | The Theater Company of Bryan / College Station | run default (270d) | Squarespace `/calendar?format=json`; one night per occurrence |
 | `stage12` | Stage 12 (Brookshire Brothers, College Station) | run default (270d) | Drupal month calendar + node details; direct |
 | `rei` | REI Co-op College Station | run default (270d) | `#modelData` JSON; store 214 only; try direct |
+| `wonderfulwords` | Wonderful Words Bookshoppe (Wix Events) | run default (270d) | `_api/wix-events-web`; instance from dynamicmodel |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -52,6 +53,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-ttc` | `ttc` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-stage12` | `stage12` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-rei` | `rei` | *not scheduled yet* | `proxy_url: ""` |
+| `event-watch-wonderfulwords` | `wonderfulwords` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -66,7 +68,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12` and `rei` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei` and `wonderfulwords` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -312,6 +314,23 @@ container's own address (`event_probe` read-timeouts). The kind is
 opt-in; do not schedule it until a fetch path that returns
 `#modelData` exists. `rei` is not in `DEFAULT_KINDS`. Pin it.
 
+## Wonderful Words Bookshoppe
+
+The `/event-list` HTML is a Wix events-viewer shell. `event_probe`
+through gluetun returns 200 with no cards. Dates live on
+`GET /_api/wix-events-web/v1/events` with `Authorization` set to the
+Events app instance from `GET /_api/v2/dynamicmodel`
+(`140603ad-af8d-84a5-2c80-a0f60cb47351`). Default order is future-first;
+fetch walks pages of 50 until the last start is before the window.
+
+Each Wix row is one occurrence. The series uid is the slug with
+`-YYYY-MM-DD-HH-MM` stripped (`storytime`, `special-storytime`,
+`wonderful-words-bookclub`, `first-friday-open-late`). CANCELED and
+ENDED rows are dropped. Descriptions are empty on the list API.
+Storytime / bookclub → `reading`; First Friday → `community`. Bookclub
+is `adult`; everything else `all-ages`. `wonderfulwords` is not in
+`DEFAULT_KINDS`. Pin it.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -408,6 +427,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # REI College Station (direct; gluetun and the container IP both timeout today)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=rei proxy_url= --no-email
+
+# Wonderful Words Bookshoppe (Wix Events)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=wonderfulwords --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test
