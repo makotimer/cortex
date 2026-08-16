@@ -137,6 +137,81 @@ def test_palace_normalizing_twice_is_byte_identical(palace_raw):
     ]
 
 
+def test_palace_weekly_page_lists_four_series():
+    html = (FIXTURES / "thepalace_weekly.html").read_text(encoding="utf-8")
+    assert thepalace.weekly_kinds(html) == {
+        "first-friday",
+        "gameday",
+        "open-mic",
+        "maroon-white",
+    }
+
+
+def test_palace_weekly_expands_dated_occurrences():
+    html = (FIXTURES / "thepalace_weekly.html").read_text(encoding="utf-8")
+    raw = thepalace.expand_weekly(html, WINDOW_START, WINDOW_END)
+    by = {}
+    for item in raw:
+        by.setdefault(item.series_uid, []).append(item)
+    assert set(by) == {"first-friday", "gameday", "open-mic", "maroon-white"}
+
+    first_fridays = [i.record["start"].date() for i in by["first-friday"]]
+    assert first_fridays == [
+        date(2026, 9, 4), date(2026, 10, 2), date(2026, 11, 6), date(2026, 12, 4),
+    ]
+    assert by["first-friday"][0].record["start"].hour == 18
+
+    third = [i.record["start"].date() for i in by["maroon-white"]]
+    assert date(2026, 8, 21) in third
+    assert date(2026, 9, 18) in third
+    assert by["maroon-white"][0].record["start"].hour == 18
+
+    mics = by["open-mic"]
+    assert mics[0].record["start"].date() == date(2026, 8, 19)
+    assert mics[0].record["start"].hour == 19
+    assert mics[0].record["end"].hour == 22
+    assert all(i.record["start"].weekday() == 2 for i in mics)
+
+    games = by["gameday"]
+    days = {i.record["start"].date() for i in games}
+    assert date(2026, 8, 22) not in days
+    assert date(2026, 8, 23) not in days
+    assert date(2026, 8, 29) in days
+    assert date(2026, 9, 13) in days
+    assert all(i.record["start"].hour == 11 for i in games)
+
+
+def test_palace_weekly_normalize_marks_free_and_topics():
+    html = (FIXTURES / "thepalace_weekly.html").read_text(encoding="utf-8")
+    raw = thepalace.expand_weekly(html, WINDOW_START, WINDOW_END)
+    payloads, rejected = thepalace.ThePalaceScraper().normalize(raw)
+    assert rejected == []
+    by_uid = {p["series"]["source_series_uid"]: p for p in payloads}
+    assert by_uid["first-friday"]["series"]["title"] == "First Fridays at The Palace"
+    assert by_uid["first-friday"]["series"]["is_free"] is True
+    assert by_uid["first-friday"]["series"]["audiences"] == ["all-ages"]
+    assert by_uid["first-friday"]["series"]["topics"] == ["music"]
+    assert by_uid["open-mic"]["series"]["is_free"] is True
+    assert by_uid["open-mic"]["series"]["topics"] == ["music"]
+    assert by_uid["gameday"]["series"]["title"] == "Gameday on Main"
+    assert by_uid["gameday"]["series"]["topics"] == ["sports"]
+    assert "is_free" not in by_uid["gameday"]["series"]
+    assert by_uid["maroon-white"]["series"]["topics"] == ["community"]
+    assert payloads[0]["series"]["source_url"].endswith("/weekly-events")
+
+
+def test_conformance_palace_weekly_payloads_pass_the_real_validator():
+    html = (FIXTURES / "thepalace_weekly.html").read_text(encoding="utf-8")
+    raw = thepalace.expand_weekly(html, WINDOW_START, WINDOW_END)
+    payloads, _ = thepalace.ThePalaceScraper().normalize(raw)
+    validator = _load_site_validator()
+    if validator is None:
+        pytest.skip("discoverbcs app not mounted; see this file's docstring")
+    assert payloads
+    for payload in payloads:
+        validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
 def test_conformance_palace_payloads_pass_the_real_validator(palace_normalized):
     validator = _load_site_validator()
     if validator is None:

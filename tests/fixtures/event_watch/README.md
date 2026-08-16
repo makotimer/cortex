@@ -412,6 +412,8 @@ Captured **2026-08-16** through gluetun.
 | `thepalace_events.json` | JSON-LD from each of the six show pages |
 
 Six concerts, all 7:00 PM, duration 180. Address 105 South Main, Bryan.
+``thepalace_weekly.html`` is the standing weekly-events page (Open Mic,
+First Friday, Gameday, Maroon & White).
 
 ## Lowe's Kids Club
 

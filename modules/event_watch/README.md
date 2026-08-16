@@ -366,9 +366,12 @@ direct. `sewmuchclass` is not in `DEFAULT_KINDS`. Pin it.
 Downtown Bryan concerts on a Theater Toolkit "movies" page.
 `event_probe` returns the list; each `/movie/ThePalace/{slug}`
 page has JSON-LD `screeningEvent` (`Friday, September 18, 2026 7:00 PM`)
-and duration minutes. Weekly open-mic / watch-party / First Friday
-are a different URL and are not fetched (First Friday already
-comes from `bryantx`). `thepalace` is not in `DEFAULT_KINDS`. Pin it.
+and duration minutes. `/weekly-events` is standing copy: Open Mic
+every Wednesday 7–10, First Friday 6pm, Maroon & White on the
+third Friday 6pm, Gameday on Main Saturdays (college, last Saturday
+of August through the second Saturday of January) and Sundays (NFL,
+Sunday after Labor Day through the second Sunday of February),
+doors 11am. `thepalace` is not in `DEFAULT_KINDS`. Pin it.
 
 ## Lowe's Kids Club
 

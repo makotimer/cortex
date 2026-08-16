@@ -3,8 +3,10 @@
 ``/movie-theater/thepalace/movies`` is a concert listing wearing a
 movie-house skin. Each show page carries a screeningEvent StartDate
 like ``Friday, September 18, 2026 7:00 PM`` and a duration in minutes.
-Weekly open-mic / watch-party rows are a different page and are not
-fetched.
+
+``/weekly-events`` is standing copy, not a dated grid. Open Mic,
+First Friday, Maroon & White, and Gameday on Main are expanded from
+that page's headings across the run window.
 """
 
 from __future__ import annotations
@@ -24,7 +26,43 @@ from .base import BaseEventScraper, RawEvent, ScraperError
 
 SITE = "https://www.bryantxentertainment.com"
 LIST_URL = f"{SITE}/movie-theater/thepalace/movies"
+WEEKLY_URL = f"{SITE}/movie-theater/thepalace/weekly-events"
 TIMEZONE = "America/Chicago"
+
+WEEKLY = {
+    "first-friday": {
+        "title": "First Fridays at The Palace",
+        "topics": ["music"],
+        "audiences": ["all-ages"],
+        "is_free": True,
+        "hour": 18,
+        "minute": 0,
+    },
+    "open-mic": {
+        "title": "Open Mic Night",
+        "topics": ["music"],
+        "audiences": ["adult"],
+        "is_free": True,
+        "hour": 19,
+        "minute": 0,
+        "end_hour": 22,
+        "end_minute": 0,
+    },
+    "gameday": {
+        "title": "Gameday on Main",
+        "topics": ["sports"],
+        "audiences": ["adult"],
+        "hour": 11,
+        "minute": 0,
+    },
+    "maroon-white": {
+        "title": "Maroon & White Night",
+        "topics": ["community"],
+        "audiences": ["adult"],
+        "hour": 18,
+        "minute": 0,
+    },
+}
 
 ORGANIZATION = {
     "slug": "the-palace",
@@ -83,6 +121,12 @@ class ThePalaceScraper(BaseEventScraper):
             item = to_raw(rec)
             if in_window(item, window_start, window_end):
                 raw.append(item)
+        try:
+            weekly_html = client.get_text(WEEKLY_URL)
+        except Exception:
+            weekly_html = ""
+        if weekly_html:
+            raw.extend(expand_weekly(weekly_html, window_start, window_end))
         return raw
 
     def normalize(self, raw: list[RawEvent]) -> tuple[list[dict], list[dict]]:
@@ -113,11 +157,26 @@ class ThePalaceScraper(BaseEventScraper):
 
     def _series(self, item: RawEvent) -> dict:
         rec = item.record
+        weekly = WEEKLY.get(item.series_uid)
+        if weekly:
+            series: dict[str, Any] = {
+                "source_series_uid": item.series_uid,
+                "title": weekly["title"],
+                "organization": dict(ORGANIZATION),
+                "place": dict(PLACE),
+                "topics": list(weekly["topics"]),
+                "audiences": list(weekly["audiences"]),
+                "indoor": True,
+                "source_url": WEEKLY_URL,
+            }
+            if weekly.get("is_free"):
+                series["is_free"] = True
+            return series
         title = display_title(rec.get("title") or rec.get("slug") or "")
         if not title:
             raise ScraperError("missing title")
         description = normalize.clean_text(rec.get("description"))
-        series: dict[str, Any] = {
+        series = {
             "source_series_uid": item.series_uid,
             "title": title,
             "organization": dict(ORGANIZATION),
@@ -131,6 +190,117 @@ class ThePalaceScraper(BaseEventScraper):
         if description:
             series["description"] = description
         return series
+
+
+def weekly_kinds(html_text: str) -> set[str]:
+    """Which standing series the weekly-events page still advertises. Pure."""
+    text = (html_text or "").lower()
+    out: set[str] = set()
+    if "first friday" in text:
+        out.add("first-friday")
+    if "open mic" in text:
+        out.add("open-mic")
+    if "gameday" in text or "watch party" in text:
+        out.add("gameday")
+    if "maroon" in text and "white" in text:
+        out.add("maroon-white")
+    return out
+
+
+def expand_weekly(html_text: str, window_start: date, window_end: date) -> list[RawEvent]:
+    """Standing weekly copy -> one RawEvent per dated occurrence. Pure."""
+    kinds = weekly_kinds(html_text)
+    raw: list[RawEvent] = []
+    if "first-friday" in kinds:
+        raw.extend(_weekly_days("first-friday", _first_fridays(window_start, window_end)))
+    if "maroon-white" in kinds:
+        raw.extend(_weekly_days("maroon-white", _nth_fridays(window_start, window_end, 3)))
+    if "open-mic" in kinds:
+        raw.extend(_weekly_days("open-mic", _weekdays(window_start, window_end, 2)))
+    if "gameday" in kinds:
+        days = _weekdays(window_start, window_end, 5)  # Saturday
+        days += _weekdays(window_start, window_end, 6)  # Sunday
+        days = [d for d in days if _is_gameday(d)]
+        raw.extend(_weekly_days("gameday", days))
+    return raw
+
+
+def _weekly_days(kind: str, days: list[date]) -> list[RawEvent]:
+    meta = WEEKLY[kind]
+    out: list[RawEvent] = []
+    for day in days:
+        start = datetime(day.year, day.month, day.day, meta["hour"], meta["minute"])
+        rec: dict[str, Any] = {"title": meta["title"], "start": start, "weekly": True}
+        if "end_hour" in meta:
+            rec["end"] = datetime(day.year, day.month, day.day, meta["end_hour"], meta["end_minute"])
+        item = to_raw(rec)
+        item.series_uid = kind
+        out.append(item)
+    return out
+
+
+def _weekdays(window_start: date, window_end: date, weekday: int) -> list[date]:
+    day = window_start
+    out: list[date] = []
+    while day < window_end:
+        if day.weekday() == weekday:
+            out.append(day)
+        day += timedelta(days=1)
+    return out
+
+
+def _first_fridays(window_start: date, window_end: date) -> list[date]:
+    return _nth_fridays(window_start, window_end, 1)
+
+
+def _nth_fridays(window_start: date, window_end: date, n: int) -> list[date]:
+    out: list[date] = []
+    year, month = window_start.year, window_start.month
+    while date(year, month, 1) < window_end:
+        first = date(year, month, 1)
+        friday = first + timedelta(days=(4 - first.weekday()) % 7)
+        day = friday + timedelta(days=7 * (n - 1))
+        if day.month == month and window_start <= day < window_end:
+            out.append(day)
+        if month == 12:
+            year, month = year + 1, 1
+        else:
+            month += 1
+    return out
+
+
+def _is_gameday(day: date) -> bool:
+    """College Saturdays from last Saturday of August through the second
+    Saturday of January; NFL Sundays from the Sunday after Labor Day
+    through the second Sunday of February.
+    """
+    if day.weekday() == 5:
+        season = day.year if day.month >= 8 else day.year - 1
+        start = _last_saturday_of_august(season)
+        end = _nth_weekday(season + 1, 1, 5, 2)
+        return start <= day <= end
+    if day.weekday() == 6:
+        season_year = day.year if day.month >= 9 else day.year - 1
+        start = _labor_day(season_year) + timedelta(days=6)
+        end = _nth_weekday(season_year + 1, 2, 6, 2)
+        return start <= day <= end
+    return False
+
+
+def _labor_day(year: int) -> date:
+    first = date(year, 9, 1)
+    return first + timedelta(days=(0 - first.weekday()) % 7)
+
+
+def _last_saturday_of_august(year: int) -> date:
+    day = date(year, 8, 31)
+    return day - timedelta(days=(day.weekday() - 5) % 7)
+
+
+def _nth_weekday(year: int, month: int, weekday: int, n: int) -> date:
+    first = date(year, month, 1)
+    first_hit = first + timedelta(days=(weekday - first.weekday()) % 7)
+    return first_hit + timedelta(days=7 * (n - 1))
 
 
 def parse_list(html_text: str) -> list[str]:
