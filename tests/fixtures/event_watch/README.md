@@ -223,6 +223,30 @@ Upcoming items only; bodies and image blobs stripped.
 - ``location`` is empty with a NYC default pin on every row.
 - One ``TTC Work Week`` (Jan 4–9 2027) is dropped as internal.
 
+## Stage 12
+
+Captured **2026-08-16** from
+`https://www.brookshirebrothers.com/college-station/stage12events`.
+Slimmed to the Drupal Calendar View table plus eight event nodes.
+
+| File | Source |
+|---|---|
+| `stage12_month_august.html` | default month page, caption August 2026, 15 rows (incl. Jul/Sep spillover) |
+| `stage12_month_september.html` | `calendar_timestamp=1788238800`, 11 rows |
+| `stage12_month_empty.html` | `calendar_timestamp=1798783200`, January 2027, 0 rows |
+| `stage12_node_500451.html` | Movie Night: Monsters University (FREE) |
+| `stage12_node_500453.html` | Live Music — Artist: The Fragments |
+| `stage12_node_500485.html` | Singo: Back to School (no free wording) |
+| `stage12_node_500593.html` | Kids Camp — Ages 6-10, REGISTRATION CLOSED |
+| `stage12_node_500630.html` | Craft Night + Live Music — Artist: Keaton Kyzar |
+| `stage12_node_500632.html` | Ice Cream Social + Live Music — Artist: Cole Stephens |
+| `stage12_node_500636.html` | Live Music — Artist: Peril Suite |
+| `stage12_node_500654.html` | Karaoke (admission is FREE) |
+
+- No JSON/ICS. Times are `<time datetime>` on the listing; the node only restates the date.
+- Next never stops on empty months, so the walk has to halt itself.
+- Visit College Station already lists some of these with the artist in the title.
+
 ## Brazos Valley Museum
 
 Captured **2026-08-15** from `https://www.brazosvalleymuseum.org/`.

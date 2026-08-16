@@ -21,6 +21,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `hyperbole` | Hyperbole Bookstore (Bookmanager) | run default (270d) | `event/getList`; LA wall-clock → Chicago |
 | `bcschamber` | BCS Chamber of Commerce (GrowthZone) | run default (270d) | `/api/events` XML; LocationDesc over Map*; direct |
 | `ttc` | The Theater Company of Bryan / College Station | run default (270d) | Squarespace `/calendar?format=json`; one night per occurrence |
+| `stage12` | Stage 12 (Brookshire Brothers, College Station) | run default (270d) | Drupal month calendar + node details; direct |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -48,6 +49,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-hyperbole` | `hyperbole` | Wed/Sun 05:35 | `rotate_vpn_per_run: false` |
 | `event-watch-bcschamber` | `bcschamber` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-ttc` | `ttc` | *not scheduled yet* | `proxy_url: ""` |
+| `event-watch-stage12` | `stage12` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -62,7 +64,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso`, `hyperbole` and `bcschamber` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc` and `stage12` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -379,6 +381,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Theater Company (Squarespace JSON; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=ttc proxy_url= --no-email
+
+# Stage 12 (Drupal month calendar; un-proxied)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=stage12 proxy_url= --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test
