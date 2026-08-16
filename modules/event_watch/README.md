@@ -26,6 +26,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `wonderfulwords` | Wonderful Words Bookshoppe (Wix Events) | run default (270d) | `_api/wix-events-web`; instance from dynamicmodel |
 | `pwat` | Painting with a Twist College Station | run default (270d) | SSR calendar HTML; 12-hour `datetime` trap |
 | `sewmuchclass` | Sew Much Class | run default (270d) | Rain POS month grid; drop PHD / closed / training |
+| `thepalace` | The Palace (downtown Bryan concerts) | run default (270d) | Theater Toolkit JSON-LD; live shows only |
 | `lowes` | Lowe's Kids Club | run default (270d) | `/workshopdata` JSON; CS store 3032; VPN |
 | `homedepot` | Home Depot Kids Workshop | run default (270d) | first Saturday + Canada kit names; CS #6559; VPN |
 | `americangi` | Museum of the American G.I. | run default (270d) | TEC REST; photo view is a shell; direct |
@@ -61,6 +62,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-wonderfulwords` | `wonderfulwords` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 | `event-watch-pwat` | `pwat` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 | `event-watch-sewmuchclass` | `sewmuchclass` | *not scheduled yet* | `proxy_url: ""` |
+| `event-watch-thepalace` | `thepalace` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 | `event-watch-lowes` | `lowes` | Wed/Sun 05:50 | `proxy_url: ""` |
 | `event-watch-homedepot` | `homedepot` | Wed/Sun 06:05 | `proxy_url: ""` |
 | `event-watch-americangi` | `americangi` | Wed/Sun 06:20 | `proxy_url: ""` |
@@ -78,7 +80,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `sewmuchclass`, `lowes`, `homedepot` and `americangi` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `sewmuchclass`, `thepalace`, `lowes`, `homedepot` and `americangi` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -359,6 +361,15 @@ bold start on `.calEvent`; end is omitted unless the card prints a
 range. Gluetun exits 403 the calendar, so this kind runs
 direct. `sewmuchclass` is not in `DEFAULT_KINDS`. Pin it.
 
+## The Palace
+
+Downtown Bryan concerts on a Theater Toolkit "movies" page.
+`event_probe` returns the list; each `/movie/ThePalace/{slug}`
+page has JSON-LD `screeningEvent` (`Friday, September 18, 2026 7:00 PM`)
+and duration minutes. Weekly open-mic / watch-party / First Friday
+are a different URL and are not fetched (First Friday already
+comes from `bryantx`). `thepalace` is not in `DEFAULT_KINDS`. Pin it.
+
 ## Lowe's Kids Club
 
 `/workshopdata?template=REGISTRATION&types=WORKSHOP&closed=false` is
@@ -506,6 +517,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Sew Much Class (Rain POS month grid; un-proxied — VPN 403s)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=sewmuchclass proxy_url= --no-email
+
+# The Palace live shows
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=thepalace --no-email
 
 # Lowe's Kids Club (workshopdata JSON; un-proxied — VPN probe 403s)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \

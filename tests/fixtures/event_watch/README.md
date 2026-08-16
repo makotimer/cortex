@@ -402,6 +402,17 @@ Captured **2026-08-16** through gluetun. Fixture is a trimmed
 Keep six: Fun-damentals, Bird Song, Sashiko, Summer Wedding, ByAnnie,
 Houston BUS TRIP. Drop PHD / 4-PACK / Studio Closed / Training.
 
+## The Palace
+
+Captured **2026-08-16** through gluetun.
+
+| File | Source |
+|---|---|
+| `thepalace_movies.html` | `/movie-theater/thepalace/movies` |
+| `thepalace_events.json` | JSON-LD from each of the six show pages |
+
+Six concerts, all 7:00 PM, duration 180. Address 105 South Main, Bryan.
+
 ## Lowe's Kids Club
 
 Captured **2026-08-16** from

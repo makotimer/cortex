@@ -1,0 +1,638 @@
+[
+  {
+    "slug": "GUNNAR-LATHAM",
+    "movie": {
+      "@context": "http://schema.org/",
+      "@type": "Movie",
+      "Description": "Gunnar Latham was born into a church going and country music loving family\r\nin San Marcos, Texas. Growing up around horses and cattle most of his life, Gunnar\u2019s first love was rodeo. He participated in steer wrestling, team roping and tie down in high school, college and even at a professional level. Gunnar also discovered a passion for performing and singing at an early age. First in his father\u2019s church, then around the horse trailers after rodeos, and eventually in the honky-tonks of central Texas.\r\n\r\nWith eyes on a rodeo dream and a heart full of music, Gunnar eventually\r\nfound himself stuck between the two, and in late 2019 Gunnar decided to go\r\nall in on a music career. He dedicated himself to honing his skills as a writer\r\nand performer and his work has been paying off with a growing Texas fan base and the signing of his first major publishing deal with Major Bob Music, the future looks bright for this Texas cowboy.",
+      "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs135331077908-thepalace-Large.jpg",
+      "Name": "GUNNAR LATHAM",
+      "DateCreated": "8/16/2026",
+      "Url": "https://www.bryantxentertainment.com/movie/ThePalace/GUNNAR-LATHAM"
+    },
+    "itemlist": {
+      "@type": "ItemList",
+      "ItemListElement": [
+        {
+          "@type": "ListItem",
+          "Position": 1,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "GUNNAR LATHAM",
+            "StartDate": "Friday, August 21, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "GUNNAR LATHAM",
+              "Description": "Gunnar Latham was born into a church going and country music loving family\r\nin San Marcos, Texas. Growing up around horses and cattle most of his life, Gunnar\u2019s first love was rodeo. He participated in steer wrestling, team roping and tie down in high school, college and even at a professional level. Gunnar also discovered a passion for performing and singing at an early age. First in his father\u2019s church, then around the horse trailers after rodeos, and eventually in the honky-tonks of central Texas.\r\n\r\nWith eyes on a rodeo dream and a heart full of music, Gunnar eventually\r\nfound himself stuck between the two, and in late 2019 Gunnar decided to go\r\nall in on a music career. He dedicated himself to honing his skills as a writer\r\nand performer and his work has been paying off with a growing Texas fan base and the signing of his first major publishing deal with Major Bob Music, the future looks bright for this Texas cowboy.",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs135331077908-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/GUNNAR-LATHAM/RS135331077908-005357000005"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "Position": 2,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "GUNNAR LATHAM",
+            "StartDate": "Friday, August 21, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "GUNNAR LATHAM",
+              "Description": "Gunnar Latham was born into a church going and country music loving family\r\nin San Marcos, Texas. Growing up around horses and cattle most of his life, Gunnar\u2019s first love was rodeo. He participated in steer wrestling, team roping and tie down in high school, college and even at a professional level. Gunnar also discovered a passion for performing and singing at an early age. First in his father\u2019s church, then around the horse trailers after rodeos, and eventually in the honky-tonks of central Texas.\r\n\r\nWith eyes on a rodeo dream and a heart full of music, Gunnar eventually\r\nfound himself stuck between the two, and in late 2019 Gunnar decided to go\r\nall in on a music career. He dedicated himself to honing his skills as a writer\r\nand performer and his work has been paying off with a growing Texas fan base and the signing of his first major publishing deal with Major Bob Music, the future looks bright for this Texas cowboy.",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs135331077908-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/GUNNAR-LATHAM/RS135331077908-005357000006"
+            }
+          }
+        }
+      ],
+      "@context": "https://schema.org"
+    }
+  },
+  {
+    "slug": "KYLE-GATES",
+    "movie": {
+      "@context": "http://schema.org/",
+      "@type": "Movie",
+      "Description": "Kyle Gates, a singer-songwriter from La Vernia, TX, stays true to the roots of traditional country music with influences from legends like Merle Haggard, Keith Whitley, George Strait and Gary Stewart. \r\n\r\nRaised on classic country vinyl and small-town values, Kyle's rich vocals and heartfelt storytelling capture the essence of love, heartache, and real-life experiences. His music blends the smooth, timeless sound of his idols with a fresh, authentic touch, earning him a loyal following in Texas and beyond. \r\n\r\nWhether on stage at a local honky-tonk or streaming worldwide, Kyle Gates is keeping traditional country alive, one song at a time.",
+      "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs710655809323-thepalace-Large.jpg",
+      "Name": "KYLE GATES",
+      "DateCreated": "8/16/2026",
+      "Url": "https://www.bryantxentertainment.com/movie/ThePalace/KYLE-GATES"
+    },
+    "itemlist": {
+      "@type": "ItemList",
+      "ItemListElement": [
+        {
+          "@type": "ListItem",
+          "Position": 1,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "KYLE GATES",
+            "StartDate": "Saturday, August 29, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "KYLE GATES",
+              "Description": "Kyle Gates, a singer-songwriter from La Vernia, TX, stays true to the roots of traditional country music with influences from legends like Merle Haggard, Keith Whitley, George Strait and Gary Stewart. \r\n\r\nRaised on classic country vinyl and small-town values, Kyle's rich vocals and heartfelt storytelling capture the essence of love, heartache, and real-life experiences. His music blends the smooth, timeless sound of his idols with a fresh, authentic touch, earning him a loyal following in Texas and beyond. \r\n\r\nWhether on stage at a local honky-tonk or streaming worldwide, Kyle Gates is keeping traditional country alive, one song at a time.",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs710655809323-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/KYLE-GATES/RS710655809323-005360000009"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "Position": 2,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "KYLE GATES",
+            "StartDate": "Saturday, August 29, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "KYLE GATES",
+              "Description": "Kyle Gates, a singer-songwriter from La Vernia, TX, stays true to the roots of traditional country music with influences from legends like Merle Haggard, Keith Whitley, George Strait and Gary Stewart. \r\n\r\nRaised on classic country vinyl and small-town values, Kyle's rich vocals and heartfelt storytelling capture the essence of love, heartache, and real-life experiences. His music blends the smooth, timeless sound of his idols with a fresh, authentic touch, earning him a loyal following in Texas and beyond. \r\n\r\nWhether on stage at a local honky-tonk or streaming worldwide, Kyle Gates is keeping traditional country alive, one song at a time.",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs710655809323-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/KYLE-GATES/RS710655809323-005360000010"
+            }
+          }
+        }
+      ],
+      "@context": "https://schema.org"
+    }
+  },
+  {
+    "slug": "ONE-PERCENT-SKYNYRD-FEATURING-BURN",
+    "movie": {
+      "@context": "http://schema.org/",
+      "@type": "Movie",
+      "Description": "1% Skynyrd is a professional tribute act dedicated to recreating the sound, energy, and experience of Lynyrd Skynyrd - bringing the iconic hits of Lynyrd Skynyrd to life!\r\n\r\nBurn is Texas' premier Deep Purple tribute - bringing you the classic Deep Purple tunes you love, with some Rainbow and Whitesnake, too! ",
+      "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs777580063672-thepalace-Large.jpg",
+      "Name": "ONE PERCENT SKYNYRD FEATURING BURN",
+      "DateCreated": "8/16/2026",
+      "Url": "https://www.bryantxentertainment.com/movie/ThePalace/ONE-PERCENT-SKYNYRD-FEATURING-BURN"
+    },
+    "itemlist": {
+      "@type": "ItemList",
+      "ItemListElement": [
+        {
+          "@type": "ListItem",
+          "Position": 1,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "ONE PERCENT SKYNYRD FEATURING BURN",
+            "StartDate": "Friday, September 11, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "ONE PERCENT SKYNYRD FEATURING BURN",
+              "Description": "1% Skynyrd is a professional tribute act dedicated to recreating the sound, energy, and experience of Lynyrd Skynyrd - bringing the iconic hits of Lynyrd Skynyrd to life!\r\n\r\nBurn is Texas' premier Deep Purple tribute - bringing you the classic Deep Purple tunes you love, with some Rainbow and Whitesnake, too! ",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs777580063672-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/ONE-PERCENT-SKYNYRD-FEATURING-BURN/RS777580063672-005365000007"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "Position": 2,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "ONE PERCENT SKYNYRD FEATURING BURN",
+            "StartDate": "Friday, September 11, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "ONE PERCENT SKYNYRD FEATURING BURN",
+              "Description": "1% Skynyrd is a professional tribute act dedicated to recreating the sound, energy, and experience of Lynyrd Skynyrd - bringing the iconic hits of Lynyrd Skynyrd to life!\r\n\r\nBurn is Texas' premier Deep Purple tribute - bringing you the classic Deep Purple tunes you love, with some Rainbow and Whitesnake, too! ",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs777580063672-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/ONE-PERCENT-SKYNYRD-FEATURING-BURN/RS777580063672-005365000008"
+            }
+          }
+        }
+      ],
+      "@context": "https://schema.org"
+    }
+  },
+  {
+    "slug": "ROGER-CREAGER",
+    "movie": {
+      "@context": "http://schema.org/",
+      "@type": "Movie",
+      "Description": "Roger Creager has been a staple in the Texas Country Music Scene for over 25 years. His dynamic stage presence earned him the title of 2001 Entertainer of the Year (Texas Music Awards) and 2015 Entertainer of the Year (CMA Texas). As an independent artist, Creager has sold over 250,000 albums and achieved thirteen #1 singles on the Texas Music Chart. Notably,\r\nhe co-wrote George Strait\u2019s \u201cSittin\u2019 On the Fence\u201d and has collaborated with industry greats like Cody Johnson, Kevin Fowler, Josh Abbott, Deryl Dodd, and Gary P. Nunn. In November 2023,\r\nCreager made his Grand Ole Opry debut, marking another milestone in his illustrious career.\r\n\r\nAn adventurist at heart, Creager does not like to sit still while the world passes by. Whether it&#39;s\r\nclimbing Mount Kilimanjaro in Africa, running with the bulls in Spain, offshore fishing, or playing music through the Italian countryside, he seeks to get the most out of what the world has to offer. These experiences find their way into Roger\u2019s music and live shows, invigorating his fans with his passion for life. His infectious high energy and charisma keep fans coming back show after show, year after year, and record after record.",
+      "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs1780545565-thepalace-Large.jpg",
+      "Name": "ROGER CREAGER",
+      "DateCreated": "8/16/2026",
+      "Url": "https://www.bryantxentertainment.com/movie/ThePalace/ROGER-CREAGER"
+    },
+    "itemlist": {
+      "@type": "ItemList",
+      "ItemListElement": [
+        {
+          "@type": "ListItem",
+          "Position": 1,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "ROGER CREAGER",
+            "StartDate": "Friday, September 18, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "ROGER CREAGER",
+              "Description": "Roger Creager has been a staple in the Texas Country Music Scene for over 25 years. His dynamic stage presence earned him the title of 2001 Entertainer of the Year (Texas Music Awards) and 2015 Entertainer of the Year (CMA Texas). As an independent artist, Creager has sold over 250,000 albums and achieved thirteen #1 singles on the Texas Music Chart. Notably,\r\nhe co-wrote George Strait\u2019s \u201cSittin\u2019 On the Fence\u201d and has collaborated with industry greats like Cody Johnson, Kevin Fowler, Josh Abbott, Deryl Dodd, and Gary P. Nunn. In November 2023,\r\nCreager made his Grand Ole Opry debut, marking another milestone in his illustrious career.\r\n\r\nAn adventurist at heart, Creager does not like to sit still while the world passes by. Whether it&#39;s\r\nclimbing Mount Kilimanjaro in Africa, running with the bulls in Spain, offshore fishing, or playing music through the Italian countryside, he seeks to get the most out of what the world has to offer. These experiences find their way into Roger\u2019s music and live shows, invigorating his fans with his passion for life. His infectious high energy and charisma keep fans coming back show after show, year after year, and record after record.",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs1780545565-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/ROGER-CREAGER/RS1780545565-005383000013"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "Position": 2,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "ROGER CREAGER",
+            "StartDate": "Friday, September 18, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "ROGER CREAGER",
+              "Description": "Roger Creager has been a staple in the Texas Country Music Scene for over 25 years. His dynamic stage presence earned him the title of 2001 Entertainer of the Year (Texas Music Awards) and 2015 Entertainer of the Year (CMA Texas). As an independent artist, Creager has sold over 250,000 albums and achieved thirteen #1 singles on the Texas Music Chart. Notably,\r\nhe co-wrote George Strait\u2019s \u201cSittin\u2019 On the Fence\u201d and has collaborated with industry greats like Cody Johnson, Kevin Fowler, Josh Abbott, Deryl Dodd, and Gary P. Nunn. In November 2023,\r\nCreager made his Grand Ole Opry debut, marking another milestone in his illustrious career.\r\n\r\nAn adventurist at heart, Creager does not like to sit still while the world passes by. Whether it&#39;s\r\nclimbing Mount Kilimanjaro in Africa, running with the bulls in Spain, offshore fishing, or playing music through the Italian countryside, he seeks to get the most out of what the world has to offer. These experiences find their way into Roger\u2019s music and live shows, invigorating his fans with his passion for life. His infectious high energy and charisma keep fans coming back show after show, year after year, and record after record.",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs1780545565-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/ROGER-CREAGER/RS1780545565-005383000014"
+            }
+          }
+        }
+      ],
+      "@context": "https://schema.org"
+    }
+  },
+  {
+    "slug": "PARKER-RYAN",
+    "movie": {
+      "@context": "http://schema.org/",
+      "@type": "Movie",
+      "Description": "Parker Ryan\u2019s music captures the heart of Texas with a blend of traditional country and modern rock influences. \r\n\r\nFrom growing up on a chicken farm to moving to Galveston in his late teens, his journey adds a unique flavor to his sound. Infused with the spirit of rock legends like Dave Grohl, and Metallica, Parker\u2019s songs mix heartfelt storytelling with energetic vibes.\r\n\r\nHis music resonates with honesty and personal experience, offering a fresh take on Southern Rock, Blues, and Country.",
+      "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs485022578917-thepalace-Large.jpg",
+      "Name": "PARKER RYAN",
+      "DateCreated": "8/16/2026",
+      "Url": "https://www.bryantxentertainment.com/movie/ThePalace/PARKER-RYAN"
+    },
+    "itemlist": {
+      "@type": "ItemList",
+      "ItemListElement": [
+        {
+          "@type": "ListItem",
+          "Position": 1,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "PARKER RYAN",
+            "StartDate": "Thursday, September 24, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "PARKER RYAN",
+              "Description": "Parker Ryan\u2019s music captures the heart of Texas with a blend of traditional country and modern rock influences. \r\n\r\nFrom growing up on a chicken farm to moving to Galveston in his late teens, his journey adds a unique flavor to his sound. Infused with the spirit of rock legends like Dave Grohl, and Metallica, Parker\u2019s songs mix heartfelt storytelling with energetic vibes.\r\n\r\nHis music resonates with honesty and personal experience, offering a fresh take on Southern Rock, Blues, and Country.",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs485022578917-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/PARKER-RYAN/RS485022578917-005366000005"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "Position": 2,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "PARKER RYAN",
+            "StartDate": "Thursday, September 24, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "PARKER RYAN",
+              "Description": "Parker Ryan\u2019s music captures the heart of Texas with a blend of traditional country and modern rock influences. \r\n\r\nFrom growing up on a chicken farm to moving to Galveston in his late teens, his journey adds a unique flavor to his sound. Infused with the spirit of rock legends like Dave Grohl, and Metallica, Parker\u2019s songs mix heartfelt storytelling with energetic vibes.\r\n\r\nHis music resonates with honesty and personal experience, offering a fresh take on Southern Rock, Blues, and Country.",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs485022578917-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/PARKER-RYAN/RS485022578917-005366000006"
+            }
+          }
+        }
+      ],
+      "@context": "https://schema.org"
+    }
+  },
+  {
+    "slug": "RAY-WYLIE-HUBBARD",
+    "movie": {
+      "@context": "http://schema.org/",
+      "@type": "Movie",
+      "Description": "When F. Scott Fitzgerald issued his classic conclusion that \u2018There are no second acts in American lives,\u2019 he failed to envision the career of legendary Texas troubadour Ray Wylie Hubbard. A willing conspirator in the late seventies Cosmic Cowboy revolt that ushered in the mythical Outlaw era, Hubbard was a catalyst in the cultural upheaval that led to the peaceful coexistence of Lone Star music enthusiasts who comprised each end of the social and political spectrum of that troubled time. In the stellar company of iconic colleagues like Willie Nelson, Waylon Jennings, Doug Sahm and Jerry Jeff Walker, Ray Wylie Hubbard was an architect of the musical legacy that continues to inspire subsequent generations of up-and-coming Texas talent.\r\n\r\nYes, Hubbard is a Texas singer-songwriter, complete with the classic trifurcated handle, fundamental chapter of the canon in his song catalog (\"Redneck Mother\"), and enough wild hairs in his past to qualify him as a legend. But along the way, his attention began to leave matters extraneous to his art and soul by the wayside and focus on the beauty and potential to be found in the blank canvas of, in his case, the yet to be written and recorded song. The result has been one of the most satisfying musical and lyrical journeys to witness over the last two decades. In the years that followed he evolved into a writer of uncommonly honest portraits of life, alternately mixing deep personal sagas with poignant character studies of those traveling on the dark side of the road.\r\n\r\nIf one wanted to describe the sound of Ray Wylie Hubbard, one could call it American music, born from the time\r\nhonored traditions of folk, country, and roots rock",
+      "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs628090388822-thepalace-Large.jpg",
+      "Name": "RAY WYLIE HUBBARD",
+      "DateCreated": "8/16/2026",
+      "Url": "https://www.bryantxentertainment.com/movie/ThePalace/RAY-WYLIE-HUBBARD"
+    },
+    "itemlist": {
+      "@type": "ItemList",
+      "ItemListElement": [
+        {
+          "@type": "ListItem",
+          "Position": 1,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "RAY WYLIE HUBBARD",
+            "StartDate": "Friday, September 25, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "RAY WYLIE HUBBARD",
+              "Description": "When F. Scott Fitzgerald issued his classic conclusion that \u2018There are no second acts in American lives,\u2019 he failed to envision the career of legendary Texas troubadour Ray Wylie Hubbard. A willing conspirator in the late seventies Cosmic Cowboy revolt that ushered in the mythical Outlaw era, Hubbard was a catalyst in the cultural upheaval that led to the peaceful coexistence of Lone Star music enthusiasts who comprised each end of the social and political spectrum of that troubled time. In the stellar company of iconic colleagues like Willie Nelson, Waylon Jennings, Doug Sahm and Jerry Jeff Walker, Ray Wylie Hubbard was an architect of the musical legacy that continues to inspire subsequent generations of up-and-coming Texas talent.\r\n\r\nYes, Hubbard is a Texas singer-songwriter, complete with the classic trifurcated handle, fundamental chapter of the canon in his song catalog (\"Redneck Mother\"), and enough wild hairs in his past to qualify him as a legend. But along the way, his attention began to leave matters extraneous to his art and soul by the wayside and focus on the beauty and potential to be found in the blank canvas of, in his case, the yet to be written and recorded song. The result has been one of the most satisfying musical and lyrical journeys to witness over the last two decades. In the years that followed he evolved into a writer of uncommonly honest portraits of life, alternately mixing deep personal sagas with poignant character studies of those traveling on the dark side of the road.\r\n\r\nIf one wanted to describe the sound of Ray Wylie Hubbard, one could call it American music, born from the time\r\nhonored traditions of folk, country, and roots rock",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs628090388822-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/RAY-WYLIE-HUBBARD/RS628090388822-005356000013"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "Position": 2,
+          "Item": {
+            "@type": "screeningEvent",
+            "Name": "RAY WYLIE HUBBARD",
+            "StartDate": "Friday, September 25, 2026 7:00 PM",
+            "Location": {
+              "@type": "MovieTheater",
+              "Name": "Bryan Tx Entertainment",
+              "Url": "https://www.bryantxentertainment.com/movie-theater/thepalace",
+              "Image": "",
+              "Address": {
+                "@type": "PostalAddress",
+                "StreetAddress": "105 South Main Street",
+                "AddressLocality": "Bryan",
+                "AddressRegion": "TX",
+                "PostalCode": "77803"
+              },
+              "ContactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "(979) 822-4920",
+                  "ContactType": "Movieline"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "Telephone": "",
+                  "ContactType": "Office"
+                }
+              ],
+              "Email": "sales@theepmcgroup.com"
+            },
+            "WorkPresented": {
+              "@type": "Movie",
+              "Name": "RAY WYLIE HUBBARD",
+              "Description": "When F. Scott Fitzgerald issued his classic conclusion that \u2018There are no second acts in American lives,\u2019 he failed to envision the career of legendary Texas troubadour Ray Wylie Hubbard. A willing conspirator in the late seventies Cosmic Cowboy revolt that ushered in the mythical Outlaw era, Hubbard was a catalyst in the cultural upheaval that led to the peaceful coexistence of Lone Star music enthusiasts who comprised each end of the social and political spectrum of that troubled time. In the stellar company of iconic colleagues like Willie Nelson, Waylon Jennings, Doug Sahm and Jerry Jeff Walker, Ray Wylie Hubbard was an architect of the musical legacy that continues to inspire subsequent generations of up-and-coming Texas talent.\r\n\r\nYes, Hubbard is a Texas singer-songwriter, complete with the classic trifurcated handle, fundamental chapter of the canon in his song catalog (\"Redneck Mother\"), and enough wild hairs in his past to qualify him as a legend. But along the way, his attention began to leave matters extraneous to his art and soul by the wayside and focus on the beauty and potential to be found in the blank canvas of, in his case, the yet to be written and recorded song. The result has been one of the most satisfying musical and lyrical journeys to witness over the last two decades. In the years that followed he evolved into a writer of uncommonly honest portraits of life, alternately mixing deep personal sagas with poignant character studies of those traveling on the dark side of the road.\r\n\r\nIf one wanted to describe the sound of Ray Wylie Hubbard, one could call it American music, born from the time\r\nhonored traditions of folk, country, and roots rock",
+              "Duration": "180",
+              "Image": "https://cdn.theatertoolkit.com/media/bryantxentertainment/features/posters/-rs628090388822-thepalace-Large.jpg",
+              "DateCreated": "8/16/2026",
+              "Url": "https://www.bryantxentertainment.com/movies/ThePalace/RAY-WYLIE-HUBBARD/RS628090388822-005356000014"
+            }
+          }
+        }
+      ],
+      "@context": "https://schema.org"
+    }
+  }
+]
