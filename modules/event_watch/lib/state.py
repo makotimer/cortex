@@ -92,6 +92,20 @@ def save_addresses(state_dir: str, source_slug: str, addresses: dict[str, dict])
     _write_atomic(_path(state_dir, source_slug, "addresses"), addresses)
 
 
+def load_first_seen(state_dir: str, source_slug: str) -> dict[str, str]:
+    """deal id -> ISO date the coupon was first observed."""
+    path = _path(state_dir, source_slug, "first_seen")
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def save_first_seen(state_dir: str, source_slug: str, first_seen: dict[str, str]) -> None:
+    _write_atomic(_path(state_dir, source_slug, "first_seen"), first_seen)
+
+
 def _write_atomic(path: Path, data: Any) -> None:
     """Write via a temp file in the same directory, then rename.
 

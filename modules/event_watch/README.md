@@ -8,6 +8,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `tockify` | Bryan + College Station Public Library System | run default (270d) | JSON + ICS feeds |
 | `challenge` | Challenge Entertainment — pub trivia, Singo, bingo | **35d** (own cap) | AJAX API, one request per day |
 | `kbtx` | KBTX Community Calendar (Tockify `kbtx.calendar`) | run default (270d) | JSON + ICS; BCS only; address-kit fallback |
+| `kbtxdeals` | KBTX Marketplace (incentRev coupons) | first-seen day | all-day on first appearance; not the Tockify calendar |
 | `tamu` | Texas A&M LiveWhale calendar | run default (270d) | JSON; public-interest filter; BCS only |
 | `tamumusic` | TAMU Music Activities (LiveWhale group) | run default (270d) | group JSON; same concerts also appear in `tamu` |
 | `cityspark` | FOX 44 / MyCenTX (CitySpark widget API) | run default (270d) | Bryan 15mi; direct, not fox44news.com |
@@ -44,6 +45,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bcslibrary` | `tockify` | Wed/Sun 03:40 | `rotate_vpn_per_run: false` |
 | `event-watch-challenge` | `challenge` | Wed/Sun 03:55 | `proxy_url: ""` |
 | `event-watch-kbtx` | `kbtx` | Wed/Sun 04:10 | `rotate_vpn_per_run: false` |
+| `event-watch-kbtxdeals` | `kbtxdeals` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 | `event-watch-tamu` | `tamu` | Wed/Sun 04:25 | `rotate_vpn_per_run: false` |
 | `event-watch-tamumusic` | `tamumusic` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 | `event-watch-cityspark` | `cityspark` | *not scheduled yet* | `proxy_url: ""` |
@@ -79,7 +81,7 @@ sending the library feed out un-proxied or letting the Challenge fetch fail on
 every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
-`["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
+`["tockify", "challenge"]` — `kbtx`, `kbtxdeals`, `cityspark`, `tamu`, `bryantx`,
 `lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `sewmuchclass`, `thepalace`, `lowes`, `homedepot` and `americangi` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
@@ -184,6 +186,13 @@ looked up at most once. `out_of_area` is a quiet drop; `no_match` is an
 attention email. `normalize` never calls the kit.
 
 `kbtx` is not in `DEFAULT_KINDS`. Pin it.
+
+## KBTX Marketplace
+
+incentRev coupons at `kbtx.incentrev.com/bryan/deals`. Not the Tockify
+community calendar. Each live voucher is one all-day occurrence dated
+the first run that saw it (`first_seen` in state). A later run does
+not move that date. `kbtxdeals` is not in `DEFAULT_KINDS`. Pin it.
 
 ## CitySpark / MyCenTX
 
@@ -452,6 +461,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # KBTX (Tockify; uses the same proxy as the library job)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=kbtx --no-email
+
+# KBTX Marketplace coupons
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=kbtxdeals --no-email
 
 # TAMU LiveWhale
 docker compose run --rm cortex python -m service.cli run modules.event_watch \

@@ -93,6 +93,16 @@ Captured **2026-08-15** from the live Tockify calendar `kbtx.calendar`, window
 The ICS feed is the whole calendar (96 VEVENTs). Only the 52 blocks whose series
 uid appears in the JSON window are kept.
 
+## KBTX Marketplace
+
+Captured **2026-08-16** from ``https://kbtx.incentrev.com/bryan/deals``.
+
+| File | Source |
+|---|---|
+| `kbtxdeals.html` | marketplace listing, 10 merchant vouchers |
+
+First-seen date is not on the page; tests stamp ``2026-08-16``.
+
 ### What this window actually contains
 
 - **52 singletons, 52 series** — no recurrences.

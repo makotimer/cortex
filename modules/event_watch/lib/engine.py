@@ -306,6 +306,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.homedepot import HomeDepotScraper
     from .scrapers.hyperbole import HyperboleScraper
     from .scrapers.kbtx import KbtxScraper
+    from .scrapers.kbtxdeals import KbtxDealsScraper
     from .scrapers.lakewalk import LakeWalkScraper
     from .scrapers.lowes import LowesScraper
     from .scrapers.pwat import PwatScraper
@@ -324,6 +325,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "tockify": TockifyScraper,
         "challenge": ChallengeScraper,
         "kbtx": KbtxScraper,
+        "kbtxdeals": KbtxDealsScraper,
         "cityspark": CitySparkScraper,
         "tamu": TamuScraper,
         "tamumusic": TamuMusicScraper,
@@ -354,7 +356,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
             raise ScraperError(f"unknown event scraper kind {kind!r}")
         if cls in {
             KbtxScraper, TamuScraper, TamuMusicScraper,
-            DestBryanScraper, VisitCstxScraper,
+            DestBryanScraper, VisitCstxScraper, KbtxDealsScraper,
         }:
             out.append(cls(proxy_url=settings.proxy_url, state_dir=settings.state_dir))
         else:
