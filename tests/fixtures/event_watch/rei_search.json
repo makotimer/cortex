@@ -1,0 +1,5224 @@
+{
+  "captured": "2026-08-16",
+  "url": "https://www.rei.com/events/p/us-tx-college-station",
+  "locationFilter": "College Station, TX",
+  "distanceFilter": "100",
+  "search": {
+    "results": [
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Camping And Hiking",
+            "urlComponent": "camping-and-hiking",
+            "data": "CAMPING_AND_HIKING",
+            "activitySubs": [
+              {
+                "name": "Backpacking",
+                "urlComponent": "camping-and-hiking-backpacking",
+                "data": "BACKPACKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": true
+              },
+              {
+                "name": "Camping",
+                "urlComponent": "camping-and-hiking-camping",
+                "data": "CAMPING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Hiking",
+                "urlComponent": "camping-and-hiking-hiking",
+                "data": "HIKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Trekking",
+                "urlComponent": "camping-and-hiking-trekking",
+                "data": "TREKKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "43586",
+        "name": "Backpacking Basics",
+        "urlComponent": "backpacking-basics",
+        "baseImageUri": "https://www.rei.com/dam/26095409_gba_123019_84796_web_lg.jpeg",
+        "courseUri": "/events/43586/backpacking-basics",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-08-29T00:00Z": [
+              "a02cw00000YDLcYAAX"
+            ],
+            "2026-08-16T17:30Z": [
+              "a02cw00000XAWtFAAX"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-08-29T01:00Z": [
+              "a02cw00000YDLcYAAX"
+            ],
+            "2026-08-16T18:30Z": [
+              "a02cw00000XAWtFAAX"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "48": [
+              "a02cw00000YDLcYAAX"
+            ],
+            "8": [
+              "a02cw00000XAWtFAAX"
+            ]
+          },
+          "briefDescription": "Learn the basics of backpacking. Get ready to head into the backcountry and discover new places. Whether you are a seasoned hiker who wants to extend your hike across multiple days, or if you are new to the outdoors, this presentation will give you the essential information you need.",
+          "baseNonMemberPrice": null,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": null,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "CAMPING_AND_HIKING",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000XAWtFAAX",
+              "legacyId": null,
+              "courseId": "43586",
+              "start": "2026-08-16T17:30:00Z",
+              "end": "2026-08-16T18:30:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "CLOSED",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/43586/backpacking-basics/a02cw00000XAWtFAAX",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "CLOSED",
+                "registrationLocation": "REI",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 14
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            {
+              "sessionId": "a02cw00000YDLcYAAX",
+              "legacyId": null,
+              "courseId": "43586",
+              "start": "2026-08-29T00:00:00Z",
+              "end": "2026-08-29T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/43586/backpacking-basics/a02cw00000YDLcYAAX",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(713)353-2582",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 40,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 33
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "48",
+                "name": "Houston REI",
+                "description": null,
+                "address": "7538 Westheimer Rd",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77063,
+                "gpsLat": 29.7384,
+                "gpsLong": -95.5019,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 55,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/26095409_gba_123019_84796_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Curious about what\u2019s waiting beyond the next mile? Turn that curiosity into confidence on the trail. Whether you\u2019re planning your first overnight or looking to go further, this class covers the essentials to help you prepare, pack, and head into the backcountry with purpose. \r\n\r\nLearn how to choose the right gear, plan a safe and responsible trip, and pack efficiently so you\u2019re ready for whatever the trail has in store. Along the way, you\u2019ll gain the skills to make informed decisions and minimize your impact\u2014so you can spend less time second-guessing and more time exploring what\u2019s out there.",
+          "subPrograms": [
+            "BACKPACKING"
+          ],
+          "private": false,
+          "types": [
+            "OS_INDOOR_CLASS"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000XAWtFAAX": {
+              "sessionId": "a02cw00000XAWtFAAX",
+              "legacyId": null,
+              "courseId": "43586",
+              "start": "2026-08-16T17:30:00Z",
+              "end": "2026-08-16T18:30:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "CLOSED",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/43586/backpacking-basics/a02cw00000XAWtFAAX",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "CLOSED",
+                "registrationLocation": "REI",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 14
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            "a02cw00000YDLcYAAX": {
+              "sessionId": "a02cw00000YDLcYAAX",
+              "legacyId": null,
+              "courseId": "43586",
+              "start": "2026-08-29T00:00:00Z",
+              "end": "2026-08-29T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/43586/backpacking-basics/a02cw00000YDLcYAAX",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(713)353-2582",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 40,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 33
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "48",
+                "name": "Houston REI",
+                "description": null,
+                "address": "7538 Westheimer Rd",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77063,
+                "gpsLat": 29.7384,
+                "gpsLong": -95.5019,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 55,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          },
+          "courseId": "43586",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Backpacking Basics"
+        },
+        "courseTypeLabel": "Indoor Class",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Outdoor Skills",
+            "urlComponent": "outdoor-skills",
+            "data": "OUTDOOR_SKILLS",
+            "activitySubs": [
+              {
+                "name": "Avalanche Safety",
+                "urlComponent": "outdoor-skills-avalanche-safety",
+                "data": "AVALANCHE_SAFETY",
+                "parentActive": false,
+                "parentName": "Outdoor Skills",
+                "active": false
+              },
+              {
+                "name": "Cooking",
+                "urlComponent": "outdoor-skills-cooking",
+                "data": "COOKING",
+                "parentActive": false,
+                "parentName": "Outdoor Skills",
+                "active": false
+              },
+              {
+                "name": "Cpr",
+                "urlComponent": "outdoor-skills-cpr",
+                "data": "CPR",
+                "parentActive": false,
+                "parentName": "Outdoor Skills",
+                "active": false
+              },
+              {
+                "name": "Navigation",
+                "urlComponent": "outdoor-skills-navigation",
+                "data": "NAVIGATION",
+                "parentActive": false,
+                "parentName": "Outdoor Skills",
+                "active": true
+              },
+              {
+                "name": "Photography",
+                "urlComponent": "outdoor-skills-photography",
+                "data": "PHOTOGRAPHY",
+                "parentActive": false,
+                "parentName": "Outdoor Skills",
+                "active": false
+              },
+              {
+                "name": "Survival",
+                "urlComponent": "outdoor-skills-survival",
+                "data": "SURVIVAL",
+                "parentActive": false,
+                "parentName": "Outdoor Skills",
+                "active": false
+              },
+              {
+                "name": "Wilderness Medicine",
+                "urlComponent": "outdoor-skills-wilderness-medicine",
+                "data": "WILDERNESS_MEDICINE",
+                "parentActive": false,
+                "parentName": "Outdoor Skills",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "99570",
+        "name": "In-Store Map & Compass Workshop",
+        "urlComponent": "in-store-map-compass-workshop",
+        "baseImageUri": "https://www.rei.com/dam/7750684_van_dragt_102616_0011_web_lg.jpeg",
+        "courseUri": "/events/99570/in-store-map-compass-workshop",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-08-16T19:00Z": [
+              "a02cw00000W6BWDAA3"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-08-16T21:00Z": [
+              "a02cw00000W6BWDAA3"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "8": [
+              "a02cw00000W6BWDAA3"
+            ]
+          },
+          "briefDescription": "Find your way outside by learning practical map and compass navigation skills. This workshop will teach you how to read key features on topographic maps, identify the parts of a compass, how to find north, follow bearings, and plan a route for your next outdoor adventure.",
+          "baseNonMemberPrice": 60.0,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": 30.0,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "OUTDOOR_SKILLS",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000W6BWDAA3",
+              "legacyId": null,
+              "courseId": "99570",
+              "start": "2026-08-16T19:00:00Z",
+              "end": "2026-08-16T21:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "CLOSED",
+              "memberPrice": 30.0,
+              "nonMemberPrice": 60.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/99570/in-store-map-compass-workshop/a02cw00000W6BWDAA3",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "CLOSED",
+                "registrationLocation": "REI",
+                "capacity": 12,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 7
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/7750684_van_dragt_102616_0011_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Find your way outside by learning practical map and compass navigation skills. This workshop will teach you how to read key features on topographic maps, identify the parts of a compass, how to find north, follow bearings, and plan a route for your next outdoor adventure. Through facilitated discussion and a series of easygoing activities, you will walk away with new knowledge that will help you push your boundaries and prevent you from getting lost!",
+          "subPrograms": [
+            "NAVIGATION"
+          ],
+          "private": false,
+          "types": [
+            "WORKSHOP"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000W6BWDAA3": {
+              "sessionId": "a02cw00000W6BWDAA3",
+              "legacyId": null,
+              "courseId": "99570",
+              "start": "2026-08-16T19:00:00Z",
+              "end": "2026-08-16T21:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "CLOSED",
+              "memberPrice": 30.0,
+              "nonMemberPrice": 60.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/99570/in-store-map-compass-workshop/a02cw00000W6BWDAA3",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "CLOSED",
+                "registrationLocation": "REI",
+                "capacity": 12,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 7
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          },
+          "courseId": "99570",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "In-Store Map & Compass Workshop"
+        },
+        "courseTypeLabel": "Indoor Workshop",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Cycling",
+            "urlComponent": "cycling",
+            "data": "CYCLING",
+            "activitySubs": [
+              {
+                "name": "Bikepacking",
+                "urlComponent": "cycling-bikepacking",
+                "data": "BIKEPACKING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": false
+              },
+              {
+                "name": "General Cycling",
+                "urlComponent": "cycling-general",
+                "data": "GENERAL_CYCLING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": true
+              },
+              {
+                "name": "Gravel Riding",
+                "urlComponent": "cycling-gravel-riding",
+                "data": "GRAVEL_RIDING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": false
+              },
+              {
+                "name": "Mountain Biking",
+                "urlComponent": "cycling-mountain-biking",
+                "data": "MOUNTAIN_BIKING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": false
+              },
+              {
+                "name": "Road Cycling",
+                "urlComponent": "cycling-road",
+                "data": "ROAD_CYCLING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "88665",
+        "name": "Flat Tire Repair Workshop",
+        "urlComponent": "flat-tire-repair-workshop",
+        "baseImageUri": "https://www.rei.com/dam/kingman_20221011_9269_web_lg.jpeg",
+        "courseUri": "/events/88665/flat-tire-repair-workshop",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-08-16T20:00Z": [
+              "a02cw00000WyV6YAAV"
+            ],
+            "2026-09-23T23:00Z": [
+              "a02cw00000XPxY9AAL"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-08-16T22:00Z": [
+              "a02cw00000WyV6YAAV"
+            ],
+            "2026-09-24T01:00Z": [
+              "a02cw00000XPxY9AAL"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "48": [
+              "a02cw00000WyV6YAAV"
+            ],
+            "214": [
+              "a02cw00000XPxY9AAL"
+            ]
+          },
+          "briefDescription": "Flat tires can impact every rider on every surface. If you want to be ready to fix your next flat, join an REI bike mechanic for this hands hands-on workshop. Bike wheels will be available or bring your own.",
+          "baseNonMemberPrice": 55.0,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": 25.0,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "CYCLING",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000WyV6YAAV",
+              "legacyId": null,
+              "courseId": "88665",
+              "start": "2026-08-16T20:00:00Z",
+              "end": "2026-08-16T22:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "CLOSED",
+              "memberPrice": 25.0,
+              "nonMemberPrice": 55.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/88665/flat-tire-repair-workshop/a02cw00000WyV6YAAV",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(713)353-2582",
+              "spots": {
+                "status": "CLOSED",
+                "registrationLocation": "REI",
+                "capacity": 6,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 5
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "48",
+                "name": "Houston REI",
+                "description": null,
+                "address": "7538 Westheimer Rd",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77063,
+                "gpsLat": 29.7384,
+                "gpsLong": -95.5019,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 55,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            },
+            {
+              "sessionId": "a02cw00000XPxY9AAL",
+              "legacyId": null,
+              "courseId": "88665",
+              "start": "2026-09-23T23:00:00Z",
+              "end": "2026-09-24T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 25.0,
+              "nonMemberPrice": 55.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/88665/flat-tire-repair-workshop/a02cw00000XPxY9AAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 4,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 4
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/kingman_20221011_9269_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Flat tires happen\u2014on trails, roads, and everywhere in between. If you want to be ready when they do, join an REI bike expert for this hands-on workshop designed to build your confidence and skills. From start to finish, you\u2019ll learn how to change a tire, troubleshoot common issues, and reduce the chances of a repeat flat. We\u2019ll provide bike wheels for practice, or feel free to bring your own. Please wear clothes you don\u2019t mind getting a little greasy and closed-toe shoes. Whether you're new to cycling or just want a refresher, this session will get you rolling again in no time.",
+          "subPrograms": [
+            "GENERAL_CYCLING"
+          ],
+          "private": false,
+          "types": [
+            "WORKSHOP"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000XPxY9AAL": {
+              "sessionId": "a02cw00000XPxY9AAL",
+              "legacyId": null,
+              "courseId": "88665",
+              "start": "2026-09-23T23:00:00Z",
+              "end": "2026-09-24T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 25.0,
+              "nonMemberPrice": 55.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/88665/flat-tire-repair-workshop/a02cw00000XPxY9AAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 4,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 4
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            "a02cw00000WyV6YAAV": {
+              "sessionId": "a02cw00000WyV6YAAV",
+              "legacyId": null,
+              "courseId": "88665",
+              "start": "2026-08-16T20:00:00Z",
+              "end": "2026-08-16T22:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "CLOSED",
+              "memberPrice": 25.0,
+              "nonMemberPrice": 55.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/88665/flat-tire-repair-workshop/a02cw00000WyV6YAAV",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(713)353-2582",
+              "spots": {
+                "status": "CLOSED",
+                "registrationLocation": "REI",
+                "capacity": 6,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 5
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "48",
+                "name": "Houston REI",
+                "description": null,
+                "address": "7538 Westheimer Rd",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77063,
+                "gpsLat": 29.7384,
+                "gpsLong": -95.5019,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 55,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          },
+          "courseId": "88665",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Flat Tire Repair Workshop"
+        },
+        "courseTypeLabel": "Indoor Workshop",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Cycling",
+            "urlComponent": "cycling",
+            "data": "CYCLING",
+            "activitySubs": [
+              {
+                "name": "Bikepacking",
+                "urlComponent": "cycling-bikepacking",
+                "data": "BIKEPACKING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": false
+              },
+              {
+                "name": "General Cycling",
+                "urlComponent": "cycling-general",
+                "data": "GENERAL_CYCLING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": true
+              },
+              {
+                "name": "Gravel Riding",
+                "urlComponent": "cycling-gravel-riding",
+                "data": "GRAVEL_RIDING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": false
+              },
+              {
+                "name": "Mountain Biking",
+                "urlComponent": "cycling-mountain-biking",
+                "data": "MOUNTAIN_BIKING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": false
+              },
+              {
+                "name": "Road Cycling",
+                "urlComponent": "cycling-road",
+                "data": "ROAD_CYCLING",
+                "parentActive": false,
+                "parentName": "Cycling",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "88660",
+        "name": "Bike Chains and Derailleurs Workshop",
+        "urlComponent": "bike-chains-and-derailleurs-workshop",
+        "baseImageUri": "https://www.rei.com/dam/kingman_20221011_9269_web_lg.jpeg",
+        "courseUri": "/events/88660/bike-chains-and-derailleurs-workshop",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-08-19T23:00Z": [
+              "a02cw00000WzKVdAAN"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-08-20T01:00Z": [
+              "a02cw00000WzKVdAAN"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "214": [
+              "a02cw00000WzKVdAAN"
+            ]
+          },
+          "briefDescription": "A well-tuned bike can help make riding smooth and efficient. Join an REI bike mechanic for a workshop on how to care for and maintain your bike's derailleurs and chain. Bring your own bike or practice on one of ours.",
+          "baseNonMemberPrice": 70.0,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": 40.0,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "CYCLING",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000WzKVdAAN",
+              "legacyId": null,
+              "courseId": "88660",
+              "start": "2026-08-19T23:00:00Z",
+              "end": "2026-08-20T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 40.0,
+              "nonMemberPrice": 70.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/88660/bike-chains-and-derailleurs-workshop/a02cw00000WzKVdAAN",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 4,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 4
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/kingman_20221011_9269_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "A well-tuned bike can help make riding smooth and efficient. Grinding gears, rubbing derailleurs, and squeaky chains are your bike's cry for help. Ready to learn how to prevent or eliminate these annoyances from your beloved bike? Join an REI bike mechanic for a workshop on how to care for and maintain your bike's derailleurs and chain. We will tune derailleurs, adjust shifting, and diagnose common chain issues. Along the way, you will learn best practices for care and cleaning with plenty of get-your-hands-dirty chances to practice. Bring your own bike or practice on one of ours. Participants should wear closed-toed shoes and dress in clothing that can get dirty or greasy.",
+          "subPrograms": [
+            "GENERAL_CYCLING"
+          ],
+          "private": false,
+          "types": [
+            "WORKSHOP"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000WzKVdAAN": {
+              "sessionId": "a02cw00000WzKVdAAN",
+              "legacyId": null,
+              "courseId": "88660",
+              "start": "2026-08-19T23:00:00Z",
+              "end": "2026-08-20T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 40.0,
+              "nonMemberPrice": 70.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/88660/bike-chains-and-derailleurs-workshop/a02cw00000WzKVdAAN",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 4,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 4
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          },
+          "courseId": "88660",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Bike Chains and Derailleurs Workshop"
+        },
+        "courseTypeLabel": "Indoor Workshop",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Camping And Hiking",
+            "urlComponent": "camping-and-hiking",
+            "data": "CAMPING_AND_HIKING",
+            "activitySubs": [
+              {
+                "name": "Backpacking",
+                "urlComponent": "camping-and-hiking-backpacking",
+                "data": "BACKPACKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Camping",
+                "urlComponent": "camping-and-hiking-camping",
+                "data": "CAMPING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Hiking",
+                "urlComponent": "camping-and-hiking-hiking",
+                "data": "HIKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Trekking",
+                "urlComponent": "camping-and-hiking-trekking",
+                "data": "TREKKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": true
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "101590",
+        "name": "American Pilgrims Present: Exploring El Camino de Santiago",
+        "urlComponent": "american-pilgrims-present-exploring-el-camino-de-santiago",
+        "baseImageUri": "https://www.rei.com/dam/harnois_121719_1101_web_lg.jpeg",
+        "courseUri": "/events/101590/american-pilgrims-present-exploring-el-camino-de-santiago",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-08-23T19:00Z": [
+              "a02cw00000W3HGPAA3"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-08-23T21:00Z": [
+              "a02cw00000W3HGPAA3"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "49": [
+              "a02cw00000W3HGPAA3"
+            ]
+          },
+          "briefDescription": "Come learn about the preparation involved that will allow you to hike the Camino de Santiago, a trail system in France, Spain, Portugal, etc.!",
+          "baseNonMemberPrice": null,
+          "minimumAge": null,
+          "activityLevels": [
+            "RELAXED"
+          ],
+          "baseMemberPrice": null,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "CAMPING_AND_HIKING",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000W3HGPAA3",
+              "legacyId": null,
+              "courseId": "101590",
+              "start": "2026-08-23T19:00:00Z",
+              "end": "2026-08-23T21:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/101590/american-pilgrims-present-exploring-el-camino-de-santiago/a02cw00000W3HGPAA3",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(832)237-8833",
+              "spots": {
+                "status": "WAIT_LIST",
+                "registrationLocation": "REI",
+                "capacity": 40,
+                "canceled": 0,
+                "waiting": 28,
+                "available": 0
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "49",
+                "name": "Houston Willowbrook REI",
+                "description": null,
+                "address": "17717 Tomball Pkwy",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77064,
+                "gpsLat": 29.9584,
+                "gpsLong": -95.5475,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 92,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/harnois_121719_1101_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "El Camino de Santiago, or \u201cThe Way of Saint James,\u201d is a network of ancient pilgrimage routes leading to the cathedral in Santiago de Compostela in northwestern Spain, believed to be the resting place of Saint James. Pilgrims have walked these paths for centuries, seeking spiritual growth, cultural immersion, and personal transformation. Today, the Camino welcomes travelers from around the world who come for a variety of reasons\u2014from adventure and reflection to connection and renewal.\r\n\r\nJoin American Pilgrims on the Camino for an inspiring session that brings to life the incredible tradition and epic adventure of the Camino de Santiago. Through personal stories, cultural insights, and practical advice, you'll gain a deeper understanding of both the spirit and logistics of pilgrimage. Whether you're just beginning to explore the idea or actively preparing for your own journey, this session offers meaningful guidance and a chance to connect with a welcoming community of fellow travelers. Each presentation reflects the unique perspective of its speaker, and topics may vary by REI location\u2014please see the Notes section below for details.",
+          "subPrograms": [
+            "TREKKING"
+          ],
+          "private": false,
+          "types": [
+            "PRESENTATION"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000W3HGPAA3": {
+              "sessionId": "a02cw00000W3HGPAA3",
+              "legacyId": null,
+              "courseId": "101590",
+              "start": "2026-08-23T19:00:00Z",
+              "end": "2026-08-23T21:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/101590/american-pilgrims-present-exploring-el-camino-de-santiago/a02cw00000W3HGPAA3",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(832)237-8833",
+              "spots": {
+                "status": "WAIT_LIST",
+                "registrationLocation": "REI",
+                "capacity": 40,
+                "canceled": 0,
+                "waiting": 28,
+                "available": 0
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "49",
+                "name": "Houston Willowbrook REI",
+                "description": null,
+                "address": "17717 Tomball Pkwy",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77064,
+                "gpsLat": 29.9584,
+                "gpsLong": -95.5475,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 92,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          },
+          "courseId": "101590",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "American Pilgrims Present: Exploring El Camino de Santiago"
+        },
+        "courseTypeLabel": "Presentation",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": true,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Fitness",
+            "urlComponent": "fitness",
+            "data": "FITNESS",
+            "activitySubs": [
+              {
+                "name": "Running",
+                "urlComponent": "fitness-running",
+                "data": "RUNNING",
+                "parentActive": false,
+                "parentName": "Fitness",
+                "active": true
+              },
+              {
+                "name": "Yoga",
+                "urlComponent": "fitness-yoga",
+                "data": "YOGA",
+                "parentActive": false,
+                "parentName": "Fitness",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "101874",
+        "name": "Road Running Basics",
+        "urlComponent": "road-running-basics",
+        "baseImageUri": "https://www.rei.com/dam/26095421_larracas_20230125_0012_web_lg.jpeg",
+        "courseUri": "/events/101874/road-running-basics",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-09-08T23:00Z": [
+              "a02cw00000XPw4DAAT"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-09-09T00:00Z": [
+              "a02cw00000XPw4DAAT"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "214": [
+              "a02cw00000XPw4DAAT"
+            ]
+          },
+          "briefDescription": "Looking to reinvigorate your runs brand new running and don't know where to start? Join us to learn about the world of road running, the gear you need, how to train for that next race, and more!",
+          "baseNonMemberPrice": 0.0,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": 0.0,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "FITNESS",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000XPw4DAAT",
+              "legacyId": null,
+              "courseId": "101874",
+              "start": "2026-09-08T23:00:00Z",
+              "end": "2026-09-09T00:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/101874/road-running-basics/a02cw00000XPw4DAAT",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 15,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 14
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/26095421_larracas_20230125_0012_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Step out your door and discover what\u2019s possible\u2014one step at a time! Road running is one of the most accessible ways to stay active, clear your mind, and explore your surroundings. Whether you\u2019re brand new or getting back into a routine, this class helps turn your first steps into lasting confidence. \r\n\r\nYou\u2019ll learn the fundamentals\u2014from choosing the right footwear and gear to building a safe, sustainable running plan\u2014so you can move more comfortably, avoid common setbacks, and keep building momentum.",
+          "subPrograms": [
+            "RUNNING"
+          ],
+          "private": false,
+          "types": [
+            "OS_INDOOR_CLASS"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000XPw4DAAT": {
+              "sessionId": "a02cw00000XPw4DAAT",
+              "legacyId": null,
+              "courseId": "101874",
+              "start": "2026-09-08T23:00:00Z",
+              "end": "2026-09-09T00:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/101874/road-running-basics/a02cw00000XPw4DAAT",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 15,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 14
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          },
+          "courseId": "101874",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Road Running Basics"
+        },
+        "courseTypeLabel": "Indoor Class",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Fitness",
+            "urlComponent": "fitness",
+            "data": "FITNESS",
+            "activitySubs": [
+              {
+                "name": "Running",
+                "urlComponent": "fitness-running",
+                "data": "RUNNING",
+                "parentActive": false,
+                "parentName": "Fitness",
+                "active": true
+              },
+              {
+                "name": "Yoga",
+                "urlComponent": "fitness-yoga",
+                "data": "YOGA",
+                "parentActive": false,
+                "parentName": "Fitness",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "32750",
+        "name": "Trail Running Basics",
+        "urlComponent": "trail-running-basics",
+        "baseImageUri": "https://www.rei.com/dam/26095425_contentteam_2110418_01412_web_lg.jpeg",
+        "courseUri": "/events/32750/trail-running-basics",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-09-11T23:30Z": [
+              "a02cw00000YDhehAAD"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-09-12T00:30Z": [
+              "a02cw00000YDhehAAD"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "48": [
+              "a02cw00000YDhehAAD"
+            ]
+          },
+          "briefDescription": "Trail running can be a great change of pace from the jog around the neighborhood. Learn about technique, training, clothing and footwear specific to the sport of trail running.",
+          "baseNonMemberPrice": 0.0,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": 0.0,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "FITNESS",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000YDhehAAD",
+              "legacyId": null,
+              "courseId": "32750",
+              "start": "2026-09-11T23:30:00Z",
+              "end": "2026-09-12T00:30:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/32750/trail-running-basics/a02cw00000YDhehAAD",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(713)353-2582",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 40,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 40
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "48",
+                "name": "Houston REI",
+                "description": null,
+                "address": "7538 Westheimer Rd",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77063,
+                "gpsLat": 29.7384,
+                "gpsLong": -95.5019,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 55,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/26095425_contentteam_2110418_01412_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Looking to take your run beyond the pavement? Trade steady surfaces for winding paths, changing terrain, and the rhythm of moving through nature. Trail running invites you to explore landscapes in a way that feels both energizing and grounding. Whether you\u2019re new to running or ready to change things up, this class helps you build the skills to move confidently through it all. \r\n\r\nYou\u2019ll explore footwear, essential gear, hydration and fueling, and key safety considerations\u2014so you can navigate uneven terrain, adapt to changing conditions, and fully enjoy the experience of running on the path less traveled.",
+          "subPrograms": [
+            "RUNNING"
+          ],
+          "private": false,
+          "types": [
+            "OS_INDOOR_CLASS"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000YDhehAAD": {
+              "sessionId": "a02cw00000YDhehAAD",
+              "legacyId": null,
+              "courseId": "32750",
+              "start": "2026-09-11T23:30:00Z",
+              "end": "2026-09-12T00:30:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/32750/trail-running-basics/a02cw00000YDhehAAD",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(713)353-2582",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 40,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 40
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "48",
+                "name": "Houston REI",
+                "description": null,
+                "address": "7538 Westheimer Rd",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77063,
+                "gpsLat": 29.7384,
+                "gpsLong": -95.5019,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 55,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          },
+          "courseId": "32750",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Trail Running Basics"
+        },
+        "courseTypeLabel": "Indoor Class",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Camping And Hiking",
+            "urlComponent": "camping-and-hiking",
+            "data": "CAMPING_AND_HIKING",
+            "activitySubs": [
+              {
+                "name": "Backpacking",
+                "urlComponent": "camping-and-hiking-backpacking",
+                "data": "BACKPACKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Camping",
+                "urlComponent": "camping-and-hiking-camping",
+                "data": "CAMPING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Hiking",
+                "urlComponent": "camping-and-hiking-hiking",
+                "data": "HIKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": true
+              },
+              {
+                "name": "Trekking",
+                "urlComponent": "camping-and-hiking-trekking",
+                "data": "TREKKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "43587",
+        "name": "Hiking Basics",
+        "urlComponent": "hiking-basics",
+        "baseImageUri": "https://www.rei.com/dam/26095414_vagnini_181016_2257_web_lg.jpeg",
+        "courseUri": "/events/43587/hiking-basics",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-09-12T19:30Z": [
+              "a02cw00000X6UmoAAF"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-09-12T20:30Z": [
+              "a02cw00000X6UmoAAF"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "49": [
+              "a02cw00000X6UmoAAF"
+            ]
+          },
+          "briefDescription": "Go hiking with confidence and experience the outdoors in new ways! Whether you're preparing to go out for the first time or looking to update your hiking gear, this presentation is for anyone who enjoys time on the trail.",
+          "baseNonMemberPrice": null,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": null,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "CAMPING_AND_HIKING",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000X6UmoAAF",
+              "legacyId": null,
+              "courseId": "43587",
+              "start": "2026-09-12T19:30:00Z",
+              "end": "2026-09-12T20:30:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/43587/hiking-basics/a02cw00000X6UmoAAF",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(832)237-8833",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 40,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 19
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "49",
+                "name": "Houston Willowbrook REI",
+                "description": null,
+                "address": "17717 Tomball Pkwy",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77064,
+                "gpsLat": 29.9584,
+                "gpsLong": -95.5475,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 92,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/26095414_vagnini_181016_2257_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Step beyond the everyday\u2014and head out onto the trail. Hiking is one of the simplest and most rewarding ways to stay active, explore new places, and build confidence outdoors. Whether you\u2019re planning your first hike or looking to go farther, this class covers the essentials to help you prepare, pack, and move through the outdoors with purpose. \r\n\r\nYou\u2019ll learn how to choose the right gear, plan a safe and responsible trip, and pack efficiently\u2014so you can spend less time second-guessing and more time enjoying the fresh air, changing landscapes, and the freedom to go further.",
+          "subPrograms": [
+            "HIKING"
+          ],
+          "private": false,
+          "types": [
+            "OS_INDOOR_CLASS"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000X6UmoAAF": {
+              "sessionId": "a02cw00000X6UmoAAF",
+              "legacyId": null,
+              "courseId": "43587",
+              "start": "2026-09-12T19:30:00Z",
+              "end": "2026-09-12T20:30:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/43587/hiking-basics/a02cw00000X6UmoAAF",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(832)237-8833",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 40,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 19
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "49",
+                "name": "Houston Willowbrook REI",
+                "description": null,
+                "address": "17717 Tomball Pkwy",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77064,
+                "gpsLat": 29.9584,
+                "gpsLong": -95.5475,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 92,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            }
+          },
+          "courseId": "43587",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Hiking Basics"
+        },
+        "courseTypeLabel": "Indoor Class",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Camping And Hiking",
+            "urlComponent": "camping-and-hiking",
+            "data": "CAMPING_AND_HIKING",
+            "activitySubs": [
+              {
+                "name": "Backpacking",
+                "urlComponent": "camping-and-hiking-backpacking",
+                "data": "BACKPACKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Camping",
+                "urlComponent": "camping-and-hiking-camping",
+                "data": "CAMPING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Hiking",
+                "urlComponent": "camping-and-hiking-hiking",
+                "data": "HIKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": true
+              },
+              {
+                "name": "Trekking",
+                "urlComponent": "camping-and-hiking-trekking",
+                "data": "TREKKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "brds",
+        "name": "Travis Audubon Society Presents: Intro to Birding Series",
+        "urlComponent": "travis-audubon-society-presents-intro-to-birding-series",
+        "baseImageUri": "https://www.rei.com/dam/8809310_skrobecki_08072019_0383_web_lg.jpeg",
+        "courseUri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-10-06T23:00Z": [
+              "a02cw00000XhSHNAA3"
+            ],
+            "2026-09-22T23:00Z": [
+              "a02cw00000Xgy82AAB"
+            ],
+            "2026-10-13T23:00Z": [
+              "a02cw00000Xh1SUAAZ"
+            ],
+            "2026-09-15T23:00Z": [
+              "a02cw00000XgmreAAB"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-09-16T01:00Z": [
+              "a02cw00000XgmreAAB"
+            ],
+            "2026-09-23T01:00Z": [
+              "a02cw00000Xgy82AAB"
+            ],
+            "2026-10-14T01:00Z": [
+              "a02cw00000Xh1SUAAZ"
+            ],
+            "2026-10-07T01:00Z": [
+              "a02cw00000XhSHNAA3"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "8": [
+              "a02cw00000XgmreAAB",
+              "a02cw00000Xh1SUAAZ",
+              "a02cw00000XhSHNAA3",
+              "a02cw00000Xgy82AAB"
+            ]
+          },
+          "briefDescription": null,
+          "baseNonMemberPrice": 110.0,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": 95.0,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "CAMPING_AND_HIKING",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000XgmreAAB",
+              "legacyId": null,
+              "courseId": "brds",
+              "start": "2026-09-15T23:00:00Z",
+              "end": "2026-09-16T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": "This lecture is the 1st in a 4-part series that includes a guided a field trip each Saturday after the lecture.",
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [
+                {
+                  "name": "REGISTER HERE",
+                  "uri": "https://travis.app.neoncrm.com/np/clients/travis/event.jsp?event=26975&"
+                },
+                {
+                  "name": "Learn more about Travis Audubon Society",
+                  "uri": "https://travisaudubon.org/"
+                }
+              ],
+              "legal": null,
+              "uri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series/a02cw00000XgmreAAB",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "THIRD_PARTY",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 20
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            {
+              "sessionId": "a02cw00000Xgy82AAB",
+              "legacyId": null,
+              "courseId": "brds",
+              "start": "2026-09-22T23:00:00Z",
+              "end": "2026-09-23T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": "This lecture is the 2nd in a 4-part series that includes a guided a field trip each Saturday after the lecture.",
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [
+                {
+                  "name": "REGISTER HERE",
+                  "uri": "https://travis.app.neoncrm.com/np/clients/travis/event.jsp?event=26975&"
+                },
+                {
+                  "name": "Learn more about Travis Audubon Society",
+                  "uri": "https://travisaudubon.org/"
+                }
+              ],
+              "legal": null,
+              "uri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series/a02cw00000Xgy82AAB",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "THIRD_PARTY",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 20
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            {
+              "sessionId": "a02cw00000XhSHNAA3",
+              "legacyId": null,
+              "courseId": "brds",
+              "start": "2026-10-06T23:00:00Z",
+              "end": "2026-10-07T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": "This lecture is the 3rd in a 4-part series that includes a guided a field trip each Saturday after the lecture.",
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [
+                {
+                  "name": "REGISTER HERE",
+                  "uri": "https://travis.app.neoncrm.com/np/clients/travis/event.jsp?event=26975&"
+                },
+                {
+                  "name": "Learn more about Travis Audubon Society",
+                  "uri": "https://travisaudubon.org/"
+                }
+              ],
+              "legal": null,
+              "uri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series/a02cw00000XhSHNAA3",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "THIRD_PARTY",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 20
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            {
+              "sessionId": "a02cw00000Xh1SUAAZ",
+              "legacyId": null,
+              "courseId": "brds",
+              "start": "2026-10-13T23:00:00Z",
+              "end": "2026-10-14T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [
+                {
+                  "name": "REGISTER HERE",
+                  "uri": "https://travis.app.neoncrm.com/np/clients/travis/event.jsp?event=26975&"
+                },
+                {
+                  "name": "Learn more about Travis Audubon Society",
+                  "uri": "https://travisaudubon.org/"
+                }
+              ],
+              "legal": null,
+              "uri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series/a02cw00000Xh1SUAAZ",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "THIRD_PARTY",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 20
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/8809310_skrobecki_08072019_0383_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Ready to discover the birds all around you? Join the Travis Audubon Society for a four-part in-person classroom series designed for anyone interested in learning the fundamentals of birding. Whether you're completely new to birdwatching or looking to build your identification skills, this course will provide the tools and knowledge to help you get started.\r\n\r\nOver four engaging sessions, participants will learn how to identify birds by sight and sound, use field guides and binoculars, understand bird migration and conservation, and become familiar with many of the bird species found in Central Texas. No prior birding experience is necessary. This welcoming and informative series is a great way to build confidence, connect with fellow nature enthusiasts, and start a lifelong appreciation for birds and the natural world!\r\n\r\nNote: Members of the Travis Audubon Society are eligible for discounted member pricing.",
+          "subPrograms": [
+            "HIKING"
+          ],
+          "private": false,
+          "types": [
+            "OS_INDOOR_CLASS"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000XgmreAAB": {
+              "sessionId": "a02cw00000XgmreAAB",
+              "legacyId": null,
+              "courseId": "brds",
+              "start": "2026-09-15T23:00:00Z",
+              "end": "2026-09-16T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": "This lecture is the 1st in a 4-part series that includes a guided a field trip each Saturday after the lecture.",
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [
+                {
+                  "name": "REGISTER HERE",
+                  "uri": "https://travis.app.neoncrm.com/np/clients/travis/event.jsp?event=26975&"
+                },
+                {
+                  "name": "Learn more about Travis Audubon Society",
+                  "uri": "https://travisaudubon.org/"
+                }
+              ],
+              "legal": null,
+              "uri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series/a02cw00000XgmreAAB",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "THIRD_PARTY",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 20
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            "a02cw00000Xh1SUAAZ": {
+              "sessionId": "a02cw00000Xh1SUAAZ",
+              "legacyId": null,
+              "courseId": "brds",
+              "start": "2026-10-13T23:00:00Z",
+              "end": "2026-10-14T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [
+                {
+                  "name": "REGISTER HERE",
+                  "uri": "https://travis.app.neoncrm.com/np/clients/travis/event.jsp?event=26975&"
+                },
+                {
+                  "name": "Learn more about Travis Audubon Society",
+                  "uri": "https://travisaudubon.org/"
+                }
+              ],
+              "legal": null,
+              "uri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series/a02cw00000Xh1SUAAZ",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "THIRD_PARTY",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 20
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            "a02cw00000Xgy82AAB": {
+              "sessionId": "a02cw00000Xgy82AAB",
+              "legacyId": null,
+              "courseId": "brds",
+              "start": "2026-09-22T23:00:00Z",
+              "end": "2026-09-23T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": "This lecture is the 2nd in a 4-part series that includes a guided a field trip each Saturday after the lecture.",
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [
+                {
+                  "name": "REGISTER HERE",
+                  "uri": "https://travis.app.neoncrm.com/np/clients/travis/event.jsp?event=26975&"
+                },
+                {
+                  "name": "Learn more about Travis Audubon Society",
+                  "uri": "https://travisaudubon.org/"
+                }
+              ],
+              "legal": null,
+              "uri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series/a02cw00000Xgy82AAB",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "THIRD_PARTY",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 20
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            "a02cw00000XhSHNAA3": {
+              "sessionId": "a02cw00000XhSHNAA3",
+              "legacyId": null,
+              "courseId": "brds",
+              "start": "2026-10-06T23:00:00Z",
+              "end": "2026-10-07T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": "This lecture is the 3rd in a 4-part series that includes a guided a field trip each Saturday after the lecture.",
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [
+                {
+                  "name": "REGISTER HERE",
+                  "uri": "https://travis.app.neoncrm.com/np/clients/travis/event.jsp?event=26975&"
+                },
+                {
+                  "name": "Learn more about Travis Audubon Society",
+                  "uri": "https://travisaudubon.org/"
+                }
+              ],
+              "legal": null,
+              "uri": "/events/brds/travis-audubon-society-presents-intro-to-birding-series/a02cw00000XhSHNAA3",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "THIRD_PARTY",
+                "capacity": 20,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 20
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          },
+          "courseId": "brds",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Travis Audubon Society Presents: Intro to Birding Series"
+        },
+        "courseTypeLabel": "Indoor Class",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Stewardship",
+            "urlComponent": "stewardship",
+            "data": "STEWARDSHIP",
+            "activitySubs": [
+              {
+                "name": "Conservation",
+                "urlComponent": "stewardship-conservation",
+                "data": "CONSERVATION",
+                "parentActive": false,
+                "parentName": "Stewardship",
+                "active": true
+              },
+              {
+                "name": "Trail Maintenance",
+                "urlComponent": "stewardship-trail-maintenance",
+                "data": "TRAIL_MAINTENANCE",
+                "parentActive": false,
+                "parentName": "Stewardship",
+                "active": false
+              },
+              {
+                "name": "Volunteering",
+                "urlComponent": "stewardship-volunteering",
+                "data": "VOLUNTEERING",
+                "parentActive": false,
+                "parentName": "Stewardship",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "nplc",
+        "name": "Celebrate National Public Lands Day at REI",
+        "urlComponent": "celebrate-national-public-lands-day-at-rei",
+        "baseImageUri": "https://www.rei.com/dam/697537_engel_073015_0264_web_lg.jpeg",
+        "courseUri": "/events/nplc/celebrate-national-public-lands-day-at-rei",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "HALF_DAY",
+        "durationLabel": "Half day",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-09-19T16:00Z": [
+              "a02cw00000Y4kQTAAZ"
+            ],
+            "2026-09-26T15:00Z": [
+              "a02cw00000XZhBxAAL"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-09-26T19:00Z": [
+              "a02cw00000XZhBxAAL"
+            ],
+            "2026-09-19T20:00Z": [
+              "a02cw00000Y4kQTAAZ"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "214": [
+              "a02cw00000Y4kQTAAZ"
+            ],
+            "8": [
+              "a02cw00000XZhBxAAL"
+            ]
+          },
+          "briefDescription": null,
+          "baseNonMemberPrice": 0.0,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": 0.0,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "STEWARDSHIP",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000Y4kQTAAZ",
+              "legacyId": null,
+              "courseId": "nplc",
+              "start": "2026-09-19T16:00:00Z",
+              "end": "2026-09-19T20:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/nplc/celebrate-national-public-lands-day-at-rei/a02cw00000Y4kQTAAZ",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 100,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 100
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            {
+              "sessionId": "a02cw00000XZhBxAAL",
+              "legacyId": null,
+              "courseId": "nplc",
+              "start": "2026-09-26T15:00:00Z",
+              "end": "2026-09-26T19:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/nplc/celebrate-national-public-lands-day-at-rei/a02cw00000XZhBxAAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "UNRESOLVED",
+                "capacity": 500,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 500
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": false,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/697537_engel_073015_0264_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Join us in celebrating National Public Lands Day and the trails, parks, and wild places that connect us all. Stop by your local co-op to discover places to explore near you and learn simple ways to give back to the public lands we love. Connect with community partners, gain new skills, and find inspiration to turn your passion for the outdoors into action. Together, we can help protect these special places for generations to come.",
+          "subPrograms": [
+            "CONSERVATION"
+          ],
+          "private": false,
+          "types": [
+            "OUTDOOR_SCHOOL_SPECIAL_EVENT"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000Y4kQTAAZ": {
+              "sessionId": "a02cw00000Y4kQTAAZ",
+              "legacyId": null,
+              "courseId": "nplc",
+              "start": "2026-09-19T16:00:00Z",
+              "end": "2026-09-19T20:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/nplc/celebrate-national-public-lands-day-at-rei/a02cw00000Y4kQTAAZ",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 100,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 100
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            },
+            "a02cw00000XZhBxAAL": {
+              "sessionId": "a02cw00000XZhBxAAL",
+              "legacyId": null,
+              "courseId": "nplc",
+              "start": "2026-09-26T15:00:00Z",
+              "end": "2026-09-26T19:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": -1,
+              "nonMemberPrice": -1,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/nplc/celebrate-national-public-lands-day-at-rei/a02cw00000XZhBxAAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(512)343-5550",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "UNRESOLVED",
+                "capacity": 500,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 500
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": false,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "8",
+                "name": "Austin Gateway REI",
+                "description": null,
+                "address": "9901 N Capitol of Texas Hwy",
+                "address2": null,
+                "city": "Austin",
+                "stateName": "TX",
+                "zip": 78759,
+                "gpsLat": 30.3896,
+                "gpsLong": -97.74,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 32,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          },
+          "courseId": "nplc",
+          "duration": "HALF_DAY",
+          "name": "Celebrate National Public Lands Day at REI"
+        },
+        "courseTypeLabel": "Special Event",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Camping And Hiking",
+            "urlComponent": "camping-and-hiking",
+            "data": "CAMPING_AND_HIKING",
+            "activitySubs": [
+              {
+                "name": "Backpacking",
+                "urlComponent": "camping-and-hiking-backpacking",
+                "data": "BACKPACKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Camping",
+                "urlComponent": "camping-and-hiking-camping",
+                "data": "CAMPING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": true
+              },
+              {
+                "name": "Hiking",
+                "urlComponent": "camping-and-hiking-hiking",
+                "data": "HIKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Trekking",
+                "urlComponent": "camping-and-hiking-trekking",
+                "data": "TREKKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "90093",
+        "name": "Beginner's Camping Workshop",
+        "urlComponent": "beginners-camping-workshop",
+        "baseImageUri": "https://www.rei.com/dam/6987116_vagnini_181015_0481_web_lg.jpeg",
+        "courseUri": "/events/90093/beginners-camping-workshop",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-09-20T19:00Z": [
+              "a02cw00000YDgM2AAL"
+            ],
+            "2026-10-21T23:00Z": [
+              "a02cw00000XQ7SfAAL"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-10-22T01:00Z": [
+              "a02cw00000XQ7SfAAL"
+            ],
+            "2026-09-20T21:00Z": [
+              "a02cw00000YDgM2AAL"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "48": [
+              "a02cw00000YDgM2AAL"
+            ],
+            "214": [
+              "a02cw00000XQ7SfAAL"
+            ]
+          },
+          "briefDescription": "It's always the season for campfires, s'mores, and spending time in nature. Join REI for this hands-on, first look at camping. You'll practice setting up tents, get help selecting the best sleeping bag for you, and get practical experience to help you camp for the first time.",
+          "baseNonMemberPrice": 45.0,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": 15.0,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "CAMPING_AND_HIKING",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000YDgM2AAL",
+              "legacyId": null,
+              "courseId": "90093",
+              "start": "2026-09-20T19:00:00Z",
+              "end": "2026-09-20T21:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 15.0,
+              "nonMemberPrice": 45.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/90093/beginners-camping-workshop/a02cw00000YDgM2AAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(713)353-2582",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 6,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 6
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "48",
+                "name": "Houston REI",
+                "description": null,
+                "address": "7538 Westheimer Rd",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77063,
+                "gpsLat": 29.7384,
+                "gpsLong": -95.5019,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 55,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            },
+            {
+              "sessionId": "a02cw00000XQ7SfAAL",
+              "legacyId": null,
+              "courseId": "90093",
+              "start": "2026-10-21T23:00:00Z",
+              "end": "2026-10-22T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 15.0,
+              "nonMemberPrice": 45.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/90093/beginners-camping-workshop/a02cw00000XQ7SfAAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 6,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 6
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/6987116_vagnini_181015_0481_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "It's always the season for campfires, s'mores, and spending time in nature. Join an REI facilitator for this hands-on introduction to tent camping. Sleeping under the stars has never been easier. In this workshop you'll practice setting up tents, get help selecting the best sleeping bag for you, and get practical experience to help you camp for the first (or second, or fifteenth) time. No experience necessary. All gear will be provided.",
+          "subPrograms": [
+            "CAMPING"
+          ],
+          "private": false,
+          "types": [
+            "WORKSHOP"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000YDgM2AAL": {
+              "sessionId": "a02cw00000YDgM2AAL",
+              "legacyId": null,
+              "courseId": "90093",
+              "start": "2026-09-20T19:00:00Z",
+              "end": "2026-09-20T21:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 15.0,
+              "nonMemberPrice": 45.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/90093/beginners-camping-workshop/a02cw00000YDgM2AAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(713)353-2582",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 6,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 6
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "48",
+                "name": "Houston REI",
+                "description": null,
+                "address": "7538 Westheimer Rd",
+                "address2": null,
+                "city": "Houston",
+                "stateName": "TX",
+                "zip": 77063,
+                "gpsLat": 29.7384,
+                "gpsLong": -95.5019,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 55,
+                "isStore": true,
+                "featuredSessions": [
+                  {
+                    "sessionId": "a02cw000001sqFZAAY",
+                    "rankNum": 1000
+                  },
+                  {
+                    "sessionId": "a02cw0000024eTyAAI",
+                    "rankNum": 2000
+                  },
+                  {
+                    "sessionId": "a02cw000001sr0LAAQ",
+                    "rankNum": 3000
+                  },
+                  {
+                    "sessionId": "a02cw000000oWkfAAE",
+                    "rankNum": 4000
+                  },
+                  {
+                    "sessionId": "a02cw000000l6y1AAA",
+                    "rankNum": 5000
+                  },
+                  {
+                    "sessionId": "a02cw000001soaLAAQ",
+                    "rankNum": 6000
+                  },
+                  {
+                    "sessionId": "a02cw0000020dzVAAQ",
+                    "rankNum": 7000
+                  },
+                  {
+                    "sessionId": "a02cw000001EBavAAG",
+                    "rankNum": 8000
+                  },
+                  {
+                    "sessionId": "a02cw000001sqU5AAI",
+                    "rankNum": 9000
+                  },
+                  {
+                    "sessionId": "a02cw000001spPxAAI",
+                    "rankNum": 10000
+                  }
+                ]
+              }
+            },
+            "a02cw00000XQ7SfAAL": {
+              "sessionId": "a02cw00000XQ7SfAAL",
+              "legacyId": null,
+              "courseId": "90093",
+              "start": "2026-10-21T23:00:00Z",
+              "end": "2026-10-22T01:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 15.0,
+              "nonMemberPrice": 45.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/90093/beginners-camping-workshop/a02cw00000XQ7SfAAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 6,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 6
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          },
+          "courseId": "90093",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Beginner's Camping Workshop"
+        },
+        "courseTypeLabel": "Indoor Workshop",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      },
+      {
+        "index": null,
+        "follow": null,
+        "context": "/events",
+        "dotComRoot": null,
+        "msg": null,
+        "msgSuffix": null,
+        "homePageUrl": null,
+        "title": null,
+        "searchTitle": null,
+        "pageTitle": null,
+        "geoLocationError": null,
+        "description": null,
+        "breadcrumbs": {
+          "0": {
+            "name": "Classes & Events",
+            "data": "/events",
+            "type": "ROOT"
+          }
+        },
+        "activities": [
+          {
+            "name": "Camping And Hiking",
+            "urlComponent": "camping-and-hiking",
+            "data": "CAMPING_AND_HIKING",
+            "activitySubs": [
+              {
+                "name": "Backpacking",
+                "urlComponent": "camping-and-hiking-backpacking",
+                "data": "BACKPACKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Camping",
+                "urlComponent": "camping-and-hiking-camping",
+                "data": "CAMPING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": true
+              },
+              {
+                "name": "Hiking",
+                "urlComponent": "camping-and-hiking-hiking",
+                "data": "HIKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              },
+              {
+                "name": "Trekking",
+                "urlComponent": "camping-and-hiking-trekking",
+                "data": "TREKKING",
+                "parentActive": false,
+                "parentName": "Camping And Hiking",
+                "active": false
+              }
+            ],
+            "childActive": true,
+            "active": false
+          }
+        ],
+        "skillLevels": null,
+        "activityLevels": null,
+        "analytics": null,
+        "ogImage": null,
+        "twitterImage": null,
+        "pageData": null,
+        "courseId": "32764",
+        "name": "Camping Basics",
+        "urlComponent": "camping-basics",
+        "baseImageUri": "https://www.rei.com/dam/26095413_tuttle_120621_0363_web_lg.jpeg",
+        "courseUri": "/events/32764/camping-basics",
+        "allActivityLevels": null,
+        "allSkillLevels": null,
+        "sessionsByMonth": null,
+        "courseName": null,
+        "canonical": null,
+        "memberPrice": null,
+        "nonMemberPrice": null,
+        "briefDescription": null,
+        "attributes": null,
+        "longDescription": null,
+        "duration": "TWO_HOURS_OR_LESS",
+        "durationLabel": "2 hours or less",
+        "minAge": null,
+        "prefix": null,
+        "sessionsIdMap": null,
+        "sessionCount": 0,
+        "data": {
+          "overnight": false,
+          "statusId": 2,
+          "sessionIdsByStartDateTime": {
+            "2026-10-06T23:00Z": [
+              "a02cw00000XQ7NpAAL"
+            ]
+          },
+          "sessionIdsByEndDateTime": {
+            "2026-10-07T00:00Z": [
+              "a02cw00000XQ7NpAAL"
+            ]
+          },
+          "documentReferences": {},
+          "customerHealthPrompt": null,
+          "sessionIdsByLocationId": {
+            "214": [
+              "a02cw00000XQ7NpAAL"
+            ]
+          },
+          "briefDescription": "Learn the basics of camping! Whether you're planning to go solo or with friends and family, we'll cover everything you need to know and bring to ensure your next camping trip is a successful one.",
+          "baseNonMemberPrice": null,
+          "minimumAge": null,
+          "activityLevels": [
+            "NOT_SET"
+          ],
+          "baseMemberPrice": null,
+          "skillLevels": [
+            "NOT_SET"
+          ],
+          "courseAttributes": [],
+          "courseGearInfo": {
+            "required": [],
+            "optional": [],
+            "provided": [],
+            "requiresKayak": false,
+            "requiresBike": false,
+            "requiresClimbingShoes": false
+          },
+          "program": "CAMPING_AND_HIKING",
+          "sortedSessions": [
+            {
+              "sessionId": "a02cw00000XQ7NpAAL",
+              "legacyId": null,
+              "courseId": "32764",
+              "start": "2026-10-06T23:00:00Z",
+              "end": "2026-10-07T00:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/32764/camping-basics/a02cw00000XQ7NpAAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 15,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 15
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          ],
+          "baseImageUri": "https://www.rei.com/dam/26095413_tuttle_120621_0363_web_lg.jpeg",
+          "programTypeId": 2,
+          "longDescription": "Ready to try camping? This class covers the essentials to help you plan, pack, and enjoy time outside\u2014whether you\u2019re heading out solo or with friends and family. We\u2019ll walk through what to consider before your trip, how to stay comfortable sleeping outside, and how to set up a simple, functional camp kitchen. You\u2019ll leave with the know-how to feel ready and excited for your next night under the stars.",
+          "subPrograms": [
+            "CAMPING"
+          ],
+          "private": false,
+          "types": [
+            "OS_INDOOR_CLASS"
+          ],
+          "outcomes": [],
+          "sessionsBySessionId": {
+            "a02cw00000XQ7NpAAL": {
+              "sessionId": "a02cw00000XQ7NpAAL",
+              "legacyId": null,
+              "courseId": "32764",
+              "start": "2026-10-06T23:00:00Z",
+              "end": "2026-10-07T00:00:00Z",
+              "timeZoneId": "PT",
+              "timeZone": "America/Los_Angeles",
+              "notes": null,
+              "status": "OPEN",
+              "memberPrice": 0.0,
+              "nonMemberPrice": 0.0,
+              "instructors": [],
+              "sessionAttributes": [],
+              "partners": [],
+              "legal": null,
+              "uri": "/events/32764/camping-basics/a02cw00000XQ7NpAAL",
+              "market": null,
+              "programTypeId": 2,
+              "operatorEmail": null,
+              "operatorPhoneNumber": "(979)326-1600",
+              "spots": {
+                "status": "OPEN",
+                "registrationLocation": "REI",
+                "capacity": 15,
+                "canceled": 0,
+                "waiting": 0,
+                "available": 15
+              },
+              "sponsorStore": null,
+              "documents": null,
+              "meetingLocation": null,
+              "registrationRequired": true,
+              "private": false,
+              "fromTrek": true,
+              "location": {
+                "id": "214",
+                "name": "College Station REI",
+                "description": null,
+                "address": "615 University Dr. E #300",
+                "address2": null,
+                "city": "College Station",
+                "stateName": "TX",
+                "zip": 77840,
+                "gpsLat": 30.633181,
+                "gpsLong": -96.330664,
+                "directions": null,
+                "timezone": "America/Chicago",
+                "storeNumber": 284,
+                "isStore": true,
+                "featuredSessions": []
+              }
+            }
+          },
+          "courseId": "32764",
+          "duration": "TWO_HOURS_OR_LESS",
+          "name": "Camping Basics"
+        },
+        "courseTypeLabel": "Indoor Class",
+        "courseGearInfo": {
+          "required": [],
+          "optional": [],
+          "provided": [],
+          "requiresKayak": false,
+          "requiresBike": false,
+          "requiresClimbingShoes": false
+        },
+        "locationFilter": null,
+        "distanceFilter": null,
+        "queryString": null,
+        "bvFeatureToggle": null,
+        "bvTargetUrl": null,
+        "isSoldOut": false,
+        "waitList": false,
+        "private": null
+      }
+    ],
+    "search": "",
+    "totalResults": 12,
+    "totalPages": 1,
+    "pageSize": 30,
+    "currentPage": 1,
+    "inclusive": false,
+    "sortDirection": "ASC",
+    "sortingBy": [
+      "course.searchScore",
+      "course.session.start"
+    ],
+    "activeTerms": {},
+    "facets": [
+      {
+        "name": "location_search",
+        "title": "My Location",
+        "items": [
+          {
+            "name": "College-Station-TX",
+            "label": "College Station, TX (within 100 miles)",
+            "count": 0,
+            "queryString": null,
+            "selected": true,
+            "canonicalLink": "/p/us-tx-college-station",
+            "children": null
+          }
+        ]
+      },
+      {
+        "name": "classes_date_range",
+        "title": "Available Dates",
+        "items": [
+          {
+            "name": null,
+            "label": null,
+            "count": 0,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          }
+        ]
+      },
+      {
+        "name": "activity",
+        "title": "Activity",
+        "items": [
+          {
+            "name": "camping-and-hiking",
+            "label": "Camping And Hiking",
+            "count": 6,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/camping-and-hiking",
+            "children": [
+              {
+                "name": "camping-and-hiking-backpacking",
+                "label": "Backpacking",
+                "count": 1,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/camping-and-hiking-backpacking",
+                "children": null
+              },
+              {
+                "name": "camping-and-hiking-camping",
+                "label": "Camping",
+                "count": 2,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/camping-and-hiking-camping",
+                "children": null
+              },
+              {
+                "name": "camping-and-hiking-hiking",
+                "label": "Hiking",
+                "count": 2,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/camping-and-hiking-hiking",
+                "children": null
+              },
+              {
+                "name": "camping-and-hiking-trekking",
+                "label": "Trekking",
+                "count": 1,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/camping-and-hiking-trekking",
+                "children": null
+              }
+            ]
+          },
+          {
+            "name": "climbing",
+            "label": "Climbing",
+            "count": 0,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/climbing",
+            "children": [
+              {
+                "name": "climbing-bouldering",
+                "label": "Bouldering",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/climbing-bouldering",
+                "children": null
+              },
+              {
+                "name": "climbing-ice",
+                "label": "Ice Climbing",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/climbing-ice",
+                "children": null
+              },
+              {
+                "name": "climbing-mountaineering",
+                "label": "Mountaineering",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/climbing-mountaineering",
+                "children": null
+              },
+              {
+                "name": "climbing-non-technical",
+                "label": "Non Technical Climbing",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/climbing-non-technical",
+                "children": null
+              },
+              {
+                "name": "climbing-rock",
+                "label": "Rock Climbing",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/climbing-rock",
+                "children": null
+              }
+            ]
+          },
+          {
+            "name": "cycling",
+            "label": "Cycling",
+            "count": 2,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/cycling",
+            "children": [
+              {
+                "name": "cycling-bikepacking",
+                "label": "Bikepacking",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/cycling-bikepacking",
+                "children": null
+              },
+              {
+                "name": "cycling-general",
+                "label": "General Cycling",
+                "count": 2,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/cycling-general",
+                "children": null
+              },
+              {
+                "name": "cycling-gravel-riding",
+                "label": "Gravel Riding",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/cycling-gravel-riding",
+                "children": null
+              },
+              {
+                "name": "cycling-mountain-biking",
+                "label": "Mountain Biking",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/cycling-mountain-biking",
+                "children": null
+              },
+              {
+                "name": "cycling-road",
+                "label": "Road Cycling",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/cycling-road",
+                "children": null
+              }
+            ]
+          },
+          {
+            "name": "fitness",
+            "label": "Fitness",
+            "count": 2,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/fitness",
+            "children": [
+              {
+                "name": "fitness-running",
+                "label": "Running",
+                "count": 2,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/fitness-running",
+                "children": null
+              },
+              {
+                "name": "fitness-yoga",
+                "label": "Yoga",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/fitness-yoga",
+                "children": null
+              }
+            ]
+          },
+          {
+            "name": "outdoor-skills",
+            "label": "Outdoor Skills",
+            "count": 1,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/outdoor-skills",
+            "children": [
+              {
+                "name": "outdoor-skills-avalanche-safety",
+                "label": "Avalanche Safety",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/outdoor-skills-avalanche-safety",
+                "children": null
+              },
+              {
+                "name": "outdoor-skills-cooking",
+                "label": "Cooking",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/outdoor-skills-cooking",
+                "children": null
+              },
+              {
+                "name": "outdoor-skills-cpr",
+                "label": "Cpr",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/outdoor-skills-cpr",
+                "children": null
+              },
+              {
+                "name": "outdoor-skills-navigation",
+                "label": "Navigation",
+                "count": 1,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/outdoor-skills-navigation",
+                "children": null
+              },
+              {
+                "name": "outdoor-skills-photography",
+                "label": "Photography",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/outdoor-skills-photography",
+                "children": null
+              },
+              {
+                "name": "outdoor-skills-survival",
+                "label": "Survival",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/outdoor-skills-survival",
+                "children": null
+              },
+              {
+                "name": "outdoor-skills-wilderness-medicine",
+                "label": "Wilderness Medicine",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/outdoor-skills-wilderness-medicine",
+                "children": null
+              }
+            ]
+          },
+          {
+            "name": "snowsports",
+            "label": "Snowsports",
+            "count": 0,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/snowsports",
+            "children": [
+              {
+                "name": "snowsports-cross-country-skiing",
+                "label": "Cross Country Skiing",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/snowsports-cross-country-skiing",
+                "children": null
+              },
+              {
+                "name": "snowsports-downhill-skiing",
+                "label": "Downhill Skiing",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/snowsports-downhill-skiing",
+                "children": null
+              },
+              {
+                "name": "snowsports-snowshoeing",
+                "label": "Snowshoeing",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/snowsports-snowshoeing",
+                "children": null
+              }
+            ]
+          },
+          {
+            "name": "stewardship",
+            "label": "Stewardship",
+            "count": 1,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/stewardship",
+            "children": [
+              {
+                "name": "stewardship-conservation",
+                "label": "Conservation",
+                "count": 1,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/stewardship-conservation",
+                "children": null
+              },
+              {
+                "name": "stewardship-trail-maintenance",
+                "label": "Trail Maintenance",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/stewardship-trail-maintenance",
+                "children": null
+              },
+              {
+                "name": "stewardship-volunteering",
+                "label": "Volunteering",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/stewardship-volunteering",
+                "children": null
+              }
+            ]
+          },
+          {
+            "name": "travel",
+            "label": "Travel",
+            "count": 0,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/travel",
+            "children": [
+              {
+                "name": "travel-cruising",
+                "label": "Cruising",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/travel-cruising",
+                "children": null
+              },
+              {
+                "name": "travel-general",
+                "label": "General Travel",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/travel-general",
+                "children": null
+              },
+              {
+                "name": "travel-safari",
+                "label": "Safari",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/travel-safari",
+                "children": null
+              }
+            ]
+          },
+          {
+            "name": "watersports",
+            "label": "Watersports",
+            "count": 0,
+            "queryString": null,
+            "selected": false,
+            "canonicalLink": "/a/watersports",
+            "children": [
+              {
+                "name": "watersports-canoeing",
+                "label": "Canoeing",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/watersports-canoeing",
+                "children": null
+              },
+              {
+                "name": "watersports-kayaking",
+                "label": "Kayaking",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/watersports-kayaking",
+                "children": null
+              },
+              {
+                "name": "watersports-paddle-boarding",
+                "label": "Paddle Boarding",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/watersports-paddle-boarding",
+                "children": null
+              },
+              {
+                "name": "watersports-snorkeling",
+                "label": "Snorkeling",
+                "count": 0,
+                "queryString": null,
+                "selected": false,
+                "canonicalLink": "/a/watersports-snorkeling",
+                "children": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "experience_type",
+        "title": "Experience Type",
+        "items": [
+          {
+            "name": "outdoor-class",
+            "label": "Outdoor Class",
+            "count": 0,
+            "queryString": "course.type.name=OUTDOOR_SCHOOL_CLASS;t_ex&course.type.name=OUTREACH_CLASS;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "indoor-class",
+            "label": " Indoor Class",
+            "count": 6,
+            "queryString": "course.type.name=OS_INDOOR_CLASS;t_ex&course.type.name=OR_INDOOR_CLASS;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "day-trip",
+            "label": "Day Trip",
+            "count": 0,
+            "queryString": "course.type.name=TOUR;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "service-project",
+            "label": "Service Project",
+            "count": 0,
+            "queryString": "course.type.name=OUTREACH_SERVICE_PROJECT;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "special-event",
+            "label": "Special Event",
+            "count": 1,
+            "queryString": "course.type.name=OUTDOOR_SCHOOL_SPECIAL_EVENT;t_ex&course.type.name=OUTREACH_SPECIAL_EVENT;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "indoor-workshop",
+            "label": "Indoor Workshop",
+            "count": 4,
+            "queryString": "course.type.name=WORKSHOP;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "community-talk",
+            "label": "Community Talk",
+            "count": 0,
+            "queryString": "course.type.name=COMMUNITY_TALK;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "basic-skills",
+            "label": "Basic Skills",
+            "count": 0,
+            "queryString": "course.type.name=BASIC_SKILLS;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "certification",
+            "label": "Certification",
+            "count": 0,
+            "queryString": "course.type.name=OUTDOOR_SCHOOL_CERTIFICATION;t_ex&course.type.name=OUTREACH_CERTIFICATION;t_ex",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          }
+        ]
+      },
+      {
+        "name": "price_range",
+        "title": "Price Range",
+        "items": [
+          {
+            "name": "free",
+            "label": "Free",
+            "count": 7,
+            "queryString": "course.session.memberPrice=0-0;g_rg",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          },
+          {
+            "name": "%241-to-%2449",
+            "label": "$1 to $49",
+            "count": 4,
+            "queryString": "course.session.memberPrice=0.01-49.99;g_rg",
+            "selected": false,
+            "canonicalLink": null,
+            "children": null
+          }
+        ]
+      }
+    ]
+  }
+}

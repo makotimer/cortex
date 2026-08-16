@@ -339,6 +339,28 @@ the saved ``rows`` only.
 - ``ticket`` is empty on every row in this snapshot.
 - Author-visit titles overlap the library series; venue is the shop.
 
+## REI Co-op College Station
+
+Captured **2026-08-16** from
+``https://www.rei.com/events/p/us-tx-college-station`` (jina reader;
+``event_probe`` through gluetun and the container IP both read-timeout
+on ``www.rei.com``).
+
+| File | Source |
+|---|---|
+| `rei_list.html` | list page reduced to the ``#modelData`` script |
+| `rei_search.json` | ``pageData.search`` plus capture metadata |
+| `rei_list_empty.html` | Access Denied shell, no ``modelData`` |
+
+- **12 courses in the 100-mile window, 6 College Station sessions.**
+  Location id ``214``, store 284, 615 University Dr. E #300.
+- Austin Gateway / Houston / Houston Willowbrook / Travis Audubon
+  rows are present on the list and must not publish.
+- ``session.timeZone`` is ``America/Los_Angeles`` on every CS row;
+  ``location.timezone`` is ``America/Chicago``.
+- Three free (member and non-member $0), three paid (member $15 / $25
+  / $40).
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh

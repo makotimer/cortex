@@ -22,6 +22,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `bcschamber` | BCS Chamber of Commerce (GrowthZone) | run default (270d) | `/api/events` XML; LocationDesc over Map*; direct |
 | `ttc` | The Theater Company of Bryan / College Station | run default (270d) | Squarespace `/calendar?format=json`; one night per occurrence |
 | `stage12` | Stage 12 (Brookshire Brothers, College Station) | run default (270d) | Drupal month calendar + node details; direct |
+| `rei` | REI Co-op College Station | run default (270d) | `#modelData` JSON; store 214 only; try direct |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
@@ -50,6 +51,7 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-bcschamber` | `bcschamber` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-ttc` | `ttc` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-stage12` | `stage12` | *not scheduled yet* | `proxy_url: ""` |
+| `event-watch-rei` | `rei` | *not scheduled yet* | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -64,7 +66,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc` and `stage12` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12` and `rei` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -293,6 +295,23 @@ Squarespace map pin is empty NYC — venue is 3125 S Texas Ave, Ste 500,
 Bryan. `TTC Work Week` is dropped. No category labels. `ttc` is not in
 `DEFAULT_KINDS`. Pin it and run direct.
 
+## REI Co-op College Station
+
+The public list is a 100-mile radius. `#modelData` already carries
+every in-radius session. Only location id 214 (College Station REI,
+615 University Dr. E #300) is kept; Austin Gateway / Houston rows
+are a quiet drop.
+
+`session.timeZone` is `America/Los_Angeles` on every captured CS
+row. Times are the UTC start/end converted with `location.timezone`
+(`America/Chicago`). Occurrence tid is start-time millis so
+disappearance reconciliation still works.
+
+`www.rei.com` tarpits Python `requests` through gluetun *and* the
+container's own address (`event_probe` read-timeouts). The kind is
+opt-in; do not schedule it until a fetch path that returns
+`#modelData` exists. `rei` is not in `DEFAULT_KINDS`. Pin it.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -385,6 +404,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Stage 12 (Drupal month calendar; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=stage12 proxy_url= --no-email
+
+# REI College Station (direct; gluetun and the container IP both timeout today)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=rei proxy_url= --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test
