@@ -1,0 +1,1450 @@
+{
+  "template": "REGISTRATION",
+  "pageCount": 1,
+  "offset": 0,
+  "data": [
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": false,
+      "preference": {
+        "flavours": [
+          "DIY_ONLY"
+        ],
+        "registration": {
+          "start": "2025-07-28T15:00:00.000Z",
+          "end": "2027-01-01T04:59:59.000Z"
+        }
+      },
+      "start": "2025-07-29T05:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "senior-builder-redemption-portal",
+      "tags": [
+        "NO_LOCATION"
+      ],
+      "isPaid": false,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "productsUsed": "",
+            "toolsUsed": "",
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "Senior Builder Redemption Portal"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {
+            "id": ""
+          },
+          "vendorDetails": {
+            "isliveStreamUpdated": false
+          },
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/d82520d5-c035-45ab-820f-20343b8c44d9/hero-tablet.jpeg",
+            "desktop": "https://mobileimages.lowes.com/events/d82520d5-c035-45ab-820f-20343b8c44d9/hero-desktop.jpeg",
+            "og": "https://mobileimages.lowes.com/events/d82520d5-c035-45ab-820f-20343b8c44d9/hero-desktop.jpeg",
+            "mobile": "https://mobileimages.lowes.com/events/d82520d5-c035-45ab-820f-20343b8c44d9/hero-mobile.jpeg"
+          },
+          "pageContent": {
+            "unzippedPage": {
+              "content": ""
+            },
+            "allSlotsFullPage": {
+              "content": "<p><b>This workshop is full</b><p>Sorry, all slots for @eventTitle@ are full. Please visit your events hub for more information on future Lowe's events!</p></p>"
+            },
+            "regClosedPage": {
+              "content": "<p><b>Registration Has Ended</b><p>Sorry, registration has closed for @eventTitle@. Please visit your events hub for more information on future Lowe's events!</p></p>"
+            },
+            "successPage": {
+              "content": "<p><b>You're all set!</b></p><p style=\"all: revert;\"><span style=\"color: rgb(40, 42, 101); font-family: Felix-Regular, sans-serif; font-size: 15px; font-weight: 600;\">A confirmation will be emailed to you immediately at</span>, @email@.</p><p><span style=\"all: revert;\">A determination will be emailed within 48 hours.</span></p>"
+            },
+            "eventOverPage": {
+              "content": "<p><b>@eventTitle@ has Ended</b><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check our events page for more information on future Lowe's events!</p></p>"
+            },
+            "registrationPage": {
+              "content": "<div style=\"text-align: center;\"><b><span style=\"font-size: 11pt;\">You\u2019re One Step Away from Your Senior Builder Badge &amp; Toolkit!</span></b></div><div style=\"text-align: center;\"><span style=\"font-size: 11pt;\"><br></span></div><div><span style=\"font-size: 11pt;\">Each builder gets one toolkit\u2014so please </span><b style=\"font-size: 11pt;\">submit one photo per\nbuilder</b><span style=\"font-size: 11pt;\"> (max. of 4).</span></div><div>\n\n<p class=\"MsoNormal\"><b><span style=\"font-size: 11pt;\">Important:</span></b><span style=\"font-size: 11pt;\"> All\nsubmissions are reviewed together. If one doesn\u2019t meet the guidelines, the full\nentry will need to be submitted again.<o:p></o:p></span></p>\n\n<p class=\"MsoNormal\"><span style=\"font-size: 11pt;\">Check the </span><a href=\"https://www.lowes.com/pdf/Lowes_Badge_Apron_SubmissionGuidelines.pdf\" title=\"\" target=\"_blank\" style=\"text-decoration-line: none;\" class=\"\">Submission Guideline</a><span style=\"font-size: 11pt;\"> before uploading to avoid delays.</span></p><p class=\"MsoNormal\"><b><span style=\"font-size: 11pt;\"><br></span></b></p><p class=\"MsoNormal\"><b><span style=\"font-size: 11pt;\">Badge Validation Photo(s) \u2013 Upload Instructions:</span></b></p><div><span style=\"font-size: 11pt;\">(1) Submit one photo per builder.</span></div><div><span style=\"font-size: 11pt;\">(2) The apron should be laid flat, with badges and name clearly visible.</span></div><div><span style=\"font-size: 11pt;\">(3) Do not include children or faces in any photo.</span></div><div><span style=\"font-size: 11pt;\">(4) Accepted formatsL JPG, JPEG, PNG (up to 5 MB each).</span></div></div><div><span style=\"font-size: 11pt;\"></span></div>"
+            },
+            "duplicateEntryPage": {
+              "content": "<p><b>You've Already Submitted a Senior Builder. </b></p><p>Good news, you're already completed a @eventTitle@ submission. You're all set!</p>"
+            },
+            "profileRestrictionPage": {
+              "content": "<p><b>Workshops are for DIY Customers</b><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Lowe's Workshop, please sign in on your Lowe's DIY account.</p></p>"
+            },
+            "regNotStartedPage": {
+              "showAlert": false,
+              "content": ""
+            },
+            "regUnavailablePage": {
+              "content": ""
+            }
+          },
+          "tileContent": {
+            "unzippedPage": {
+              "note": "",
+              "title": ""
+            },
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We've received your @eventTitle@ submission. <div>A determination will be emailed within 48 hours.</div>",
+              "addToCalendar": "no",
+              "title": "You're All Set!"
+            },
+            "registerButtonText": "Start Your Submission",
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "registrationPage": {
+              "note": "<div style=\"text-align: center;\"><b style=\"text-align: left;\"><span style=\"font-size: 11pt;\">You\u2019re One Step Away from Your Senior Builder\nBadge &amp; Toolkit!</span></b></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\"><br></span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">To get started, make sure your submission meets these quick\nrequirements:</span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\"><br></span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">(1) You have an official </span><b style=\"font-size: 11pt;\">Kids Workshop apron.</b></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">(2) <b>12+ physical badges</b></span><span style=\"font-size: 11pt;\"> are <b>attached </b>to the apron.</span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">(3) Your builder's </span><b style=\"font-size: 11pt;\">name\n     is written clearly</b><span style=\"font-size: 11pt;\"> on the apron.</span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">(4) Your </span><b style=\"font-size: 11pt;\">photo shows the\n     apron laid flat</b><span style=\"font-size: 11pt;\">, with </span><b style=\"font-size: 11pt;\">no faces or children visible.</b></div><div style=\"text-align: left;\"><b style=\"font-size: 11pt;\"><br></b></div><div style=\"text-align: left;\"><span style=\"font-size: 14.6667px;\">If you said yes to all of the above, continue with your submission below.</span></div>",
+              "title": "Senior Builder Redemption Portal"
+            },
+            "duplicateEntryPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "",
+              "title": ""
+            }
+          },
+          "workshopDetails": {
+            "instructors": [
+              {
+                "image": "https://mobileimages.lowes.com/events/d82520d5-c035-45ab-820f-20343b8c44d9/instructor-0.jpeg",
+                "role": "Review",
+                "name": "Sr. Builder",
+                "bio": "N/A"
+              }
+            ]
+          }
+        }
+      },
+      "name": "Senior Builder Redemption Portal",
+      "end": "2027-01-01T04:59:59.000Z",
+      "subType": "LIVE",
+      "id": "d82520d5-c035-45ab-820f-20343b8c44d9",
+      "live": true
+    },
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": false,
+      "preference": {
+        "flavours": [
+          "DIY_ONLY"
+        ],
+        "registration": {
+          "start": "2025-07-28T15:00:00.000Z",
+          "end": "2027-01-01T04:59:59.000Z"
+        }
+      },
+      "start": "2025-07-29T05:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "test-d-v2-senior-builder-admin-only",
+      "tags": [
+        "NO_LOCATION"
+      ],
+      "isPaid": false,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "productsUsed": "",
+            "toolsUsed": "",
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "Senior Builder Admin ONLY"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {
+            "id": ""
+          },
+          "vendorDetails": {
+            "isliveStreamUpdated": false
+          },
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/hero-tablet.png",
+            "desktop": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/hero-desktop.png",
+            "mobile": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/hero-mobile.jpeg",
+            "og": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/hero-desktop.png"
+          },
+          "pageContent": {
+            "allSlotsFullPage": {
+              "content": "<p><b>This workshop is full</b><p>Sorry, all slots for @eventTitle@ are full. Please visit your events hub for more information on future Lowe's events!</p></p>"
+            },
+            "regClosedPage": {
+              "content": "<p><b>Registration Has Ended</b><p>Sorry, registration has closed for @eventTitle@. Please visit your events hub for more information on future Lowe's events!</p></p>"
+            },
+            "successPage": {
+              "content": "<p><b>You're all set!</b></p><p style=\"all: revert;\"><span style=\"color: rgb(40, 42, 101); font-family: Felix-Regular, sans-serif; font-size: 15px; font-weight: 600;\">A confirmation will be emailed to you immediately at</span>, @email@.</p><p><span style=\"all: revert;\">A determination will be emailed within 48 hours.</span></p>"
+            },
+            "registrationPage": {
+              "content": "<div>Before submitting CHECK your apron(s) and the <a href=\"https://www.lowes.com/pdf/Lowes_Badge_Apron_SubmissionGuidelines.pdf\" title=\"\" target=\"_blank\" style=\"text-decoration-line: none;\">Guidelines</a>!</div><div><br></div><div>(1) Do you have an official Lowe's DIY-U Kids' apron?</div><div><div class=\"image-div \">(2) Is your child's name clearly written on the apron chest?</div></div><div>(3) Have you collected and attached at least 12 eligible badges?</div><div><br></div><div><div><br></div><div>If you answered \"Yes!\" to all three TAKE a photo of your apron.</div></div><div><br></div><div><i><br></i></div>"
+            },
+            "eventOverPage": {
+              "content": "<p><b>@eventTitle@ has Ended</b><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check our events page for more information on future Lowe's events!</p></p>"
+            },
+            "duplicateEntryPage": {
+              "content": "<p><b>You've Already Submitted a Senior Builder. </b></p><p>Good news, you're already completed a @eventTitle@ submission. You're all set!</p>"
+            },
+            "profileRestrictionPage": {
+              "content": "<p><b>Workshops are for DIY Customers</b><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Lowe's Workshop, please sign in on your Lowe's DIY account.</p></p>"
+            },
+            "regNotStartedPage": {
+              "showAlert": false,
+              "content": ""
+            }
+          },
+          "tileContent": {
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "unzippedPage": {
+              "note": "",
+              "title": ""
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We've received your @eventTitle@ submission. <div>A determination will be emailed within 48 hours.</div>",
+              "addToCalendar": "no",
+              "title": "You're All Set!"
+            },
+            "registerButtonText": "Start Your Submission",
+            "registrationPage": {
+              "note": "<div style=\"text-align: center;\"><br></div><div><div>Is your mini builder ready to level-up?</div></div><div>Before starting CHECK your apron(s) and the <a href=\"https://www.lowes.com/pdf/Lowes_Badge_Apron_SubmissionGuidelines.pdf\" title=\"\" target=\"_blank\" style=\"text-decoration-line: none;\">Guidelines</a>!</div>",
+              "title": "Senior Builder Admin ONLY"
+            },
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "duplicateEntryPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "",
+              "title": ""
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            }
+          },
+          "workshopDetails": {
+            "instructors": [
+              {
+                "image": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/instructor-0.jpeg",
+                "role": "Review",
+                "name": "Sr. Builder",
+                "bio": "N/A"
+              }
+            ]
+          }
+        }
+      },
+      "name": "Senior Builder Admin ONLY",
+      "end": "2027-01-01T04:59:59.000Z",
+      "subType": "LIVE",
+      "id": "99c6e5ee-844f-4317-8422-609c164ea7af",
+      "live": true
+    },
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": false,
+      "preference": {
+        "flavours": [],
+        "registration": {
+          "start": "2025-07-28T05:00:00.000Z",
+          "end": "2027-01-01T04:59:59.000Z"
+        }
+      },
+      "start": "2025-07-29T05:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "senior-builder-resubmits",
+      "tags": [
+        "NO_LOCATION"
+      ],
+      "isPaid": false,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "productsUsed": "",
+            "toolsUsed": "",
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "Senior Builder Resubmits"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {
+            "id": ""
+          },
+          "vendorDetails": {
+            "isliveStreamUpdated": false
+          },
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/hero-tablet.png",
+            "desktop": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/hero-desktop.png",
+            "og": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/hero-desktop.png",
+            "mobile": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/hero-mobile.jpeg"
+          },
+          "pageContent": {
+            "allSlotsFullPage": {
+              "content": "<p><b>This workshop is full</b><p>Sorry, all slots for @eventTitle@ are full. Please visit your events hub for more information on future Lowe's events!</p></p>"
+            },
+            "regClosedPage": {
+              "content": "<p><b>Registration Has Ended</b><p>Sorry, registration has closed for @eventTitle@. Please visit your events hub for more information on future Lowe's events!</p></p>"
+            },
+            "successPage": {
+              "content": "<p><b>You have successfully registered!</b></p><p style=\"all: revert;\"><span style=\"color: rgb(40, 42, 101); font-family: Felix-Regular, sans-serif; font-size: 15px; font-weight: 600;\">A confirmation will be emailed to you immediately at</span>, @email@.</p><p><span style=\"all: revert;\">A determination will be emailed within 48 hours.</span></p>"
+            },
+            "eventOverPage": {
+              "content": "<p><b>@eventTitle@ has Ended</b><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check our events page for more information on future Lowe's events!</p></p>"
+            },
+            "registrationPage": {
+              "content": "<div style=\"text-align: center;\"><b><span style=\"font-size: 11pt;\">You\u2019re One Step Away from Your Senior Builder Badge &amp; Toolkit!</span></b></div><div style=\"text-align: center;\"><span style=\"font-size: 11pt;\"><br></span></div><div><span style=\"font-size: 11pt;\">Each builder gets one toolkit\u2014so please </span><b style=\"font-size: 11pt;\">submit one photo per builder</b><span style=\"font-size: 11pt;\"> (max. of 4).</span></div><div><p class=\"MsoNormal\"><b><span style=\"font-size: 11pt;\">Important:</span></b><span style=\"font-size: 11pt;\"> All submissions are reviewed together. If one doesn\u2019t meet the guidelines, the full entry will need to be submitted again.<o:p></o:p></span></p><p class=\"MsoNormal\"><span style=\"font-size: 11pt;\">Check the </span><a href=\"https://www.lowes.com/pdf/Lowes_Badge_Apron_SubmissionGuidelines.pdf\" title=\"\" target=\"_blank\" class=\"\" style=\"text-decoration-line: none;\">Submission Guideline</a><span style=\"font-size: 11pt;\"> before uploading to avoid delays.</span></p><p class=\"MsoNormal\"><b><span style=\"font-size: 11pt;\"><br></span></b></p><p class=\"MsoNormal\"><b><span style=\"font-size: 11pt;\">Badge Validation Photo(s) \u2013 Upload Instructions:</span></b></p><div><span style=\"font-size: 11pt;\">(1) Submit one photo per builder.</span></div><div><span style=\"font-size: 11pt;\">(2) The apron should be laid flat, with badges and name clearly visible.</span></div><div><span style=\"font-size: 11pt;\">(3) Do not include children or faces in any photo.</span></div><div><span style=\"font-size: 11pt;\">(4) Accepted formatsL JPG, JPEG, PNG (up to 5 MB each).</span></div></div>"
+            },
+            "duplicateEntryPage": {
+              "content": "<p><b>You've Already Submitted a Senior Builder. </b></p><p>Good news, you're already completed a @eventTitle@ submission. You're all set!</p>"
+            },
+            "profileRestrictionPage": {
+              "content": "<p><b>Workshops are for DIY Customers</b><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Lowe's Workshop, please sign in on your Lowe's DIY account.</p></p>"
+            },
+            "regNotStartedPage": {
+              "showAlert": false,
+              "content": ""
+            }
+          },
+          "tileContent": {
+            "unzippedPage": {
+              "note": "",
+              "title": ""
+            },
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We've received your @eventTitle@ submission. <div>A determination will be emailed within 48 hours.</div>",
+              "addToCalendar": "no",
+              "title": "You're All Set!"
+            },
+            "registerButtonText": "Start Your Submission",
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "registrationPage": {
+              "note": "<div style=\"text-align: center;\"><div><b style=\"text-align: left;\"><span style=\"font-size: 11pt;\">You\u2019re One Step Away from Your Senior Builder Badge &amp; Toolkit!</span></b></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\"><br></span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">This page is dedicated to <b>resubmiting </b>a denied submission. Please ensure you have actioned any feedback received in your denial email.</span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\"><br></span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">To get started, make sure your submission meets these quick requirements:</span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\"><br></span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">(1) You have an official </span><b style=\"font-size: 11pt;\">Kids Workshop apron.</b></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">(2) <b>At least 12 badges</b></span><span style=\"font-size: 11pt;\"> are <b>attached </b>to the apron.</span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">(3) Your builder's </span><b style=\"font-size: 11pt;\">name is written clearly</b><span style=\"font-size: 11pt;\"> on the apron.</span></div><div style=\"text-align: left;\"><span style=\"font-size: 11pt;\">(4) Your </span><b style=\"font-size: 11pt;\">photo shows the apron laid flat</b><span style=\"font-size: 11pt;\">, with </span><b style=\"font-size: 11pt;\">no faces or children visible.</b></div><div style=\"text-align: left;\"><b style=\"font-size: 11pt;\"><br></b></div><div style=\"text-align: left;\"><span style=\"font-size: 14.6667px;\">If you said yes to all of the above, continue with your submission below.</span></div></div>",
+              "title": "Senior Builder Resubmits"
+            },
+            "duplicateEntryPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "",
+              "title": ""
+            }
+          },
+          "workshopDetails": {
+            "instructors": [
+              {
+                "image": "https://mobileimages.lowes.com/events/461db2ae-395c-4bd7-86b1-7342de83deaf/instructor-0.jpeg",
+                "role": "Review",
+                "name": "Sr. Builder",
+                "bio": "N/A"
+              }
+            ]
+          }
+        }
+      },
+      "name": "Senior Builder Resubmits",
+      "end": "2027-01-01T04:59:59.000Z",
+      "subType": "LIVE",
+      "id": "9f52d985-b31e-4ca3-a2a3-eb13f0c4c91f",
+      "live": true
+    },
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": true,
+      "badgeId": "b6e09942-5e38-4b5a-9acf-ac7c508d00a4",
+      "preference": {
+        "flavours": [
+          "DIY_ONLY"
+        ],
+        "registration": {
+          "start": "2026-07-27T12:00:00.000Z",
+          "end": "2026-08-29T17:00:59.000Z"
+        },
+        "maxSubParticipantsAllowed": 5
+      },
+      "start": "2026-08-29T14:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "mrbeast-swarm-twister-workshop",
+      "tags": [],
+      "isPaid": true,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "MrBeast Swarm Twister Workshop"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "https://www.lowes.com/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {},
+          "vendorDetails": {},
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/9f426e78-a668-4058-968a-a7fabb486415/hero-tablet.jpeg",
+            "desktop": "https://mobileimages.lowes.com/events/9f426e78-a668-4058-968a-a7fabb486415/hero-desktop.jpeg",
+            "mobile": "https://mobileimages.lowes.com/events/9f426e78-a668-4058-968a-a7fabb486415/hero-mobile.jpeg",
+            "og": "https://mobileimages.lowes.com/events/9f426e78-a668-4058-968a-a7fabb486415/hero-desktop.jpeg"
+          },
+          "pageContent": {
+            "allSlotsFullPage": {
+              "content": "<p><b>Please Select Another Store</b><p>Sorry, all slots are full for this location. Please choose another store location to register for this workshop.</p></p>"
+            },
+            "unzippedPage": {
+              "content": "<p><b>Confirm Your Store Location</b><p>Please choose a store location to register for this event.</p></p>"
+            },
+            "waitingConfirmationPage": {
+              "CTAButton": {
+                "link": "/mylowes/profile/wallet/promotions/member-events",
+                "text": "Go back to Member Events"
+              },
+              "content": "<p><b>Waiting for Confirmation</b><p>Your registration for @eventTitle@ is being processed. You will receive a confirmation once your order has been confirmed.</p></p>"
+            },
+            "regClosedPage": {
+              "CTAButton": {
+                "link": "/diy-projects-and-ideas/workshops",
+                "text": "View More Workshops"
+              },
+              "content": "<p><b>Registration Has Ended</b><p>Sorry, registration has closed for @eventTitle@. Please visit your events hub for more information on future Lowe's events!</p></p>"
+            },
+            "successPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "CTAButton": {
+                "link": "/diy-projects-and-ideas/workshops",
+                "text": "View More Workshops"
+              },
+              "content": "<p><b>You have successfully registered!</b><p>We've received your registration. The workshop confirmation will be sent to your registered email, @email@.</p></p>"
+            },
+            "registrationPage": {
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Choose Your Store &amp; Slot</span></p><p style=\"margin: 0in;\">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;\"><br></p><p style=\"margin: 0in;\">We look forward to building with you and your little ones during our instore workshop experience!</p>"
+            },
+            "eventOverPage": {
+              "CTAButton": {
+                "link": "/diy-projects-and-ideas/workshops",
+                "text": "View More Workshops"
+              },
+              "content": "<p><b>@eventTitle@ has Ended</b><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check our events page for more information on future Lowe's events!</p></p>"
+            },
+            "duplicateEntryPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "cancelButton": {
+                "text": "Cancel My Registration",
+                "content": "<p><b>Success! Your reservation was canceled.</b><p>You have successfully unenrolled from this event. We hope to see you at another one soon!</p></p>"
+              },
+              "CTAButton": {
+                "link": "/diy-projects-and-ideas/workshops",
+                "text": "View More Workshops"
+              },
+              "content": "<p><b>You're Already Registered For This Event</b><p>Good news, you're already registered for @eventTitle@. You're all set!</p></p>"
+            },
+            "profileRestrictionPage": {
+              "CTAButton": {
+                "link": "/",
+                "text": "Shop Lowes.com"
+              },
+              "content": "<p><b>Workshops are for MyLowe's Rewards Members.</b></p><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Kids Workshop, please sign in on your MyLowe's Rewards account.</p>"
+            },
+            "regUnavailablePage": {
+              "content": "<p><b>Please Select Another Store</b><p>It looks like registration is not available for this location. Please choose another store location to register for this event.</p></p>"
+            },
+            "regNotStartedPage": {
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Choose Your Store &amp; Slot</span></p><p style=\"margin: 0in;\">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;\"><br></p><p style=\"margin: 0in;\">We look forward to building with you and your little ones!</p>"
+            }
+          },
+          "tileContent": {
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "unzippedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "waitingConfirmationPage": {
+              "note": "We\u2019re Confirming Your Booking",
+              "title": "@eventTitle@"
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "addToCalendar": "yes",
+              "title": "You're All Set!"
+            },
+            "registerButtonText": "Register Now",
+            "registrationPage": {
+              "note": "Build a mini roller-coaster for your Swarm! Twists, turns, loops\u2014who will scream the loudest as they race the track of fun?<div><br></div><div><b>Every Kit Includes:</b></div><div><ul><li>Wooden Builder Toy</li><li>Instructions</li><li>Exclusive Badge</li><li>Swarm</li></ul><div><br></div><div><b>Join us instore for a NEW MrBeast Workshop featuring exclusive Builder Toys.</b> Spots are limited so register for your Kit now to secure your spot.</div></div><div><br></div><div>Kits can only be picked up on August 29th, the day of the workshop.</div>",
+              "title": "MrBeast Swarm Twister Workshop"
+            },
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "duplicateEntryPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            }
+          },
+          "workshopDetails": {
+            "paidWorkshopDetails": {
+              "omniItemId": "5019654477",
+              "paidBadgeText": "Exclusive Builder Toy",
+              "bannerImages": {
+                "desktop": "https://mobileimages.lowes.com/events/banners/Lowes_MrBeastKidsworkshop_Banner_Desktop.png",
+                "mobile": "https://mobileimages.lowes.com/events/banners/Lowes_MrBeastKidsworkshop_Banner_mobile.png"
+              }
+            }
+          }
+        }
+      },
+      "name": "MrBeast Swarm Twister Workshop",
+      "cartType": "PULSE_PAID_EVENT",
+      "end": "2026-08-29T17:00:59.000Z",
+      "subType": "KIDS",
+      "id": "9f426e78-a668-4058-968a-a7fabb486415",
+      "live": true
+    },
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": true,
+      "badgeId": "4c3be3dd-5669-477d-bce2-dc214f39e401",
+      "preference": {
+        "flavours": [
+          "DIY_ONLY"
+        ],
+        "registration": {
+          "start": "2026-08-15T14:00:00.000Z",
+          "end": "2026-09-12T17:00:59.000Z"
+        },
+        "maxSubParticipantsAllowed": 4
+      },
+      "start": "2026-09-12T14:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "haunted-house",
+      "tags": [],
+      "isPaid": false,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "Haunted House"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "https://www.lowes.com/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {},
+          "vendorDetails": {},
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/7047a9f8-7fc2-456d-add7-13a2e4d4daf6/hero-tablet.jpeg",
+            "desktop": "https://mobileimages.lowes.com/events/7047a9f8-7fc2-456d-add7-13a2e4d4daf6/hero-desktop.jpeg",
+            "mobile": "https://mobileimages.lowes.com/events/7047a9f8-7fc2-456d-add7-13a2e4d4daf6/hero-mobile.jpeg",
+            "og": "https://mobileimages.lowes.com/events/7047a9f8-7fc2-456d-add7-13a2e4d4daf6/hero-desktop.jpeg"
+          },
+          "pageContent": {
+            "allSlotsFullPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Your preferred store is really popular!</span></p><p style=\"margin:0in;\">Sorry, all slots are\nfull for this location. Please choose another store location to register for\nthis workshop.</p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid\nfor the exact store, date, time, and number of mini-builders listed in your\nconfirmation email.</p>"
+            },
+            "unzippedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Choose your store location.</span></p><p style=\"margin:0in;\">Workshops are hosted\nby our Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin:0in;\"> </p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid for the store, date, time and number\nof mini-builders in your confirmation email. Submitted registrations cannot be edited or undone.</p>"
+            },
+            "regClosedPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>Registration Has Ended</b></p><p>Sorry, registration has closed for @eventTitle@. Please visit your Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "successPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You have successfully registered!</span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\">We've received your registration. The workshop confirmation will be sent to your registered email, @email@. Ensure you bring your confirmation email with you so our Workshop Captain can scan the QR code within your email to check you in and your kids can earn their digital badges!</p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Don't Forget!</span> Participation is only for the information listed in your confirmation email.</p><p style=\"margin: 0in;\">If you are unable to attend your registered store or timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "registrationPage": {
+              "content": "<p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">Choose Your Store &amp; Slot</span></p><p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            },
+            "eventOverPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>@eventTitle@ has Ended</b></p><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check the Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "duplicateEntryPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "cancelButton": {
+                "text": "Cancel My Registration",
+                "content": "<b>Success! Your reservation was cancelled.</b><div><b><br></b></div><div>You have successfully unenrolled from this event. We hope to see you at another one soon!</div>"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "rescheduleButton": {
+                "text": "Update My Registration",
+                "content": "<b>You have successfully changed your registration!</b><div><br></div><div>An email will be sent to confirm your new registration details.</div>"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You're already registered!</span></p><p style=\"margin: 0in;\">Good news, you're already registered for @eventTitle@. Check your inbox for the confirmation email.        </p><p style=\"margin: 0in;\"><br></p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Remember!</span> Your confirmation email is your ticket. If you are unable to attend your registered store during your selected timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "profileRestrictionPage": {
+              "content": "<p><b>Workshops are for MyLowe's Rewards Members.</b></p><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Kids Workshop, please sign in on your MyLowe's Rewards account.</p>"
+            },
+            "regUnavailablePage": {
+              "content": "<p><b>Please Select Another Store</b><p>It looks like registration is not available for this location. Please choose another store location to register for this event.</p></p>"
+            },
+            "regNotStartedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Check back soon!</span></p>\n\n<p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            }
+          },
+          "tileContent": {
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "unzippedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "addToCalendar": "yes",
+              "title": "You're All Set!"
+            },
+            "registerButtonText": "Register Now",
+            "registrationPage": {
+              "note": "Spooky season starts here! Mini builders will construct a Haunted House complete with charmingly eerie details. Perfect for Halloween decorating, this project lets kids unleash their imagination while learning how to bring spooky scenes to life.",
+              "title": "Haunted House"
+            },
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "duplicateEntryPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            }
+          },
+          "workshopDetails": {}
+        }
+      },
+      "name": "Haunted House",
+      "end": "2026-09-12T17:00:59.000Z",
+      "subType": "KIDS",
+      "id": "7047a9f8-7fc2-456d-add7-13a2e4d4daf6",
+      "live": true
+    },
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": true,
+      "badgeId": "0280f9d2-4f34-4b96-80c5-8c3cab3e343c",
+      "preference": {
+        "flavours": [
+          "DIY_ONLY"
+        ],
+        "registration": {
+          "start": "2026-09-12T14:00:00.000Z",
+          "end": "2026-10-17T17:00:59.000Z"
+        },
+        "maxSubParticipantsAllowed": 4
+      },
+      "start": "2026-10-17T14:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "firefighting-plane",
+      "tags": [],
+      "isPaid": false,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "Firefighting Plane"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "https://www.lowes.com/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {},
+          "vendorDetails": {
+            "isliveStreamUpdated": false
+          },
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/dc58632b-9540-460b-a3e1-c9084be3aa05/hero-tablet.jpeg",
+            "desktop": "https://mobileimages.lowes.com/events/dc58632b-9540-460b-a3e1-c9084be3aa05/hero-desktop.jpeg",
+            "og": "https://mobileimages.lowes.com/events/dc58632b-9540-460b-a3e1-c9084be3aa05/hero-desktop.jpeg",
+            "mobile": "https://mobileimages.lowes.com/events/dc58632b-9540-460b-a3e1-c9084be3aa05/hero-mobile.jpeg"
+          },
+          "pageContent": {
+            "unzippedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Choose your store location.</span></p><p style=\"margin:0in;\">Workshops are hosted\nby our Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin:0in;\"> </p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid for the store, date, time and number\nof mini-builders in your confirmation email. Submitted registrations cannot be edited or undone.</p>"
+            },
+            "allSlotsFullPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Your preferred store is really popular!</span></p><p style=\"margin:0in;\">Sorry, all slots are\nfull for this location. Please choose another store location to register for\nthis workshop.</p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid\nfor the exact store, date, time, and number of mini-builders listed in your\nconfirmation email.</p>"
+            },
+            "regClosedPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>Registration Has Ended</b></p><p>Sorry, registration has closed for @eventTitle@. Please visit your Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "successPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You have successfully registered!</span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\">We've received your registration. The workshop confirmation will be sent to your registered email, @email@. Ensure you bring your confirmation email with you so our Workshop Captain can scan the QR code within your email to check you in and your kids can earn their digital badges!</p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Don't Forget!</span> Participation is only for the information listed in your confirmation email.</p><p style=\"margin: 0in;\">If you are unable to attend your registered store or timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "eventRescheduledPage": {
+              "content": "<p><b>This workshop has been rescheduled. </b> <br /> <br /> @eventTitle@ has been rescheduled to @eventDate@ at @eventTime@. You will need to register for this workshop again. We hope to see you there!</p>"
+            },
+            "eventOverPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>@eventTitle@ has Ended</b></p><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check the Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "registrationPage": {
+              "content": "<p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">Choose Your Store &amp; Slot</span></p><p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            },
+            "duplicateEntryPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "cancelButton": {
+                "text": "Cancel My Registration",
+                "content": "<b>Success! Your reservation was cancelled.</b><div><b><br></b></div><div>You have successfully unenrolled from this event. We hope to see you at another one soon!</div>"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "rescheduleButton": {
+                "text": "Update My Registration",
+                "content": "<b>You have successfully changed your registration!</b><div><br></div><div>An email will be sent to confirm your new registration details.</div>"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You're already registered!</span></p><p style=\"margin: 0in;\">Good news, you're already registered for @eventTitle@. Check your inbox for the confirmation email.        </p><p style=\"margin: 0in;\"><br></p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Remember!</span> Your confirmation email is your ticket. If you are unable to attend your registered store during your selected timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "profileRestrictionPage": {
+              "content": "<p><b>Workshops are for MyLowe's Rewards Members.</b></p><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Kids Workshop, please sign in on your MyLowe's Rewards account.</p>"
+            },
+            "regNotStartedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Check back soon!</span></p>\n\n<p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            },
+            "regUnavailablePage": {
+              "content": "<p><b>Please Select Another Store</b><p>It looks like registration is not available for this location. Please choose another store location to register for this event.</p></p>"
+            }
+          },
+          "tileContent": {
+            "unzippedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "addToCalendar": "yes",
+              "title": "You're All Set!"
+            },
+            "eventRescheduledPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "registerButtonText": "Register Now",
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "registrationPage": {
+              "note": "Soar into hero mode with the Firefighting Plane workshop, sponsored by First Alert! Kids will build and decorate a rescue plane ready to take on imaginary missions. This project inspires bravery, creativity, and hands-on learning through high-flying fun.",
+              "title": "Firefighting Plane"
+            },
+            "duplicateEntryPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            }
+          },
+          "workshopDetails": {}
+        }
+      },
+      "name": "Firefighting Plane",
+      "end": "2026-10-17T17:00:59.000Z",
+      "subType": "KIDS",
+      "id": "dc58632b-9540-460b-a3e1-c9084be3aa05",
+      "live": true
+    },
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": true,
+      "badgeId": "663c6699-601c-46bc-a77b-3e50c8f4fb8b",
+      "preference": {
+        "flavours": [
+          "DIY_ONLY"
+        ],
+        "registration": {
+          "start": "2026-10-10T14:00:00.000Z",
+          "end": "2026-11-14T18:00:59.000Z"
+        },
+        "maxSubParticipantsAllowed": 4
+      },
+      "start": "2026-11-14T15:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "holiday-engine",
+      "tags": [],
+      "isPaid": false,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "Holiday Engine"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "https://www.lowes.com/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {},
+          "vendorDetails": {},
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/b2c883f7-5e6b-4281-9d43-e4035c81009c/hero-tablet.jpeg",
+            "desktop": "https://mobileimages.lowes.com/events/b2c883f7-5e6b-4281-9d43-e4035c81009c/hero-desktop.jpeg",
+            "mobile": "https://mobileimages.lowes.com/events/b2c883f7-5e6b-4281-9d43-e4035c81009c/hero-mobile.jpeg",
+            "og": "https://mobileimages.lowes.com/events/b2c883f7-5e6b-4281-9d43-e4035c81009c/hero-desktop.jpeg"
+          },
+          "pageContent": {
+            "allSlotsFullPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Your preferred store is really popular!</span></p><p style=\"margin:0in;\">Sorry, all slots are\nfull for this location. Please choose another store location to register for\nthis workshop.</p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid\nfor the exact store, date, time, and number of mini-builders listed in your\nconfirmation email.</p>"
+            },
+            "unzippedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Choose your store location.</span></p><p style=\"margin:0in;\">Workshops are hosted\nby our Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin:0in;\"> </p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid for the store, date, time and number\nof mini-builders in your confirmation email. Submitted registrations cannot be edited or undone.</p>"
+            },
+            "regClosedPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>Registration Has Ended</b></p><p>Sorry, registration has closed for @eventTitle@. Please visit your Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "successPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You have successfully registered!</span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\">We've received your registration. The workshop confirmation will be sent to your registered email, @email@. Ensure you bring your confirmation email with you so our Workshop Captain can scan the QR code within your email to check you in and your kids can earn their digital badges!</p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Don't Forget!</span> Participation is only for the information listed in your confirmation email.</p><p style=\"margin: 0in;\">If you are unable to attend your registered store or timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "registrationPage": {
+              "content": "<p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">Choose Your Store &amp; Slot</span></p><p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            },
+            "eventOverPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>@eventTitle@ has Ended</b></p><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check the Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "duplicateEntryPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "cancelButton": {
+                "text": "Cancel My Registration",
+                "content": "<b>Success! Your reservation was cancelled.</b><div><b><br></b></div><div>You have successfully unenrolled from this event. We hope to see you at another one soon!</div>"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "rescheduleButton": {
+                "text": "Update My Registration",
+                "content": "<b>You have successfully changed your registration!</b><div><br></div><div>An email will be sent to confirm your new registration details.</div>"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You're already registered!</span></p><p style=\"margin: 0in;\">Good news, you're already registered for @eventTitle@. Check your inbox for the confirmation email.        </p><p style=\"margin: 0in;\"><br></p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Remember!</span> Your confirmation email is your ticket. If you are unable to attend your registered store during your selected timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "profileRestrictionPage": {
+              "content": "<p><b>Workshops are for MyLowe's Rewards Members.</b></p><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Kids Workshop, please sign in on your MyLowe's Rewards account.</p>"
+            },
+            "regUnavailablePage": {
+              "content": "<p><b>Please Select Another Store</b><p>It looks like registration is not available for this location. Please choose another store location to register for this event.</p></p>"
+            },
+            "regNotStartedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Check back soon!</span></p>\n\n<p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            }
+          },
+          "tileContent": {
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "unzippedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "addToCalendar": "yes",
+              "title": "You're All Set!"
+            },
+            "registerButtonText": "Register Now",
+            "registrationPage": {
+              "note": "All aboard the Holiday Express! Mini builders will create their own Holiday Engine train, complete with festive flair. It\u2019s the perfect seasonal project to celebrate creativity, craftsmanship, and holiday joy.",
+              "title": "Holiday Engine"
+            },
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "duplicateEntryPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            }
+          },
+          "workshopDetails": {}
+        }
+      },
+      "name": "Holiday Engine",
+      "end": "2026-11-14T18:00:59.000Z",
+      "subType": "KIDS",
+      "id": "b2c883f7-5e6b-4281-9d43-e4035c81009c",
+      "live": true
+    },
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": true,
+      "badgeId": "e173e3db-3378-45fe-abd3-220c299512fa",
+      "preference": {
+        "flavours": [
+          "DIY_ONLY"
+        ],
+        "registration": {
+          "start": "2026-11-14T15:00:00.000Z",
+          "end": "2026-12-12T18:00:59.000Z"
+        },
+        "maxSubParticipantsAllowed": 4
+      },
+      "start": "2026-12-12T15:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "holiday-trolley-car",
+      "tags": [],
+      "isPaid": false,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "Holiday Trolley Car"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "https://www.lowes.com/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {},
+          "vendorDetails": {},
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/4088c65b-fc89-4b42-b8d0-ce87bdc39c74/hero-tablet.jpeg",
+            "desktop": "https://mobileimages.lowes.com/events/4088c65b-fc89-4b42-b8d0-ce87bdc39c74/hero-desktop.jpeg",
+            "mobile": "https://mobileimages.lowes.com/events/4088c65b-fc89-4b42-b8d0-ce87bdc39c74/hero-mobile.jpeg",
+            "og": "https://mobileimages.lowes.com/events/4088c65b-fc89-4b42-b8d0-ce87bdc39c74/hero-desktop.jpeg"
+          },
+          "pageContent": {
+            "allSlotsFullPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Your preferred store is really popular!</span></p><p style=\"margin:0in;\">Sorry, all slots are\nfull for this location. Please choose another store location to register for\nthis workshop.</p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid\nfor the exact store, date, time, and number of mini-builders listed in your\nconfirmation email.</p>"
+            },
+            "unzippedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Choose your store location.</span></p><p style=\"margin:0in;\">Workshops are hosted\nby our Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin:0in;\"> </p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid for the store, date, time and number\nof mini-builders in your confirmation email. Submitted registrations cannot be edited or undone.</p>"
+            },
+            "regClosedPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>Registration Has Ended</b></p><p>Sorry, registration has closed for @eventTitle@. Please visit your Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "successPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You have successfully registered!</span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\">We've received your registration. The workshop confirmation will be sent to your registered email, @email@. Ensure you bring your confirmation email with you so our Workshop Captain can scan the QR code within your email to check you in and your kids can earn their digital badges!</p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Don't Forget!</span> Participation is only for the information listed in your confirmation email.</p><p style=\"margin: 0in;\">If you are unable to attend your registered store or timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "registrationPage": {
+              "content": "<p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">Choose Your Store &amp; Slot</span></p><p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            },
+            "eventOverPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>@eventTitle@ has Ended</b></p><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check the Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "duplicateEntryPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "cancelButton": {
+                "text": "Cancel My Registration",
+                "content": "<b>Success! Your reservation was cancelled.</b><div><b><br></b></div><div>You have successfully unenrolled from this event. We hope to see you at another one soon!</div>"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "rescheduleButton": {
+                "text": "Update My Registration",
+                "content": "<b>You have successfully changed your registration!</b><div><br></div><div>An email will be sent to confirm your new registration details.</div>"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You're already registered!</span></p><p style=\"margin: 0in;\">Good news, you're already registered for @eventTitle@. Check your inbox for the confirmation email.        </p><p style=\"margin: 0in;\"><br></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Remember!</span> Your confirmation email is your ticket. If you are unable to attend your registered store during your selected timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "profileRestrictionPage": {
+              "content": "<p><b>Workshops are for MyLowe's Rewards Members.</b></p><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Kids Workshop, please sign in on your MyLowe's Rewards account.</p>"
+            },
+            "regUnavailablePage": {
+              "content": "<p><b>Please Select Another Store</b><p>It looks like registration is not available for this location. Please choose another store location to register for this event.</p></p>"
+            },
+            "regNotStartedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Check back soon!</span></p>\n\n<p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            }
+          },
+          "tileContent": {
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "unzippedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "addToCalendar": "yes",
+              "title": "You're All Set!"
+            },
+            "registerButtonText": "Register Now",
+            "registrationPage": {
+              "note": "Ding ding! This holiday Trolley Car workshop takes imagination for a ride. Builders will assemble and decorate a classic holiday trolley, learning how pieces fit together while celebrating the magic of motion and design.",
+              "title": "Holiday Trolley Car"
+            },
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "duplicateEntryPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            }
+          },
+          "workshopDetails": {}
+        }
+      },
+      "name": "Holiday Trolley Car",
+      "end": "2026-12-12T18:00:59.000Z",
+      "subType": "KIDS",
+      "id": "4088c65b-fc89-4b42-b8d0-ce87bdc39c74",
+      "live": true
+    },
+    {
+      "template": "REGISTRATION",
+      "carouselDisplay": true,
+      "subParticipantAllowed": true,
+      "badgeId": "4ce551aa-d6f0-4768-931c-b26936011853",
+      "preference": {
+        "flavours": [
+          "DIY_ONLY"
+        ],
+        "registration": {
+          "start": "2026-12-12T15:00:00.000Z",
+          "end": "2027-01-16T18:00:59.000Z"
+        },
+        "maxSubParticipantsAllowed": 4
+      },
+      "start": "2027-01-16T15:00:00.000Z",
+      "type": "WORKSHOP",
+      "url": "winter-play-lodge",
+      "tags": [],
+      "isPaid": false,
+      "meta": {
+        "en-US": {
+          "legalLink": "",
+          "productsAndTools": {
+            "omniItemIdsEmail": ""
+          },
+          "notification": {
+            "eventDefinitionKey": "Pulse_Workshop_V2",
+            "eventName": "Winter Play Lodge"
+          },
+          "seoData": {
+            "description": "@eventNote@",
+            "title": "@eventTitle@"
+          },
+          "footerDisclaimerNote": "",
+          "breadCrumb": {
+            "link": "https://www.lowes.com/diy-projects-and-ideas/workshops"
+          },
+          "npcFragments": {},
+          "vendorDetails": {},
+          "heroImage": {
+            "tablet": "https://mobileimages.lowes.com/events/25d6db5b-33c5-44f7-aca0-5be86d9cdb77/hero-tablet.jpeg",
+            "desktop": "https://mobileimages.lowes.com/events/25d6db5b-33c5-44f7-aca0-5be86d9cdb77/hero-desktop.jpeg",
+            "mobile": "https://mobileimages.lowes.com/events/25d6db5b-33c5-44f7-aca0-5be86d9cdb77/hero-mobile.jpeg",
+            "og": "https://mobileimages.lowes.com/events/25d6db5b-33c5-44f7-aca0-5be86d9cdb77/hero-desktop.jpeg"
+          },
+          "pageContent": {
+            "allSlotsFullPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Your preferred store is really popular!</span></p><p style=\"margin:0in;\">Sorry, all slots are\nfull for this location. Please choose another store location to register for\nthis workshop.</p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid\nfor the exact store, date, time, and number of mini-builders listed in your\nconfirmation email.</p>"
+            },
+            "unzippedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Choose your store location.</span></p><p style=\"margin:0in;\">Workshops are hosted\nby our Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin:0in;\"> </p><p style=\"margin:0in;\"><span style=\"font-weight:bold\">Don't Forget!</span> Registration is only valid for the store, date, time and number\nof mini-builders in your confirmation email. Submitted registrations cannot be edited or undone.</p>"
+            },
+            "regClosedPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>Registration Has Ended</b></p><p>Sorry, registration has closed for @eventTitle@. Please visit your Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "successPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You have successfully registered!</span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\">We've received your registration. The workshop confirmation will be sent to your registered email, @email@. Ensure you bring your confirmation email with you so our Workshop Captain can scan the QR code within your email to check you in and your kids can earn their digital badges!</p><p style=\"margin: 0in;\"></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Don't Forget!</span> Participation is only for the information listed in your confirmation email.</p><p style=\"margin: 0in;\">If you are unable to attend your registered store or timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "registrationPage": {
+              "content": "<p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">Choose Your Store &amp; Slot</span></p><p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            },
+            "eventOverPage": {
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "content": "<p><b>@eventTitle@ has Ended</b></p><p>Sorry, it looks like @eventTitle@ has already ended.  Please make sure to check the Kids Club HUB for more information on future MyLowe's Rewards Kids Club events!</p>"
+            },
+            "duplicateEntryPage": {
+              "digitalPass": {
+                "text": "Here's your digital pass",
+                "selected": "yes"
+              },
+              "cancelButton": {
+                "text": "Cancel My Registration",
+                "content": "<b>Success! Your reservation was cancelled.</b><div><b><br></b></div><div>You have successfully unenrolled from this event. We hope to see you at another one soon!</div>"
+              },
+              "CTAButton": {
+                "link": "/kidsclub",
+                "text": "Kids Club"
+              },
+              "rescheduleButton": {
+                "text": "Update My Registration",
+                "content": "<b>You have successfully changed your registration!</b><div><br></div><div>An email will be sent to confirm your new registration details.</div>"
+              },
+              "content": "<p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">You're already registered!</span></p><p style=\"margin: 0in;\">Good news, you're already registered for @eventTitle@. Check your inbox for the confirmation email.        </p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;\"><span style=\"font-weight: bold;\">Remember!</span> Your confirmation email is your ticket. If you are unable to attend your registered store during your selected timeslot, your kit may be given away to Walk-Ins starting at 1:00pm, the day of the workshop.</p>"
+            },
+            "profileRestrictionPage": {
+              "content": "<p><b>Workshops are for MyLowe's Rewards Members.</b></p><p>It looks like you're logged in with a Lowe's business account. If you'd like to join a Kids Workshop, please sign in on your MyLowe's Rewards account.</p>"
+            },
+            "regUnavailablePage": {
+              "content": "<p><b>Please Select Another Store</b><p>It looks like registration is not available for this location. Please choose another store location to register for this event.</p></p>"
+            },
+            "regNotStartedPage": {
+              "content": "<p style=\"margin:0in;\"><span style=\"font-weight:bold\">Check back soon!</span></p>\n\n<p style=\" margin: 0in; \">Workshops are hosted by Lowe's Red Vests from 10:00am \u2013 1:00pm, in-store only.</p><p style=\"margin: 0in;  \"></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\"><br></span></p><p style=\"margin: 0in;  \"><span style=\"font-weight: bold;\">DON'T FORGET!</span> Your confirmation email is your ticket. Show your QR code within your confirmation email to the Workshop Captain to ensure they check you in so your kids earn their digital badges.</p><p style=\"margin: 0in;  \"><br></p><p style=\"margin: 0in;  \"><span >We look forward to building with you and your little ones!</span></p>"
+            }
+          },
+          "tileContent": {
+            "allSlotsFullPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "unzippedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regClosedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "successPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "addToCalendar": "yes",
+              "title": "You're All Set!"
+            },
+            "registerButtonText": "Register Now",
+            "registrationPage": {
+              "note": "Cozy up for the season with a Winter Lodge build! Kids will craft and decorate a snowy cabin scene, complete with icy accents and winter charm. It\u2019s a heartwarming way to kick off the new year with creativity and craftsmanship.",
+              "title": "Winter Play Lodge"
+            },
+            "eventOverPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "duplicateEntryPage": {
+              "note": "We'll see @attendeeNames@ at the @eventTitle@ on @bookingDate@ at @bookingSlotTime@. Have your registration pass ready to scan at check-in.",
+              "title": "@eventTitle@"
+            },
+            "profileRestrictionPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regUnavailablePage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            },
+            "regNotStartedPage": {
+              "note": "@eventNote@",
+              "title": "@eventTitle@"
+            }
+          },
+          "workshopDetails": {}
+        }
+      },
+      "name": "Winter Play Lodge",
+      "end": "2027-01-16T18:00:59.000Z",
+      "subType": "KIDS",
+      "id": "25d6db5b-33c5-44f7-aca0-5be86d9cdb77",
+      "live": true
+    }
+  ],
+  "limit": 20,
+  "hasMore": false,
+  "closed": false,
+  "type": [
+    "WORKSHOP"
+  ],
+  "totalCount": 9,
+  "timeDateFormat": "YYYY-MM-DD\"T\"HH24:MI:SS.000Z"
+}

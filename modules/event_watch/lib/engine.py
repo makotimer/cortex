@@ -302,9 +302,11 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.challenge import ChallengeScraper
     from .scrapers.cityspark import CitySparkScraper
     from .scrapers.destbryan import DestBryanScraper
+    from .scrapers.homedepot import HomeDepotScraper
     from .scrapers.hyperbole import HyperboleScraper
     from .scrapers.kbtx import KbtxScraper
     from .scrapers.lakewalk import LakeWalkScraper
+    from .scrapers.lowes import LowesScraper
     from .scrapers.pwat import PwatScraper
     from .scrapers.rei import ReiScraper
     from .scrapers.stage12 import Stage12Scraper
@@ -336,6 +338,8 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "rei": ReiScraper,
         "wonderfulwords": WonderfulWordsScraper,
         "pwat": PwatScraper,
+        "lowes": LowesScraper,
+        "homedepot": HomeDepotScraper,
     }
     out: list[BaseEventScraper] = []
     for kind in settings.kinds:

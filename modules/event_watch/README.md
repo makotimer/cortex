@@ -58,8 +58,8 @@ entries below are the record of what is there) and both have injected for real.
 | `event-watch-rei` | `rei` | *not scheduled yet* | `proxy_url: ""` |
 | `event-watch-wonderfulwords` | `wonderfulwords` | *not scheduled yet* | `rotate_vpn_per_run: false` |
 | `event-watch-pwat` | `pwat` | *not scheduled yet* | `rotate_vpn_per_run: false` |
-| `event-watch-lowes` | `lowes` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-homedepot` | `homedepot` | *not scheduled yet* | `rotate_vpn_per_run: false` |
+| `event-watch-lowes` | `lowes` | Wed/Sun 05:50 | `proxy_url: ""` |
+| `event-watch-homedepot` | `homedepot` | Wed/Sun 06:05 | `proxy_url: ""` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -366,10 +366,12 @@ direct (`proxy_url: ""`) like Challenge. `lowes` is not in
 US HTML is Akamai 403 through the host and through gluetun. Dates are
 generated: first Saturday, 9:00–12:00 America/Chicago, ages 5–12,
 College Station #6559. Kit names come from the Canada workshops page
-(same national kits, different Saturday) and are joined by month —
-Canada dates are discarded. A month with no name publishes as
-`Kids Workshop`. Registration is the national
-`/c/kids-workshop` page. `homedepot` is not in `DEFAULT_KINDS`. Pin it.
+when it answers (same national kits, different Saturday) and are
+joined by month. Canada dates are discarded. A captured fallback
+table covers Sep–Dec 2026 if Canada times out. A month with no name
+publishes as `Kids Workshop`. Registration is the national
+`/c/kids-workshop` page. Runs direct (`proxy_url: ""`).
+`homedepot` is not in `DEFAULT_KINDS`. Pin it.
 
 ## Where reality differed from the design
 

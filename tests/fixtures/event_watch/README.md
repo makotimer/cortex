@@ -390,6 +390,33 @@ Captured **2026-08-16** through gluetun from
 - **27 events.** ``time.event-datetime="2026-08-16T03:00"`` is 3pm.
 - Family Day owl is ``4368685``, ``$28``, 3:00–4:30pm Sep 5.
 
+## Lowe's Kids Club
+
+Captured **2026-08-16** from
+``https://www.lowes.com/workshopdata?template=REGISTRATION&types=WORKSHOP&closed=false``.
+
+| File | Source |
+|---|---|
+| `lowes_workshopdata.json` | verbatim JSON |
+
+Nine open rows: three Senior Builder (`NO_LOCATION`), one paid
+MrBeast, five free Kids Club workshops (Haunted House through Winter
+Play Lodge). `start`/`end` are Eastern wearing a `Z`.
+
+## Home Depot Kids Workshop
+
+Captured **2026-08-16** through gluetun from
+``https://www.homedepot.ca/en/home/ideas-how-to/workshops.html``.
+US HTML is Akamai 403; Canada times out from the container IP.
+
+| File | Source |
+|---|---|
+| `homedepot_ca_workshops.html` | verbatim HTML |
+
+Kit names by month: School Bus Organizer (Sep), Witch Candy Box
+(Oct), Dump Truck (Nov — first of two Canada kits), Holiday Train
+(Dec). Canada Saturdays are not US dates.
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh
