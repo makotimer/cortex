@@ -30,6 +30,19 @@ services:
       - HTTPPROXY_LISTENING_ADDRESS=:8888
       - HTTP_CONTROL_SERVER_ADDRESS=:8000
       - UPDATER_PERIOD=6h
+      # UPDATER_PERIOD alone does nothing for ProtonVPN. The ticker fires, then:
+      #   WARN getting protonvpn servers: credentials missing: email is empty
+      #        - skipping update for protonvpn
+      # so the list stays frozen at gluetun's baked-in snapshot (2025-11-18 in
+      # v3.41.1 — verified 2026-08-16 by running `update -enduser -providers
+      # protonvpn` against a scratch volume). Every restart logs "merging by
+      # most recent 20901 hardcoded servers and 20901 servers read from
+      # /gluetun/servers.json": identical counts, i.e. nothing was ever
+      # refreshed. Stale peer keys are the documented cause of a tunnel that
+      # looks up and passes no traffic, so this is not cosmetic.
+      # Leave blank to keep today's behaviour exactly; fill in .env to fix it.
+      - UPDATER_PROTONVPN_EMAIL=${PROTON_API_EMAIL:-}
+      - UPDATER_PROTONVPN_PASSWORD=${PROTON_API_PASSWORD:-}
     expose: ["8888", "8000"]
     restart: unless-stopped
     labels:

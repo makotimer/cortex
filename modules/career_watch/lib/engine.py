@@ -23,6 +23,27 @@ from .config import ScraperConfig, Settings
 from .models import Posting, ScrapeResult
 from .scrapers.base import BaseScraper
 
+#: URL ``switch_until_usable`` fetches through the proxy to decide an exit is
+#: good. Override per-deployment with ``CAREER_WATCH_VERIFY_URL``.
+#:
+#: This was ``https://www.cloudflare.com/cdn-cgi/trace`` until 2026-08-16, which
+#: proved the tunnel carried traffic but nothing about whether a *job board*
+#: would answer — so an exit blocked by board infrastructure verified clean,
+#: scraped zero, and logged ok=true. That is the same silent-empty-scrape shape
+#: switch_until_usable was written to eliminate, just moved one layer out.
+#: ``event_watch`` never had the gap: each of its scrapers verifies against its
+#: own real target URL.
+#:
+#: Lever's public postings API is the replacement because the overnight survey
+#: measured it, not because it is special: 989 exits, 99.4% clean, and every
+#: failure a transient ProxyError rather than a block. (Tockify, sampled the
+#: same way, hard-403'd 9 times.) ``limit=1`` keeps it to a couple of KB.
+#:
+#: Caveat: only one of the two configured people scrapes Lever — the other runs
+#: avature/icims/workday-cxs. This verifies the *class* of target (a hosted ATS
+#: that can decide to block an exit), not any one person's sources.
+DEFAULT_VERIFY_URL = "https://api.lever.co/v0/postings/palantir?mode=json&limit=1"
+
 
 class VPNUnavailableError(RuntimeError):
     """Raised when the VPN health check fails (fail-closed).
@@ -90,8 +111,7 @@ def run_once(
         # gate had no way to tell.
         outcome = gluetun.switch_until_usable(
             proxy_url=settings.proxy_url,
-            verify_url=os.getenv("CAREER_WATCH_VERIFY_URL",
-                                 "https://www.cloudflare.com/cdn-cgi/trace"),
+            verify_url=os.getenv("CAREER_WATCH_VERIFY_URL", DEFAULT_VERIFY_URL),
             attempts=int(os.getenv("VPN_SWITCH_ATTEMPTS") or 3),
             prefer_new_ip=settings.rotate_vpn_per_run,
         )

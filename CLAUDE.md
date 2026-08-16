@@ -108,7 +108,28 @@ See `.env.example` for all keys with descriptions.
 - **IMAP command format** — send an email to yourself with subject matching a command (e.g. `LIST`, `RUN MODULE=modules.example_daily`). The listener polls `Labels/Command`.
 - **Dry-run** — set `CORTEX_DRY_RUN=1` in `.env` to suppress all outbound email.
 - **VPN sidecar** — the `vpn` service (gluetun/ProtonVPN WireGuard) must be running for `career_watch` to scrape. If `CAREER_WATCH_PROXY_URL` is set and gluetun is unreachable, `career_watch` skips the run (fail-closed). Bring it up with `docker compose up -d vpn`.
-- **VPN peer keys go stale** — ProtonVPN rotates WireGuard peer public keys periodically. If gluetun's server list is old, the tunnel will appear up (`tun0` gets an IP, `public_ip` returns empty) but pass no traffic. The server-list updater is `UPDATER_PERIOD=6h` in `docker-compose.yaml` (gluetun v3 renamed the old `SERVER_UPDATE_PERIOD`; that key no longer does anything). Symptom: gluetun logs show continuous `i/o timeout` healthcheck failures cycling through many servers. Fix: `docker compose up -d vpn` after ensuring `UPDATER_PERIOD` is not `0` — but if the updater is already running, suspect a stale `PROTON_WG_PRIVATE_KEY` instead, which produces the same silent no-traffic signature.
+- **VPN peer keys go stale** — ProtonVPN rotates WireGuard peer public keys periodically. If gluetun's server list is old, the tunnel will appear up (`tun0` gets an IP, `public_ip` returns empty) but pass no traffic. Symptom: gluetun logs show continuous `i/o timeout` healthcheck failures cycling through many servers.
+- **`UPDATER_PERIOD` alone never updated anything, and the server list is the
+  image's baked-in snapshot.** Found 2026-08-16. `UPDATER_PERIOD=6h` is set and the
+  ticker does fire, but for ProtonVPN gluetun refuses the job without account
+  credentials and says so at WARN, once, between restarts:
+  `getting protonvpn servers: credentials missing: email is empty - skipping update
+  for protonvpn`. Reproduce it in isolation without touching the live stack:
+  `docker run --rm -v <scratch>:/gluetun qmcgaw/gluetun:v3 update -enduser -providers protonvpn`.
+  Two ways to see it in place: the `protonvpn` block of `/gluetun/servers.json` carries
+  `"timestamp": 1763472933` (**2025-11-18** — gluetun v3.41.1's build snapshot, not
+  anything fetched), and every start logs `merging by most recent 20901 hardcoded
+  servers and 20901 servers read from /gluetun/servers.json` — identical counts on
+  both sides means the file *is* the hardcoded list.
+  Fix: set `PROTON_API_EMAIL` / `PROTON_API_PASSWORD` in `.env` (the Proton **account**
+  login, not `PROTON_WG_PRIVATE_KEY`); compose passes them as
+  `UPDATER_PROTONVPN_EMAIL` / `UPDATER_PROTONVPN_PASSWORD`. Then
+  `docker compose up -d vpn` and confirm with
+  `docker compose logs vpn | grep -i "updating Protonvpn"`. Left empty, behaviour is
+  exactly as before — it fails open, and silently, which is why it went unnoticed.
+  A 9-month-old list is the leading suspect for the residual 3.7% of switches that
+  never produce an IP. Note this is *also* the signature of a stale
+  `PROTON_WG_PRIVATE_KEY`; rule the list out first now that it is cheap to check.
 - **A failed VPN switch used to be silent — it is not any more. Diagnose it with
   `vpn_switch`.** The old gate checked health *before* rotating and never re-checked,
   so a rotation that didn't finish left the scrape on a still-reconnecting tunnel and
@@ -122,14 +143,32 @@ See `.env.example` for all keys with descriptions.
   change" success test was itself a source of false failures).
   The event to read is **`vpn_switch`**, not `vpn_rotated` — that op no longer exists.
   It carries `ok`, `ip`, `changed`, `attempts`, `seconds`, `reason`,
-  `tried[]`, and `restarts[]` (seconds per tunnel restart). `VPN_ROTATE_TIMEOUT`
-  (default **120 s**) is the knob: raise it if `restarts` clusters near the ceiling,
-  and note that a restart landing *exactly* on the ceiling is one that never produced
-  an IP at all. Surveying 457 live exits (2026-08-13/14) put clean switches at a 14 s
-  median and 46 s p90, with ~4.5% never coming up; every exit that did come up carried
-  traffic, at a 0.4 s median. So there is no "still settling" grey zone to wait out —
-  the outcome is binary, and `VERIFY_DEADLINE_SECONDS` exists for a measured 36 s tail,
-  not for the common case.
+  `tried[]`, and `restarts[]` (seconds per tunnel restart). A restart landing
+  *exactly* on `VPN_ROTATE_TIMEOUT` is one that never produced an IP at all.
+- **`VPN_ROTATE_TIMEOUT` is settled at 120 s. Do not raise it.** The overnight
+  survey (1,518 exits, 2026-08-12 → 08-16) was built to decide this and the answer
+  is counter-intuitive, so it is written down here rather than re-derived. The
+  ceiling *does* manufacture its own failure rate — the share of switches that never
+  produce an IP is 12.5% at 90 s (n=24), 7.2% at 120 s (n=542) and 3.7% at 180 s
+  (n=952), and at 180 s a real 1.6% of *successful* switches took longer than 120 s.
+  But `switch_until_usable` retries 3×, and that swamps the ceiling completely.
+  Simulating the production retry loop against the empirical distribution:
+
+  | ceiling | mean time to usable | run fails | worst case |
+  |---|---|---|---|
+  | 90 s | 26.5 s | 0.050% | 4.5 min |
+  | **120 s** | **28.0 s** | **0.038%** | **6 min** |
+  | 180 s | 30.5 s | 0.018% | 9 min |
+
+  120 → 180 buys 0.02 pp of run reliability — one saved run every few years at 14
+  switches/day — and pays three extra minutes of worst-case dead stall. Judge this
+  knob on *run*-level failure, never on the single-switch no-IP rate, which is what
+  makes a bigger ceiling look free.
+- **The verify budget is calibrated; leave it alone.** A probe ladder across 1,420
+  exits: 97.3% carry traffic on the first probe, 98.4% by +2 s, 99.3% by +4 s,
+  99.65% by +8 s, then nothing until +30 s (4 exits) and one that never did.
+  `VERIFY_SETTLE_SECONDS=2.0` / `VERIFY_DEADLINE_SECONDS=45.0` / `VERIFY_MAX_PROBES=6`
+  cover that with room to spare. There is no "still settling" grey zone to widen for.
   There is **no exit quarantine any more** (deleted 2026-08-14, along with
   `VPN_QUARANTINE_PATH`). It guarded failure modes measured at zero — 0/633 verify
   failures on live exits, 0/148 exits bad every time seen — and the one time it did
@@ -146,8 +185,41 @@ See `.env.example` for all keys with descriptions.
   not broken (all 12 sampled worked) but they were 4.6× slower to first traffic, and
   `vpn_client.usable()`'s docstring records one holding a valid IP while unable to
   reach the target at all — the exact shape of a silently empty scrape. The survey
-  flags them as `outside_pool`; if they ever correlate with blocked scrapes, exclude
-  Tor servers from gluetun's pool rather than widening timeouts.
+  flags them as `outside_pool`.
+  **They now do correlate with blocked scrapes — and the right response is still to
+  do nothing.** Over the full 1,441 live exits, `outside_pool` ones passed every
+  target only 80.9% of the time against 99.1% for in-pool, and **7 of the 9 hard 403s
+  in the whole corpus came from that 3.3% of exits** (15% of Tor exits were 403'd by
+  Tockify, versus 0.2% in-pool). Excluding them is nevertheless not on the table:
+  gluetun's `/gluetun/servers.json` ProtonVPN records carry only
+  `city, country, hostname, ips, port_forward, server_name` — **no Tor flag** — and
+  gluetun offers allowlists (`SERVER_NAMES`) but no exclusion filter. Only 3 of the
+  286 servers in the 4-country pool are even named `*-TOR` (`CH#18-TOR`,
+  `US-CO#21-TOR`, `US-GA#29-TOR`), and one Tor entry server yields many egress IPs.
+  So the measured cost of ignoring this is 3.3% × 15% ≈ **0.5% of switches wasted**,
+  and `switch_until_usable` already detects the 403 and switches away by itself. A
+  283-name allowlist that goes stale is the worse trade.
+- **A verify URL must be a real target of the same class you are scraping.** Until
+  2026-08-16 `career_watch` verified exits against `cloudflare.com/cdn-cgi/trace`,
+  which proves the tunnel carries traffic and nothing about whether a job board will
+  answer — so an exit blocked by board infrastructure verified clean, scraped zero and
+  logged `ok: true`. That is the silent-empty-scrape failure `switch_until_usable`
+  exists to kill, displaced one layer outward. The default is now
+  `career_watch.lib.engine.DEFAULT_VERIFY_URL` (Lever's postings API, `limit=1`),
+  overridable with `CAREER_WATCH_VERIFY_URL`. `event_watch` never had the gap: each
+  scraper sets `verify_url` to its own real target. The survey says this was still
+  theoretical — Lever hard-blocked 0 of 989 exits, its 6 failures all transient
+  `ProxyError` — so treat it as hardening, not a fix for an observed outage.
+- **The overnight VPN exit survey is finished and its cron is stopped**
+  (`scripts/vpn_survey_cron.sh`, commented out of the crontab 2026-08-16; backup at
+  `local/state/crontab.bak.before-vpn-survey-stop-20260816`). Everything it measured
+  is written into the bullets above — read those before re-running it. Its own header
+  claimed that leaving the crontab line in place "costs nothing" because of a
+  1,500-record self-limit; that was wrong. Each night stopped on the 03:20 clock at
+  ~425 records, so the limit was never reached and the job restarted the tunnel
+  ~100×/night indefinitely. That churn is also why the (broken anyway) 6 h server-list
+  updater tick could never fire on a survey night. Raw records:
+  `local/state/vpn_survey/survey-*.jsonl`.
 - **No LLM is reachable from cortex.** `llm-proxy` exists and is well established —
   six sites under `/srv/docker/websites/` run one as a sidecar (multi-backend, tiers
   `light`/`middle`/`heavy`, `X-Proxy-Secret` auth on `:11434`) — but every instance is
