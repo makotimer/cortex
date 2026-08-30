@@ -56,6 +56,37 @@ VIRTUAL_LOC = re.compile(
     r"^(virtual|zoom|zoom - virtual|social media|online)(\b|$)",
     re.I,
 )
+UNPLACEABLE_LOC = re.compile(
+    r"^(multiple locations|various locations|tbd|tba|n/?a)$",
+    re.I,
+)
+# Named local venues that should still go through address-kit when the campus
+# field is empty. Country names, "US", and "Texas University" have none of
+# these, which is what keeps Traveling Aggies from matching a restaurant.
+PLACEABLE_HINTS = (
+    "building",
+    "hall",
+    "museum",
+    "club",
+    "garden",
+    "library",
+    "chapel",
+    "auditorium",
+    "arena",
+    "theatre",
+    "theater",
+    "stadium",
+    "pavilion",
+    "observatory",
+    "gallery",
+    "laboratory",
+    "coliseum",
+    "ballroom",
+    "complex",
+    "plaza",
+    "center",
+    "fieldhouse",
+)
 CAMPUS_HINTS = (
     "memorial student center",
     "forsyth",
@@ -178,6 +209,8 @@ class TamuScraper(BaseEventScraper):
                     "series_uid": item.series_uid,
                     "occurrence_tid": item.occurrence_tid,
                     "reason": str(exc),
+                    "title": _text(item.record.get("title")),
+                    "location": _location(item.record),
                 })
                 continue
             payloads.append({
@@ -340,6 +373,8 @@ def _place_decision(record: dict) -> str:
         return "drop_geo"
     if loc and re.search(r"\bbryan\b", loc, re.I):
         return "structured_bryan"
+    if loc and re.search(r"\bbrazos county\b", loc, re.I):
+        return "structured_bryan"
     if loc and re.search(r"college station", loc, re.I):
         return "structured_cs"
     if loc and _has_bcs(record):
@@ -350,7 +385,23 @@ def _place_decision(record: dict) -> str:
         # BCS + no venue is a campus-wide notice. No campus and no venue
         # cannot be placed; dropping is quieter than emailing forever.
         return "no_place" if _has_bcs(record) else "drop_geo"
+    if not _looks_placeable(loc):
+        # Empty-campus travel listings ("Italy", "US") and statewide AgriLife
+        # offices. Geocoding them emails forever on no_match, or worse, pins
+        # "Peru" to Fusion Peru on Texas Avenue.
+        return "drop_geo"
     return "resolve"
+
+
+def _looks_placeable(location: str) -> bool:
+    if UNPLACEABLE_LOC.match(location.strip()):
+        return False
+    if _looks_campus(location):
+        return True
+    low = location.lower()
+    if any(hint in low for hint in PLACEABLE_HINTS):
+        return True
+    return bool(re.search(r"\d{2,}\s+\w+", location))
 
 
 def _looks_campus(location: str) -> bool:

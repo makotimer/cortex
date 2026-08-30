@@ -37,37 +37,38 @@ Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
 
 ## Status
 
-**Live.** Both sources are scheduled in `local/config.json` (gitignored — the
-entries below are the record of what is there) and both have injected for real.
+**Live.** All 26 kinds are scheduled in `local/config.json` (gitignored — the
+entries below are the record of what is there). `vpn-cycle-events` fires at
+03:25 on the same days, ahead of the 03:40 first scrape.
 
 | Job | Kind | When | kwargs |
 |---|---|---|---|
-| `event-watch-bcslibrary` | `tockify` | Wed/Sun 03:40 | `rotate_vpn_per_run: false` |
-| `event-watch-challenge` | `challenge` | Wed/Sun 03:55 | `proxy_url: ""` |
-| `event-watch-kbtx` | `kbtx` | Wed/Sun 04:10 | `rotate_vpn_per_run: false` |
-| `event-watch-kbtxdeals` | `kbtxdeals` | *not scheduled yet* | `rotate_vpn_per_run: false` |
-| `event-watch-tamu` | `tamu` | Wed/Sun 04:25 | `rotate_vpn_per_run: false` |
-| `event-watch-tamumusic` | `tamumusic` | *not scheduled yet* | `rotate_vpn_per_run: false` |
-| `event-watch-cityspark` | `cityspark` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-bryantx` | `bryantx` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-lakewalk` | `lakewalk` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-destbryan` | `destbryan` | Wed/Sun 04:40 | `rotate_vpn_per_run: false` |
-| `event-watch-bvmuseum` | `bvmuseum` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-visitcstx` | `visitcstx` | Wed/Sun 04:50 | `rotate_vpn_per_run: false` |
-| `event-watch-bush41` | `bush41` | Wed/Sun 05:05 | `rotate_vpn_per_run: false` |
-| `event-watch-bvso` | `bvso` | Wed/Sun 05:20 | `proxy_url: ""` |
-| `event-watch-hyperbole` | `hyperbole` | Wed/Sun 05:35 | `rotate_vpn_per_run: false` |
-| `event-watch-bcschamber` | `bcschamber` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-ttc` | `ttc` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-stage12` | `stage12` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-rei` | `rei` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-wonderfulwords` | `wonderfulwords` | *not scheduled yet* | `rotate_vpn_per_run: false` |
-| `event-watch-pwat` | `pwat` | *not scheduled yet* | `rotate_vpn_per_run: false` |
-| `event-watch-sewmuchclass` | `sewmuchclass` | *not scheduled yet* | `proxy_url: ""` |
-| `event-watch-thepalace` | `thepalace` | *not scheduled yet* | `rotate_vpn_per_run: false` |
-| `event-watch-lowes` | `lowes` | Wed/Sun 05:50 | `proxy_url: ""` |
-| `event-watch-homedepot` | `homedepot` | Wed/Sun 06:05 | `proxy_url: ""` |
-| `event-watch-americangi` | `americangi` | Wed/Sun 06:20 | `proxy_url: ""` |
+| `event-watch-bcslibrary` | `tockify` | Tue/Fri 03:40 | `rotate_vpn_per_run: false` |
+| `event-watch-challenge` | `challenge` | Tue/Fri 03:55 | `proxy_url: ""` |
+| `event-watch-kbtx` | `kbtx` | Tue/Fri 04:10 | `rotate_vpn_per_run: false` |
+| `event-watch-tamu` | `tamu` | Tue/Fri 04:25 | `rotate_vpn_per_run: false` |
+| `event-watch-destbryan` | `destbryan` | Tue/Fri 04:40 | `rotate_vpn_per_run: false` |
+| `event-watch-visitcstx` | `visitcstx` | Tue/Fri 04:50 | `rotate_vpn_per_run: false` |
+| `event-watch-bush41` | `bush41` | Tue/Fri 05:05 | `rotate_vpn_per_run: false` |
+| `event-watch-bvso` | `bvso` | Tue/Fri 05:20 | `proxy_url: ""` |
+| `event-watch-hyperbole` | `hyperbole` | Tue/Fri 05:35 | `rotate_vpn_per_run: false` |
+| `event-watch-lowes` | `lowes` | Tue/Fri 05:50 | `proxy_url: ""` |
+| `event-watch-homedepot` | `homedepot` | Tue/Fri 06:05 | `proxy_url: ""` |
+| `event-watch-americangi` | `americangi` | Tue/Fri 06:20 | `proxy_url: ""` |
+| `event-watch-kbtxdeals` | `kbtxdeals` | Tue/Fri 06:35 | `rotate_vpn_per_run: false` |
+| `event-watch-tamumusic` | `tamumusic` | Tue/Fri 06:50 | `rotate_vpn_per_run: false` |
+| `event-watch-cityspark` | `cityspark` | Tue/Fri 07:05 | `proxy_url: ""` |
+| `event-watch-bryantx` | `bryantx` | Tue/Fri 07:20 | `proxy_url: ""` |
+| `event-watch-lakewalk` | `lakewalk` | Tue/Fri 07:35 | `proxy_url: ""` |
+| `event-watch-bvmuseum` | `bvmuseum` | Tue/Fri 07:50 | `proxy_url: ""` |
+| `event-watch-bcschamber` | `bcschamber` | Tue/Fri 08:05 | `proxy_url: ""` |
+| `event-watch-ttc` | `ttc` | Tue/Fri 08:20 | `proxy_url: ""` |
+| `event-watch-stage12` | `stage12` | Tue/Fri 08:35 | `proxy_url: ""` |
+| `event-watch-rei` | `rei` | Tue/Fri 08:50 | `proxy_url: ""` |
+| `event-watch-wonderfulwords` | `wonderfulwords` | Tue/Fri 09:05 | `rotate_vpn_per_run: false` |
+| `event-watch-pwat` | `pwat` | Tue/Fri 09:20 | `rotate_vpn_per_run: false` |
+| `event-watch-sewmuchclass` | `sewmuchclass` | Tue/Fri 09:35 | `proxy_url: ""` |
+| `event-watch-thepalace` | `thepalace` | Tue/Fri 09:50 | `rotate_vpn_per_run: false` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -92,6 +93,22 @@ source, so overlapping would be harmless.
 
 Window length and schedule are deliberately unscoped by the design (§3, §11.3).
 `window_days` defaults to 270; a scraper may narrow it (see below).
+
+### 2026-08-30 notes
+
+Schedule moved **Wed/Sun → Tue/Fri**. All 26 kinds are now jobs (the previous 14
+opt-ins were added on the same 15-minute grid after 06:20). `vpn-cycle-events`
+moved with them (Tue/Fri 03:25). Live `local/config.json` is gitignored; the
+table above is the record.
+
+TAMU `no_match` attention mail was Traveling Aggies country names, KAMU
+`multiple locations`, and other-county AgriLife offices — not a geocoder
+outage. Unplaceable locations are now `drop_geo`. `Peru` had been matching
+Fusion Peru. Rejected records log title + location.
+
+First inject of the 14 newly scheduled kinds (same day): most upserted or were
+already current. **REI failed** (direct read-timeout; VPN verify 403). Six older
+REI occurrences remain in state. BCS Chamber emailed six `missing city`.
 
 ## A source may see less far ahead than the run asks for
 
@@ -217,7 +234,11 @@ Residents, or Youth (K-12) is also tagged. Untagged talks stay.
 
 **Bryan–College Station only.** The campus filter leaks. Virtual/Zoom without a
 BCS campus tag is dropped. Named campus buildings become `college_station`
-without a geocoder; street addresses that need a city go through address-kit.
+without a geocoder; street addresses and named local venues go through
+address-kit. Country names, `multiple locations`, and other-county offices are
+dropped quietly — geocoding them emailed `no_match` twice a week, and `Peru`
+matched Fusion Peru. A local venue that still cannot be resolved is rejected
+with the location in the log and the attention email.
 
 The JSON endpoint silently caps around 400, so fetch walks the window a week at
 a time. Occurrence tid is start-time millis so disappearance reconciliation

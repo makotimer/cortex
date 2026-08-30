@@ -174,15 +174,26 @@ def _run_source(
 
     payloads, rejected = scraper.normalize(raw)
     if rejected:
+        samples = [
+            {k: r[k] for k in ("series_uid", "occurrence_tid", "reason", "title", "location") if r.get(k)}
+            for r in rejected[:25]
+        ]
         logging_bridge.error({
             "component": "event_watch.engine", "op": "rejected_records",
             "source": slug, "count": len(rejected),
             "reasons": sorted({r["reason"] for r in rejected}),
+            "records": samples,
         })
-        attention.append(
+        locations = sorted({(r.get("location") or "").strip() for r in rejected} - {""})
+        line = (
             f"{slug}: {len(rejected)} record(s) not publishable — "
             + "; ".join(sorted({r["reason"] for r in rejected}))
         )
+        if locations:
+            shown = locations[:8]
+            extra = f" (+{len(locations) - 8} more)" if len(locations) > 8 else ""
+            line += " [" + "; ".join(shown) + extra + "]"
+        attention.append(line)
 
     window_ms = (
         int(datetime.combine(window_start, datetime.min.time(), UTC).timestamp() * 1000),

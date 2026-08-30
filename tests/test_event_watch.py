@@ -1477,6 +1477,133 @@ def test_tamu_no_location_no_campus_is_dropped_not_rejected():
     assert rejected == []
 
 
+def _tamu_place_item(location: str, *, title: str = "Talk", eid: int = 1) -> RawEvent:
+    return tamu.to_raw({
+        "id": eid,
+        "title": title,
+        "date_ts": 1786813200,
+        "location_title": location,
+    })
+
+
+@pytest.mark.parametrize(
+    "location",
+    [
+        "Peru",
+        "Italy",
+        "US",
+        "Canada, US",
+        "Toronto, Canada",
+        "France, Italy, Monaco, Spain",
+        "multiple locations",
+        "Texas University",
+        "AgriLife Extension office, McLennan County",
+        "Bexar County AgriLife - Greenies Urban Farm",
+    ],
+)
+def test_tamu_unplaceable_location_is_dropped_not_geocoded(location):
+    """Travel, country lists, and other-county offices are not BCS venues.
+
+    The campus URL filter still returns them with an empty campus field. They
+    used to go through address-kit: `no_match` emailed twice a week, and
+    `Peru` matched Fusion Peru on Texas Avenue.
+    """
+    calls: list[str] = []
+
+    def resolve(address: str) -> dict:
+        calls.append(address)
+        return {
+            "status": "matched",
+            "city": "College Station",
+            "zip_code": "77840",
+            "matched_address": "Fusion Peru, 2501 Texas Avenue South",
+            "lat": 30.6,
+            "lng": -96.3,
+            "provider": "test",
+        }
+
+    raw = [_tamu_place_item(location, title="Traveling Aggies Depart: Somewhere")]
+    tamu.enrich_places(raw, resolve=resolve, cache={})
+    payloads, rejected = tamu.TamuScraper().normalize(raw)
+    assert calls == []
+    assert payloads == []
+    assert rejected == []
+
+
+def test_tamu_brazos_county_office_is_bryan_without_geocoding():
+    calls: list[str] = []
+    raw = [_tamu_place_item("Brazos County Extension Office")]
+    tamu.enrich_places(raw, resolve=lambda a: calls.append(a) or {}, cache={})
+    payloads, rejected = tamu.TamuScraper().normalize(raw)
+    assert calls == []
+    assert rejected == []
+    assert payloads[0]["series"]["place"]["city"] == "Bryan"
+    assert payloads[0]["series"]["place"]["area"] == "bryan"
+
+
+def test_tamu_named_building_is_still_geocoded():
+    calls: list[str] = []
+
+    def resolve(address: str) -> dict:
+        calls.append(address)
+        return {
+            "status": "matched",
+            "city": "College Station",
+            "zip_code": "77843",
+            "matched_address": "Biochemistry/Biophysics Building, Olsen Boulevard",
+            "lat": 30.61,
+            "lng": -96.35,
+            "provider": "test",
+        }
+
+    raw = [_tamu_place_item("Biochemistry/Biophysics Building", title="Seminar")]
+    tamu.enrich_places(raw, resolve=resolve, cache={})
+    payloads, rejected = tamu.TamuScraper().normalize(raw)
+    assert calls == ["Biochemistry/Biophysics Building"]
+    assert rejected == []
+    assert payloads[0]["series"]["place"]["city"] == "College Station"
+    assert payloads[0]["series"]["place"]["name"] == "Biochemistry/Biophysics Building"
+
+
+def test_tamu_unresolved_local_venue_is_rejected_with_location():
+    item = _tamu_place_item("Biochemistry/Biophysics Building", title="Seminar")
+    item.supplement["place_resolution"] = {"status": "no_match"}
+    payloads, rejected = tamu.TamuScraper().normalize([item])
+    assert payloads == []
+    assert rejected == [{
+        "series_uid": "1",
+        "occurrence_tid": str(1786813200 * 1000),
+        "reason": "address could not be resolved (no_match)",
+        "title": "Seminar",
+        "location": "Biochemistry/Biophysics Building",
+    }]
+
+
+def test_rejected_records_email_and_log_name_the_location(tmp_path, monkeypatch):
+    logs: list[dict] = []
+    monkeypatch.setattr(engine.logging_bridge, "error", lambda payload: logs.append(payload))
+    monkeypatch.setattr(
+        publish.Publisher, "_emit", lambda self, t, p, correlation_id=None: None)
+
+    class _Rejecting(_StubScraper):
+        def normalize(self, raw):
+            return [], [{
+                "series_uid": "1",
+                "occurrence_tid": "1000",
+                "reason": "address could not be resolved (no_match)",
+                "title": "Seminar",
+                "location": "Biochemistry/Biophysics Building",
+            }]
+
+    result = engine.run_once(_settings(tmp_path), scrapers=[_Rejecting()])
+    assert result is not None
+    html, _meta = result
+    assert "Biochemistry/Biophysics Building" in html
+    rec = next(p for p in logs if p.get("op") == "rejected_records")
+    assert rec["records"][0]["location"] == "Biochemistry/Biophysics Building"
+    assert rec["records"][0]["title"] == "Seminar"
+
+
 def test_tamu_is_registered_and_not_in_default_kinds():
     assert "tamu" not in Settings.from_env_and_kwargs({}).kinds
     scrapers = engine._default_scrapers(Settings.from_env_and_kwargs({"kinds": "tamu"}))
