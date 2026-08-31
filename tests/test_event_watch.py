@@ -1460,6 +1460,129 @@ def test_tamu_series_uses_parent_and_tid_is_start_millis(tamu_raw):
     assert int(transit.occurrence_tid) > 10**12
 
 
+def test_tamu_splits_name_from_house_number_when_location_has_no_comma():
+    """A LiveWhale blob like ``Made Well House 600 E. 27th Bryan`` used to land
+    whole in both name and street, which is why the site's venue signal failed
+    to match ``600 East 27th Street``. Name is the prefix, street starts at the
+    house number, trailing city stripped."""
+    name, street = tamu._split_location_name_street("Made Well House 600 E. 27th Bryan")
+    assert name == "Made Well House"
+    assert street.startswith("600")
+    assert "Made Well House" not in street
+
+
+def test_tamu_split_leaves_a_plain_building_name_alone():
+    name, street = tamu._split_location_name_street("Forsyth Galleries")
+    assert name == "Forsyth Galleries"
+    assert street == ""
+
+
+def test_tamu_split_strips_trailing_city_from_a_comma_street():
+    """A comma blob keeps the comma-clause name (spec §4.3 scopes the split to
+    the no-comma case) but the street still starts at the house number, not
+    the whole name+address clause."""
+    name, street = tamu._split_location_name_street("Made Well House 600 E. 27th Bryan, TX")
+    assert street.startswith("600")
+    assert "Made Well House" not in street
+
+
+def test_tamu_collapses_two_listings_of_the_same_slot():
+    """Garden Club runs at the Gardens on a Tuesday morning from two Localist
+    listings (the calendar and the AgriLife register) with one program. They
+    must arrive as one payload — the calendar.tamu.edu row wins — while a
+    genuinely different place at the same start survives."""
+    def payload(uid, title, url, place_slug="the-gardens-at-texas-a-m-university"):
+        return {
+            "schema_version": "1",
+            "source": {"slug": "tamu", "name": "Texas A&M University Events Calendar", "kind": "feed"},
+            "series": {
+                "source_series_uid": uid,
+                "title": title,
+                "source_url": url,
+                "description": "x" * (80 if "387508" in uid else 20),
+                "place": {"slug": place_slug, "name": "The Gardens at Texas A&M University",
+                          "city": "College Station", "area": "college_station"},
+            },
+            "occurrence": {
+                "source_occurrence_tid": "1788877800000",
+                "start_local": "2026-09-08T09:30:00",
+                "timezone": "America/Chicago",
+                "all_day": False,
+                "status": "scheduled",
+            },
+        }
+    raw = [
+        payload("390935", "Garden Club - Fall 2026",
+                "https://agriliferegister.tamu.edu/taes-ev-032"),
+        payload("387508", "Garden Club at The Gardens",
+                "https://calendar.tamu.edu/agrilife/event/387508-garden-club-at-the-gardens"),
+        payload("387509", "Garden Club at The Gardens",
+                "https://calendar.tamu.edu/agrilife/event/387509-garden-club-at-the-gardens",
+                place_slug="other-place"),
+    ]
+    out = tamu.collapse_intra_source(raw)
+    garden = [p for p in out
+              if p["series"]["place"]["slug"] == "the-gardens-at-texas-a-m-university"]
+    assert len(garden) == 1
+    assert garden[0]["series"]["source_series_uid"] == "387508"
+    assert len(out) == 2
+
+
+def test_tamu_collapse_keeps_different_starts_of_one_place():
+    def payload(uid, start):
+        return {
+            "schema_version": "1",
+            "source": {"slug": "tamu", "name": "Texas A&M University Events Calendar", "kind": "feed"},
+            "series": {
+                "source_series_uid": uid,
+                "title": "Garden Club",
+                "source_url": f"https://calendar.tamu.edu/agrilife/event/{uid}",
+                "description": "x" * 40,
+                "place": {"slug": "the-gardens-at-texas-a-m-university",
+                          "name": "The Gardens at Texas A&M University",
+                          "city": "College Station", "area": "college_station"},
+            },
+            "occurrence": {
+                "source_occurrence_tid": uid,
+                "start_local": start,
+                "timezone": "America/Chicago",
+                "all_day": False,
+                "status": "scheduled",
+            },
+        }
+    out = tamu.collapse_intra_source([payload("1", "2026-09-08T09:30:00"),
+                                      payload("2", "2026-09-15T09:30:00")])
+    assert len(out) == 2
+
+
+def test_tamu_collapse_keeps_disjoint_titles_at_the_same_slot():
+    def payload(uid, title):
+        return {
+            "schema_version": "1",
+            "source": {"slug": "tamu", "name": "Texas A&M University Events Calendar", "kind": "feed"},
+            "series": {
+                "source_series_uid": uid,
+                "title": title,
+                "source_url": f"https://calendar.tamu.edu/event/{uid}",
+                "description": "x" * 40,
+                "place": {"slug": "some-place", "name": "Some Place",
+                          "city": "Bryan", "area": "bryan"},
+            },
+            "occurrence": {
+                "source_occurrence_tid": uid,
+                "start_local": "2026-09-08T09:30:00",
+                "timezone": "America/Chicago",
+                "all_day": False,
+                "status": "scheduled",
+            },
+        }
+    out = tamu.collapse_intra_source([
+        payload("1", "Zumba with the Zephyrs"),
+        payload("2", "Intro to Beekeeping Workshop"),
+    ])
+    assert len(out) == 2
+
+
 def test_tamu_topics_from_event_types(tamu_normalized):
     payloads, _ = tamu_normalized
     for p in payloads:

@@ -13,6 +13,7 @@ from __future__ import annotations
 import html
 import re
 from datetime import date, timedelta
+from difflib import SequenceMatcher
 from typing import Any
 
 from modules._shared.http import HttpClient
@@ -223,7 +224,7 @@ class TamuScraper(BaseEventScraper):
                 "series": series,
                 "occurrence": occurrence,
             })
-        return payloads, rejected
+        return collapse_intra_source(payloads), rejected
 
     def _series(self, item: RawEvent) -> dict:
         rec = item.record
@@ -463,10 +464,50 @@ def _place_for(item: RawEvent) -> dict | None:
     return _place_dict(rec, city, area, None)
 
 
+_HOUSE_NUMBER = re.compile(r"\d{2,}\s+[\w.&'-]+")
+
+
+def _split_location_name_street(location: str) -> tuple[str, str]:
+    """Split a comma-less LiveWhale location blob into (name, street).
+
+    ``Made Well House 600 E. 27th Bryan`` used to land whole in both the place
+    name and the street, which is why the site's venue signal could not match
+    ``600 East 27th Street``. When a house number appears, the name is the
+    stripped prefix and the street runs from the house number with the trailing
+    city/state tokens removed. Without a house number, the name is the first
+    comma clause and the street falls back to ``_street_from_location``.
+    """
+    if not location:
+        return "", ""
+    if "," in location:
+        name = location.split(",")[0].strip()
+        street = _street_from_location(location)
+        # A comma blob that starts with a house number carries the street in
+        # the same clause as the name; take the clause from the number on.
+        match = _HOUSE_NUMBER.search(location.split(",")[0])
+        if match:
+            street = location.split(",")[0][match.start():].strip()
+        return name, street
+    match = _HOUSE_NUMBER.search(location)
+    if not match:
+        return location.strip(), ""
+    name = location[: match.start()].strip()
+    street = location[match.start():].strip()
+    # Trailing city/state after the house number: "600 E. 27th Bryan",
+    # "600 E. 27th Bryan, TX", "600 E. 27th Bryan and College Station".
+    street = re.sub(
+        r"\s*(,|\band\b)?\s*(bryan|college station|tx|texas)\b"
+        r"(\s*,\s*(tx|texas))?\s*$",
+        "",
+        street,
+        flags=re.I,
+    ).strip()
+    return name or location.strip(), street
+
+
 def _place_dict(record: dict, city: str, area: str, reso: dict | None) -> dict:
-    name = _location(record) or city
-    # Keep the short building name, not a 200-char room+address blob.
-    name = name.split(",")[0].strip() or city
+    name, street = _split_location_name_street(_location(record))
+    name = name or city
     place: dict[str, Any] = {
         "slug": normalize.slugify(f"{name}-{city}"),
         "name": name,
@@ -474,8 +515,6 @@ def _place_dict(record: dict, city: str, area: str, reso: dict | None) -> dict:
         "region": "TX",
         "area": area,
     }
-    loc = _location(record)
-    street = _street_from_location(loc)
     if reso and reso.get("matched_address"):
         street = street or kbtx._street_from_address(reso["matched_address"])
         if reso.get("zip_code"):
@@ -509,6 +548,82 @@ def _street_from_location(location: str) -> str:
             if re.search(r"\d{2,}\s+\w+", part):
                 return part
     return ""
+
+
+_AT_VENUE = re.compile(r"\s+at\s+[^a-z]{0,2}[a-z0-9&'-]*(\s+[a-z0-9&'-]+)*$", re.I)
+
+
+def _normalized_title(title: str) -> str:
+    """Lowercase, one-spaced, with a trailing ``at <venue>`` clause removed —
+    the same shape the site's ``normalize_title`` compares on."""
+    text = " ".join((title or "").lower().split())
+    return _AT_VENUE.sub("", text).strip() or text
+
+
+def _titles_match(a: str, b: str) -> bool:
+    """The site's title rule, cheaply: containment with a real prefix, or a
+    high sequence ratio. Two genuinely different shows at one slot must not
+    be collapsed, so a one-token overlap is never enough."""
+    short = _normalized_title(a)
+    long = _normalized_title(b)
+    if short and long and short != long:
+        if len(short) < len(long):
+            shorter, longer = short, long
+        else:
+            shorter, longer = long, short
+        if shorter in longer and (len(shorter.split()) >= 2 or len(shorter) >= 12):
+            return True
+    return SequenceMatcher(None, a or "", b or "").ratio() >= 0.6
+
+
+def _collapse_winner(group: list[dict]) -> dict:
+    """calendar.tamu.edu over agriliferegister, then the longer description,
+    then the lexicographically smaller series uid."""
+    def rank(payload: dict) -> tuple:
+        url = payload["series"].get("source_url") or ""
+        is_calendar = "calendar.tamu.edu" in url
+        description = payload["series"].get("description") or ""
+        return (not is_calendar, -len(description), payload["series"]["source_series_uid"])
+    return min(group, key=rank)
+
+
+def collapse_intra_source(payloads: list[dict]) -> list[dict]:
+    """Collapse same-run double listings: same start, status and place, with
+    titles that read as one program (Garden Club on the calendar *and* the
+    AgriLife register). Distinct starts, distinct places and disjoint titles
+    all survive. Payloads without a place slug never collapse against each
+    other.
+    """
+    groups: dict[tuple, list[dict]] = {}
+    ungrouped: list[dict] = []
+    for payload in payloads:
+        place_slug = (payload.get("series", {}).get("place") or {}).get("slug") or ""
+        occurrence = payload.get("occurrence", {})
+        if not place_slug:
+            ungrouped.append(payload)
+            continue
+        key = (
+            occurrence.get("start_local") or "",
+            occurrence.get("status") or "",
+            place_slug,
+        )
+        groups.setdefault(key, []).append(payload)
+
+    kept: list[dict] = list(ungrouped)
+    for group in groups.values():
+        if len(group) == 1:
+            kept.append(group[0])
+            continue
+        winner = _collapse_winner(group)
+        kept.append(winner)
+        for loser in group:
+            # A loser stays when its title does not read as the winner's
+            # program — two different shows at one slot are not a clone.
+            if loser is not winner and not _titles_match(
+                winner["series"].get("title", ""), loser["series"].get("title", "")
+            ):
+                kept.append(loser)
+    return kept
 
 
 def _occurrence(item: RawEvent) -> dict:
