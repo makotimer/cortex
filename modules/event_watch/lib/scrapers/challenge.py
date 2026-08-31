@@ -81,8 +81,10 @@ VENUES: dict[str, dict[str, Any]] = {
     # --- family venues -----------------------------------------------------
     "venue-3796": {"audiences": ["all-ages"], "indoor": False, "note": "PopStroke — mini golf"},
     "venue-1436": {"audiences": ["all-ages"], "indoor": False, "note": "The Green at Century Square lawn"},
-    "venue-1419": {"audiences": ["all-ages"], "indoor": True, "note": "Rx Pizza, Bryan"},
-    "venue-1421": {"audiences": ["all-ages"], "indoor": True, "note": "Rx Pizza, south College Station"},
+    "venue-1419": {"audiences": ["all-ages"], "indoor": True,
+                   "place_name": "Rx Pizza, Bryan", "note": "Rx Pizza, Bryan"},
+    "venue-1421": {"audiences": ["all-ages"], "indoor": True,
+                   "place_name": "Rx Pizza, College Station", "note": "Rx Pizza, south College Station"},
     "venue-1425": {"audiences": ["all-ages"], "indoor": True, "note": "South Flo Pizza, inside HEB"},
     "venue-3650": {"audiences": ["all-ages"], "indoor": True, "note": "Mas Fajitas"},
     # --- bars: published, but banded adult ---------------------------------
@@ -239,12 +241,16 @@ class ChallengeScraper(BaseEventScraper):
             )
 
         game, venue_name = card["game"], card["venue"]
+        # A chain venue (two Rx Pizzas) carries an explicit place_name so the
+        # public calendar's venue line distinguishes the two. The slug and the
+        # series uid stay untouched — those are already unique per location.
+        place_name = venue.get("place_name") or venue_name
         series: dict[str, Any] = {
             "source_series_uid": uid,
             "title": f"{game} at {venue_name}",
             "description": _description(card),
             "organization": dict(ORGANIZATION),
-            "place": _place(card, base.supplement.get("geo") or {}),
+            "place": _place(card, base.supplement.get("geo") or {}, name=place_name),
             "audiences": list(venue["audiences"]),
             "topics": list(GAME_TOPICS.get(card["game_slug"], DEFAULT_TOPICS)),
         }
@@ -390,10 +396,10 @@ def _description(card: dict) -> str:
     return " ".join(parts)
 
 
-def _place(card: dict, geo: dict[str, Any]) -> dict:
+def _place(card: dict, geo: dict[str, Any], *, name: str | None = None) -> dict:
     place: dict[str, Any] = {
         "slug": card["place_slug"],
-        "name": card["venue"],
+        "name": name or card["venue"],
         "city": card["city"],
         "region": card["region"] or "TX",
         "area": card["area"],

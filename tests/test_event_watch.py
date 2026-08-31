@@ -571,10 +571,16 @@ def test_challenge_series_uid_is_venue_plus_game(challenge_normalized):
 
 def test_challenge_two_locations_of_one_chain_are_two_places(challenge_normalized):
     """Both Rx Pizzas run trivia. Sharing a place slug would rewrite one row
-    with the other's address (contract §3)."""
+    with the other's address (contract §3). Names must also differ so the
+    public calendar does not look like a duplicate."""
     payloads, _ = challenge_normalized
-    rx = {p["series"]["place"]["slug"] for p in payloads if p["series"]["place"]["name"] == "Rx Pizza"}
-    assert rx == {"rx-pizza-bryan", "rx-pizza-south-college-station"}
+    rx = [p["series"]["place"] for p in payloads
+          if p["series"]["place"]["slug"].startswith("rx-pizza")]
+    slugs = {p["slug"] for p in rx}
+    names = {p["name"] for p in rx}
+    assert slugs == {"rx-pizza-bryan", "rx-pizza-south-college-station"}
+    assert len(names) == 2
+    assert "Rx Pizza" not in names
 
 
 def test_challenge_tid_is_epoch_millis_of_the_local_start(challenge_normalized):
