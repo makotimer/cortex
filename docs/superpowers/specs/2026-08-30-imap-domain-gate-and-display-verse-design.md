@@ -26,12 +26,12 @@ Two related defects in the existing IMAP gate:
 
 ## 2. Goals
 
-- Any IMAP command is accepted only if the sender’s domain is in
-  `COMMAND_ALLOWED_DOMAINS` (live: `pricefam.email`, `l3harris.com`).
-- `APPROVE` / `DENY` additionally require the sender’s domain to be in
-  `APPROVAL_ALLOWED_DOMAINS` (live: `pricefam.email` only — work mail must not
-  approve registrations).
-- Delete `approval_allowlist`. Exact-address allowlisting goes away.
+- Any IMAP command (`LIST`, `RUN`, `CAREER REPORT`, `APPROVE`, `DENY`,
+  `SCRIPTURE`) is accepted only if the sender’s domain is in
+  `COMMAND_ALLOWED_DOMAINS` (live: `pricefam.email` **only**). Work-mail
+  domains do not belong in cortex config.
+- Delete `approval_allowlist`. Exact-address allowlisting goes away. There is
+  no second env list.
 - A Command-folder mail whose **first non-blank body line** is
   `Scripture: <ref>` publishes `{ref}` to `events:display` and **sends no
   reply**.
@@ -65,13 +65,13 @@ Mail that never reaches Command is invisible. That is unchanged.
 
 ## 4. Sender authentication
 
-Replace `approval_allowlist` with two env lists (comma-separated, stripped,
-lowercased, empty entries dropped).
+Replace `approval_allowlist` with the env var that already exists and is
+unused: `COMMAND_ALLOWED_DOMAINS` (comma-separated, stripped, lowercased,
+empty entries dropped).
 
 | Env | Live value | Applies to |
 |---|---|---|
-| `COMMAND_ALLOWED_DOMAINS` | `pricefam.email,l3harris.com` (already in `.env`) | every IMAP command, including `SCRIPTURE`, `LIST`, `RUN`, `CAREER REPORT`, `APPROVE`, `DENY` |
-| `APPROVAL_ALLOWED_DOMAINS` | `pricefam.email` (new) | `APPROVE` / `DENY` **in addition** to the command list |
+| `COMMAND_ALLOWED_DOMAINS` | `pricefam.email` | every IMAP command, including `SCRIPTURE`, `LIST`, `RUN`, `CAREER REPORT`, `APPROVE`, `DENY` |
 
 Fail closed: an empty list rejects everyone.
 
@@ -79,17 +79,20 @@ Compare the **domain** of the envelope From (already passed in as `from_addr`,
 `user@host`). Ignore display name. Case-insensitive. A missing / unparseable
 From is a reject.
 
-**`APPROVE` / `DENY` from `@l3harris.com`:** command-domain check passes, approval-domain
-check fails → no publish, existing “Not authorized” **reply** (approvals still
-reply).
+Do **not** add `APPROVAL_ALLOWED_DOMAINS`. Approvals use the same list as every
+other command. Widening from `webmaster@pricefam.email` to any address at
+`pricefam.email` is deliberate.
 
 **`SCRIPTURE` from a rejected domain:** no publish, **no reply**.
 
-**`LIST` / `RUN` from a rejected domain:** no side effects, “Not authorized”
+**Any other command from a rejected domain:** no side effects, “Not authorized”
 reply (same copy as today’s failed approval).
 
 Do not read `cfg["approval_allowlist"]`. Remove that key from
 `local/config.json`. Keep schema permissive (unknown keys already allowed).
+
+Strip any work-mail domain from live `.env` `COMMAND_ALLOWED_DOMAINS` as part
+of this work. It must not remain in cortex config.
 
 `COMMAND_ALLOWED_DOMAINS` stays an env var, not a config.json array — that is
 where it already lives.
@@ -176,14 +179,12 @@ Not automated. Document in `service/imap_commands/README.md` and
 Hermetic; fakeredis for publish tests (existing `test_imap_approval.py`
 pattern).
 
-- Command domain allow / deny for `LIST` (deny = authorized reply, no scheduler
-  call).
-- Approval domain: `@pricefam.email` publishes; `@l3harris.com` does not, even
-  when `l3harris.com` is in `COMMAND_ALLOWED_DOMAINS`.
-- `approval_allowlist` in cfg is ignored (webmaster-only cfg must not grant
-  `stranger@pricefam.email` if we only checked the old key — the new check is
-  domain; `stranger@pricefam.email` **is** allowed for APPROVE). Pin that
-  widening with a test so it is deliberate.
+- Command domain allow / deny for `LIST` (deny = “Not authorized” reply, no
+  scheduler call).
+- `APPROVE` from any address at an allowed domain publishes; a different
+  domain does not. Pin the widening from webmaster-only: `other@example.com`
+  is allowed when `COMMAND_ALLOWED_DOMAINS=example.com`.
+- `approval_allowlist` in cfg is ignored.
 - Scripture first line publishes `{ref}`; subject `LIST` does not run LIST.
 - Scripture empty ref / bad domain / subject-only: no publish, return
   `(None, None, None)`.
@@ -194,12 +195,15 @@ Do not hit Proton, Redis on the network, or display.
 
 ## 10. Docs in this repo
 
-- `service/imap_commands/README.md`: domain env is real; `APPROVAL_ALLOWED_DOMAINS`;
-  `Scripture:` command; no reply; sieve.
+- `service/imap_commands/README.md`: domain env is real; `Scripture:` command;
+  no reply; sieve.
 - `CLAUDE.md` Command-folder bullet: approvals are domain-gated, not
   `approval_allowlist`.
-- `.env.example`: add `APPROVAL_ALLOWED_DOMAINS=pricefam.email`.
+- `.env.example`: `COMMAND_ALLOWED_DOMAINS` example stays generic (no work
+  domain). Do not add a second allowlist env.
 - `local/config.json`: delete `approval_allowlist`.
+- Live `.env`: `COMMAND_ALLOWED_DOMAINS=pricefam.email` only (never commit
+  `.env`).
 
 ## 11. Out of scope here
 

@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Gate every IMAP command on `COMMAND_ALLOWED_DOMAINS`, restrict `APPROVE`/`DENY` to `APPROVAL_ALLOWED_DOMAINS`, and publish a silent `Scripture: <ref>` command onto `events:display`.
+**Goal:** Gate every IMAP command on `COMMAND_ALLOWED_DOMAINS` (`pricefam.email` only) and publish a silent `Scripture: <ref>` command onto `events:display`.
 
-**Architecture:** The unused env var becomes the real sender gate. A second env var keeps hs/pbd approvals off the work domain. Verse mail is identified only by the first body line; cortex publishes the raw remainder and never replies. Display (other repo) looks the verse up.
+**Architecture:** The unused env var becomes the real sender gate for `LIST`/`RUN`/`APPROVE`/`DENY`/`SCRIPTURE` alike. There is no second allowlist. Verse mail is identified only by the first body line; cortex publishes the raw remainder and never replies. Display (other repo) looks the verse up.
 
 **Tech Stack:** Python 3.12, IMAP command handlers, eventbus-kit, fakeredis, pytest via `./scripts/pytest.sh`.
 
@@ -30,12 +30,12 @@
 | `service/imap_commands/handlers.py` | domain gate; first-line `Scripture:`; silent return |
 | `service/site_events.py` | `DISPLAY_VERSE`, `publish_verse(ref)` |
 | `tests/test_imap_auth.py` | **new** — domain lists and allow helper |
-| `tests/test_imap_approval.py` | env domains instead of `approval_allowlist`; l3harris reject |
+| `tests/test_imap_approval.py` | env domains instead of `approval_allowlist` |
 | `tests/test_imap_scripture.py` | **new** — verse command |
 | `service/imap_commands/README.md` | document env + Scripture + sieve |
 | `CLAUDE.md` | drop `approval_allowlist` wording |
-| `.env.example` | `APPROVAL_ALLOWED_DOMAINS` |
 | `local/config.json` | remove `approval_allowlist` |
+| `.env` (not committed) | `COMMAND_ALLOWED_DOMAINS=pricefam.email` only |
 
 ---
 
@@ -48,8 +48,8 @@
 - Modify: `tests/test_imap_approval.py`
 
 **Interfaces:**
-- Consumes: `os.environ["COMMAND_ALLOWED_DOMAINS"]`, `os.environ["APPROVAL_ALLOWED_DOMAINS"]`, `from_addr`
-- Produces: `parse_domains(raw: str | None) -> set[str]`, `sender_domain(from_addr: str | None) -> str | None`, `domain_allowed(from_addr: str | None, domains: set[str]) -> bool`, `command_domains() -> set[str]`, `approval_domains() -> set[str]`. `handle_command` rejects senders outside `command_domains()` before running `LIST`/`RUN`/`CAREER REPORT`/`APPROVE`/`DENY`. `APPROVE`/`DENY` also require `approval_domains()`.
+- Consumes: `os.environ["COMMAND_ALLOWED_DOMAINS"]`, `from_addr`
+- Produces: `parse_domains(raw: str | None) -> set[str]`, `sender_domain(from_addr: str | None) -> str | None`, `domain_allowed(from_addr: str | None, domains: set[str]) -> bool`, `command_domains() -> set[str]`. `handle_command` rejects senders outside `command_domains()` before running `LIST`/`RUN`/`CAREER REPORT`/`APPROVE`/`DENY`. There is no `approval_domains()`.
 
 - [ ] **Step 1: Write the failing helper tests**
 
@@ -57,7 +57,6 @@ Create `tests/test_imap_auth.py`:
 
 ```python
 from service.imap_commands.auth import (
-    approval_domains,
     command_domains,
     domain_allowed,
     parse_domains,
@@ -66,8 +65,8 @@ from service.imap_commands.auth import (
 
 
 def test_parse_domains_splits_strips_lowercases():
-    assert parse_domains("pricefam.email, L3Harris.com ,") == {
-        "pricefam.email", "l3harris.com",
+    assert parse_domains("pricefam.email, Example.COM ,") == {
+        "pricefam.email", "example.com",
     }
 
 
@@ -89,17 +88,12 @@ def test_sender_domain_missing_is_none():
 def test_domain_allowed_fail_closed():
     assert domain_allowed("a@pricefam.email", set()) is False
     assert domain_allowed("a@pricefam.email", {"pricefam.email"}) is True
-    assert domain_allowed("a@l3harris.com", {"pricefam.email"}) is False
+    assert domain_allowed("a@evil.com", {"pricefam.email"}) is False
 
 
 def test_command_domains_reads_env(monkeypatch):
-    monkeypatch.setenv("COMMAND_ALLOWED_DOMAINS", "pricefam.email,l3harris.com")
-    assert command_domains() == {"pricefam.email", "l3harris.com"}
-
-
-def test_approval_domains_reads_env(monkeypatch):
-    monkeypatch.setenv("APPROVAL_ALLOWED_DOMAINS", "pricefam.email")
-    assert approval_domains() == {"pricefam.email"}
+    monkeypatch.setenv("COMMAND_ALLOWED_DOMAINS", "pricefam.email, Example.COM")
+    assert command_domains() == {"pricefam.email", "example.com"}
 ```
 
 - [ ] **Step 2: Run tests to verify they fail**
@@ -131,10 +125,6 @@ def command_domains() -> set[str]:
     return parse_domains(os.getenv("COMMAND_ALLOWED_DOMAINS"))
 
 
-def approval_domains() -> set[str]:
-    return parse_domains(os.getenv("APPROVAL_ALLOWED_DOMAINS"))
-
-
 def sender_domain(from_addr: str | None) -> str | None:
     if not from_addr:
         return None
@@ -160,7 +150,7 @@ Expected: PASS
 
 - [ ] **Step 5: Update existing approval tests to the domain gate**
 
-In `tests/test_imap_approval.py`, add an autouse fixture and stop passing `approval_allowlist` as the thing that grants access. Keep `cfg` as `{}` (or any dict). Change the stranger test to a **wrong domain**. Add a work-domain reject and a family-domain allow that is not webmaster.
+In `tests/test_imap_approval.py`, add an autouse fixture and stop passing `approval_allowlist` as the thing that grants access. Keep `cfg` as `{}` (or any dict). Change the stranger test to a **wrong domain**. Add a family-domain allow that is not webmaster.
 
 Replace the file’s fixture area and the three tests that talk about allowlists. Keep the glued-Proton and body-overrides tests; they only need the env fixture and `cfg = {}`.
 
@@ -169,8 +159,7 @@ Add at the top of the file (after imports):
 ```python
 @pytest.fixture(autouse=True)
 def _domains(monkeypatch):
-    monkeypatch.setenv("COMMAND_ALLOWED_DOMAINS", "example.com,l3harris.com")
-    monkeypatch.setenv("APPROVAL_ALLOWED_DOMAINS", "example.com")
+    monkeypatch.setenv("COMMAND_ALLOWED_DOMAINS", "example.com")
 ```
 
 Change every `cfg = {"approval_allowlist": ["admin@example.com"]}` to `cfg = {}`.
@@ -189,18 +178,7 @@ def test_decision_from_other_domain_is_rejected(bus, monkeypatch):
     assert "not authorized" in (html or "").lower()
 
 
-def test_approve_from_l3harris_is_rejected_even_when_command_domain_allows(bus, monkeypatch):
-    monkeypatch.setattr("service.site_events.get_bus", lambda: bus)
-    bus.ensure_group(events_stream("hs"), "hs")
-
-    to, subj, html = handlers.handle_command(
-        _email("APPROVE hs-abc123"), {}, None, from_addr="ben@l3harris.com")
-
-    assert bus.read(events_stream("hs"), "hs", "c1", block_ms=10) == []
-    assert "not authorized" in (html or "").lower()
-
-
-def test_approve_from_any_address_at_approval_domain_publishes(bus, monkeypatch):
+def test_approve_from_any_address_at_command_domain_publishes(bus, monkeypatch):
     monkeypatch.setattr("service.site_events.get_bus", lambda: bus)
     bus.ensure_group(events_stream("hs"), "hs")
 
@@ -223,14 +201,14 @@ def test_list_from_wrong_domain_is_not_authorized():
 
 Run: `./scripts/pytest.sh tests/test_imap_approval.py -q`
 
-Expected: FAIL on the l3harris / any-address tests (handler still uses `approval_allowlist`).
+Expected: FAIL on the any-address / wrong-domain tests (handler still uses `approval_allowlist`).
 
 - [ ] **Step 7: Wire the gate in `handle_command`**
 
 At the top of `service/imap_commands/handlers.py` add:
 
 ```python
-from service.imap_commands.auth import approval_domains, command_domains, domain_allowed
+from service.imap_commands.auth import command_domains, domain_allowed
 ```
 
 Immediately **after** `cmd = parse_command_line(command_line)` and **before** the LIST branch, insert:
@@ -250,24 +228,17 @@ Replace the APPROVE/DENY allowlist block with:
 ```python
     elif cmd["command"] in ("APPROVE", "DENY"):
         token = cmd["token"]
-        if not domain_allowed(sender, approval_domains()):
-            logger.warning("Rejected %s for %s from non-approval-domain %s",
-                           cmd["command"], token, sender)
-            subj = "Not authorized"
-            html = ("<p>Your address is not authorized to approve registrations. "
-                    "No action taken.</p>")
-        else:
-            decision = "approve" if cmd["command"] == "APPROVE" else "deny"
-            sender_lc = (sender or "").strip().lower()
-            try:
-                site_events.publish_decision(token, decision, sender_lc)
-                subj = f"Recorded: {decision} {token}"
-                html = f"<p>Decision <b>{decision}</b> recorded for <code>{token}</code>.</p>"
-            except Exception as exc:
-                logger.exception("Failed to publish decision for %s", token)
-                subj = "Decision failed"
-                detail = html_escape(str(exc))
-                html = f"<p>Could not record decision for <code>{token}</code>:</p><pre>{detail}</pre>"
+        decision = "approve" if cmd["command"] == "APPROVE" else "deny"
+        sender_lc = (sender or "").strip().lower()
+        try:
+            site_events.publish_decision(token, decision, sender_lc)
+            subj = f"Recorded: {decision} {token}"
+            html = f"<p>Decision <b>{decision}</b> recorded for <code>{token}</code>.</p>"
+        except Exception as exc:
+            logger.exception("Failed to publish decision for %s", token)
+            subj = "Decision failed"
+            detail = html_escape(str(exc))
+            html = f"<p>Could not record decision for <code>{token}</code>:</p><pre>{detail}</pre>"
 ```
 
 Delete any remaining `cfg.get("approval_allowlist"` use.
@@ -318,8 +289,7 @@ def bus():
 
 @pytest.fixture(autouse=True)
 def _domains(monkeypatch):
-    monkeypatch.setenv("COMMAND_ALLOWED_DOMAINS", "example.com,l3harris.com")
-    monkeypatch.setenv("APPROVAL_ALLOWED_DOMAINS", "example.com")
+    monkeypatch.setenv("COMMAND_ALLOWED_DOMAINS", "example.com")
 
 
 def _mail(body: str, subject: str = "hello", from_addr: str = "ben@example.com") -> bytes:
@@ -374,18 +344,6 @@ def test_scripture_wrong_domain_is_silent(bus, monkeypatch):
 
     assert (to, subj, html) == (None, None, None)
     assert bus.read(events_stream("display"), "display", "c1", block_ms=10) == []
-
-
-def test_scripture_allows_l3harris_command_domain(bus, monkeypatch):
-    monkeypatch.setattr("service.site_events.get_bus", lambda: bus)
-    bus.ensure_group(events_stream("display"), "display")
-
-    to, subj, html = handlers.handle_command(
-        _mail("scripture: Ps 23:1"), {}, None, from_addr="ben@l3harris.com")
-
-    assert (to, subj, html) == (None, None, None)
-    msgs = bus.read(events_stream("display"), "display", "c1", block_ms=10)
-    assert msgs[0].payload == {"ref": "Ps 23:1"}
 
 
 def test_quoted_scripture_below_first_line_does_not_win(bus, monkeypatch):
@@ -487,30 +445,25 @@ git commit -m "feat: publish Scripture: IMAP command to events:display"
 
 Replace the “Sending a command” paragraph that mentions `COMMAND_ALLOWED_DOMAINS` as if it were already enforced, and add a Scripture section. The sending section must say:
 
-- Sender domain must be in `COMMAND_ALLOWED_DOMAINS`.
-- `APPROVE`/`DENY` also need `APPROVAL_ALLOWED_DOMAINS` (do not put `l3harris.com` there).
+- Sender domain must be in `COMMAND_ALLOWED_DOMAINS` (live: `pricefam.email` only).
 - Commands still have to land in `Labels/Command`.
 - Verse: first body line `Scripture: <ref>`, subject ignored, **no reply**. Proton sieve: body starts with `Scripture:` → Command.
 
 - [ ] **Step 2: CLAUDE.md**
 
-In the “Registration approval replies must reach the Command folder” bullet, replace `approval_allowlist` with `APPROVAL_ALLOWED_DOMAINS` / `COMMAND_ALLOWED_DOMAINS`. Add one sentence that `Scripture:` is a silent Command-folder command.
+In the “Registration approval replies must reach the Command folder” bullet, replace `approval_allowlist` with `COMMAND_ALLOWED_DOMAINS`. Add one sentence that `Scripture:` is a silent Command-folder command.
 
 - [ ] **Step 3: `.env.example`**
 
-Under the IMAP listener block, keep `COMMAND_ALLOWED_DOMAINS` and add:
-
-```
-APPROVAL_ALLOWED_DOMAINS=pricefam.email
-```
+Leave `COMMAND_ALLOWED_DOMAINS` as a generic example. Do not add `APPROVAL_ALLOWED_DOMAINS`. Do not put a work-mail domain in the example.
 
 - [ ] **Step 4: `local/config.json`**
 
 Delete the top-level `"approval_allowlist": [ "webmaster@pricefam.email" ]` key (and its comma so the JSON stays valid). Do not add a replacement key.
 
-- [ ] **Step 5: Set live `.env`**
+- [ ] **Step 5: Live `.env`**
 
-If `APPROVAL_ALLOWED_DOMAINS` is missing from `/srv/docker/cortex/.env`, append `APPROVAL_ALLOWED_DOMAINS=pricefam.email`. Do not print or commit `.env`. `COMMAND_ALLOWED_DOMAINS` is already set.
+Set `COMMAND_ALLOWED_DOMAINS=pricefam.email` (remove any other domains). Do not print or commit `.env`. Do not add `APPROVAL_ALLOWED_DOMAINS`.
 
 - [ ] **Step 6: Run the IMAP tests once more**
 
@@ -534,4 +487,4 @@ Do not `git add .env`.
 - [ ] `./scripts/pytest.sh tests/test_imap_auth.py tests/test_imap_approval.py tests/test_imap_scripture.py -q` passes
 - [ ] `approval_allowlist` is gone from `local/config.json` and from Python
 - [ ] `SCRIPTURE` publishes `display.verse` `{ref}` and returns silence
-- [ ] `@l3harris.com` can set a verse (once display ships) but cannot `APPROVE`
+- [ ] Live `.env` `COMMAND_ALLOWED_DOMAINS` is `pricefam.email` only (not committed)
