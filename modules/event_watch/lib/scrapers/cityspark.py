@@ -161,11 +161,23 @@ class CitySparkScraper(BaseEventScraper):
 
 
 def to_raw(record: dict) -> RawEvent:
-    return RawEvent(
-        series_uid=str(record.get("PId") or ""),
-        occurrence_tid=str(record.get("Id") or ""),
-        record=record,
-    )
+    """Stable occurrence key: series ``PId`` + wall-clock start.
+
+    The widget's ``Id`` is a scrape-batch token, not an instance id — one
+    happening arrives with a fresh ``Id`` on every run, which minted a new
+    occurrence each scrape and left the old row (a non-numeric tid is never
+    eligible for window cancellation) standing beside it. ``PId`` plus the
+    start is stable across runs, so the site upserts the same row in place.
+    Fall back to ``Id`` only when PId or the start is missing, so a malformed
+    record still carries some tid rather than ``":"``.
+    """
+    pid = str(record.get("PId") or "")
+    start = wall_clock_local(record.get("DateStart")) or ""
+    if pid and start:
+        tid = f"{pid}:{start}"
+    else:
+        tid = str(record.get("Id") or "")
+    return RawEvent(series_uid=pid, occurrence_tid=tid, record=record)
 
 
 def topics_from_tag_ids(tag_ids: list[int]) -> list[str]:

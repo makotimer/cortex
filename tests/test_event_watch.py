@@ -1205,6 +1205,37 @@ def test_cityspark_fixture_shape(cityspark_raw):
     assert all(r.series_uid and r.occurrence_tid for r in cityspark_raw)
 
 
+def test_cityspark_occurrence_tid_is_stable_when_widget_id_rotates():
+    """The widget's ``Id`` is a scrape-batch token: one night of Tyler
+    Halverson arrives with a fresh ``Id`` every run and used to mint a new
+    occurrence each time. The tid must be series id + start, so the stable
+    key upserts the same row in place."""
+    base = {
+        "PId": 19499473,
+        "Id": "260729ihPn2Ebfc0KhjjZhv-OtzQ",
+        "Name": "Tyler Halverson",
+        "DateStart": "2026-09-04T20:00:00Z",
+        "CityState": "College Station, TX",
+        "Venue": "The Tap",
+        "Address": "815 Harvey Road",
+        "AllDay": False,
+        "Tags": [],
+    }
+    a = cityspark.to_raw(base)
+    b = cityspark.to_raw({**base, "Id": "260830oaM0hRHGJU2AzyWRoAx3og"})
+    assert a.series_uid == "19499473"
+    assert a.occurrence_tid == b.occurrence_tid
+    assert a.occurrence_tid == "19499473:2026-09-04T20:00:00"
+    assert "260729" not in a.occurrence_tid
+    assert "260830" not in b.occurrence_tid
+
+
+def test_cityspark_occurrence_tid_falls_back_to_id_when_series_or_start_missing():
+    assert cityspark.to_raw({"PId": 0, "Id": "tok1", "DateStart": "2026-09-04T20:00:00Z"}).occurrence_tid == "tok1"
+    assert cityspark.to_raw({"PId": 5, "Id": "tok2", "DateStart": ""}).occurrence_tid == "tok2"
+    assert cityspark.to_raw({"PId": 5, "Id": "tok3", "DateStart": "2026-09-04T20:00:00Z"}).occurrence_tid == "5:2026-09-04T20:00:00"
+
+
 def test_cityspark_source_identity(cityspark_normalized):
     payloads, _ = cityspark_normalized
     assert payloads
