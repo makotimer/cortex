@@ -325,8 +325,8 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.sewmuchclass import SewMuchClassScraper
     from .scrapers.stage12 import Stage12Scraper
     from .scrapers.tamu import TamuScraper
-    from .scrapers.thepalace import ThePalaceScraper
     from .scrapers.tamumusic import TamuMusicScraper
+    from .scrapers.thepalace import ThePalaceScraper
     from .scrapers.tockify import TockifyScraper
     from .scrapers.ttc import TtcScraper
     from .scrapers.visitcstx import VisitCstxScraper

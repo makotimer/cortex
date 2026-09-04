@@ -27,7 +27,13 @@ import pytest
 from modules.event_watch.lib import classify, engine, normalize, publish, state
 from modules.event_watch.lib.config import Settings
 from modules.event_watch.lib.scrapers import (
-    bryantx, challenge, cityspark, kbtx, lakewalk, tamu, tockify,
+    bryantx,
+    challenge,
+    cityspark,
+    kbtx,
+    lakewalk,
+    tamu,
+    tockify,
 )
 from modules.event_watch.lib.scrapers.base import RawEvent
 
