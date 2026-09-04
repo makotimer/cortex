@@ -91,6 +91,7 @@ services:
     mem_limit: 512m
     volumes:
       - cortex_bridge-data:/root   # persists the Bridge account/tokens
+      - ./scripts/bridge-healthcheck.sh:/usr/local/bin/bridge-healthcheck.sh:ro
     expose:
       - "25"                # SMTP (internal)
       - "143"               # IMAP (internal)
@@ -99,12 +100,20 @@ services:
     logging: *default-logging
     networks:
       - mailnet
+    environment:
+      # The Bridge-local IMAP pair cortex already authenticates with, so the
+      # healthcheck can attempt a real LOGIN. Interpolated from ./.env.
+      - HEALTH_IMAP_USER=${BRIDGE_USERNAME:?set BRIDGE_USERNAME in cortex/.env}
+      - HEALTH_IMAP_PASS=${BRIDGE_PASSWORD:?set BRIDGE_PASSWORD in cortex/.env}
     healthcheck:
-      test: ["CMD-SHELL", "socat - TCP:127.0.0.1:1143,connect-timeout=2 </dev/null >/dev/null 2>&1"]
-      interval: 4s
-      timeout: 3s
-      retries: 5
-      start_period: 5s
+      # A real IMAP LOGIN, not a bare TCP connect: Bridge keeps 1143 listening
+      # even with zero users loaded, which is how the 2026-08-26 outage stayed
+      # green for 42 hours. See scripts/bridge-healthcheck.sh.
+      test: ["CMD", "/usr/local/bin/bridge-healthcheck.sh"]
+      interval: 15s
+      timeout: 10s
+      retries: 4            # ~60s of sustained failure before autoheal restarts
+      start_period: 90s     # Bridge loads the user and syncs before it can serve
 
 networks:
   mailnet:
