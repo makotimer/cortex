@@ -23,7 +23,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `bcschamber` | BCS Chamber of Commerce (GrowthZone) | run default (270d) | `/api/events` XML; LocationDesc over Map*; direct |
 | `ttc` | The Theater Company of Bryan / College Station | run default (270d) | Squarespace `/calendar?format=json`; one night per occurrence |
 | `stage12` | Stage 12 (Brookshire Brothers, College Station) | run default (270d) | Drupal month calendar + node details; direct |
-| `rei` | REI Co-op College Station | run default (270d) | `#modelData` JSON; store 214 only; try direct |
+| `rei` | REI Co-op College Station | run default (270d) | `#modelData` JSON; store 214 only; **RETIRED 2026-09-04 — Akamai** |
 | `wonderfulwords` | Wonderful Words Bookshoppe (Wix Events) | run default (270d) | `_api/wix-events-web`; instance from dynamicmodel |
 | `pwat` | Painting with a Twist College Station | run default (270d) | SSR calendar HTML; 12-hour `datetime` trap |
 | `sewmuchclass` | Sew Much Class | run default (270d) | Rain POS month grid; drop PHD / closed / training |
@@ -64,7 +64,7 @@ entries below are the record of what is there). `vpn-cycle-events` fires at
 | `event-watch-bcschamber` | `bcschamber` | Tue/Fri 08:05 | `proxy_url: ""` |
 | `event-watch-ttc` | `ttc` | Tue/Fri 08:20 | `proxy_url: ""` |
 | `event-watch-stage12` | `stage12` | Tue/Fri 08:35 | `proxy_url: ""` |
-| `event-watch-rei` | `rei` | Tue/Fri 08:50 | `proxy_url: ""` |
+| ~~`event-watch-rei`~~ | `rei` | ~~Tue/Fri 08:50~~ | `enabled: false` since 2026-09-04 |
 | `event-watch-wonderfulwords` | `wonderfulwords` | Tue/Fri 09:05 | `rotate_vpn_per_run: false` |
 | `event-watch-pwat` | `pwat` | Tue/Fri 09:20 | `rotate_vpn_per_run: false` |
 | `event-watch-sewmuchclass` | `sewmuchclass` | Tue/Fri 09:35 | `proxy_url: ""` |
@@ -107,8 +107,9 @@ outage. Unplaceable locations are now `drop_geo`. `Peru` had been matching
 Fusion Peru. Rejected records log title + location.
 
 First inject of the 14 newly scheduled kinds (same day): most upserted or were
-already current. **REI failed** (direct read-timeout; VPN verify 403). Six older
-REI occurrences remain in state. BCS Chamber emailed six `missing city`.
+already current. **REI failed** (direct read-timeout; VPN verify 403) and kept
+failing every run until it was retired on 2026-09-04. Six older REI occurrences
+remain in state. BCS Chamber emailed six `missing city`.
 
 ## A source may see less far ahead than the run asks for
 
@@ -351,10 +352,29 @@ row. Times are the UTC start/end converted with `location.timezone`
 (`America/Chicago`). Occurrence tid is start-time millis so
 disappearance reconciliation still works.
 
-`www.rei.com` tarpits Python `requests` through gluetun *and* the
-container's own address (`event_probe` read-timeouts). The kind is
-opt-in; do not schedule it until a fetch path that returns
-`#modelData` exists. `rei` is not in `DEFAULT_KINDS`. Pin it.
+**Retired 2026-09-04. The job is `enabled: false`; do not re-enable it
+without a fetch path that actually returns `#modelData`.**
+
+`www.rei.com` is behind Akamai bot management, and it blocks by client
+fingerprint, not by IP — so rotating exits does nothing. Measured
+2026-09-04 from this host:
+
+| Client | Result |
+|---|---|
+| curl, default UA | 403 in 85 ms; body is Akamai `errors.edgesuite.net` |
+| curl, Chrome UA, HTTP/2 | stream reset `INTERNAL_ERROR`, 69 ms |
+| `requests` + `BROWSER_UA` | accepted, never answered, `ReadTimeout` at 30 s |
+
+The last row is what the scraper does, which is why the failure arrives as
+a timeout rather than a 403 — and why each dead run burned ~123 s in
+retries and emailed. Direct and gluetun (`vpn:8888`, Swiss exit) behave
+identically; `https://www.rei.com/robots.txt` is blocked too, so the
+crawl policy cannot even be read. Every scheduled run failed after the
+last success on 2026-08-16: 08-30, 09-01, 09-04.
+
+Defeating this needs a TLS-impersonating client (`curl_cffi` and the
+like). That was declined — an arms race for six events a season against
+a site that blocks `robots.txt`. `rei` is not in `DEFAULT_KINDS`.
 
 ## Wonderful Words Bookshoppe
 
@@ -539,7 +559,7 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=stage12 proxy_url= --no-email
 
-# REI College Station (direct; gluetun and the container IP both timeout today)
+# REI College Station (RETIRED 2026-09-04 — Akamai tarpits every client; expect a timeout)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=rei proxy_url= --no-email
 
