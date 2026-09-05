@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import html
 import re
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from difflib import SequenceMatcher
 from typing import Any
 
@@ -561,11 +561,15 @@ def _normalized_title(title: str) -> str:
 
 
 def _titles_match(a: str, b: str) -> bool:
-    """The site's title rule, cheaply: containment with a real prefix, or a
-    high sequence ratio. Two genuinely different shows at one slot must not
-    be collapsed, so a one-token overlap is never enough."""
+    """The site's title rule, cheaply: equal once normalized, containment with
+    a real prefix, or a high sequence ratio. Two genuinely different shows at
+    one slot must not be collapsed, so a one-token overlap is never enough."""
     short = _normalized_title(a)
     long = _normalized_title(b)
+    if short and long and short == long:
+        # A trailing ``at <venue>`` clause is the only difference — the raw
+        # ratio would reject a short title carrying a long venue name.
+        return True
     if short and long and short != long:
         if len(short) < len(long):
             shorter, longer = short, long
@@ -579,20 +583,145 @@ def _titles_match(a: str, b: str) -> bool:
 def _collapse_winner(group: list[dict]) -> dict:
     """calendar.tamu.edu over agriliferegister, then the longer description,
     then the lexicographically smaller series uid."""
+    return min(group, key=_collapse_winner_rank)
+
+
+def _parse_local(value: str | None) -> datetime | None:
+    if not value:
+        return None
+    try:
+        return datetime.fromisoformat(value)
+    except ValueError:
+        return None
+
+
+def _interval(payload: dict) -> tuple[datetime, datetime] | None:
+    """Half-open [start, end). All-day with no end covers that calendar day.
+    A timed row with no end is a point and only overlaps an identical start.
+    """
+    occ = payload.get("occurrence") or {}
+    start = _parse_local(occ.get("start_local"))
+    if start is None:
+        return None
+    end = _parse_local(occ.get("end_local"))
+    if end is None:
+        if occ.get("all_day"):
+            end = start + timedelta(days=1)
+        else:
+            return start, start
+    if end <= start:
+        end = start + timedelta(seconds=1)
+    return start, end
+
+
+def _program_key(payload: dict) -> tuple[str, str, str] | None:
+    place_slug = (payload.get("series", {}).get("place") or {}).get("slug") or ""
+    if not place_slug:
+        return None
+    occ = payload.get("occurrence") or {}
+    title = _normalized_title((payload.get("series") or {}).get("title") or "")
+    return (title, place_slug, occ.get("status") or "")
+
+
+def _intervals_overlap(a: tuple[datetime, datetime],
+                       b: tuple[datetime, datetime]) -> bool:
+    return a[0] < b[1] and b[0] < a[1]
+
+
+def _range_winner(group: list[dict]) -> dict:
+    """Prefer a timed span over an all-day blob, then the earliest start,
+    then the same ranking as a same-slot collapse."""
     def rank(payload: dict) -> tuple:
-        url = payload["series"].get("source_url") or ""
-        is_calendar = "calendar.tamu.edu" in url
-        description = payload["series"].get("description") or ""
-        return (not is_calendar, -len(description), payload["series"]["source_series_uid"])
+        occ = payload.get("occurrence") or {}
+        start = occ.get("start_local") or ""
+        return (bool(occ.get("all_day")), start, *_collapse_winner_rank(payload))
     return min(group, key=rank)
 
 
+def _collapse_winner_rank(payload: dict) -> tuple:
+    url = payload["series"].get("source_url") or ""
+    description = payload["series"].get("description") or ""
+    return ("calendar.tamu.edu" not in url, -len(description),
+            payload["series"]["source_series_uid"])
+
+
+def _drop_all_day_inside_timed_spans(payloads: list[dict]) -> list[dict]:
+    """LiveWhale repeats a multi-day listing as one timed span plus an
+    all-day row for every calendar day in the window. Keep the span."""
+    timed_by_program: dict[tuple, list[tuple[datetime, datetime]]] = {}
+    for payload in payloads:
+        key = _program_key(payload)
+        occ = payload.get("occurrence") or {}
+        if not key or occ.get("all_day"):
+            continue
+        interval = _interval(payload)
+        if interval and interval[0] < interval[1]:
+            timed_by_program.setdefault(key, []).append(interval)
+
+    kept: list[dict] = []
+    for payload in payloads:
+        occ = payload.get("occurrence") or {}
+        if not occ.get("all_day"):
+            kept.append(payload)
+            continue
+        key = _program_key(payload)
+        interval = _interval(payload)
+        if not key or interval is None:
+            kept.append(payload)
+            continue
+        if any(_intervals_overlap(interval, span)
+               for span in timed_by_program.get(key, ())):
+            continue
+        kept.append(payload)
+    return kept
+
+
+def _collapse_overlapping_ranges(payloads: list[dict]) -> list[dict]:
+    """Several LiveWhale ids for one program, each a window shifted by a
+    day, are one happening. Weekly sessions on different days do not overlap
+    and survive.
+    """
+    groups: dict[tuple, list[dict]] = {}
+    leftover: list[dict] = []
+    for payload in payloads:
+        key = _program_key(payload)
+        if key is None or _interval(payload) is None:
+            leftover.append(payload)
+            continue
+        groups.setdefault(key, []).append(payload)
+
+    kept: list[dict] = list(leftover)
+    for group in groups.values():
+        remaining = list(group)
+        while remaining:
+            winner = _range_winner(remaining)
+            win_iv = _interval(winner)
+            kept.append(winner)
+            nxt = []
+            for payload in remaining:
+                if payload is winner:
+                    continue
+                other = _interval(payload)
+                if win_iv and other and _intervals_overlap(win_iv, other) \
+                        and _titles_match(
+                            winner["series"].get("title", ""),
+                            payload["series"].get("title", "")):
+                    continue
+                nxt.append(payload)
+            remaining = nxt
+    return kept
+
+
 def collapse_intra_source(payloads: list[dict]) -> list[dict]:
-    """Collapse same-run double listings: same start, status and place, with
-    titles that read as one program (Garden Club on the calendar *and* the
-    AgriLife register). Distinct starts, distinct places and disjoint titles
-    all survive. Payloads without a place slug never collapse against each
-    other.
+    """Collapse same-run double listings.
+
+    Same start, status and place with titles that read as one program
+    (Garden Club on the calendar *and* the AgriLife register) collapse
+    first. Then all-day continuation days inside a timed span of the same
+    program are dropped, then overlapping multi-day windows of the same
+    title and place collapse to one payload. Distinct starts, distinct
+    places and disjoint titles all survive. Payloads without a place slug
+    never collapse against each other.
     """
     groups: dict[tuple, list[dict]] = {}
     ungrouped: list[dict] = []
@@ -623,7 +752,7 @@ def collapse_intra_source(payloads: list[dict]) -> list[dict]:
                 winner["series"].get("title", ""), loser["series"].get("title", "")
             ):
                 kept.append(loser)
-    return kept
+    return _collapse_overlapping_ranges(_drop_all_day_inside_timed_spans(kept))
 
 
 def _occurrence(item: RawEvent) -> dict:

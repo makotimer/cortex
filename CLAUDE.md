@@ -23,21 +23,27 @@ tests/     — pytest unit + optional live tests
 local/     — bind-mounted at runtime: config.json, logs/, state/
 ```
 
-## Planned: event injectors for discoverbcs.org
+## Event injectors for discoverbcs.org
 
-Approved design, not started. A new module (`modules/event_watch/`) scrapes public
-event calendars and publishes them onto `events:discoverbcs`, where the site's worker
-validates and stores them. The receiving site is **finished and waiting** — it holds
-zero events until this exists.
+**Shipped.** `modules/event_watch/` scrapes public event calendars and publishes them
+onto `events:discoverbcs`, where the site's worker validates and stores them. It runs
+a scraper family keyed by `kind` (28 sources under `lib/scrapers/`) behind the gluetun
+proxy, fail-closed on VPN health, exactly as `career_watch` does. `vpn_client.py` now
+lives in `modules/_shared/` with both engines as consumers.
 
-**Read the design before starting:**
+Design and contract, still the reference for adding a source:
 `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
-and the contract it targets, `/srv/docker/websites/discoverbcs/docs/intake-contract.md`.
+and `/srv/docker/websites/discoverbcs/docs/intake-contract.md`.
 
-It follows `career_watch` deliberately: a scraper family keyed by `kind`, the gluetun
-proxy with per-run rotation, and fail-closed on VPN health. First source is the BCS
-library's Tockify feed. `vpn_client.py` should move from `career_watch/lib/` to
-`modules/_shared/` when this lands — it will have a second consumer.
+**A source may publish one happening many times, and de-duping is the scraper's job,
+not the display's.** TAMU is the worst case: LiveWhale emits a multi-day Rec Sports
+package as several series ids whose windows are shifted a day apart, *plus* an all-day
+row for every calendar day inside each window. `tamu.collapse_intra_source` folds all
+three shapes — same-slot doubles, all-day days inside a timed span, and overlapping
+multi-day windows. Note it groups on `_normalized_title`, which strips a trailing
+`at <venue>` clause, so two listings that differ only by that clause are one program;
+`_titles_match` short-circuits on equal normalized titles because the raw
+`SequenceMatcher` ratio otherwise rejects a short title carrying a long venue name.
 
 ## Entrypoint
 

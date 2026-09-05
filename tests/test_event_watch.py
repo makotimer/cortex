@@ -1567,6 +1567,88 @@ def test_tamu_collapse_keeps_different_starts_of_one_place():
     assert len(out) == 2
 
 
+def _tamu_payload(uid, title, start, *, end=None, all_day=False, place_slug="student-recreation-center"):
+    occ = {
+        "source_occurrence_tid": uid + start,
+        "start_local": start,
+        "timezone": "America/Chicago",
+        "all_day": all_day,
+        "status": "scheduled",
+    }
+    if end:
+        occ["end_local"] = end
+    return {
+        "schema_version": "1",
+        "source": {"slug": "tamu", "name": "Texas A&M University Events Calendar", "kind": "feed"},
+        "series": {
+            "source_series_uid": uid,
+            "title": title,
+            "source_url": f"https://calendar.tamu.edu/recsports/event/{uid}",
+            "description": "strength and balance",
+            "place": {"slug": place_slug, "name": "Student Recreation Center",
+                      "city": "College Station", "area": "college_station"},
+        },
+        "occurrence": occ,
+    }
+
+
+def test_tamu_drops_all_day_days_inside_a_timed_span():
+    """LiveWhale repeats a multi-day Rec Sports listing as a timed span plus
+    an all-day row for every calendar day in the window. Keep the span."""
+    title = "Fitness & Wellness: Package 1 Live September 8 - October 12"
+    timed = _tamu_payload("387712", title, "2026-09-01T10:00:00",
+                          end="2026-09-05T23:30:00")
+    exploded = _tamu_payload("387712", title, "2026-09-05T00:00:00", all_day=True)
+    outside = _tamu_payload("387712", title, "2026-09-10T00:00:00", all_day=True)
+    out = tamu.collapse_intra_source([timed, exploded, outside])
+    starts = sorted(p["occurrence"]["start_local"] for p in out)
+    assert starts == ["2026-09-01T10:00:00", "2026-09-10T00:00:00"]
+
+
+def test_tamu_collapses_overlapping_range_listings_of_one_program():
+    """The same Rec Sports package is published as several LiveWhale ids,
+    each a 4-5 day window shifted by one day. That is one happening."""
+    title = "Fitness & Wellness: Package 1 Live September 8 - October 12"
+    raw = [
+        _tamu_payload("387712", title, "2026-09-01T10:00:00",
+                      end="2026-09-05T23:30:00"),
+        _tamu_payload("387713", title, "2026-09-02T10:00:00",
+                      end="2026-09-06T23:30:00"),
+        _tamu_payload("387714", title, "2026-09-03T10:00:00",
+                      end="2026-09-07T23:30:00"),
+        _tamu_payload("387715", title, "2026-09-04T10:00:00",
+                      end="2026-09-08T23:30:00"),
+    ]
+    out = tamu.collapse_intra_source(raw)
+    assert len(out) == 1
+    assert out[0]["series"]["source_series_uid"] == "387712"
+
+
+def test_tamu_collapses_overlapping_ranges_when_only_the_venue_clause_differs():
+    """LiveWhale publishes the same short-titled program with and without a
+    trailing ``at <venue>`` clause. The clause is what _normalized_title
+    strips, so the raw sequence ratio must not get the last word."""
+    suffixed = _tamu_payload("387712", "Yoga Flow at Student Recreation Center",
+                             "2026-09-01T10:00:00", end="2026-09-05T23:30:00")
+    bare = _tamu_payload("387713", "Yoga Flow", "2026-09-02T10:00:00",
+                         end="2026-09-06T23:30:00")
+    out = tamu.collapse_intra_source([suffixed, bare])
+    assert len(out) == 1
+    assert out[0]["series"]["source_series_uid"] == "387712"
+
+
+def test_tamu_keeps_overlapping_ranges_at_two_venues():
+    title = "Fitness & Wellness: Package 1 Live September 8 - October 12"
+    rec = _tamu_payload("387712", title, "2026-09-01T10:00:00",
+                        end="2026-09-05T23:30:00")
+    other = _tamu_payload("387799", title, "2026-09-01T10:00:00",
+                         end="2026-09-05T23:30:00",
+                         place_slug="southside-rec")
+    out = tamu.collapse_intra_source([rec, other])
+    assert {p["series"]["place"]["slug"] for p in out} == {
+        "student-recreation-center", "southside-rec"}
+
+
 def test_tamu_collapse_keeps_disjoint_titles_at_the_same_slot():
     def payload(uid, title):
         return {
