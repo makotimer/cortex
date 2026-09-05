@@ -462,6 +462,92 @@ def test_bcschamber_normalizing_twice_is_byte_identical(chamber_raw):
     assert [state.payload_digest(p) for p in first] == [state.payload_digest(p) for p in second]
 
 
+#: Every payload the ladder accepted before the venue map / resolution steps
+#: ran, pinned to the exact ``series.place`` it produced. 3849 and 3862 were
+#: rejects then and are not pinned: they are new publishes, not regressions.
+#: The live-only 3896/3898 are absent from this fixture by design.
+#: Row = (event_id, slug, name, city, area, street, postcode); None = absent.
+_PRE_LADDER_ROWS: tuple[tuple[str, str, str, str, str, str | None, str | None], ...] = (
+    ("3745", "frost-bank-tower-point-branch-college-station", "Frost Bank Tower Point Branch",
+     "College Station", "college_station", "4425 Texas 6 Frontage Rd in College Station", None),
+    ("3747", "parc-at-traditions-bryan", "Parc at Traditions",
+     "Bryan", "bryan", "3095 Club Drive in Bryan", None),
+    ("3755", "the-kimbell-cultural-event-center-bryan", "The Kimbell Cultural Event Center",
+     "Bryan", "bryan", "607 N Main Street", "77803"),
+    ("3774", "1507-s-college-ave-bryan", "1507 S College Ave",
+     "Bryan", "bryan", "1507 S College Ave", "77801"),
+    ("3837", "12815-farm-to-market-rd-2154-college-station", "12815 Farm to Market Rd 2154",
+     "College Station", "college_station", "12815 Farm to Market Rd 2154", "77845"),
+    ("3839", "1718-briarcrest-drive-bryan", "1718 Briarcrest Drive",
+     "Bryan", "bryan", "1718 Briarcrest Drive", "77802"),
+    ("3840", "1461-greens-prairie-rd-college-station", "1461 Greens Prairie Rd",
+     "College Station", "college_station", "1461 Greens Prairie Rd", "77845"),
+    ("3854", "hilton-college-station-college-station", "Hilton College Station",
+     "College Station", "college_station", None, None),
+    ("3857", "7125-coyote-run-bryan", "7125 Coyote Run",
+     "Bryan", "bryan", "7125 Coyote Run", "77808"),
+    ("3864", "3037-east-29th-street-bryan", "3037 East 29th Street",
+     "Bryan", "bryan", "3037 East 29th Street", "77802"),
+    ("3870", "hudson-oaks-senior-community-bryan", "Hudson Oaks Senior Community",
+     "Bryan", "bryan", "3345 University Dr. E", "77802"),
+    ("3871", "1733-briarcrest-drive-bryan", "1733 Briarcrest Drive",
+     "Bryan", "bryan", "1733 Briarcrest Drive", "77802"),
+    ("3872", "1301-pavilion-avenue-college-station", "1301 Pavilion Avenue",
+     "College Station", "college_station", "1301 Pavilion Avenue", "77845"),
+    ("3873", "2405-texas-avenue-s-college-station", "2405 Texas Avenue S",
+     "College Station", "college_station", "2405 Texas Avenue S", "77840"),
+    ("3874", "505-university-drive-e-college-station", "505 University Drive E",
+     "College Station", "college_station", "505 University Drive E", "77840"),
+    ("3875", "lakeside-at-millican-reserve-college-station", "Lakeside at Millican Reserve",
+     "College Station", "college_station", "3900 Millican Creek Trail", "77845"),
+    ("3877", "1733-briarcrest-drive-bryan", "1733 Briarcrest Drive",
+     "Bryan", "bryan", "1733 Briarcrest Drive", "77802"),
+    ("3878", "307-s-main-st-bryan", "307 S. Main St",
+     "Bryan", "bryan", "307 S. Main St", "77803"),
+    ("3879", "1333-n-earl-rudder-freeway-bryan", "1333 N Earl Rudder Freeway",
+     "Bryan", "bryan", "1333 N Earl Rudder Freeway", "77803"),
+    ("3880", "first-financial-bank-college-station", "First Financial Bank",
+     "College Station", "college_station", "2445 Harvey Mitchell Parkway South", None),
+    ("3881", "hilton-garden-inn-college-station-bryan", "Hilton Garden Inn College Station",
+     "Bryan", "bryan", "3081 University Drive East | Bryan", "77802"),
+    ("3882", "brazos-center-bryan", "Brazos Center",
+     "Bryan", "bryan", "3232 Briarcrest Drive", "77802"),
+    ("3883", "3349-university-drive-e-bryan", "3349 University Drive E",
+     "Bryan", "bryan", "3349 University Drive E", "77802"),
+    ("3884", "2709-texas-avenue-south-college-station", "2709 Texas Avenue South",
+     "College Station", "college_station", "2709 Texas Avenue South", "77840"),
+    ("3885", "2425-earl-rudder-fwy-s-college-station", "2425 Earl Rudder Fwy S",
+     "College Station", "college_station", "2425 Earl Rudder Fwy S", "77845"),
+    ("3886", "2800-barron-road-college-station", "2800 Barron Road",
+     "College Station", "college_station", "2800 Barron Road", "77845"),
+    ("3887", "2701-s-texas-avenue-bryan", "2701 S Texas Avenue",
+     "Bryan", "bryan", "2701 S Texas Avenue", "77802"),
+    ("3888", "coopers-old-time-pit-bbq-college-station", "Coopers Old Time Pit BBQ",
+     "College Station", "college_station", "3055 Earl Rudder Freeway South", "77845"),
+)
+
+
+def _expected_place(row: tuple) -> dict:
+    _, slug, name, city, area, street, postcode = row
+    place: dict[str, str] = {
+        "slug": slug, "name": name, "city": city, "region": "TX", "area": area,
+    }
+    if street is not None:
+        place["street"] = street
+    if postcode is not None:
+        place["postcode"] = postcode
+    return place
+
+
+def test_bcschamber_pre_ladder_place_is_byte_identical(chamber_normalized):
+    """Every payload accepted before the ladder keeps its exact place dict."""
+    payloads, _ = chamber_normalized
+    for row in _PRE_LADDER_ROWS:
+        event_id = row[0]
+        place = _by_id(payloads, event_id)["series"]["place"]
+        assert place == _expected_place(row), f"{event_id} place changed"
+
+
 def test_conformance_bcschamber_payloads_pass_the_real_validator(chamber_normalized):
     validator = _load_site_validator()
     if validator is None:
