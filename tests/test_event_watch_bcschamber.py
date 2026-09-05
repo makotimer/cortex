@@ -339,6 +339,71 @@ class _StubClient:
         return self._xml
 
 
+def _street_record(event_id: str, location: str) -> dict:
+    return {
+        "event_id": event_id,
+        "title": f"Street No City {event_id}",
+        "start_local": "2026-10-01T12:00:00",
+        "end_local": "2026-10-01T13:00:00",
+        "location_html": location,
+        "description": "",
+        "slug": f"street-{event_id}",
+        "categories": [],
+        "admission": "",
+        "all_day": False,
+    }
+
+
+def test_bcschamber_resolved_street_publishes_with_resolver_city():
+    rec = _street_record("1", "Some New Hall<br />1234 Mapped Over Street")
+    raw = bcschamber.to_raw(rec)
+    raw.supplement["place_resolution"] = {
+        "status": "matched",
+        "city": "Bryan",
+        "zip_code": "77801",
+        "matched_address": "1234 Mapped Over Street, Bryan, TX 77801",
+    }
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize([raw])
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["city"] == "Bryan"
+    assert place["area"] == "bryan"
+    assert place["postcode"] == "77801"
+    assert "1234 Mapped Over Street" in (place.get("street") or "")
+
+
+def test_bcschamber_resolved_out_of_area_drops_silently():
+    rec = _street_record("2", "Some New Hall<br />1234 Mapped Over Street")
+    raw = bcschamber.to_raw(rec)
+    raw.supplement["place_resolution"] = {"status": "out_of_area"}
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize([raw])
+    assert payloads == []
+    assert rejected == []
+
+
+def test_bcschamber_resolved_unmatched_city_drops():
+    rec = _street_record("3", "Some New Hall<br />1234 Mapped Over Street")
+    raw = bcschamber.to_raw(rec)
+    raw.supplement["place_resolution"] = {
+        "status": "matched",
+        "city": "Hearne",
+        "zip_code": "77859",
+    }
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize([raw])
+    assert payloads == []
+    assert rejected == []
+
+
+def test_bcschamber_resolved_no_match_rejects():
+    rec = _street_record("4", "Some New Hall<br />1234 Mapped Over Street")
+    raw = bcschamber.to_raw(rec)
+    raw.supplement["place_resolution"] = {"status": "no_match"}
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize([raw])
+    assert payloads == []
+    assert [r["series_uid"] for r in rejected] == ["4"]
+    assert "no_match" in rejected[0]["reason"]
+
+
 def test_bcschamber_normalizing_twice_is_byte_identical(chamber_raw):
     first, _ = bcschamber.BcsChamberScraper().normalize(chamber_raw)
     second, _ = bcschamber.BcsChamberScraper().normalize(chamber_raw)

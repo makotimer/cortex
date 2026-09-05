@@ -191,7 +191,7 @@ class BcsChamberScraper(BaseEventScraper):
             "organization": dict(ORGANIZATION),
             "topics": topics_from_categories(rec.get("categories") or []),
             "audiences": [],
-            "place": parse_place(rec),
+            "place": parse_place(rec, item.supplement.get("place_resolution")),
         }
         if description:
             series["description"] = description
@@ -269,12 +269,14 @@ def strip_html(html: str) -> str | None:
     return normalize.clean_text(text)
 
 
-def parse_place(record: dict) -> dict:
+def parse_place(record: dict, resolution: dict | None = None) -> dict:
     location = strip_html(record.get("location_html") or "") or ""
     description = strip_html(record.get("description") or "") or ""
     parsed = _place_from_text(location, allow_bare_name=True) or _place_from_text(
         description, allow_bare_name=False
     ) or _place_from_venue_map(location) or _place_from_venue_map(description)
+    if parsed is None and resolution is not None:
+        parsed = _place_from_resolution(resolution, location)
     if parsed is None:
         raise ScraperError("missing city")
     city, area = parsed["city_area"]
@@ -293,6 +295,34 @@ def parse_place(record: dict) -> dict:
     if parsed.get("postcode"):
         place["postcode"] = parsed["postcode"]
     return place
+
+
+def _place_from_resolution(reso: dict, location: str) -> dict[str, Any] | None:
+    """Ladder step 4: a resolution stashed in fetch. ``out_of_area`` and a
+    resolved city outside Bryan / College Station drop silently — matching the
+    text paths — any other non-``matched`` status rejects.
+    """
+    status = reso.get("status")
+    if status == "out_of_area":
+        raise _Drop()
+    if status != "matched":
+        raise ScraperError(f"address could not be resolved ({status})")
+    mapped = CITY_AREA.get((reso.get("city") or "").strip().lower())
+    if not mapped:
+        raise _Drop()
+    city, area = mapped
+    street = reso.get("matched_address") or ""
+    if street:
+        street = street.split(",")[0].strip()
+    if not street:
+        street = _street_line(location)
+    name = (location or "").splitlines()[0].strip(" |") if location.strip() else city
+    return {
+        "city_area": (city, area),
+        "name": name,
+        "street": street,
+        "postcode": reso.get("zip_code"),
+    }
 
 
 def _street_line(location: str) -> str | None:
