@@ -19,6 +19,7 @@ from bs4 import BeautifulSoup
 from modules._shared.http import HttpClient
 
 from .. import normalize
+from . import kbtx
 from .base import BaseEventScraper, RawEvent, ScraperError
 
 EVENTS_URL = "https://business.bcschamber.org/api/events"
@@ -119,8 +120,15 @@ class BcsChamberScraper(BaseEventScraper):
     source_name = ORGANIZATION["name"]
     verify_url = EVENTS_URL
 
-    def __init__(self, proxy_url: str | None = None) -> None:
+    def __init__(
+        self,
+        proxy_url: str | None = None,
+        state_dir: str | None = None,
+        resolve: Any | None = None,
+    ) -> None:
         self._proxy_url = proxy_url
+        self._state_dir = state_dir
+        self._resolve = resolve
         self._client: HttpClient | None = None
 
     def fetch(self, window_start: date, window_end: date, *, skip_network: bool) -> list[RawEvent]:
@@ -134,7 +142,14 @@ class BcsChamberScraper(BaseEventScraper):
         self._client = client
         xml = client.get_text(EVENTS_URL)
         raw = [to_raw(rec) for rec in parse_events_xml(xml)]
-        return [item for item in raw if in_window(item, window_start, window_end)]
+        kept = [item for item in raw if in_window(item, window_start, window_end)]
+        if self._state_dir:
+            from .. import state
+
+            cache = state.load_addresses(self._state_dir, self.source_slug)
+            _enrich_resolutions(kept, resolve=self._resolve or kbtx.resolve_address, cache=cache)
+            state.save_addresses(self._state_dir, self.source_slug, cache)
+        return kept
 
     def normalize(self, raw: list[RawEvent]) -> tuple[list[dict], list[dict]]:
         payloads: list[dict] = []
@@ -278,6 +293,43 @@ def parse_place(record: dict) -> dict:
     if parsed.get("postcode"):
         place["postcode"] = parsed["postcode"]
     return place
+
+
+def _street_line(location: str) -> str | None:
+    """The street-ish line of a location that has no city of its own.
+
+    None when the location already resolves from text, is mapped, or has no
+    street at all — those must not spend an address API call.
+    """
+    if _place_from_text(location, allow_bare_name=True) is not None:
+        return None
+    if _place_from_venue_map(location) is not None:
+        return None
+    for line in (ln.strip(" |") for ln in (location or "").splitlines()):
+        if _STREETISH.match(line):
+            return line
+    return None
+
+
+def _enrich_resolutions(
+    raw: list[RawEvent],
+    *,
+    resolve: Any,
+    cache: dict[str, dict],
+) -> None:
+    """Stash ``place_resolution`` on records whose city is missing but a street
+    is present. Resolution is I/O, so it happens here in fetch, never in the
+    pure ``normalize``. The cache is keyed on the street text; the caller
+    persists it so the next run does not call the API again.
+    """
+    for item in raw:
+        street = _street_line(strip_html(item.record.get("location_html") or "") or "")
+        if not street:
+            continue
+        key = kbtx.venue_cache_key(None, street)
+        if key not in cache:
+            cache[key] = dict(resolve(street) or {"status": "no_match"})
+        item.supplement["place_resolution"] = cache[key]
 
 
 def _place_from_venue_map(text: str) -> dict[str, Any] | None:

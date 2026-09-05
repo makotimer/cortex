@@ -296,7 +296,47 @@ def test_bcschamber_is_registered_and_not_in_default_kinds():
 
 
 def test_bcschamber_skip_network_fetches_nothing():
-    assert bcschamber.BcsChamberScraper().fetch(WINDOW_START, WINDOW_END, skip_network=True) == []
+    calls = []
+    scraper = bcschamber.BcsChamberScraper(resolve=lambda q: calls.append(q) or {})
+    assert scraper.fetch(WINDOW_START, WINDOW_END, skip_network=True) == []
+    assert calls == []
+
+
+def test_bcschamber_fetch_resolves_street_without_city(tmp_path):
+    xml = (FIXTURES / "bcschamber_events.xml").read_text(encoding="utf-8")
+    # The BVCOG venue is mapped, so swap it for an unmapped venue that still
+    # carries a street line — that is the shape the resolver exists for
+    # (3898 "Phillips Event Center" pre-map, e.g.).
+    xml = xml.replace("Brazos Valley Council of Governments", "Some New Hall")
+    xml = xml.replace("3991 East 29th Street", "1234 Mapped Over Street")
+    scraper = bcschamber.BcsChamberScraper(state_dir=str(tmp_path))
+    queried: list[str] = []
+
+    def fake_resolve(query: str) -> dict:
+        queried.append(query)
+        return {"status": "matched", "city": "Bryan", "zip_code": "77801"}
+
+    scraper._resolve = fake_resolve
+    scraper._client = _StubClient(xml)
+    raw = scraper.fetch(WINDOW_START, WINDOW_END, skip_network=False)
+    assert raw, "fixture window should keep events"
+    target = [item for item in raw if item.series_uid == "3849"]
+    assert target, "3849 must be in the fixture window"
+    reso = target[0].supplement.get("place_resolution")
+    assert reso == {"status": "matched", "city": "Bryan", "zip_code": "77801"}
+    assert "1234 Mapped Over Street" in queried
+    # Ribbon cuttings already carry a City, TX line — never looked up.
+    assert not any("607 N Main Street" in q for q in queried)
+    # The result persists to the address cache for the next run.
+    assert state.load_addresses(str(tmp_path), "bcs-chamber")
+
+
+class _StubClient:
+    def __init__(self, xml: str) -> None:
+        self._xml = xml
+
+    def get_text(self, url: str) -> str:
+        return self._xml
 
 
 def test_bcschamber_normalizing_twice_is_byte_identical(chamber_raw):
