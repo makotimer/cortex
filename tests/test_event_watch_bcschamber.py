@@ -147,12 +147,64 @@ def test_bcschamber_hilton_college_station_name_supplies_city(chamber_normalized
 def test_bcschamber_rejects_events_with_no_city(chamber_normalized):
     payloads, rejected = chamber_normalized
     rejected_ids = {r["series_uid"] for r in rejected}
+    # No location at all — still a loud reject, on purpose.
     assert "3855" in rejected_ids  # Lobsterfest — empty location
     assert "3889" in rejected_ids  # St. Joseph — name only
-    assert "3862" in rejected_ids  # Brazos County Expo — no city
-    assert "3849" in rejected_ids  # BVCOG — street, no city
+    # Recoverable, so they publish now: the venue map supplies the city.
+    bvcog = _by_id(payloads, "3849")
+    assert bvcog["series"]["place"]["city"] == "Bryan"
+    expo = _by_id(payloads, "3862")
+    assert expo["series"]["place"]["city"] == "Bryan"
+    assert expo["series"]["place"]["area"] == "bryan"
     published = {p["series"]["source_series_uid"] for p in payloads}
     assert rejected_ids.isdisjoint(published)
+
+
+def test_bcschamber_live_only_streets_resolve_via_injected_resolver():
+    # 3898 and 3896 belong here, not in the fixture: 3898 is a street with no
+    # city (resolver path) and 3896 is the bare venue name (map path).
+    rec_3898 = {
+        "event_id": "3898",
+        "title": "Leadership Brazos ALL CLASS REUNION",
+        "start_local": "2026-10-09T18:00:00",
+        "end_local": "2026-10-09T21:00:00",
+        "location_html": (
+            "Phillips Event Center<br />1929 Country Club Drive"
+        ),
+        "description": "Sponsored by the City of Bryan",
+        "slug": "leadership-brazos-all-class-reunion",
+        "categories": [2],
+        "admission": "",
+        "all_day": False,
+    }
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize(
+        [bcschamber.to_raw(rec_3898)]
+    )
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["city"] == "Bryan"
+    assert place["street"] == "1929 Country Club Drive"
+
+    rec_3896 = {
+        "event_id": "3896",
+        "title": "Ag Breakfast 2026",
+        "start_local": "2026-11-24T07:30:00",
+        "end_local": "2026-11-24T09:30:00",
+        "location_html": "Brazos County Expo",
+        "description": "",
+        "slug": "ag-breakfast-2026",
+        "categories": [4],
+        "admission": "",
+        "all_day": False,
+    }
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize(
+        [bcschamber.to_raw(rec_3896)]
+    )
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["city"] == "Bryan"
+    assert place["area"] == "bryan"
+    assert place["name"] == "Brazos County Expo"
 
 
 def test_bcschamber_bare_venue_name_resolves_from_map():
