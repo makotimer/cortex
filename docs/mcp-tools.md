@@ -1,6 +1,6 @@
 # ProtonMail MCP tools
 
-`service/mcp_server.py` is a FastMCP server that exposes the ProtonMail Bridge IMAP account as Claude Code tools. It is started on-demand by the `.mcp.json` wiring:
+`service/mcp_server.py` is an MCPServer (mcp 2.x) that exposes the ProtonMail Bridge IMAP account as Claude Code / Grok tools. It is started on-demand by the MCP wiring:
 
 ```bash
 docker exec -i cortex-cortex-1 python -m service.mcp_server

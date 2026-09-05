@@ -11,11 +11,11 @@ from contextlib import contextmanager, suppress
 import mailparser
 from dotenv import load_dotenv
 from imapclient import IMAPClient
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
 load_dotenv()
 
-mcp = FastMCP("protonmail-bridge")
+mcp = MCPServer("protonmail-bridge")
 
 
 # ---------------------------------------------------------------------------
