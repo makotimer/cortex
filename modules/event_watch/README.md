@@ -109,7 +109,9 @@ Fusion Peru. Rejected records log title + location.
 First inject of the 14 newly scheduled kinds (same day): most upserted or were
 already current. **REI failed** (direct read-timeout; VPN verify 403) and kept
 failing every run until it was retired on 2026-09-04. Six older REI occurrences
-remain in state. BCS Chamber emailed six `missing city`.
+remain in state. BCS Chamber emailed six `missing city` — four of them now
+resolve (venue map + street resolution, see the BCS Chamber section), leaving
+two: Lobsterfest and a Business After Hours with no address at source.
 
 ## A source may see less far ahead than the run asks for
 
@@ -324,8 +326,14 @@ GrowthZone. The search HTML is a 10-card first paint; do not scroll it.
 `GET /api/events` is the upcoming catalog (date query params are ignored).
 `StartDate` / `EndDate` are wall-clock Central with no `Z`. `MapCity` is
 often a dummy pin at 2700 Earl Rudder Fwy — venue comes from
-`LocationDesc`, then the description. No city is a loud reject, not a
-guess. Lucky Goat “Hudson Oaks” is at 3349 University Dr E in Bryan.
+`LocationDesc`, then the description, then a pinned venue map
+(`CHAMBER_VENUES`: BVCOG, Phillips Event Center, Brazos County Expo, Brazos
+Center — all Bryan), then `kbtx.resolve_address` on a street line that has no
+city. The last two steps run only after the text paths fail, so every payload
+that resolved from text before them is byte-identical. A resolved city outside
+Bryan / College Station, or a no-match, is still a loud reject, not a guess —
+and an event with no location at all (Lobsterfest) stays a reject.
+Lucky Goat “Hudson Oaks” is at 3349 University Dr E in Bryan.
 
 Ribbon Cuttings / Business After Hours / Government map to `community`.
 `bcschamber` is not in `DEFAULT_KINDS`. Pin it and run direct.
