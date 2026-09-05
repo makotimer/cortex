@@ -60,12 +60,18 @@ cortex/
 │   ├── config.json
 │   ├── state/
 │   └── logs/
-├── modules/
-│   ├── _shared/         ← helpers: cache, dates, email_ctx, html, http, utils
+├── modules/            ← one subdirectory per job; each exposes run(**kwargs)
+│   ├── _shared/         ← helpers: cache, dates, email_ctx, html, http, utils,
+│   │                       vpn_client (shared by career_watch + event_watch)
 │   ├── bible_plan/      ← daily Bible reading emails (Mon-Thu / Fri-Sun schedules)
 │   ├── career_watch/    ← job-board scraper; two users, VPN-rotated IPs, Mon-Sat
+│   ├── event_watch/     ← scrapes event calendars → publishes onto events:<site>;
+│   │                       a scraper family under lib/scrapers/
 │   ├── example_daily/   ← minimal reference; copy to create a new module
-│   └── sonos/           ← hourly chimes; volume varies by day and hour
+│   ├── health_check/    ← fleet health; the ops nightly calls its CLI
+│   ├── sonos/           ← hourly chimes; volume varies by day and hour
+│   ├── vpn_cycle/       ← rotates the VPN exit while nothing is scraping
+│   └── README.md        ← Module Author's Guide — read before adding a module
 ├── service/
 │   ├── cli.py
 │   ├── scheduler.py
@@ -76,25 +82,118 @@ cortex/
 │   │   ├── handlers.py
 │   │   └── templates.py
 │   ├── emailer.py
+│   ├── email_outbound.py ← outbound mail onto the eventbus
+│   ├── site_events.py   ← eventbus publish/consume for site events
+│   ├── skip_tokens.py   ← file-based dedup so a CLI run can cancel a scheduled fire
 │   ├── mcp_server.py
 │   ├── config_schema.py ← JSON schema + validation for local/config.json
 │   └── logging_utils.py ← shared logging helpers
 ├── tests/
 ├── scripts/
+├── docs/
 └── Dockerfile
 ```
 
 ## Docker Summary
 ```
-┌─ cortex (python:3.12-slim)
+┌─ cortex (python:3.12-slim)          networks: mailnet, eventbus
 │   ├─ APScheduler → your config.json jobs
 │   ├─ IMAP listener → reply-to-email commands
 │   └─ Ruff + pytest
-└─ cortex_bridge (ProtonMail Bridge)
-│   └─ socat healthcheck → bullet-proof
-└─ vpn (gluetun / ProtonVPN WireGuard)
-    └─ required for career_watch scraping
+├─ cortex_bridge (ProtonMail Bridge)  networks: mailnet
+│   └─ real IMAP LOGIN healthcheck → gates cortex startup
+└─ vpn (gluetun / ProtonVPN WireGuard) networks: mailnet
+    └─ required for career_watch and event_watch scraping
 ```
+
+`mailnet` is declared by this stack. **`eventbus` is external, and so is the
+`eventbus_redis_password` secret** (`../eventbus/secrets/`) — both are resolved at
+`docker compose up` time, so if the eventbus stack has never been started, `make up`
+fails with a compose error before any container starts. Bring it up once first:
+
+```bash
+cd /srv/docker/eventbus && docker compose up -d
+```
+
+## For agents
+
+`AGENTS.md` is a symlink to this file — this section is the short version.
+
+### Build & run
+
+The stack is three containers (`cortex`, `cortex_bridge`, `vpn`). Bring the external
+eventbus stack up first (see **Docker Summary** above), then:
+
+```bash
+cd /srv/docker/cortex
+make up          # docker compose up -d — starts only; does NOT build or pull
+make reload      # rebuild + restart cortex only (bridge/vpn untouched)
+make rebuild     # docker compose build --pull && up -d --force-recreate
+```
+
+**`make up` does not build.** After changing Python, use `make reload`; after changing
+`requirements.txt` or the `Dockerfile`, use `make rebuild`.
+
+### The one thing that will mislead you
+
+**`service/`, `modules/` and `tests/` are baked into the image — only `local/` is
+bind-mounted.** Editing Python on the host does not change the container, and
+`make test` runs `pytest` *inside* the container, so it scores the image's copy of
+both the code and the tests. Running it against an unrebuilt image reports a stale
+pass count and tells you nothing about your edit.
+
+```bash
+make reload && make test          # correct order
+.venv/bin/python -m pytest tests/ # or check the working tree directly on the host
+```
+
+`make lint` and `make format` are genuinely host-side (`.venv/bin/ruff`,
+`.venv/bin/mypy`) and do reflect the files as edited.
+
+### Testing
+
+```bash
+make test                 # full suite in the container (live tests skipped)
+make live-tests           # include live tests
+make live-test <keyword>  # a single live test by keyword
+```
+
+### Usage
+
+```bash
+# Any CLI subcommand inside the container
+docker compose run --rm cortex python -m service.cli list
+docker compose exec cortex python scripts/proton_query.py list-folders
+```
+
+The MCP server is **not** started by the container. It is invoked on demand over
+stdio, which is how Claude Code and Grok reach the ProtonMail Bridge account:
+
+```bash
+docker exec -i cortex-cortex-1 python -m service.mcp_server
+```
+
+See `docs/mcp-tools.md` for the seven tools it exposes.
+
+### Environment
+
+Configuration is `local/config.json` (jobs) plus `.env` (secrets). Copy
+`.env.example` and fill it in — it documents every key inline. The ones worth knowing:
+
+| Variable | Purpose | Default |
+|----------|---------|---------|
+| `BRIDGE_USERNAME` / `BRIDGE_PASSWORD` | ProtonMail Bridge IMAP/SMTP credentials, from `protonmail-bridge --cli` → `info` | *none* |
+| `SEND_EMAIL` | Master switch for outbound mail | `1` |
+| `CORTEX_DRY_RUN` | `1` = never send real mail | `0` |
+| `OPENAI_API_KEY` | Used by `modules/_shared/utils.OpenAIChat` | *none* |
+| `CAREER_WATCH_PROXY_URL` / `EVENT_WATCH_PROXY_URL` | Route a scraper through the gluetun sidecar; unreachable gluetun means the run is skipped, fail-closed | `http://vpn:8888` |
+| `VPN_ROTATE_TIMEOUT` | Seconds to wait for the tunnel after a rotation restart — **calibrated, leave it alone** | `120` |
+
+> **Bridge credentials live in `.env`, not in `secrets/`.** The only Docker secret this
+> stack declares is `eventbus_redis_password`, and it is sourced from the eventbus
+> stack. Nothing secret is ever baked into the image.
+
+---
 
 ## 1. One-time local dev setup
 ```
