@@ -56,6 +56,41 @@ ZIP_CITY = {
     "77845": "College Station",
 }
 
+#: Standing civic/event venues the chamber types by bare name with no city.
+#: Every entry is confirmed against the feed's own LocationDesc or the venue's
+#: official listing — a pinned wrong city is worse than a reject.
+CHAMBER_VENUES: dict[str, dict[str, Any]] = {
+    "brazos-valley-cog": {
+        "name": "Brazos Valley Council of Governments",
+        "street": "3991 East 29th Street",
+        "city": "Bryan",
+        "postcode": "77801",
+    },
+    "phillips-event-center": {
+        "name": "Phillips Event Center",
+        "street": "1929 Country Club Drive",
+        "city": "Bryan",
+        "postcode": "77803",
+    },
+    "brazos-county-expo": {
+        "name": "Brazos County Expo",
+        "street": "5827 Leonard Rd",
+        "city": "Bryan",
+        "postcode": "77807",
+    },
+    "brazos-center": {
+        "name": "Brazos Center",
+        "street": "3232 Briarcrest Drive",
+        "city": "Bryan",
+        "postcode": "77802",
+    },
+}
+_CHAMBER_VENUE_PATTERNS = (
+    (re.compile(r"council\s+of\s+governments", re.I), "brazos-valley-cog"),
+    (re.compile(r"phillips\s+event\s+center", re.I), "phillips-event-center"),
+    (re.compile(r"brazos\s+county\s+expo", re.I), "brazos-county-expo"),
+    (re.compile(r"brazos\s+center\b", re.I), "brazos-center"),
+)
 _CITY_LINE = re.compile(
     r"\b(?P<city>Bryan|College Station),\s*TX(?:as)?(?:\s+(?P<zip>\d{5}))?\b",
     re.I,
@@ -224,7 +259,7 @@ def parse_place(record: dict) -> dict:
     description = strip_html(record.get("description") or "") or ""
     parsed = _place_from_text(location, allow_bare_name=True) or _place_from_text(
         description, allow_bare_name=False
-    )
+    ) or _place_from_venue_map(location) or _place_from_venue_map(description)
     if parsed is None:
         raise ScraperError("missing city")
     city, area = parsed["city_area"]
@@ -243,6 +278,24 @@ def parse_place(record: dict) -> dict:
     if parsed.get("postcode"):
         place["postcode"] = parsed["postcode"]
     return place
+
+
+def _place_from_venue_map(text: str) -> dict[str, Any] | None:
+    raw = text or ""
+    if not raw.strip():
+        return None
+    for pattern, key in _CHAMBER_VENUE_PATTERNS:
+        if not pattern.search(raw):
+            continue
+        venue = CHAMBER_VENUES[key]
+        city, area = CITY_AREA[venue["city"].lower()]
+        return {
+            "city_area": (city, area),
+            "name": venue["name"],
+            "street": venue["street"],
+            "postcode": venue.get("postcode"),
+        }
+    return None
 
 
 def _place_from_text(text: str, *, allow_bare_name: bool = True) -> dict[str, Any] | None:

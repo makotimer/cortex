@@ -155,6 +155,70 @@ def test_bcschamber_rejects_events_with_no_city(chamber_normalized):
     assert rejected_ids.isdisjoint(published)
 
 
+def test_bcschamber_bare_venue_name_resolves_from_map():
+    rec = {
+        "event_id": "3862",
+        "title": "Youth Career Fair 2026",
+        "start_local": "2026-10-07T08:00:00",
+        "end_local": "2026-10-07T15:00:00",
+        "location_html": "Brazos County Expo",
+        "description": "",
+        "slug": "youth-career-fair-2026",
+        "categories": [],
+        "admission": "",
+        "all_day": False,
+    }
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize([bcschamber.to_raw(rec)])
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["city"] == "Bryan"
+    assert place["area"] == "bryan"
+    assert place["name"] == "Brazos County Expo"
+    assert place["street"] == "5827 Leonard Rd"
+
+
+def test_bcschamber_unmapped_bare_name_still_rejects():
+    rec = {
+        "event_id": "3889",
+        "title": "Business After Hours 2026 - St. Joseph Health",
+        "start_local": "2026-11-19T17:30:00",
+        "end_local": "2026-11-19T19:00:00",
+        "location_html": "Some New Hall",
+        "description": "Some New Hall",
+        "slug": "bah-st-joseph",
+        "categories": [2],
+        "admission": "",
+        "all_day": False,
+    }
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize([bcschamber.to_raw(rec)])
+    assert payloads == []
+    assert [r["series_uid"] for r in rejected] == ["3889"]
+    assert rejected[0]["reason"] == "missing city"
+
+
+def test_bcschamber_venue_map_does_not_override_text():
+    rec = {
+        "event_id": "9",
+        "title": "Mapped, With Explicit City",
+        "start_local": "2026-09-01T12:00:00",
+        "end_local": "2026-09-01T13:00:00",
+        "location_html": "Brazos Center<br />4444 Other Road<br />College Station, TX 77840",
+        "description": "",
+        "slug": "mapped-explicit",
+        "categories": [],
+        "admission": "",
+        "all_day": False,
+    }
+    payloads, rejected = bcschamber.BcsChamberScraper().normalize([bcschamber.to_raw(rec)])
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["city"] == "College Station"
+    assert place["area"] == "college_station"
+    assert place["postcode"] == "77840"
+    assert "4444 Other Road" in (place.get("street") or "")
+    assert "3232 Briarcrest" not in (place.get("street") or "")
+
+
 def test_bcschamber_drops_non_bcs_cities():
     rec = {
         "event_id": "9",
