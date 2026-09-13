@@ -103,4 +103,4 @@ Sends an email via ProtonMail Bridge SMTP. The body is rendered from markdown to
 | `body` | str | Email body in markdown |
 | `cc` | str | Optional CC address(es), comma-separated |
 
-> **Note:** `send_email` depends on the `markdown` package, which is currently installed in the container but is not declared in `pyproject.toml`. It will break on the next image rebuild until the dependency is added back.
+> `send_email` renders with the `markdown` package, declared as `markdown==3.10.3` in `pyproject.toml` (checked 2026-09-13).
