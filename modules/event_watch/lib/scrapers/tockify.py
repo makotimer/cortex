@@ -84,10 +84,20 @@ AUDIENCE_MAP = {
 def _audience_key(label: str) -> str:
     return (label or "").strip().lower()
 
-#: `Children` is broad, so it maps to `elementary` and only gains a younger band
-#: when the text says so outright (design §11 open decision 2). Sending parents
-#: of four-year-olds to school-age events is the failure being avoided.
-PRESCHOOL_HINTS = ("storytime", "story time", "preschool", "pre-k")
+#: `Children` is broad. When the text states an age range outright ("ages
+#: 0-5", "5 and under") the label expands to exactly the bands that range
+#: covers — a 0-5 workshop is not `elementary`, which is what sent parents of
+#: four-year-olds to school-age events (design §11 open decision 2). Without a
+#: closed range it maps to `elementary` and only gains a younger band on a
+#: hint word. Ages here are inclusive; the bands mirror the site's vocabulary.
+CHILD_BANDS = (
+    ("baby-toddler", 0, 2),
+    ("preschool", 3, 5),
+    ("elementary", 6, 10),
+    ("tween", 11, 12),
+    ("teen", 13, 17),
+)
+PRESCHOOL_HINTS = ("storytime", "story time", "preschool", "pre-k", "little ones", "littles")
 BABY_HINTS = ("baby", "babies", "toddler", "infant", "lapsit")
 
 # The en and em dashes are deliberate: real titles use all three separators.
@@ -182,15 +192,23 @@ class TockifyScraper(BaseEventScraper):
             (content.get("description") or {}).get("text")
         )
         labels = _labels(base.record)
+        text = f"{title}\n{description or ''}"
+        ages = normalize.ages_from(text)
 
         series: dict[str, Any] = {
             "source_series_uid": uid,
             "title": title,
             "organization": dict(ORGANIZATION),
             "is_free": True,  # every library programme in the feed is free
-            "audiences": _audiences(labels, f"{title}\n{description or ''}"),
+            "audiences": _audiences(labels, text, ages),
             "topics": classify.from_labels(labels),
         }
+        # Only when the feed states a range (contract §3); the library states
+        # it in prose, never in a field. An open-ended "3 and up" has no max.
+        if ages:
+            series["age_min"] = ages[0]
+            if ages[1] is not None:
+                series["age_max"] = ages[1]
         # Omitted entirely rather than sent as null — the contract treats an
         # absent place as "no venue", which is the honest answer for a
         # system-wide notice.
@@ -228,19 +246,27 @@ def _registration(title: str, text: str) -> bool | None:
     return None
 
 
-def _audiences(labels: list[str], text: str) -> list[str]:
+def _audiences(
+    labels: list[str], text: str, ages: tuple[int, int | None] | None = None
+) -> list[str]:
     out = {
         AUDIENCE_MAP[key]
         for key in (_audience_key(label) for label in labels)
         if key in AUDIENCE_MAP
     }
     if any(_audience_key(label) == "children" for label in labels):
-        out.add("elementary")
-        low = (text or "").lower()
-        if any(h in low for h in PRESCHOOL_HINTS):
-            out.add("preschool")
-        if any(h in low for h in BABY_HINTS):
-            out.add("baby-toddler")
+        if ages is None:
+            ages = normalize.ages_from(text)
+        if ages is not None and ages[1] is not None:
+            lo, hi = ages[0], ages[1]
+            out.update(slug for slug, b_lo, b_hi in CHILD_BANDS if lo <= b_hi and hi >= b_lo)
+        else:
+            out.add("elementary")
+            low = (text or "").lower()
+            if any(h in low for h in PRESCHOOL_HINTS):
+                out.add("preschool")
+            if any(h in low for h in BABY_HINTS):
+                out.add("baby-toddler")
     return sorted(out)
 
 

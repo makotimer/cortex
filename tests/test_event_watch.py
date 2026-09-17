@@ -201,6 +201,64 @@ def test_children_maps_to_elementary_and_widens_only_on_evidence():
     assert tockify._audiences(["Adult"], "Book Club") == ["adult"]
 
 
+@pytest.mark.parametrize(("text", "expected"), [
+    ("children ages 0-5 years old", (0, 5)),
+    ("littles ages 0 to 3 years", (0, 3)),
+    ("Ages 6\u201312 welcome", (6, 12)),
+    ("2-5 year olds", (2, 5)),
+    ("Little ones 5 and under, come and play", (0, 5)),
+    ("for ages under 5", (0, 4)),
+    ("birth to 5", (0, 5)),
+    ("ages 18+ to gather", (18, None)),
+    ("ages 3 and up", (3, None)),
+    ("Dino Egg Mystery Hunt", None),
+    ("open 10-5 daily", None),
+    ("$5 and under", None),
+])
+def test_ages_from_reads_only_a_stated_range(text, expected):
+    """Contract: age_min/age_max only when the source says so. The library
+    says so in prose, never in a field, so these are the phrasings it uses."""
+    assert normalize.ages_from(text) == expected
+
+
+def test_children_with_a_stated_range_maps_to_the_bands_it_covers():
+    """Play2Learn is "ages 0-5" and was tagged elementary because `Children`
+    is broad and neither hint word appears. A stated range beats the hints."""
+    assert tockify._audiences(["Children"], "Play2Learn is for children ages 0-5 years old") == \
+        ["baby-toddler", "preschool"]
+    assert tockify._audiences(["Children"], "Little ones 5 and under, come and play") == \
+        ["baby-toddler", "preschool"]
+    # 3 is the first preschool year, so a 0-3 range spans both bands.
+    assert tockify._audiences(["Children"], "Fun for littles ages 0 to 3 years") == \
+        ["baby-toddler", "preschool"]
+    assert tockify._audiences(["Children"], "ages 0-2") == ["baby-toddler"]
+    assert tockify._audiences(["Children"], "Kids ages 6-12") == ["elementary", "tween"]
+    # An open-ended range is not enough to narrow; fall back to the hints.
+    assert tockify._audiences(["Children"], "ages 3 and up") == ["elementary"]
+    # Other labels are the library's call and stay as they are.
+    assert tockify._audiences(["Adult", "Children"], "ages 0-5") == \
+        ["adult", "baby-toddler", "preschool"]
+    assert tockify._audiences(["Teen"], "ages 12-17") == ["teen"]
+
+
+def test_little_ones_is_a_preschool_hint():
+    assert tockify._audiences(["Children"], "Fun for littles") == ["elementary", "preschool"]
+    assert tockify._audiences(["Children"], "Little ones welcome") == ["elementary", "preschool"]
+
+
+def test_play2learn_carries_its_stated_ages(normalized):
+    payloads, _ = normalized
+    p2l = {p["series"]["title"]: p["series"] for p in payloads
+           if p["series"]["title"].startswith("Play2Learn")}
+    assert len(p2l) == 2
+    for s in p2l.values():
+        assert (s["age_min"], s["age_max"]) == (0, 5)
+        assert s["audiences"] == ["adult", "baby-toddler", "preschool"]
+    dino = next(p["series"] for p in payloads if p["series"]["title"].startswith("Dino STEM"))
+    assert "age_min" not in dino and "age_max" not in dino
+    assert dino["audiences"] == ["elementary"]
+
+
 def test_topics_come_only_from_labels_no_guessing(normalized):
     payloads, _ = normalized
     for p in payloads:
