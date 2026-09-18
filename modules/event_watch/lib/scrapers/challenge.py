@@ -87,6 +87,9 @@ VENUES: dict[str, dict[str, Any]] = {
                    "place_name": "Rx Pizza, College Station", "note": "Rx Pizza, south College Station"},
     "venue-1425": {"audiences": ["all-ages"], "indoor": True, "note": "South Flo Pizza, inside HEB"},
     "venue-3650": {"audiences": ["all-ages"], "indoor": True, "note": "Mas Fajitas"},
+    # Golf / pickleball / cornhole centre with a bar, marketed "fun for the whole
+    # family" (opened Sep 2026). Indoor *and* outdoor, so indoor stays unknown.
+    "venue-4236": {"audiences": ["all-ages"], "note": "The Range — 3001 Graham Rd N"},
     # --- bars: published, but banded adult ---------------------------------
     "venue-1417": {"audiences": ["adult"], "indoor": True, "note": "Rough Draught Whiskey Bar"},
     "venue-1440": {"audiences": ["adult"], "indoor": True, "note": "The Owl Pub & Grill"},

@@ -742,6 +742,31 @@ def test_challenge_an_unlisted_venue_is_rejected_loudly_not_guessed():
     assert "unknown venue" in rejected[0]["reason"]
 
 
+def test_challenge_the_range_is_banded_all_ages_with_indoor_unknown():
+    """The Range (opened Sep 2026) is a golf/pickleball/cornhole centre that
+    sells itself as "fun for the whole family" with a bar on the side — the
+    PopStroke profile, not the whiskey-bar one. It is indoor *and* outdoor,
+    so ``indoor`` is omitted rather than answered."""
+    scraper = challenge.ChallengeScraper()
+    raw = [RawEvent(
+        series_uid="venue-4236:singo",
+        occurrence_tid="1790121600000",
+        record={"venue_key": "venue-4236", "venue": "The Range",
+                "address": "3001 Graham Road North, College Station, TX", "game": "Singo",
+                "game_slug": "singo", "start_local": "2026-09-23T19:00:00",
+                "cancelled": False, "city": "College Station", "region": "TX",
+                "street": "3001 Graham Road North", "area": "college-station",
+                "place_slug": "the-range-college-station",
+                "schedule": "", "permalink": None},
+    )]
+    payloads, rejected = scraper.normalize(raw)
+    assert rejected == []
+    assert len(payloads) == 1
+    series = payloads[0]["series"]
+    assert series["audiences"] == ["all-ages"]
+    assert "indoor" not in series
+
+
 def test_challenge_bars_are_banded_adult_and_restaurants_all_ages(challenge_normalized):
     """The one thing the source cannot tell us: "Live Trivia" reads identically
     at a mini golf course and at a whiskey bar."""
