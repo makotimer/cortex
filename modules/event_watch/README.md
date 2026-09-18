@@ -75,6 +75,7 @@ entries below are the record of what is there). `vpn-cycle-events` fires at
 | `event-watch-cstxparks` | `cstxparks` | Tue/Fri 10:05 | `rotate_vpn_per_run: false` |
 | `event-watch-cstxcal` | `cstxcal` | Tue/Fri 10:20 | `rotate_vpn_per_run: false` |
 | `event-watch-youthcamps` | `youthcamps` | Tue/Fri 10:35 | `rotate_vpn_per_run: false` |
+| `event-watch-done` | — (`modules.event_watch_done`) | Tue/Fri 11:00 | `site: discoverbcs` — publishes `watch.complete` so the site reviews the morning's intake as one batch |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
