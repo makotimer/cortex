@@ -2262,3 +2262,103 @@ def test_conformance_lakewalk_payloads_pass_the_real_validator(lakewalk_normaliz
     assert payloads
     for payload in payloads:
         validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
+def _tamu_daily(uid, day, title="A Legacy Built of Brick & Stone",
+                place_slug="cushing-memorial-library", start="09:00:00",
+                end="16:30:00", description="Exhibition text"):
+    return {
+        "schema_version": "1",
+        "source": {"slug": "tamu", "name": "Texas A&M University Events Calendar", "kind": "feed"},
+        "series": {
+            "source_series_uid": uid,
+            "title": title,
+            "description": description,
+            "source_url": f"https://calendar.tamu.edu/event/{uid}",
+            "place": {"slug": place_slug, "name": "Cushing Memorial Library",
+                      "city": "College Station", "area": "college_station"},
+        },
+        "occurrence": {
+            "source_occurrence_tid": f"tid-{day}",
+            "start_local": f"{day}T{start}",
+            "end_local": f"{day}T{end}",
+            "timezone": "America/Chicago",
+            "all_day": False,
+            "status": "scheduled",
+        },
+    }
+
+
+def test_tamu_unifies_a_daily_run_of_ids_into_one_series():
+    """LiveWhale gives a gallery show a fresh event id for every day it is
+    open (395948, 395949, 395950 ...), each a timed 9:00-4:30 row. The site
+    used to get one series per day — 172 for one exhibition. A run of the
+    same program (title + place) on several days is one series, with a
+    stable uid derived from the program so every run lands in the same
+    row, and one occurrence per day. Each day keeps its own tid and its
+    own description pin."""
+    raw = [
+        _tamu_daily("395948", "2026-09-18", description="day one text"),
+        _tamu_daily("395949", "2026-09-21"),
+        _tamu_daily("395950", "2026-09-22"),
+    ]
+    out = tamu.collapse_intra_source(raw)
+    assert len(out) == 3
+    uids = {p["series"]["source_series_uid"] for p in out}
+    assert uids == {"program:cushing-memorial-library:a-legacy-built-of-brick-stone"}
+    tids = sorted(p["occurrence"]["source_occurrence_tid"] for p in out)
+    assert tids == ["tid-2026-09-18", "tid-2026-09-21", "tid-2026-09-22"]
+    first = next(p for p in out if p["occurrence"]["start_local"].startswith("2026-09-18"))
+    assert first["series"]["description"] == "day one text"
+
+
+def test_tamu_unify_leaves_single_day_and_real_parent_ids_alone():
+    """One listing on one day keeps its LiveWhale id; a program that already
+    arrives under one parent id (Garden Club) is not renamed either; two
+    different programs at one place on different days stay apart."""
+    single = _tamu_daily("400001", "2026-10-01", title="Buchanan Lecture 2026")
+    parent_a = _tamu_daily("387508", "2026-09-08", title="Garden Club", start="09:30:00", end="10:30:00")
+    parent_b = _tamu_daily("387508", "2026-09-15", title="Garden Club", start="09:30:00", end="10:30:00")
+    other = _tamu_daily("400002", "2026-10-02", title="Number Theory Seminar")
+    out = tamu.collapse_intra_source([single, parent_a, parent_b, other])
+    by_title = {}
+    for p in out:
+        by_title.setdefault(p["series"]["title"], set()).add(p["series"]["source_series_uid"])
+    assert by_title["Buchanan Lecture 2026"] == {"400001"}
+    assert by_title["Garden Club"] == {"387508"}
+    assert by_title["Number Theory Seminar"] == {"400002"}
+
+
+def test_tamu_unify_ignores_the_venue_clause_in_the_title():
+    """'Physics Show' and 'Physics Show at Mitchell Institute' on a run of
+    days at one place are one program."""
+    raw = [
+        _tamu_daily("1", "2026-09-18", title="Physics Show", place_slug="mitchell-institute"),
+        _tamu_daily("2", "2026-09-19", title="Physics Show at Mitchell Institute",
+                    place_slug="mitchell-institute"),
+        _tamu_daily("3", "2026-09-21", title="Physics Show", place_slug="mitchell-institute"),
+    ]
+    out = tamu.collapse_intra_source(raw)
+    assert {p["series"]["source_series_uid"] for p in out} == {"program:mitchell-institute:physics-show"}
+
+
+def test_tamu_unify_needs_a_dense_run_not_just_a_repeat():
+    """Two concerts of one ensemble five weeks apart are two listings; a
+    weekly seminar under a fresh id each week is left as the feed had it;
+    a gallery closed over a weekend (Fri, then Tue) is still one run."""
+    concerts = [
+        _tamu_daily("385689", "2026-09-25", title="University Jazz Ensembles in Concert", place_slug="rudder"),
+        _tamu_daily("385690", "2026-11-01", title="University Jazz Ensembles in Concert", place_slug="rudder"),
+    ]
+    weekly = [_tamu_daily(str(500 + i), f"2026-10-{7 + 7 * i:02d}",
+                          title="Numerical Analysis Seminar", place_slug="blocker")
+              for i in range(3)]
+    gallery = [_tamu_daily(str(600 + i), day, place_slug="cushing")
+               for i, day in enumerate(("2026-09-18", "2026-09-22", "2026-09-23", "2026-09-25", "2026-09-29"))]
+    out = tamu.collapse_intra_source(concerts + weekly + gallery)
+    uids: dict[str, set[str]] = {}
+    for p in out:
+        uids.setdefault(p["series"]["title"], set()).add(p["series"]["source_series_uid"])
+    assert uids["University Jazz Ensembles in Concert"] == {"385689", "385690"}
+    assert uids["Numerical Analysis Seminar"] == {"500", "501", "502"}
+    assert uids["A Legacy Built of Brick & Stone"] == {"program:cushing:a-legacy-built-of-brick-stone"}

@@ -14,6 +14,7 @@ import html
 import re
 from datetime import date, datetime, timedelta
 from difflib import SequenceMatcher
+from itertools import pairwise
 from typing import Any
 
 from modules._shared.http import HttpClient
@@ -752,7 +753,65 @@ def collapse_intra_source(payloads: list[dict]) -> list[dict]:
                 winner["series"].get("title", ""), loser["series"].get("title", "")
             ):
                 kept.append(loser)
-    return _collapse_overlapping_ranges(_drop_all_day_inside_timed_spans(kept))
+    return _unify_daily_runs(
+        _collapse_overlapping_ranges(_drop_all_day_inside_timed_spans(kept)))
+
+
+def _program_uid(key: tuple[str, str, str]) -> str:
+    """A series uid that is the program, not the day: stable across runs, so
+    every day of a show lands in the same site row. The title part is the
+    normalized title (venue clause stripped) slugified."""
+    title, place_slug, _status = key
+    return f"program:{place_slug}:{normalize.slugify(title)}"
+
+
+def _unify_daily_runs(payloads: list[dict]) -> list[dict]:
+    """LiveWhale gives a gallery show — and some lecture series — a fresh
+    event id for every day, each a timed row. Left alone the site gets one
+    series per day (172 for one exhibition in September 2026), which every
+    per-series count and the home page's "new this week" then eat.
+
+    A program (normalized title + place) seen under two or more distinct
+    ids on a *dense run* of days — at least DAILY_RUN_MIN_DAYS calendar
+    days with no gap over DAILY_RUN_MAX_GAP days, so a gallery closed
+    Saturday to Monday still counts — is one series: every payload takes the
+    program uid, keeps its own occurrence tid (already per day) and its
+    own series fields, which the site pins to that occurrence. Two concerts
+    of one ensemble five weeks apart, a weekly seminar under a fresh id
+    each week, a program that already arrives under one parent id, and a
+    single listing are all left alone.
+    """
+    groups: dict[tuple, list[dict]] = {}
+    for payload in payloads:
+        key = _program_key(payload)
+        if key is not None:
+            groups.setdefault(key, []).append(payload)
+    for key, group in groups.items():
+        uids = {p["series"]["source_series_uid"] for p in group}
+        if len(uids) < 2 or not _is_dense_run(group):
+            continue
+        uid = _program_uid(key)
+        for payload in group:
+            payload["series"]["source_series_uid"] = uid
+    return payloads
+
+
+DAILY_RUN_MIN_DAYS = 3
+DAILY_RUN_MAX_GAP = 4
+
+
+def _is_dense_run(group: list[dict]) -> bool:
+    days = sorted({
+        d for d in (
+            _parse_local((p.get("occurrence") or {}).get("start_local"))
+            for p in group)
+        if d is not None
+    })
+    dates = sorted({d.date() for d in days})
+    if len(dates) < DAILY_RUN_MIN_DAYS:
+        return False
+    gaps = [(b - a).days for a, b in pairwise(dates)]
+    return max(gaps) <= DAILY_RUN_MAX_GAP
 
 
 def _occurrence(item: RawEvent) -> dict:
