@@ -44,6 +44,7 @@ starts three things in one process (`service/cli.py`):
 | `config_schema.py` | loads and validates `local/config.json`; resolves `*_env` fields from the environment |
 | `logging_utils.py` | JSONL `activity-YYYY-MM-DD.jsonl` / `error-YYYY-MM-DD.jsonl` under `LOG_DIR` (default `/app/local/logs`), with key-based redaction |
 | `mcp_server.py` | `MCPServer` (mcp 2.x) exposing the Bridge account as tools; started on demand by `docker exec`, never by `serve` |
+| `mcp_vpn.py` | `MCPServer` `vpn`: `vpn_fetch` / `vpn_status`, a page GET through gluetun (`modules/_shared/probe.py`, shared with `scripts/event_probe.py`); same on-demand start |
 
 ### The `modules/` package
 
@@ -59,7 +60,7 @@ the author's guide and `modules/example_daily/` the template.
 | `sonos` | hourly chime via SoCo; `sonos_volume` kwarg 25 (quiet) / 40 (loud) | four jobs splitting Sun vs Mon–Sat, quiet vs loud hours |
 | `health_check` | CLI `python -m modules.health_check --json --date yesterday`; reads the JSONL logs and judges the day | not scheduled — the ops nightly `docker exec`s it (`websites/ops/scripts/nightly_fleet.sh:75`) |
 | `example_daily` | reference implementation | — |
-| `_shared/` | `vpn_client` (used by both scrapers and `vpn_cycle`), `http`, `cache`, `dates`, `email_ctx`, `utils` (`OpenAIChat`), `logging_bridge`; `html.py` is an empty stub | — |
+| `_shared/` | `vpn_client` (used by both scrapers and `vpn_cycle`), `probe` (verified-exit page fetch behind `event_probe.py` and the `vpn` MCP), `http`, `cache`, `dates`, `email_ctx`, `utils` (`OpenAIChat`), `logging_bridge`; `html.py` is an empty stub | — |
 
 ## Request flow
 
@@ -108,9 +109,10 @@ Bridge → acks; after 3 failed attempts the message moves to `email.send.dead`.
   `../eventbus/eventbus-kit` → `/eventbus-kit` and
   `../websites/address-kit` → `/address-kit`. Editing either changes cortex
   without a rebuild — but only after the process restarts.
-- **The MCP server is out-of-band.** `~/.claude.json` registers `protonmail`
-  as `docker exec -i cortex-cortex-1 python -m service.mcp_server`; it shares
-  the container but not the `serve` process.
+- **The MCP servers are out-of-band.** `~/.claude.json` registers `protonmail`
+  as `docker exec -i cortex-cortex-1 python -m service.mcp_server` and `vpn`
+  as `… python -m service.mcp_vpn`; they share the container (and so the
+  `vpn:8888` proxy) but not the `serve` process.
 
 ## Ports and networks
 

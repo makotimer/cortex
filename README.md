@@ -109,6 +109,6 @@ the bridge (90 s `start_period`, mail is down meanwhile).
 - [docs/operations.md](docs/operations.md) — healthchecks, logs, the outage playbooks, Bridge recovery
 - [docs/decisions.md](docs/decisions.md) — dated reasoning: VPN survey numbers, bridge healthcheck, event_watch
 - [docs/config-schema.md](docs/config-schema.md) — every `local/config.json` field and trigger
-- [docs/mcp-tools.md](docs/mcp-tools.md) — the 7 ProtonMail MCP tools (`docker exec -i cortex-cortex-1 python -m service.mcp_server`)
+- [docs/mcp-tools.md](docs/mcp-tools.md) — the 7 ProtonMail MCP tools (`service.mcp_server`) and the 2 `vpn` tools (`service.mcp_vpn`: fetch a page through gluetun), both `docker exec -i cortex-cortex-1 python -m …`
 - [modules/README.md](modules/README.md) — Module Author's Guide; `modules/event_watch/README.md` for scrapers
 - `docs/vpn-instability.md`, `docs/external-sonos-streamer.md` — historical notes (May / Aug 2026)

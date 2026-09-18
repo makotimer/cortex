@@ -116,6 +116,8 @@ python scripts/proton_query.py subjects INBOX --search "SINCE 1-May-2026"
 ## `event_probe.py`
 
 Fetch a candidate calendar page through gluetun and print what it actually is.
+The fetch lives in `modules/_shared/probe.py` and is also exposed to Claude Code
+as the `vpn` MCP (`service/mcp_vpn.py`, see `docs/mcp-tools.md`); this is the CLI.
 Use this when standing up a new `event_watch` source: a host-side curl from
 this box is not the path a scraper will take, and news-site calendars are
 often a widget behind a bot wall.

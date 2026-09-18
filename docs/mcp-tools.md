@@ -1,4 +1,8 @@
-# ProtonMail MCP tools
+# cortex MCP tools
+
+Two `MCPServer`s live in this container, each started on demand by `docker exec`: the ProtonMail one below, and the [`vpn` server](#vpn-mcp-tools) at the end of this file.
+
+## ProtonMail MCP tools
 
 `service/mcp_server.py` is an MCPServer (mcp 2.x) that exposes the ProtonMail Bridge IMAP account as Claude Code / Grok tools. It is started on-demand by the MCP wiring:
 
@@ -104,3 +108,38 @@ Sends an email via ProtonMail Bridge SMTP. The body is rendered from markdown to
 | `cc` | str | Optional CC address(es), comma-separated |
 
 > `send_email` renders with the `markdown` package, declared as `markdown==3.10.3` in `pyproject.toml` (checked 2026-09-13).
+
+---
+
+## vpn MCP tools
+
+`service/mcp_vpn.py` fetches a page through the gluetun VPN exit — the same path the `event_watch` scrapers use, and the same code as `scripts/event_probe.py` (`modules/_shared/probe.py`). Registered in `~/.claude.json` as `vpn`:
+
+```bash
+docker exec -i cortex-cortex-1 python -m service.mcp_vpn
+```
+
+Reads `EVENT_WATCH_PROXY_URL` (default `http://vpn:8888`), `VPN_CONTROL_URL` (default `http://vpn:8000`) and `EVENT_PROBE_OUT` (default `/app/local/state/event_probe`) from `.env`.
+
+### `vpn_status()`
+
+Read-only. Reports whether gluetun has a public IP, what it is, and whether that exit actually reaches the web (`GluetunClient.usable` against the Cloudflare trace URL). Never rotates.
+
+### `vpn_fetch(url, rotate?, as_text?, max_chars?, timeout?)`
+
+GET `url` through the tunnel after a usable exit is verified. Returns JSON: `status`, `final_url`, `title`, `vendors`, `vpn {ip, changed, reason}`, `saved {html, meta}`, `truncated`, `body`.
+
+| Param | Type | Default | Description |
+|-------|------|---------|-------------|
+| `url` | str | required | Page to fetch |
+| `rotate` | bool | `false` | Force a new exit first. Leave off unless the current exit is blocked — rotating mid-day disturbs career_watch's window |
+| `as_text` | bool | `true` | Readable text (scripts, styles, markup stripped) instead of raw HTML |
+| `max_chars` | int | `20000` | Cap on `body` (hard max 200 000); the full page is always written to `saved.html` |
+| `timeout` | float | `20` | Per-request timeout, seconds |
+
+Behaviour worth knowing:
+
+- **A 4xx/5xx is returned, not raised.** The body is the finding. `vendors` names `perimeterx` or `cloudflare-challenge` when a bot wall answered; a Cloudflare managed challenge is a JS check, not an IP block, so `rotate=true` will not get past it (Blue Baker, 2026-09-18).
+- **GET only.** There is no POST tool and none is planned.
+- **No usable exit** returns `{"error": …, "vpn": {…tried…}}` instead of fetching direct — the tool never falls back to this box's own address.
+- Every fetch leaves `<host>-<utc>.html` + `.meta.json` under `local/state/event_probe/`, the same captures `event_probe.py` writes.
