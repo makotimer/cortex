@@ -466,6 +466,52 @@ History in Motion (two-day), Crafts / Paws with Mrs. Claus, Living
 History School Day and Weekend. One venue, `America/Chicago`, blank
 cost.
 
+## College Station Parks & Rec (RecTrac)
+
+Captured **2026-09-14** through gluetun from
+``https://rectrac.cstx.gov/webtrac/web/search.html?module=AR&category=Events``.
+UTF-8 without a charset; the saved fixture is encoding-repaired.
+
+| File | Source |
+|---|---|
+| `cstxparks_search.html` | Events category Detail view, 10 of 10 |
+
+Five activities / ten sections: Lick Creek overnight (two Fridays),
+Walk Like an Engineer, Jingle Bell Fun Run, Exploring History
+Luncheon (five Wednesdays), Movie in the Park. RecTrac's location
+cell spells the library `Larrry J Ringer Lib.`
+
+## City of College Station (Timely)
+
+Captured **2026-09-14** through gluetun from
+``https://timelyapp.time.ly/api/calendars/54735353/events`` (Type=
+Public) plus one detail GET per event id.
+
+| File | Source |
+|---|---|
+| `cstxcal_events.json` | Two list pages (14 occurrences / 11 series) and the matching detail records |
+
+Includes the luncheon (RecTrac overlap), two Yoga Saturdays, three
+Christmas-in-the-Park nights, City Council, two boards, Seniors
+Night Out, and one office-closure Notice (dropped). List rows have
+no street; details do.
+
+## TAMU Youth Camps (Localist)
+
+Captured **2026-09-15** from
+``https://youthcamps.tamu.edu/api/2/events?start=2026-09-15&days=270&pp=100``.
+
+| File | Source |
+|---|---|
+| `youthcamps_events.json` | One page, 48 instance rows / 26 series |
+
+Most rows are `Texas A&M University - College Station` with empty
+geo. Two campus buildings (Williams Admin, Kyle Field) have no city.
+Two out-of-town drops: Galveston Aggieland Saturday by the Sea, and
+Veterinary Science Camp at Fossil Rim in Glen Rose. Garden Club is
+seven all-day Tuesdays; Rec Sports Hangout #2 is timed.
+
+
 ## Refreshing
 
 These pin third-party behaviour, so refresh deliberately, not routinely. A refresh

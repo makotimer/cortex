@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Activity Search - 3.1 WEB</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="www.vermontsystems.com" />
+    <meta name="copyright" content="&copy; 2026 Vermont Systems, Inc." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html" />
+    <meta http-equiv="cache-control" content="no-cache, no-store" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="-1" />
+    <meta property="og:title" content="Activity Search" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rectrac.cstx.gov/webtrac/web/search.html?display=Detail&module=AR" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <style>:root {--primary-color: #266dd3;--secondary-color: #0a7ab8;--tertiary-color: #ffffff;--header-color: #123a6d;--gray-color: #f2f2f2;--background-color: #f7f7f7;--text-color: #272c33;--primary-hover-color: #1e65cb;--primary-active-color: #1960c6;--primary-text-color: #ffffff;--secondary-hover-color: #0272b0;--secondary-active-color: #006dab;--secondary-text-color: #ffffff;--tertiary-hover-color: #f7f7f7;--tertiary-active-color: #f2f2f2;--tertiary-text-color: #272c33;--header-hover-color: #264e81;--header-sub-text-color: #c4c4c4;--header-text-color: #ffffff;--gray-hover-color: #eaeaea;}</style>
+    <meta name="msapplication-TileImage" content="https://rectrac.cstx.gov/webtrac/static/images//favicon-144x144.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="https://rectrac.cstx.gov/webtrac/static/images//favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-128x128.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="76x76" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-76x76.png">
+    <link rel="icon" type="image/png" sizes="57x57" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-57x57.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://rectrac.cstx.gov/webtrac/static/images//favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://rectrac.cstx.gov/webtrac/static/images//favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://rectrac.cstx.gov/webtrac/static/images//favicon.ico">
+    <link type="text/css" rel="stylesheet" href="https://rectrac.cstx.gov/webtrac/static/nextgen/dist/app.css?v=3.1.11.09.01" />
+    <script language="JavaScript" type="text/javascript" src="https://rectrac.cstx.gov/webtrac/static/js/jquery.js?v=3.1.11.09.01"></script>
+
+      </head>
+  <body data-view="websearch">
+
+    <noscript>
+      Your browser does not support javascript, in order to use this site please enable javascripts and refresh the page.
+    </noscript>
+
+    <div id="app" class="websearch">
+
+         <div v-pre id="app-container">
+
+            <header id="header">
+<div class="skip-links">
+<a href="#content" class="button secondary skip-link skip-search">Skip to Search Criteria</a>
+<a href="#content" class="button primary skip-link skip-main">Skip to Main Content</a>
+</div>
+<div id="menu-button" class="mobile-menu" data-component="mobile-menu"></div>
+<div id="header-top">
+            <div id="header-logo"><a href="https://www.cstx.gov/departments___city_hall/parks" target="_blank"><img src="https://rectrac.cstx.gov/webtrac/static/images/CSWhiteSide.jpg" alt="City of College Station Parks & Recreation logo" /></a></div>
+<nav class="navbar menu navbar-1" aria-label="Search and Information">
+              <ul>
+                <li>
+<a class="menuitem" href="https://rectrac.cstx.gov/webtrac/web/splash.html?_csrf_token=bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72"><span class="menuitem__subtitle"></span>
+<span class="menuitem__title">
+<span class="menuitem__text">Home</span>
+</span></a>
+</li>
+<li>
+<button class="menuitem menuitem--has-children"><span class="menuitem__subtitle"></span>
+<span class="menuitem__title">
+<span class="menuitem__text">Search</span>
+<svg aria-hidden="true" version="1.1" viewBox="0 0 16 16" class="menuitem__subicon svg-icon svg-fill" style="width: 16px; height: 16px;"><path pid="0" d="M3 5l5 6 5-6z" fill="#272c33"></path></svg>
+</span></button>
+<div class="submenu-wrapper close"><div class="submenu">
+<div class="submenu-group"><h2>Activities</h2><ul class="submenu-list">
+<li class="submenu-item"><a href="https://rectrac.cstx.gov/webtrac/web/search.html?display=detail&module=AR&_csrf_token=bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72"><span class="menuitem__subtitle"></span>
+<span class="menuitem__title">
+<span class="menuitem__text">Activity Search</span>
+</span></a></li>
+</ul></div>
+<div class="submenu-group"><h2>Pass</h2><ul class="submenu-list">
+<li class="submenu-item"><a href="https://rectrac.cstx.gov/webtrac/web/search.html?display=detail&module=PM&_csrf_token=bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72"><span class="menuitem__subtitle"></span>
+<span class="menuitem__title">
+<span class="menuitem__text">Pass Search</span>
+</span></a></li>
+</ul></div>
+</div></div>
+</li>
+<li>
+<a class="menuitem" href="https://experience.arcgis.com/experience/0e8f97be3d544d1ab0045144a9aa968c" target="_blank"><span class="menuitem__subtitle"></span>
+<span class="menuitem__title">
+<span class="menuitem__text">PARK LOCATOR</span>
+</span></a>
+</li>
+<li>
+<a class="menuitem" href="http://www.cstx.gov/parksguide" target="_blank"><span class="menuitem__subtitle"></span>
+<span class="menuitem__title">
+<span class="menuitem__text">ACTIVITY GUIDE</span>
+</span></a>
+</li>
+<li>
+<a class="menuitem" href="https://www.cstx.gov/calendar#filter_groups_659989886=677656162;organizers=677965317" target="_blank"><span class="menuitem__subtitle"></span>
+<span class="menuitem__title">
+<span class="menuitem__text">Event Calendar</span>
+</span></a>
+</li>
+
+              </ul>
+            </nav>
+            <nav class="navbar menu navbar-2" aria-label="Account Information">
+              <ul>
+                
+                <li>
+<a class="menuitem menuitem--has-icon menuitem--has-twolines" href="https://rectrac.cstx.gov/webtrac/web/cart.html?_csrf_token=bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72"><span class="menuitem__subtitle">Checkout</span>
+<span class="menuitem__title">
+<svg aria-hidden="true" version="1.1" viewBox="0 0 12 12" class="menuitem__icon svg-icon svg-fill" style="width: 12px; height: 12px;"><g class="nc-icon-wrapper" fill="#272c33"><path pid="0" d="M1 10.5A1.5 1.5 0 002.5 12h7a1.5 1.5 0 001.5-1.5V7H1z"></path><path pid="1" d="M9.838 4L8.171.665a.75.75 0 00-1.342.67L8.162 4H3.838l1.333-2.665a.75.75 0 00-1.342-.67L2.162 4H0v2h12V4z" data-color="color-2"></path></g></svg>
+<span class="menuitem__text">Cart (0 Items)</span>
+</span></a>
+</li>
+
+                <li>
+<a class="menuitem menuitem--has-icon menuitem--has-twolines" href="https://rectrac.cstx.gov/webtrac/web/login.html?_csrf_token=bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72"><span class="menuitem__subtitle">My Account</span>
+<span class="menuitem__title">
+<svg aria-hidden="true" version="1.1" viewBox="0 0 12 12" class="menuitem__icon svg-icon svg-fill" style="width: 12px; height: 12px;"><g class="nc-icon-wrapper" fill="#272c33"><path pid="0" d="M9.543 6.189A4.271 4.271 0 016 8.5a4.271 4.271 0 01-3.543-2.311A5.976 5.976 0 00.138 9.726a.5.5 0 00.206.518 9.987 9.987 0 0011.312 0 .5.5 0 00.206-.518 5.976 5.976 0 00-2.319-3.537z"></path><path pid="1" d="M6 0a3 3 0 00-3 3c0 1.611 1.26 4 3 4s3-2.389 3-4a3 3 0 00-3-3z" data-color="color-2"></path></g></svg>
+<span class="menuitem__text">Sign In / Register</span>
+</span></a>
+</li>
+
+              </ul>
+            </nav>
+</div>
+        </header>
+
+        <div id="content" role="main">
+          <div class="inner">
+            
+            <div class="layout layout-top">
+<!--The following is an improvement to the shopping cart-->
+	<style>
+		#websearch_multiselect_buttonaddtocart {
+			background:#3E8800;
+			color: white !important;
+			font-size: 2em !important;
+			position: relative;
+			left: 40%;
+		}
+		#websearch_multiselect_buttonclear {
+			background:#3E8800;
+			color: white !important;
+			font-size: 2em !important;
+			position: relative;
+			left: 40%;
+		}
+		#websearch_multiselect_list {
+			font-size:1.5em !important;
+                        text-align: center;
+		}
+
+		#websearch_multiselect_group {
+
+			background:#E1EBD7 !important;
+		}
+	</style>
+<div class="clear"></div>
+</div>
+
+            
+            
+            
+            <form action="https://rectrac.cstx.gov/webtrac/web/search.html" class="form validate arwebsearch" id="arwebsearch" method="GET">
+<input id="action" type="hidden" name="Action" value="Start" />
+<input id="subaction" type="hidden" name="SubAction" value="" />
+<input id="_csrf_token" type="hidden" name="_csrf_token" value="bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72" />
+<div id="tab--4" class="twocolumn-layout">
+<div class="group twocolumn-layout__left filter-group collapse hidden search-criteria-area"  id="arwebsearch_nextgengroup1" >
+<h2 class="header group__header"><span class="header__text">Search Filters <span class="filter-group-count">3</span></span></h2>
+<div class="rect group__inner">
+<div class="newline search-criteria newline-fillin" >
+<label class="label" for="keyword" ><span>Keyword Search</span></label>
+<div class="field-wrap fillin-field-wrap">
+<input class="fillin character"      data-rule-maxlength="250"  id="keyword" maxlength="250" name="keyword"    type="text" value="" />
+</div><div class="clear"></div>
+</div>
+<div class="newline search-criteria newline-combobox" >
+<label class="label" for="category" ><span>Category</span></label>
+<div class="field-wrap combobox-field-wrap">
+<select class="combobox character"  data-combobox-display-style="list" data-combobox-empty-label="All Categories" data-component="combobox"    data-rule-selected="true"  id="category" multiple="multiple" name="category"  size="7" ><option value="ADULT-TEEN">Adult &amp; Teen</option>
+<option value="AQU">Aquatics</option>
+<option value="EVENTS" selected="selected">Events</option>
+<option value="SENIORS">Seniors</option>
+<option value="YOUTH">Youth</option>
+</select>
+</div><div class="clear"></div>
+</div>
+<div class="newline search-criteria search-criteria--state-collapsed newline-combobox" >
+<label class="label" for="age" ><span>Age</span></label>
+<div class="field-wrap combobox-field-wrap">
+<select class="combobox character"  data-combobox-display-style="list" data-combobox-empty-label="All Ages" data-component="combobox"    data-rule-selected="true"  id="age" multiple="multiple" name="age"  size="7" ><option value="0.25">3 Months</option>
+<option value="0.5">6 Months</option>
+<option value="0.75">9 Months</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="Adult">Adult</option>
+<option value="Senior">Senior</option>
+</select>
+</div><div class="clear"></div>
+</div>
+<input id="beginmonth" type="hidden" name="beginmonth" value="" />
+<input id="endmonth" type="hidden" name="endmonth" value="" />
+<input id="grade" type="hidden" name="grade" value="" />
+<input id="keywordoption" type="hidden" name="keywordoption" value="Match One" />
+<input id="instructor" type="hidden" name="instructor" value="" />
+<input id="daysofweek" type="hidden" name="daysofweek" value="" />
+<input id="dayoption" type="hidden" name="dayoption" value="All" />
+<input id="spotsavailable" type="hidden" name="spotsavailable" value="" />
+<input id="bydayonly" type="hidden" name="bydayonly" value="No" />
+<input id="beginyear" type="hidden" name="beginyear" value="" />
+<div class="newline search-criteria search-criteria--state-collapsed newline-combobox" >
+<label class="label" for="type" ><span>Type</span></label>
+<div class="field-wrap combobox-field-wrap">
+<select class="combobox instant-overlay character"  data-combobox-display-style="list" data-combobox-empty-label="All Types" data-component="combobox"  data-select-field="#subtype" data-select-url="https://rectrac.cstx.gov/webtrac/web/search.html?action=getsubtypes&amp;type=activity type&amp;_csrf_token=bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72"  data-rule-selected="true"  id="type" multiple="multiple" name="type"  size="7" ><option value="ADULTTEEN">Adult &amp; Teen</option>
+<option value="SENIOR">Senior (55+)</option>
+<option value="SWIMLESSONS">Swim Lessons</option>
+<option value="YOUTH">Youth (0-17)</option>
+</select>
+</div><div class="clear"></div>
+</div>
+<div class="newline search-criteria search-criteria--state-collapsed newline-combobox" >
+<label class="label" for="location" ><span>Location</span></label>
+<div class="field-wrap combobox-field-wrap">
+<select class="combobox character"  data-combobox-display-style="list" data-combobox-empty-label="All Locations" data-component="combobox"    data-rule-selected="true"  id="location" multiple="multiple" name="location"  size="7" ><option value="Adamson Lagoon ">Adamson Lagoon</option>
+<option value="Bee Creek">Bee Creek Park</option>
+<option value="LEMPK">Lemontree Park</option>
+<option value="LJRLI">Larrry J Ringer Lib.</option>
+<option value="LRC">Lincoln Recreation Center</option>
+<option value="Central">Central Park</option>
+<option value="Bachmann">Brian Bachmann Community Park</option>
+<option value="SWCC">Southwood Community Center</option>
+<option value="Cindy Hallaran">Cindy Hallaran Pool</option>
+<option value="Veterans">Veterans Park</option>
+<option value="W A Tarrow">W.A. Tarrow Park</option>
+<option value="Wolf Pen Creek">Wolf Pen Creek Park</option>
+<option value="MCC">Meyer Senior &amp; Community Center</option>
+<option value="JBFR Start Line">Jingle Bell Fun Run Start Line</option>
+</select>
+</div><div class="clear"></div>
+</div>
+<input id="season" type="hidden" name="season" value="" />
+<input id="gender" type="hidden" name="gender" value="" />
+<div class="newline search-criteria search-criteria--state-collapsed newline-fillin" >
+<label class="label" for="primarycode" ><span>Activity Number</span></label>
+<div class="field-wrap fillin-field-wrap">
+<input class="fillin character"      data-rule-maxlength="100"  id="primarycode" maxlength="100" name="primarycode"    type="text" value="" />
+</div><div class="clear"></div>
+</div>
+<button class="button instant-overlay primary filter-group-search"   type="submit" value="yes"  id="arwebsearch_buttonsearch" name="arwebsearch_buttonsearch"  style="color:blue;;" type="text" value="">
+Show Activities
+</button>
+<button class="button tertiary filter-group-reset"   type="submit" value="yes"  id="arwebsearch_buttonreset" name="arwebsearch_buttonreset"   type="text" value="">
+Clear Search
+</button>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="container twocolumn-layout__right main-content-area" id="arwebsearch_nextgengroup2" >
+<h1 class="header page-header twocolumn-layout__title" id="arwebsearch_nextgenheader" >Activity Search</h1>
+<div class="group"  id="arwebsearch_nextgenresultsgroup" >
+<h2 class="header group__header"><span class="header__text">Search Results</span><span class="header__subtext">Showing results 1-10 of 10</span></h2>
+<div class="rect group__inner">
+<div class="group group__controls group--state-container"  id="arwebsearch_nextgencontrolsgroup" >
+<div class="newline result-criteria newline-combobox" >
+<label class="label" for="display" ><span>Display Option</span></label>
+<div class="field-wrap combobox-field-wrap">
+<select class="combobox character"  data-combobox-display-style="text"  data-component="combobox" data-onchange="true"   data-rule-selected="true"  id="display" name="display"   ><option value="Listing">Listing</option>
+<option value="Detail" selected="selected">Detail</option>
+<option value="Calendar">Calendar</option>
+</select>
+</div><div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="result-content" data-caption="Lick Creek Park In The Dark">
+<div class="header result-header">
+<div class="result-header__info">
+<h2>
+<span>Lick Creek Park In The Dark</span> - <em>LCN-41</em>
+</h2>
+<div class="result-header__description">Create fun memories with friends and family without traveling far away. Choose your adventure or join us for favorites, such as a hot dog dinner, nature presentations, s'mores and a night hike. Learn camping basics and discover the nocturnal creatures that call Lick Creek Park home.<br /><br />The family-friendly overnight event begins at 6 p.m. Friday and ends at 7 a.m. Saturday. Campers must bring a tent, supplies, snacks, and drinks. Electricity is not provided, so pack flashlights, tent lanterns, sleeping bags, insect repellent, and folding chairs. Children must be accompanied by an adult (18+), and pets are not allowed. A limited number of spots are available, and registration ends the Wednesday before camp.<br /><br />Schedule of Events<br />6 p.m. • Check-in and campsite set-up<br />6 p.m. • Special nature presentations, activities, s'mores, and games begin<br />7 p.m. • Hot dog dinner<br />7:30 p.m. • Night hikes begin<br />9 p.m. • Special nature presentations and night hikes end<br />9:45 p.m. • S'mores, activities, and games end<br />10 p.m. • Quiet hours begin<br /><br />Registration • Aug. 3-Wednesday before camp</div>
+<div class="result-header__count">2 Sections</div>
+</div>
+<div class="clear"></div>
+</div>
+<table class="table" data-tablecollapse="hide" id="arwebsearch_output_table"  >
+<caption class='sr-only'>Activity Search Results</caption><thead>
+<tr>
+<th style="min-width:32px;">Add To Cart</th>
+<th style="min-width:150px;">Activity</th>
+<th style="min-width:;">Ages</th>
+<th style="min-width:;">Fee (Res/Non-Res)</th>
+<th style="min-width:;">Days</th>
+<th style="min-width:;">Dates</th>
+<th style="min-width:0;">Times</th>
+<th style="min-width:;">Location</th>
+<th style="min-width:135px;">Info</th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button multi-select success instant-overlay cart-button cart-button--state-mutliselect" href="https://rectrac.cstx.gov/webtrac/web/search.html?action=UpdateSelection&Module=AR&ARFMIDList=79072183&FromProgram=search&GlobalSalesArea_ARItemBeginDate=11/06/2026&GlobalSalesArea_ARItemBeginTime=64800&GlobalSalesArea_ARItemEndDate=11/07/2026&GlobalSalesArea_ARItemEndTime=25200" data-text="false" data-icon-primary="ui-icon-plusthick" data-added-icon="ui-icon-minusthick" data-removed-icon="ui-icon-plusthick" data-added-title="Remove From Selection List" data-removed-title="Add To Selection List" data-added-add-class="notice" data-added-remove-class="success" data-removed-add-class="success" data-removed-remove-class="notice" data-tooltip="<div aria-hidden='true'>Add To Selection List</div>" role="button" aria-label="Add To Selection List - Lick Creek Park In The Dark">Add To Selection List</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79072183">Lick Creek Park In The Dark</a></td>
+<td class="label-cell" data-title="Ages"></td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$8.00/$8.00</td>
+<td class="label-cell" data-title="Days">F, Sa</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79072183&option=dates&mode=customdates"><span class="nowrap">11/06/2026</span> -<span class="nowrap">11/07/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap"> 6:00 pm</span> -<span class="nowrap"> 7:00 am</span></td>
+<td class="label-cell" data-title="Location">Lick Creek Park</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79072183" aria-label="Item Details for Lick Creek Park In The Dark">Item Details</a></td>
+</tr>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button multi-select success instant-overlay cart-button cart-button--state-mutliselect" href="https://rectrac.cstx.gov/webtrac/web/search.html?action=UpdateSelection&Module=AR&ARFMIDList=79075919&FromProgram=search&GlobalSalesArea_ARItemBeginDate=11/13/2026&GlobalSalesArea_ARItemBeginTime=64800&GlobalSalesArea_ARItemEndDate=11/14/2026&GlobalSalesArea_ARItemEndTime=25200" data-text="false" data-icon-primary="ui-icon-plusthick" data-added-icon="ui-icon-minusthick" data-removed-icon="ui-icon-plusthick" data-added-title="Remove From Selection List" data-removed-title="Add To Selection List" data-added-add-class="notice" data-added-remove-class="success" data-removed-add-class="success" data-removed-remove-class="notice" data-tooltip="<div aria-hidden='true'>Add To Selection List</div>" role="button" aria-label="Add To Selection List - Lick Creek Park In The Dark">Add To Selection List</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79075919">Lick Creek Park In The Dark</a></td>
+<td class="label-cell" data-title="Ages"></td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$8.00/$8.00</td>
+<td class="label-cell" data-title="Days">F, Sa</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79075919&option=dates&mode=customdates"><span class="nowrap">11/13/2026</span> -<span class="nowrap">11/14/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap"> 6:00 pm</span> -<span class="nowrap"> 7:00 am</span></td>
+<td class="label-cell" data-title="Location">Lick Creek Park</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79075919" aria-label="Item Details for Lick Creek Park In The Dark">Item Details</a></td>
+</tr>
+</tbody>
+</table>
+<div class="clear"></div>
+</div>
+<div class="result-content" data-caption="Walk Like an Engineer – Grandparents Day">
+<div class="header result-header">
+<div class="result-header__info">
+<h2>
+<span>Walk Like an Engineer – Grandparents Day</span> - <em>LCN-96</em>
+</h2>
+<div class="result-header__description">Celebrate Grandparents Day with a hands-on class where grandparents and grandchildren explore how engineers design solutions inspired by nature. Walk with bio-inspired engineering experts from Texas A&M and nature educators as you learn about engineering design through thinking activities and hands-on exploration. The class takes place on paved surfaces and is ADA accessible for guests with mobility needs. Dress for the outdoors, wear closed-toed shoes and bring water. <br /><br />Registration • Aug. 3-Sept. 12 at 5 p.m.</div>
+<div class="result-header__count">1 Sections</div>
+</div>
+<div class="clear"></div>
+</div>
+<table class="table" data-tablecollapse="hide" id="arwebsearch_output_table"  >
+<caption class='sr-only'>Activity Search Results</caption><thead>
+<tr>
+<th style="min-width:32px;">Add To Cart</th>
+<th style="min-width:150px;">Activity</th>
+<th style="min-width:;">Ages</th>
+<th style="min-width:;">Fee (Res/Non-Res)</th>
+<th style="min-width:;">Days</th>
+<th style="min-width:;">Dates</th>
+<th style="min-width:0;">Times</th>
+<th style="min-width:;">Location</th>
+<th style="min-width:135px;">Info</th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button error cart-button cart-button--state-icon" href="#" data-text="false" data-icon-primary="ui-icon-close" data-tooltip="&lt;div class=&quot;rule-tooltip&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;Transaction date/time after 08/03/2026 @ 12:00am and before 09/13/2026 @  2:30pm. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" role="button" aria-label="Walk Like an Engineer – Grandparents Day is unavailable">Unavailable</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79078656">Walk Like an Engineer – Grandparents Day</a></td>
+<td class="label-cell" data-title="Ages">1-99</td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$5.00/$6.00</td>
+<td class="label-cell" data-title="Days">Su</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79078656&option=dates&mode=customdates"><span class="nowrap">09/13/2026</span> -<span class="nowrap">09/13/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap"> 8:30 am</span> -<span class="nowrap">10:30 am</span></td>
+<td class="label-cell" data-title="Location">Lick Creek Park</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79078656" aria-label="Item Details for Walk Like an Engineer – Grandparents Day">Item Details</a></td>
+</tr>
+</tbody>
+</table>
+<div class="clear"></div>
+</div>
+<div class="result-content" data-caption="Jingle Bell Fun Run">
+<div class="header result-header">
+<div class="result-header__info">
+<h2>
+<span>Jingle Bell Fun Run</span> - <em>PKS-01</em>
+</h2>
+<div class="result-header__description">For 36 years, the Jingle Bell Fun Run has been a fun, lighthearted way to kick off the holiday season in College Station. This year, College Station Parks and Recreation is putting a merry twist on the event with a new 1.5-mile route.<br /><br />The untimed run takes place Saturday, Dec. 5, and runs along the parade route ahead of the College Station Christmas Parade, which begins at 4 p.m. Line-up starts at 3 p.m. at 810 Holleman Drive East, and the run begins at 3:30 p.m. The course ends at the entrance to Christmas in the Park at 1000 Krenek Tap Road, where the evening’s festivities continue from 6 to 10 p.m.<br /><br />The early entry fee is $15 and includes a shirt and jingle bells if you register by Nov. 17. The cost is $20 during the Nov. 18-30 late registration period. Jingle bells are included, but you aren’t guaranteed a shirt. Participants 3 and under are free. Dogs are not allowed. Packet pickup is 8 a.m. to 5 p.m. Dec. 2-3 and 8 a.m. to 6 p.m. Dec. 4 at the Stephen C. Central Park office.<br /><br />Race day parking is available at Post Oak Mall (old Macy’s side), where shuttles will run from 3 p.m. to midnight between the mall and Central Park.<br /><br />Registration: Aug. 3-Nov. 29</div>
+<div class="result-header__count">1 Sections</div>
+</div>
+<div class="clear"></div>
+</div>
+<table class="table" data-tablecollapse="hide" id="arwebsearch_output_table"  >
+<caption class='sr-only'>Activity Search Results</caption><thead>
+<tr>
+<th style="min-width:32px;">Add To Cart</th>
+<th style="min-width:150px;">Activity</th>
+<th style="min-width:;">Ages</th>
+<th style="min-width:;">Fee (Res/Non-Res)</th>
+<th style="min-width:;">Days</th>
+<th style="min-width:;">Dates</th>
+<th style="min-width:0;">Times</th>
+<th style="min-width:;">Location</th>
+<th style="min-width:135px;">Info</th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button multi-select success instant-overlay cart-button cart-button--state-mutliselect" href="https://rectrac.cstx.gov/webtrac/web/search.html?action=UpdateSelection&Module=AR&ARFMIDList=83711539&FromProgram=search&GlobalSalesArea_ARItemBeginDate=12/05/2026&GlobalSalesArea_ARItemBeginTime=54000&GlobalSalesArea_ARItemEndDate=12/05/2026&GlobalSalesArea_ARItemEndTime=64800" data-text="false" data-icon-primary="ui-icon-plusthick" data-added-icon="ui-icon-minusthick" data-removed-icon="ui-icon-plusthick" data-added-title="Remove From Selection List" data-removed-title="Add To Selection List" data-added-add-class="notice" data-added-remove-class="success" data-removed-add-class="success" data-removed-remove-class="notice" data-tooltip="<div aria-hidden='true'>Add To Selection List</div>" role="button" aria-label="Add To Selection List - Jingle Bell Fun Run">Add To Selection List</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=83711539">Jingle Bell Fun Run</a></td>
+<td class="label-cell" data-title="Ages"></td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$15.00/$15.00</td>
+<td class="label-cell" data-title="Days">Sa</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=83711539&option=dates&mode=customdates"><span class="nowrap">12/05/2026</span> -<span class="nowrap">12/05/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap"> 3:00 pm</span> -<span class="nowrap"> 6:00 pm</span></td>
+<td class="label-cell" data-title="Location">Central Park</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=83711539" aria-label="Item Details for Jingle Bell Fun Run">Item Details</a></td>
+</tr>
+</tbody>
+</table>
+<div class="clear"></div>
+</div>
+<div class="result-content" data-caption="Exploring History Luncheon">
+<div class="header result-header">
+<div class="result-header__info">
+<h2>
+<span>Exploring History Luncheon</span> - <em>PKS-17</em>
+</h2>
+<div class="result-header__description">Enjoy lunch while learning about our community’s history. Lectures are presented in partnership with the College Station Historic Preservation Committee. Attendance is free, and lunch is $10 for residents or $12 for non-residents. A limited number of meals will be available at the door for $12.<br /><br />Schedule Aug. 19 • “Aggieland Through Time: Mapping the Campus Past” by Ian Muise and Audrey Lloyd, historian and sesquicentennial archival research specialist at Cushing Memorial Library and Archives.<br /><br />Sept. 16 • “And Then There Were Maggie's” by Linda Harvell, Chairperson of the Historic Preservation Committee and former City Councilwoman <br /><br />Oct. 21 • “Millican Massacre of 1868” by Amy Earhart, associate professor of English and Africana studies faculty.<br /><br />Nov. 18 • “College Station: A City Founded with Parks” by Steve Beachy, former College Station Parks and Recreation director, and Dr. John Crompton, Texas A&M professor in the Department of Recreation, Park and Tourism Sciences.<br /><br />Dec. 9 • “Sweet Strings on the Brazos” by Nicki George, musician with Sweet Strings on the Brazos. <br /><br />Registration ends the Friday before each luncheon.</div>
+<div class="result-header__count">5 Sections</div>
+</div>
+<div class="clear"></div>
+</div>
+<table class="table" data-tablecollapse="hide" id="arwebsearch_output_table"  >
+<caption class='sr-only'>Activity Search Results</caption><thead>
+<tr>
+<th style="min-width:32px;">Add To Cart</th>
+<th style="min-width:150px;">Activity</th>
+<th style="min-width:;">Ages</th>
+<th style="min-width:;">Fee (Res/Non-Res)</th>
+<th style="min-width:;">Days</th>
+<th style="min-width:;">Dates</th>
+<th style="min-width:0;">Times</th>
+<th style="min-width:;">Location</th>
+<th style="min-width:135px;">Info</th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button error cart-button cart-button--state-icon" href="#" data-text="false" data-icon-primary="ui-icon-close" data-tooltip="&lt;div class=&quot;rule-tooltip&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;Transaction date/time after 08/01/2026 @ 12:00am and before 08/14/2026 @  5:00pm. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" role="button" aria-label="Exploring History Luncheon - August is unavailable">Unavailable</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79487955">Exploring History Luncheon - August</a></td>
+<td class="label-cell" data-title="Ages">1-99</td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$10.00/$12.00</td>
+<td class="label-cell" data-title="Days">W</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79487955&option=dates&mode=customdates"><span class="nowrap">08/19/2026</span> -<span class="nowrap">08/19/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap">11:30 am</span> -<span class="nowrap"> 1:00 pm</span></td>
+<td class="label-cell" data-title="Location">Larrry J Ringer Lib.</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79487955" aria-label="Item Details for Exploring History Luncheon - August">Item Details</a></td>
+</tr>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button error cart-button cart-button--state-icon" href="#" data-text="false" data-icon-primary="ui-icon-close" data-tooltip="&lt;div class=&quot;rule-tooltip&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;Transaction date/time after 08/01/2026 @ 12:00am and before 09/11/2026 @  5:00pm. &lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" role="button" aria-label="Exploring History Luncheon - September is unavailable">Unavailable</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79488972">Exploring History Luncheon - September</a></td>
+<td class="label-cell" data-title="Ages">1-99</td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$10.00/$12.00</td>
+<td class="label-cell" data-title="Days">W</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79488972&option=dates&mode=customdates"><span class="nowrap">09/16/2026</span> -<span class="nowrap">09/16/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap">11:30 am</span> -<span class="nowrap"> 1:00 pm</span></td>
+<td class="label-cell" data-title="Location">Larrry J Ringer Lib.</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79488972" aria-label="Item Details for Exploring History Luncheon - September">Item Details</a></td>
+</tr>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button multi-select success instant-overlay cart-button cart-button--state-mutliselect" href="https://rectrac.cstx.gov/webtrac/web/search.html?action=UpdateSelection&Module=AR&ARFMIDList=79489622&FromProgram=search&GlobalSalesArea_ARItemBeginDate=10/21/2026&GlobalSalesArea_ARItemBeginTime=41400&GlobalSalesArea_ARItemEndDate=10/21/2026&GlobalSalesArea_ARItemEndTime=46800" data-text="false" data-icon-primary="ui-icon-plusthick" data-added-icon="ui-icon-minusthick" data-removed-icon="ui-icon-plusthick" data-added-title="Remove From Selection List" data-removed-title="Add To Selection List" data-added-add-class="notice" data-added-remove-class="success" data-removed-add-class="success" data-removed-remove-class="notice" data-tooltip="<div aria-hidden='true'>Add To Selection List</div>" role="button" aria-label="Add To Selection List - Exploring History Luncheon - October">Add To Selection List</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79489622">Exploring History Luncheon - October</a></td>
+<td class="label-cell" data-title="Ages">1-99</td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$10.00/$12.00</td>
+<td class="label-cell" data-title="Days">W</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79489622&option=dates&mode=customdates"><span class="nowrap">10/21/2026</span> -<span class="nowrap">10/21/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap">11:30 am</span> -<span class="nowrap"> 1:00 pm</span></td>
+<td class="label-cell" data-title="Location">Larrry J Ringer Lib.</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79489622" aria-label="Item Details for Exploring History Luncheon - October">Item Details</a></td>
+</tr>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button multi-select success instant-overlay cart-button cart-button--state-mutliselect" href="https://rectrac.cstx.gov/webtrac/web/search.html?action=UpdateSelection&Module=AR&ARFMIDList=79490033&FromProgram=search&GlobalSalesArea_ARItemBeginDate=11/18/2026&GlobalSalesArea_ARItemBeginTime=41400&GlobalSalesArea_ARItemEndDate=11/18/2026&GlobalSalesArea_ARItemEndTime=46800" data-text="false" data-icon-primary="ui-icon-plusthick" data-added-icon="ui-icon-minusthick" data-removed-icon="ui-icon-plusthick" data-added-title="Remove From Selection List" data-removed-title="Add To Selection List" data-added-add-class="notice" data-added-remove-class="success" data-removed-add-class="success" data-removed-remove-class="notice" data-tooltip="<div aria-hidden='true'>Add To Selection List</div>" role="button" aria-label="Add To Selection List - Exploring History Luncheon - November">Add To Selection List</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79490033">Exploring History Luncheon - November</a></td>
+<td class="label-cell" data-title="Ages">1-99</td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$10.00/$12.00</td>
+<td class="label-cell" data-title="Days">W</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79490033&option=dates&mode=customdates"><span class="nowrap">11/18/2026</span> -<span class="nowrap">11/18/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap">11:30 am</span> -<span class="nowrap"> 1:00 pm</span></td>
+<td class="label-cell" data-title="Location">Larrry J Ringer Lib.</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79490033" aria-label="Item Details for Exploring History Luncheon - November">Item Details</a></td>
+</tr>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button multi-select success instant-overlay cart-button cart-button--state-mutliselect" href="https://rectrac.cstx.gov/webtrac/web/search.html?action=UpdateSelection&Module=AR&ARFMIDList=79490482&FromProgram=search&GlobalSalesArea_ARItemBeginDate=12/09/2026&GlobalSalesArea_ARItemBeginTime=41400&GlobalSalesArea_ARItemEndDate=12/09/2026&GlobalSalesArea_ARItemEndTime=46800" data-text="false" data-icon-primary="ui-icon-plusthick" data-added-icon="ui-icon-minusthick" data-removed-icon="ui-icon-plusthick" data-added-title="Remove From Selection List" data-removed-title="Add To Selection List" data-added-add-class="notice" data-added-remove-class="success" data-removed-add-class="success" data-removed-remove-class="notice" data-tooltip="<div aria-hidden='true'>Add To Selection List</div>" role="button" aria-label="Add To Selection List - Exploring History Luncheon - December">Add To Selection List</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79490482">Exploring History Luncheon - December</a></td>
+<td class="label-cell" data-title="Ages">1-99</td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$10.00/$12.00</td>
+<td class="label-cell" data-title="Days">W</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79490482&option=dates&mode=customdates"><span class="nowrap">12/09/2026</span> -<span class="nowrap">12/09/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap">11:30 am</span> -<span class="nowrap"> 1:00 pm</span></td>
+<td class="label-cell" data-title="Location">Larrry J Ringer Lib.</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79490482" aria-label="Item Details for Exploring History Luncheon - December">Item Details</a></td>
+</tr>
+</tbody>
+</table>
+<div class="clear"></div>
+</div>
+<div class="result-content" data-caption="Movie in the Park: Jurassic Park (PG-13)">
+<div class="header result-header">
+<div class="result-header__info">
+<h2>
+<span>Movie in the Park: Jurassic Park (PG-13)</span> - <em>PKS-31</em>
+</h2>
+<div class="result-header__description">Bring blankets, chairs and picnic baskets and enjoy an interactive outdoor movie night featuring Jurassic Park (PG-13) on a 32-foot inflatable screen. The evening includes a costume contest, trivia, food trucks and additional on-site activities. Free popcorn will be available while supplies last.<br /> <br />Dress as favorite characters or dinosaurs from the franchise and be ready for movie-themed trivia. Pre-registration is required. Prizes will be awarded for trivia winners and costume contest categories, including ages 0-12, ages 13 and up and family/group.<br /><br />Parking is available at Post Oak Mall, with accessible parking near Colgate Drive. Pets are not allowed. Coolers must be 48 quarts or smaller. Glass containers and kegs are not allowed.<br /><br />Schedule of Events<br />5 p.m. • Gates open and activities begin<br />6 p.m. • Costume contest<br />7 p.m. • Trivia<br />7:30 p.m. • Movie begins<br /><br />Registration • Aug. 3-Nov. 5</div>
+<div class="result-header__count">1 Sections</div>
+</div>
+<div class="clear"></div>
+</div>
+<table class="table" data-tablecollapse="hide" id="arwebsearch_output_table"  >
+<caption class='sr-only'>Activity Search Results</caption><thead>
+<tr>
+<th style="min-width:32px;">Add To Cart</th>
+<th style="min-width:150px;">Activity</th>
+<th style="min-width:;">Ages</th>
+<th style="min-width:;">Fee (Res/Non-Res)</th>
+<th style="min-width:;">Days</th>
+<th style="min-width:;">Dates</th>
+<th style="min-width:0;">Times</th>
+<th style="min-width:;">Location</th>
+<th style="min-width:135px;">Info</th>
+</tr>
+</thead>
+<tbody>
+<tr >
+<td class="button-cell button-cell--cart" data-title="Add To Cart"><a class="button multi-select success instant-overlay cart-button cart-button--state-mutliselect" href="https://rectrac.cstx.gov/webtrac/web/search.html?action=UpdateSelection&Module=AR&ARFMIDList=79969881&FromProgram=search&GlobalSalesArea_ARItemBeginDate=11/06/2026&GlobalSalesArea_ARItemBeginTime=61200&GlobalSalesArea_ARItemEndDate=11/06/2026&GlobalSalesArea_ARItemEndTime=79200" data-text="false" data-icon-primary="ui-icon-plusthick" data-added-icon="ui-icon-minusthick" data-removed-icon="ui-icon-plusthick" data-added-title="Remove From Selection List" data-removed-title="Add To Selection List" data-added-add-class="notice" data-added-remove-class="success" data-removed-add-class="success" data-removed-remove-class="notice" data-tooltip="<div aria-hidden='true'>Add To Selection List</div>" role="button" aria-label="Add To Selection List - Movie in the Park: Jurassic Park (PG-13)">Add To Selection List</a></td>
+<td class="label-cell" data-title="Activity"><a href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79969881">Movie in the Park: Jurassic Park (PG-13)</a></td>
+<td class="label-cell" data-title="Ages"></td>
+<td class="label-cell" data-title="Fee (Res/Non-Res)">$0.00/$0.00</td>
+<td class="label-cell" data-title="Days">F</td>
+<td class="label-cell" data-title="Dates"><a class="popup-link" role="button" aria-haspopup="dialog" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79969881&option=dates&mode=customdates"><span class="nowrap">11/06/2026</span> -<span class="nowrap">11/06/2026</span></a></td>
+<td class="label-cell" data-title="Times"><span class="nowrap"> 5:00 pm</span> -<span class="nowrap">10:00 pm</span></td>
+<td class="label-cell" data-title="Location">Wolf Pen Creek Park</td>
+<td class="label-cell button-cell" data-title="Info"><a class=" button tertiary" data-icon-primary="ui-icon-info" data-text="false" href="https://rectrac.cstx.gov/webtrac/web/iteminfo.html?Module=AR&FMID=79969881" aria-label="Item Details for Movie in the Park: Jurassic Park (PG-13)">Item Details</a></td>
+</tr>
+</tbody>
+</table>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div class="group" data-Module="AR" id="websearch_multiselect_group" >
+<div class="rect group__inner">
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<input id="module" type="hidden" name="module" value="AR" />
+<input id="multiselectlist_value" type="hidden" name="multiselectlist_value" value="" />
+<div class="clear"></div>
+</form>
+
+            
+          </div>
+        </div>
+
+        <footer id="footer">
+<div id="footer-container">
+                      <div id="footer-top">
+              <div id="footer-top-left"></div>
+              <div id="footer-top-right"><p>Follow us on Social Media</p><div data-component="social-links" data-facebook-link="https://www.facebook.com/CSTXparks/" data-twitter-link="https://x.com/cityofcs?mx=2" data-linkedin-link="https://www.linkedin.com/company/city-of-college-station/" data-youtube-link="https://www.youtube.com/user/cityofcollegestation" data-instagram-link="https://www.instagram.com/cstxparks/" ></div></div>
+            </div>
+            <div id="footer-links">
+<a href="https://rectrac.cstx.gov/webtrac/web/splash.html?ccode=PRIVACYPOLICY&type=privacy&_csrf_token=bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72">Privacy Statement</a>
+</div>
+
+          </div>
+<div id="vsi-footer">
+            
+
+            <div id="browsers"><p><a href="https://rectrac.cstx.gov/webtrac/web/splash.html?type=browsers">Supported Browsers</a></p></div>
+            <div id="copyright">
+                <p>&copy;2026&nbsp;<a href="https://www.vermontsystems.com" data-tooltip="&lt;div aria-hidden=&quot;true&quot;&gt;Vermont Systems, Leaders in Recreation and Parks Software&lt;/div&gt;" aria-label="Vermont Systems, Leaders in Recreation and Parks Software" target="_blank">Vermont Systems, Inc.</a>&nbsp;<em>3.1.11.09.01</em></p>
+            </div>
+            
+          </div>
+                    </footer>
+
+
+      </div>
+        
+    </div>
+
+     <script language="JavaScript" type="text/javascript">
+      var __webpack_public_path__ = "https://rectrac.cstx.gov/webtrac/static/nextgen/dist/";
+      var __application_api_path__ = "https://rectrac.cstx.gov/webtrac/web/";
+      var __application_static_path__ = "https://rectrac.cstx.gov/webtrac/static/nextgen/dist/";
+      var __application_session__ = "4697c73e35f026ba2ab07335a8d3d4512d24e145199ec25909075a55fa1c7137c3816521b2db726ddb5f0e3c910f9bbd96b78c654f33eff9eea7b6fa32129281";
+      var __application_version__ = "3.1.11.09.01";
+      var __application_authenticated__ = false;
+      var __application_legacy_base__ = "https://rectrac.cstx.gov/webtrac/web/";
+      var __application_legacy_images__ = "https://rectrac.cstx.gov/webtrac/static/images/";
+      var __application_legacy_scripts__ = "https://rectrac.cstx.gov/webtrac/static/js/";
+      var __application_legacy_styles__ = "https://rectrac.cstx.gov/webtrac/static/css/";
+      var __application_legacy_date_format__ = "mm/dd/yyyy";
+      var __application_legacy_time_format__ = "hh:mm am";
+      var __application_legacy_phone_format__ = "(999)999-9999";
+      var __application_csrf_token__  = "bo6E126V6K6S3I2X1S3G2R5L5M426G501Y5J4E6L471B6S4F5C6D085M4T5X681D625T6F520L5F4L58501G004K6K4F005I6D556902644D6D681E5O4U53586O6R4G72";
+      var __application_webtrac_app__  = false;
+    </script>
+        <script language="JavaScript" type="text/javascript" src="https://rectrac.cstx.gov/webtrac/static/js/app.js?v=3.1.11.09.01"></script>
+    <script language="JavaScript" type="text/javascript" src="https://rectrac.cstx.gov/webtrac/static/nextgen/dist/app.js?v=3.1.11.09.01"></script >
+    <span style="display:none;"> Request took 0.31 seconds to finish </span>
+
+       </body>
+</html>

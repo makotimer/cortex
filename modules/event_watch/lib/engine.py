@@ -313,6 +313,8 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.bvso import BvsoScraper
     from .scrapers.challenge import ChallengeScraper
     from .scrapers.cityspark import CitySparkScraper
+    from .scrapers.cstxcal import CstxCalScraper
+    from .scrapers.cstxparks import CstxParksScraper
     from .scrapers.destbryan import DestBryanScraper
     from .scrapers.homedepot import HomeDepotScraper
     from .scrapers.hyperbole import HyperboleScraper
@@ -331,6 +333,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.ttc import TtcScraper
     from .scrapers.visitcstx import VisitCstxScraper
     from .scrapers.wonderfulwords import WonderfulWordsScraper
+    from .scrapers.youthcamps import YouthCampsScraper
 
     registry = {
         "tockify": TockifyScraper,
@@ -338,6 +341,9 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "kbtx": KbtxScraper,
         "kbtxdeals": KbtxDealsScraper,
         "cityspark": CitySparkScraper,
+        "cstxcal": CstxCalScraper,
+        "cstxparks": CstxParksScraper,
+        "youthcamps": YouthCampsScraper,
         "tamu": TamuScraper,
         "tamumusic": TamuMusicScraper,
         "bryantx": BryanTxScraper,

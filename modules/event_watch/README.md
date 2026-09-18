@@ -31,13 +31,16 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `lowes` | Lowe's Kids Club | run default (270d) | `/workshopdata` JSON; CS store 3032; VPN |
 | `homedepot` | Home Depot Kids Workshop | run default (270d) | first Saturday + Canada kit names; CS #6559; VPN |
 | `americangi` | Museum of the American G.I. | run default (270d) | TEC REST; photo view is a shell; direct |
+| `cstxparks` | College Station Parks & Rec (RecTrac Events) | run default (270d) | WebTrac HTML; Events category only |
+| `cstxcal` | City of College Station (Timely) | run default (270d) | Public Type JSON; meetings in; office-closure Notices out |
+| `youthcamps` | TAMU Youth Camps (Localist) | run default (270d) | `/api/2/events`; BCS only; campus pins |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
 
 ## Status
 
-**Live.** All 26 kinds are scheduled in `local/config.json` (gitignored — the
+**Live.** All 29 kinds are scheduled in `local/config.json` (gitignored — the
 entries below are the record of what is there). `vpn-cycle-events` fires at
 03:25 on the same days, ahead of the 03:40 first scrape.
 
@@ -69,6 +72,9 @@ entries below are the record of what is there). `vpn-cycle-events` fires at
 | `event-watch-pwat` | `pwat` | Tue/Fri 09:20 | `rotate_vpn_per_run: false` |
 | `event-watch-sewmuchclass` | `sewmuchclass` | Tue/Fri 09:35 | `proxy_url: ""` |
 | `event-watch-thepalace` | `thepalace` | Tue/Fri 09:50 | `rotate_vpn_per_run: false` |
+| `event-watch-cstxparks` | `cstxparks` | Tue/Fri 10:05 | `rotate_vpn_per_run: false` |
+| `event-watch-cstxcal` | `cstxcal` | Tue/Fri 10:20 | `rotate_vpn_per_run: false` |
+| `event-watch-youthcamps` | `youthcamps` | Tue/Fri 10:35 | `rotate_vpn_per_run: false` |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -83,7 +89,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `kbtxdeals`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `sewmuchclass`, `thepalace`, `lowes`, `homedepot` and `americangi` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `sewmuchclass`, `thepalace`, `lowes`, `homedepot`, `americangi`, `cstxparks`, `cstxcal` and `youthcamps` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -96,7 +102,7 @@ Window length and schedule are deliberately unscoped by the design (§3, §11.3)
 
 ### 2026-08-30 notes
 
-Schedule moved **Wed/Sun → Tue/Fri**. All 26 kinds are now jobs (the previous 14
+Schedule moved **Wed/Sun → Tue/Fri**. All kinds are now jobs (the previous 14
 opt-ins were added on the same 15-minute grid after 06:20). `vpn-cycle-events`
 moved with them (Tue/Fri 03:25). Live `local/config.json` is gitignored; the
 table above is the record.
@@ -470,6 +476,58 @@ send `is_free`. Topics: `history`, plus `crafts` / `community`
 from the title. Living History School Day is `field_trip`.
 `americangi` is not in `DEFAULT_KINDS`. Pin it; run direct.
 
+## College Station Parks & Rec (RecTrac)
+
+Vermont Systems WebTrac at `rectrac.cstx.gov`. Fetch
+`/webtrac/web/search.html?module=AR&category=Events` (Detail view).
+Session IDs and CSRF tokens are not part of the URL. Events
+category only — leagues, aquatics and youth classes stay out.
+
+Each activity code (`LCN-41`, `PKS-17`) is one series; each FMID
+row is one occurrence. Times come from `ARItemBeginTime` seconds
+when the cart link has them, otherwise the 12-hour display.
+Overnight spans stay overnight. Sold-out / Unavailable rows still
+publish. `$0.00/$0.00` is `is_free`. Venues are an editorial table
+keyed on RecTrac's location cell (including `Larrry J Ringer Lib.`).
+Unmapped locations reject loudly. `cstxparks` is not in
+`DEFAULT_KINDS`. Pin it.
+
+## City of College Station (Timely)
+
+CivicPlus page `www.cstx.gov/calendar` embeds Timely
+`events.timely.fun/yl7pe679`. Fetch
+`timelyapp.time.ly/api/calendars/54735353/events` with the public
+widget `X-Api-Key` and `filter_groups_659989886=677656162` (Type=
+Public, already on the city's default embed). Clean List is a view.
+One detail GET per event id fills venue street/city/ZIP; list rows
+do not carry them.
+
+Event id is the series; `instance` (local `YYYYMMDDHHMMSS`) becomes
+Chicago start millis so recurring nights (Christmas lights) stay
+distinct. Meetings stay (same as `bryantx`). Category Notice is
+city-office closures with no venue and is dropped. Cancelled rows
+are dropped. `Free` without `Paid` is `is_free`. Cross-source
+overlap with RecTrac (`cstxparks`) is the site's job. `cstxcal` is
+not in `DEFAULT_KINDS`. Pin it.
+
+## TAMU Youth Camps (Localist)
+
+Aggie Camp Finder at `youthcamps.tamu.edu`. Fetch
+`/api/2/events?start=&days=&pp=100`. One list row is one instance;
+Garden Club repeats the event wrapper. Occurrence tid is start-time
+millis so disappearance reconciliation still works.
+
+**Bryan–College Station only.** Galveston and Glen Rose (Fossil Rim)
+are a quiet drop. `Texas A&M University - College Station`, Kyle
+Field, and the Jack K. Williams Administration Building are pinned
+College Station venues. An unmapped location rejects loudly.
+
+`event_cost` `No Cost` is `is_free` — the boolean `free` field is
+false on free listings. Day Camp / title `camp` → `camp`; STEM →
+`science`; concerts → `music`. Concerts and 150th events also appear
+on `tamu`; downstream duplicate detection owns the overlap.
+`youthcamps` is not in `DEFAULT_KINDS`. Pin it.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -598,6 +656,18 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # Museum of the American G.I. (TEC REST; un-proxied)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=americangi proxy_url= --no-email
+
+# College Station Parks RecTrac (Events category)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=cstxparks --no-email
+
+# City of College Station Timely calendar (Type=Public)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=cstxcal --no-email
+
+# TAMU Youth Camps (Localist)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=youthcamps --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test

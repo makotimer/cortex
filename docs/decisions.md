@@ -109,9 +109,9 @@ restart is exactly what fixes the failure, so that churn is wanted.
 
 ## event_watch
 
-- **All kinds run Tue/Fri, America/Chicago, 03:40–09:50, one kind per job,
+- **All kinds run Tue/Fri, America/Chicago, 03:40–10:35, one kind per job,
   15 min apart, with `vpn-cycle-events` at 03:25 ahead of the grid**
-  (`0338787`, 2026-08-30; `local/config.json` 2026-09-13 has 26 such jobs,
+  (`0338787`, 2026-08-30; `local/config.json` 2026-09-15 has 29 such jobs,
   `rei` disabled).
 - **De-duplication is the scraper's job, not the display's.** TAMU's
   LiveWhale feed emits one multi-day package as several series ids with

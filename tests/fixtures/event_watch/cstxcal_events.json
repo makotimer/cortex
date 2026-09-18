@@ -1,0 +1,1174 @@
+{
+  "captured": "2026-09-14",
+  "calendar_id": 54735353,
+  "pages": [
+    {
+      "data": {
+        "total": 14,
+        "from": 0,
+        "size": 8,
+        "has_prior": false,
+        "has_next": true,
+        "items": [
+          {
+            "id": 78437913,
+            "title": "Exploring History Luncheon: “And Then There Were Maggie's”",
+            "instance": "20260916113000",
+            "start_datetime": "2026-09-16 11:30:00",
+            "end_datetime": "2026-09-16 13:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/reflecting-on-three-decades-with-city-government?instance_id=20260916113000",
+            "custom_url": "reflecting-on-three-decades-with-city-government",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>Take a break for lunch and explore the community’s past at the Exploring History Luncheon, presented in partnership with the Historic Preservation Committee. September’s topic is “And Then There Were Maggie’s,” a look at the first female undergraduate students at Texas A&amp;M University in the 1960s, presented by Linda Harvell, chairperson of the Historic Preservation Committee and former City Councilwoman.</p>\n<p>The luncheon will be held Wednesday, Sept. 16, at 11:30 a.m. at the Larry J. Ringer Library. Attendance is free, with lunch available for $10 for residents and $12 for non-residents. Lunch reservations are required by Sept. 11. A limited number of meals will be available at the door for $12.</p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://rectrac.cstx.gov/webtrac/web/search.html?Action=Start&amp;SubAction=&amp;_csrf_token=&amp;category=EVENTS&amp;=&amp;primarycode=PKS-17\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">Reserve Your Lunch</a></div>\n<p>For more information, contact the Parks and Recreation Administrative Office at 979.764.3486.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677649414,
+                  "title": "History",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677632924,
+                  "title": "Lecture",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616478,
+                  "title": "Food/Drinks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625428,
+                  "title": "Paid",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625429,
+                  "title": "Free",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616464,
+                  "title": "Family Friendly",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677680427,
+                  "title": "Special Event",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677649548,
+                  "title": "Registration Required",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678280911,
+                  "title": "Larry J. Ringer Library",
+                  "item_type": "taxonomy_venue",
+                  "address": "1818 Harvey Mitchell Parkway South",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77845",
+                  "geo_location": "30.5900696,-96.3145078",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 78431965,
+            "title": "Mud Day",
+            "instance": "20260919080000",
+            "start_datetime": "2026-09-19 08:00:00",
+            "end_datetime": "2026-09-19 11:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/mud-day-3?instance_id=20260919080000",
+            "custom_url": "mud-day-3",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p style=\"font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;background-color:#ffffff;\">Get ready to get muddy at Mud Day on Saturday, Sept. 19, from 8-11 a.m. at the Gary Halter Nature Center. This free, all-ages event invites you to explore the science and fun of mud through hands-on activities, games and demonstrations.</p>\n<p style=\"font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;background-color:#ffffff;\">Roll in a mud wallow, try mud archery, discover creatures that live in mud, create mud art, and make mud pies in the mud kitchen.</p>\n<p style=\"font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;background-color:#ffffff;\">Rinse stations will be available, so bring a change of clothes or towels. Parking at the nature center is limited, but additional parking is available at the equestrian lot.</p>\n<p style=\"font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;background-color:#ffffff;\">For more information, call the Gary Halter Nature Center at 979.764.6216.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677616466,
+                  "title": "Youth",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616464,
+                  "title": "Family Friendly",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616476,
+                  "title": "Parks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677617184,
+                  "title": "Nature",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625429,
+                  "title": "Free",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677649413,
+                  "title": "Community Event",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678341145,
+                  "title": "Gary Halter Nature Center",
+                  "item_type": "taxonomy_venue",
+                  "address": "13600 Rock Prairie Road",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77845",
+                  "geo_location": "30.5680729,-96.2112665",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 78435885,
+            "title": "Food Truck Wednesday",
+            "instance": "20260923170000",
+            "start_datetime": "2026-09-23 17:00:00",
+            "end_datetime": "2026-09-23 20:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/food-truck-wednesday-9?instance_id=20260923170000",
+            "custom_url": "food-truck-wednesday-9",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>Enjoy tasty bites from local food trucks, live music and yard games at the Wolf Pen Creek Festival Site. Admission is free, and food is available for purchase. Pets, alcohol and glass containers are not allowed. Free parking is available at the Meyer Senior and Community Center and Post Oak Mall.</p>\n<p>Check Facebook (<a href=\"https://www.facebook.com/CSTXparks/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">/CSTXparks</a>) and Instagram (<a href=\"https://www.instagram.com/cstxparks/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">@CSTXparks</a>) the Monday before each event for the list of food trucks.<br /><br />For more information, contact the Parks and Recreation Administrative Office at 979.764.3486. </p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677680427,
+                  "title": "Special Event",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616464,
+                  "title": "Family Friendly",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616478,
+                  "title": "Food/Drinks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616490,
+                  "title": "Games",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616469,
+                  "title": "Music",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616476,
+                  "title": "Parks",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678280917,
+                  "title": "Wolf Pen Creek Park",
+                  "item_type": "taxonomy_venue",
+                  "address": "1015 Colgate Drive",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.6181868,-96.30414379999999",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 78431636,
+            "title": "Yoga in the Park",
+            "instance": "20260926080000",
+            "start_datetime": "2026-09-26 08:00:00",
+            "end_datetime": "2026-09-26 09:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/yoga-in-the-park-4?instance_id=20260926080000",
+            "custom_url": "yoga-in-the-park-4",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>Start the morning with a free, peaceful yoga session for those 18 and older at the Meyer Senior and Community Center patio. This welcoming community class is open to all experience levels and includes guided breathing, gentle warmups, and variations of Sun Salutation A and B with helpful modifications.</p>\n<p>Whether new to yoga or a seasoned yogi, attendees can enjoy connecting with body, mind, and community. Yoga mats are available while supplies last. Dogs are not allowed.<br /><br />For more information, contact the Meyer Senior and Community Center at 979.764.2670.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677615932,
+                  "title": "Program",
+                  "item_type": "taxonomy_category"
+                },
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677617153,
+                  "title": "Adult (18+)",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677617718,
+                  "title": "Fitness",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625429,
+                  "title": "Free",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677617184,
+                  "title": "Nature",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616476,
+                  "title": "Parks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616465,
+                  "title": "Senior (55+)",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678280924,
+                  "title": "Meyer Senior & Community Center",
+                  "item_type": "taxonomy_venue",
+                  "address": "2275 Dartmouth Street",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.6151293,-96.3054542",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 78431636,
+            "title": "Yoga in the Park",
+            "instance": "20261010080000",
+            "start_datetime": "2026-10-10 08:00:00",
+            "end_datetime": "2026-10-10 09:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/yoga-in-the-park-4?instance_id=20261010080000",
+            "custom_url": "yoga-in-the-park-4",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>Start the morning with a free, peaceful yoga session for those 18 and older at the Meyer Senior and Community Center patio. This welcoming community class is open to all experience levels and includes guided breathing, gentle warmups, and variations of Sun Salutation A and B with helpful modifications.</p>\n<p>Whether new to yoga or a seasoned yogi, attendees can enjoy connecting with body, mind, and community. Yoga mats are available while supplies last. Dogs are not allowed.<br /><br />For more information, contact the Meyer Senior and Community Center at 979.764.2670.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677615932,
+                  "title": "Program",
+                  "item_type": "taxonomy_category"
+                },
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677617153,
+                  "title": "Adult (18+)",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677617718,
+                  "title": "Fitness",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625429,
+                  "title": "Free",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677617184,
+                  "title": "Nature",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616476,
+                  "title": "Parks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616465,
+                  "title": "Senior (55+)",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678280924,
+                  "title": "Meyer Senior & Community Center",
+                  "item_type": "taxonomy_venue",
+                  "address": "2275 Dartmouth Street",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.6151293,-96.3054542",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 78432368,
+            "title": "Christmas in the Park: Lights On",
+            "instance": "20261126180000",
+            "start_datetime": "2026-11-26 18:00:00",
+            "end_datetime": "2026-11-26 23:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/christmas-in-the-park-lights-on-2?instance_id=20261126180000",
+            "custom_url": "christmas-in-the-park-lights-on-2",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>Enjoy a dazzling display of more than one million Christmas lights at Stephen C. Beachy Central Park! Lights will be on Nov. 26–Jan. 1 each night from 6–11 p.m. Admission is free, and parking is available in the park.</p>\n<p>As you stroll or drive through the park, be sure to tune in to Willy 97.7 FM to enjoy Christmas music provided by Bryan Broadcasting.</p>\n<p>Children can send letters to Santa using the North Pole mailbox outside the Parks and Recreation Administrative Office. Letters will be accepted Nov. 26–Dec. 24.</p>\n<p><strong>The park will be closed to vehicles on Dec. 5 as preparations are made for the Christmas in the Park event.</strong> The drive-thru closes at 7 a.m. to keep everyone safe during setup for visits with Santa, hayrides, and plenty of cookies and hot cocoa.</p>\n<p>For more information, visit <a href=\"https://www.cstx.gov//christmas\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/Christmas</a> or call 979.764.3486.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677616464,
+                  "title": "Family Friendly",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616476,
+                  "title": "Parks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625429,
+                  "title": "Free",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677649413,
+                  "title": "Community Event",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678280918,
+                  "title": "Stephen C. Beachy Central Park",
+                  "item_type": "taxonomy_venue",
+                  "address": "1000 Krenek Tap Road",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.6103264,-96.295347",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 78432368,
+            "title": "Christmas in the Park: Lights On",
+            "instance": "20261127180000",
+            "start_datetime": "2026-11-27 18:00:00",
+            "end_datetime": "2026-11-27 23:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/christmas-in-the-park-lights-on-2?instance_id=20261127180000",
+            "custom_url": "christmas-in-the-park-lights-on-2",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>Enjoy a dazzling display of more than one million Christmas lights at Stephen C. Beachy Central Park! Lights will be on Nov. 26–Jan. 1 each night from 6–11 p.m. Admission is free, and parking is available in the park.</p>\n<p>As you stroll or drive through the park, be sure to tune in to Willy 97.7 FM to enjoy Christmas music provided by Bryan Broadcasting.</p>\n<p>Children can send letters to Santa using the North Pole mailbox outside the Parks and Recreation Administrative Office. Letters will be accepted Nov. 26–Dec. 24.</p>\n<p><strong>The park will be closed to vehicles on Dec. 5 as preparations are made for the Christmas in the Park event.</strong> The drive-thru closes at 7 a.m. to keep everyone safe during setup for visits with Santa, hayrides, and plenty of cookies and hot cocoa.</p>\n<p>For more information, visit <a href=\"https://www.cstx.gov//christmas\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/Christmas</a> or call 979.764.3486.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677616464,
+                  "title": "Family Friendly",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616476,
+                  "title": "Parks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625429,
+                  "title": "Free",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677649413,
+                  "title": "Community Event",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678280918,
+                  "title": "Stephen C. Beachy Central Park",
+                  "item_type": "taxonomy_venue",
+                  "address": "1000 Krenek Tap Road",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.6103264,-96.295347",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 78432368,
+            "title": "Christmas in the Park: Lights On",
+            "instance": "20261128180000",
+            "start_datetime": "2026-11-28 18:00:00",
+            "end_datetime": "2026-11-28 23:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/christmas-in-the-park-lights-on-2?instance_id=20261128180000",
+            "custom_url": "christmas-in-the-park-lights-on-2",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>Enjoy a dazzling display of more than one million Christmas lights at Stephen C. Beachy Central Park! Lights will be on Nov. 26–Jan. 1 each night from 6–11 p.m. Admission is free, and parking is available in the park.</p>\n<p>As you stroll or drive through the park, be sure to tune in to Willy 97.7 FM to enjoy Christmas music provided by Bryan Broadcasting.</p>\n<p>Children can send letters to Santa using the North Pole mailbox outside the Parks and Recreation Administrative Office. Letters will be accepted Nov. 26–Dec. 24.</p>\n<p><strong>The park will be closed to vehicles on Dec. 5 as preparations are made for the Christmas in the Park event.</strong> The drive-thru closes at 7 a.m. to keep everyone safe during setup for visits with Santa, hayrides, and plenty of cookies and hot cocoa.</p>\n<p>For more information, visit <a href=\"https://www.cstx.gov//christmas\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/Christmas</a> or call 979.764.3486.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677616464,
+                  "title": "Family Friendly",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616476,
+                  "title": "Parks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625429,
+                  "title": "Free",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677649413,
+                  "title": "Community Event",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678280918,
+                  "title": "Stephen C. Beachy Central Park",
+                  "item_type": "taxonomy_venue",
+                  "address": "1000 Krenek Tap Road",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.6103264,-96.295347",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "total": 14,
+        "from": 8,
+        "size": 6,
+        "has_prior": true,
+        "has_next": false,
+        "items": [
+          {
+            "id": 76835781,
+            "title": "City Council Meeting",
+            "instance": "20260924180000",
+            "start_datetime": "2026-09-24 18:00:00",
+            "end_datetime": "2026-09-24 23:59:59",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/city-council-meeting-3?instance_id=20260924180000",
+            "custom_url": "city-council-meeting-3",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>The College Station City Council meets at city hall in council chambers on Thursday after 6 p.m. The meetings will be streamed live on Optimum Channel 19 and at <a href=\"https://www.cstx.gov/departments___city_hall/pubcomm/channel_19\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/cstv19</a>, and live blogged at <a href=\"https://blog.cstx.gov/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">blog.cstx.gov</a>.</p>\n<p>All agendas are posted at least 72 hours before the meeting. If you don't see the agenda check back later.</p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://opendoc.cstx.gov/DocArc/Browse.aspx?id=1291301&amp;dbid=0&amp;repo=DOCUMENT-SERVER&amp;cr=1\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">View Current Agendas</a></div>\n<p>If you would like to submit written comments or sign up to speak at the regular meeting, visit <a style=\"line-height:inherit;color:#15509c;text-decoration-line:none;font-weight:bold;\" title=\"Submit comments or sign up to speak\" href=\"https://www.cstx.gov/departments___city_hall/council/comments\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/comments</a>. An individual who wishes to address the City Council regarding any item on the agenda other than those items posted for Executive Session shall register with the City Secretary two (2) hours prior to the meeting being called to order.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613560,
+                  "title": "Meeting",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677616470,
+                  "title": "City Council",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [],
+              "taxonomy_venue": [
+                {
+                  "id": 678280910,
+                  "title": "College Station City Hall",
+                  "item_type": "taxonomy_venue",
+                  "address": "1101 Texas Avenue",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.62129329999999,-96.32604649999999",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 76811993,
+            "title": "City Council Meeting",
+            "instance": "20261008180000",
+            "start_datetime": "2026-10-08 18:00:00",
+            "end_datetime": "2026-10-08 23:59:59",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/city-council-meeting?instance_id=20261008180000",
+            "custom_url": "city-council-meeting",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>The College Station City Council meets at city hall in council chambers on Thursday after 6 p.m. The meetings will be streamed live on Optimum Channel 19 and at <a href=\"https://www.cstx.gov/departments___city_hall/pubcomm/channel_19\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/cstv19</a>, and live blogged at <a href=\"https://blog.cstx.gov/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">blog.cstx.gov</a>.</p>\n<p>All agendas are posted at least 72 hours before the meeting. If you don't see the agenda check back later.</p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://opendoc.cstx.gov/DocArc/Browse.aspx?id=1291301&amp;dbid=0&amp;repo=DOCUMENT-SERVER&amp;cr=1\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">View Current Agendas</a></div>\n<p>If you would like to submit written comments or sign up to speak at the regular meeting, visit <a style=\"line-height:inherit;color:#15509c;text-decoration-line:none;font-weight:bold;\" title=\"Submit comments or sign up to speak\" href=\"https://www.cstx.gov/departments___city_hall/council/comments\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/comments</a>. An individual who wishes to address the City Council regarding any item on the agenda other than those items posted for Executive Session shall register with the City Secretary two (2) hours prior to the meeting being called to order.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613560,
+                  "title": "Meeting",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677616470,
+                  "title": "City Council",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [],
+              "taxonomy_venue": [
+                {
+                  "id": 678280910,
+                  "title": "College Station City Hall",
+                  "item_type": "taxonomy_venue",
+                  "address": "1101 Texas Avenue",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.62129329999999,-96.32604649999999",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 77379245,
+            "title": "Active Transportation Advisory Board Meeting",
+            "instance": "20260914153000",
+            "start_datetime": "2026-09-14 15:30:00",
+            "end_datetime": "2026-09-14 23:59:59",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/active-transportation-advisory-board-meeting?instance_id=20260914153000",
+            "custom_url": "active-transportation-advisory-board-meeting",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>The Active Transportation Advisory Board meets at city hall on the second Monday of each month. </p>\n<p>All agendas are posted at least 72 hours before the meeting. If you don't see the agenda check back later.</p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://opendoc.cstx.gov/DocArc/Browse.aspx?id=480438&amp;dbid=0&amp;repo=DOCUMENT-SERVER\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">View Current Agendas &amp; Agenda Packets</a></div>\n<p>If you would like to submit written comments or sign up to speak at the meeting, email <a class=\"ApplyClass\" style=\"background-color:transparent;line-height:inherit;color:#15509c;text-decoration-line:none;font-weight:bold;\" href=\"mailto:gfuentes@cstx.gov?subject=BPG%20Meeting\">gfuentes@cstx.gov</a>.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613560,
+                  "title": "Meeting",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [],
+              "taxonomy_organizer": [],
+              "taxonomy_venue": [
+                {
+                  "id": 678280910,
+                  "title": "College Station City Hall",
+                  "item_type": "taxonomy_venue",
+                  "address": "1101 Texas Avenue",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.62129329999999,-96.32604649999999",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 76822028,
+            "title": "Historic Preservation Committee Meeting",
+            "instance": "20260914160000",
+            "start_datetime": "2026-09-14 16:00:00",
+            "end_datetime": "2026-09-14 17:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/historic-preservation-committee?instance_id=20260914160000",
+            "custom_url": "historic-preservation-committee",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>The duties of the <a href=\"https://onboard.cstx.gov/board/4485\" rel=\"nofollow noreferrer noopener\" target=\"_blank\"><strong>Historic Preservation Committee</strong></a> shall be to aid in the collection and preservation of the history of the City of College Station and its environs, and to provide for education of citizens on the history of this City. The committee shall also carry out other duties and responsibilities as may be assigned by the City Council. </p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://opendoc.cstx.gov/DocArc/Browse.aspx?id=1193419&amp;dbid=0&amp;repo=DOCUMENT-SERVER\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">View Agendas &amp; Minutes</a></div>\n<p>For more information, call 979.764.3486 or email <a href=\"mailto:parks@cstx.gov\"><strong>parks@cstx.gov</strong></a>.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613560,
+                  "title": "Meeting",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677616491,
+                  "title": "Committee",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [],
+              "taxonomy_venue": [
+                {
+                  "id": 678284910,
+                  "title": "College Station Municipal Court",
+                  "item_type": "taxonomy_venue",
+                  "address": "300 Krenek Tap Road",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77840",
+                  "geo_location": "30.6058149,-96.30275499999999",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          },
+          {
+            "id": 77799359,
+            "title": "City Offices Closed",
+            "instance": "20261126000000",
+            "start_datetime": "2026-11-26 00:00:00",
+            "end_datetime": "2026-11-26 23:59:59",
+            "timezone": "CST6CDT",
+            "allday": true,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/city-offices-closed-13?instance_id=20261126000000",
+            "custom_url": "city-offices-closed-13",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p style=\"text-align:center;\"><strong>City offices are closed for today.</strong> <br /><br /></p>\n<div style=\"text-align:center;margin-top:20px;\"><a style=\"padding:12px 20px;background-color:#223e92;color:#fff;text-decoration:none;border-radius:5px;font-size:16px;\" href=\"https://www.cstx.gov/departments___city_hall/publicworks/solid_waste_recycling/collection_schedule\" rel=\"nofollow noreferrer noopener\" target=\"_blank\"> View Collection Schedule </a></div>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613562,
+                  "title": "Notice",
+                  "item_type": "taxonomy_category"
+                },
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677663682,
+                  "title": "Closure",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [],
+              "taxonomy_venue": []
+            }
+          },
+          {
+            "id": 78461632,
+            "title": "Seniors Night Out: Dancing & Games",
+            "instance": "20260925180000",
+            "start_datetime": "2026-09-25 18:00:00",
+            "end_datetime": "2026-09-25 21:00:00",
+            "timezone": "CST6CDT",
+            "allday": false,
+            "event_status": "confirmed",
+            "canonical_url": "https://events.timely.fun/yl7pe679/event/seniors-night-out-dancing-4?instance_id=20260925180000",
+            "custom_url": "seniors-night-out-dancing-4",
+            "cost_display": "0",
+            "cost_external_url": null,
+            "description": "<p>Get ready for an evening of music, games and good company! Adults 55 and older are invited to enjoy a night of dancing and games Friday, Sept. 25, from 6–9 p.m. at the Southwood Community Center.</p>\n<p>Dance to country music and hits from the 1960s through the 1980s, or play cards, board games or dominoes. Light refreshments will be served. Admission is free.</p>\n<p>For more information on senior programs, call 979.764.2670 or visit <a href=\"https://www.cstx.gov/parks-recreation-culture/senior-adult-programs/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/seniors</a>.</p>",
+            "taxonomies": {
+              "taxonomy_category": [
+                {
+                  "id": 677613559,
+                  "title": "Event",
+                  "item_type": "taxonomy_category"
+                }
+              ],
+              "taxonomy_tag": [
+                {
+                  "id": 677616465,
+                  "title": "Senior (55+)",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616468,
+                  "title": "Dance",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616490,
+                  "title": "Games",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616478,
+                  "title": "Food/Drinks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677616476,
+                  "title": "Parks",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677625429,
+                  "title": "Free",
+                  "item_type": "taxonomy_tag"
+                },
+                {
+                  "id": 677680427,
+                  "title": "Special Event",
+                  "item_type": "taxonomy_tag"
+                }
+              ],
+              "taxonomy_organizer": [
+                {
+                  "id": 677965317,
+                  "title": "Parks & Recreation",
+                  "item_type": "taxonomy_organizer"
+                }
+              ],
+              "taxonomy_venue": [
+                {
+                  "id": 678280914,
+                  "title": "Southwood Community Center",
+                  "item_type": "taxonomy_venue",
+                  "address": "1520 Rock Prairie Road",
+                  "city": "College Station",
+                  "country_first_division": "Texas",
+                  "country": "United States",
+                  "postal_code": "77845",
+                  "geo_location": "30.5809559,-96.29374469999999",
+                  "venue_type": "P"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "details": {
+    "76811993": {
+      "id": 76811993,
+      "title": "City Council Meeting",
+      "description": "<p>The College Station City Council meets at city hall in council chambers on Thursday after 6 p.m. The meetings will be streamed live on Optimum Channel 19 and at <a href=\"https://www.cstx.gov/departments___city_hall/pubcomm/channel_19\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/cstv19</a>, and live blogged at <a href=\"https://blog.cstx.gov/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">blog.cstx.gov</a>.</p>\n<p>All agendas are posted at least 72 hours before the meeting. If you don't see the agenda check back later.</p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://opendoc.cstx.gov/DocArc/Browse.aspx?id=1291301&amp;dbid=0&amp;repo=DOCUMENT-SERVER&amp;cr=1\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">View Current Agendas</a></div>\n<p>If you would like to submit written comments or sign up to speak at the regular meeting, visit <a style=\"line-height:inherit;color:#15509c;text-decoration-line:none;font-weight:bold;\" title=\"Submit comments or sign up to speak\" href=\"https://www.cstx.gov/departments___city_hall/council/comments\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/comments</a>. An individual who wishes to address the City Council regarding any item on the agenda other than those items posted for Executive Session shall register with the City Secretary two (2) hours prior to the meeting being called to order.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678280910,
+            "title": "College Station City Hall",
+            "item_type": "taxonomy_venue",
+            "address": "1101 Texas Avenue",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77840",
+            "geo_location": "30.62129329999999,-96.32604649999999",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "76822028": {
+      "id": 76822028,
+      "title": "Historic Preservation Committee Meeting",
+      "description": "<p>The duties of the <a href=\"https://onboard.cstx.gov/board/4485\" rel=\"nofollow noreferrer noopener\" target=\"_blank\"><strong>Historic Preservation Committee</strong></a> shall be to aid in the collection and preservation of the history of the City of College Station and its environs, and to provide for education of citizens on the history of this City. The committee shall also carry out other duties and responsibilities as may be assigned by the City Council. </p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://opendoc.cstx.gov/DocArc/Browse.aspx?id=1193419&amp;dbid=0&amp;repo=DOCUMENT-SERVER\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">View Agendas &amp; Minutes</a></div>\n<p>For more information, call 979.764.3486 or email <a href=\"mailto:parks@cstx.gov\"><strong>parks@cstx.gov</strong></a>.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678284910,
+            "title": "College Station Municipal Court",
+            "item_type": "taxonomy_venue",
+            "address": "300 Krenek Tap Road",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77840",
+            "geo_location": "30.6058149,-96.30275499999999",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "76835781": {
+      "id": 76835781,
+      "title": "City Council Meeting",
+      "description": "<p>The College Station City Council meets at city hall in council chambers on Thursday after 6 p.m. The meetings will be streamed live on Optimum Channel 19 and at <a href=\"https://www.cstx.gov/departments___city_hall/pubcomm/channel_19\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/cstv19</a>, and live blogged at <a href=\"https://blog.cstx.gov/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">blog.cstx.gov</a>.</p>\n<p>All agendas are posted at least 72 hours before the meeting. If you don't see the agenda check back later.</p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://opendoc.cstx.gov/DocArc/Browse.aspx?id=1291301&amp;dbid=0&amp;repo=DOCUMENT-SERVER&amp;cr=1\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">View Current Agendas</a></div>\n<p>If you would like to submit written comments or sign up to speak at the regular meeting, visit <a style=\"line-height:inherit;color:#15509c;text-decoration-line:none;font-weight:bold;\" title=\"Submit comments or sign up to speak\" href=\"https://www.cstx.gov/departments___city_hall/council/comments\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/comments</a>. An individual who wishes to address the City Council regarding any item on the agenda other than those items posted for Executive Session shall register with the City Secretary two (2) hours prior to the meeting being called to order.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678280910,
+            "title": "College Station City Hall",
+            "item_type": "taxonomy_venue",
+            "address": "1101 Texas Avenue",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77840",
+            "geo_location": "30.62129329999999,-96.32604649999999",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "77379245": {
+      "id": 77379245,
+      "title": "Active Transportation Advisory Board Meeting",
+      "description": "<p>The Active Transportation Advisory Board meets at city hall on the second Monday of each month. </p>\n<p>All agendas are posted at least 72 hours before the meeting. If you don't see the agenda check back later.</p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://opendoc.cstx.gov/DocArc/Browse.aspx?id=480438&amp;dbid=0&amp;repo=DOCUMENT-SERVER\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">View Current Agendas &amp; Agenda Packets</a></div>\n<p>If you would like to submit written comments or sign up to speak at the meeting, email <a class=\"ApplyClass\" style=\"background-color:transparent;line-height:inherit;color:#15509c;text-decoration-line:none;font-weight:bold;\" href=\"mailto:gfuentes@cstx.gov?subject=BPG%20Meeting\">gfuentes@cstx.gov</a>.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678280910,
+            "title": "College Station City Hall",
+            "item_type": "taxonomy_venue",
+            "address": "1101 Texas Avenue",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77840",
+            "geo_location": "30.62129329999999,-96.32604649999999",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "77799359": {
+      "id": 77799359,
+      "title": "City Offices Closed",
+      "description": "<p style=\"text-align:center;\"><strong>City offices are closed for today.</strong> <br /><br /></p>\n<div style=\"text-align:center;margin-top:20px;\"><a style=\"padding:12px 20px;background-color:#223e92;color:#fff;text-decoration:none;border-radius:5px;font-size:16px;\" href=\"https://www.cstx.gov/departments___city_hall/publicworks/solid_waste_recycling/collection_schedule\" rel=\"nofollow noreferrer noopener\" target=\"_blank\"> View Collection Schedule </a></div>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": []
+      }
+    },
+    "78431636": {
+      "id": 78431636,
+      "title": "Yoga in the Park",
+      "description": "<p>Start the morning with a free, peaceful yoga session for those 18 and older at the Meyer Senior and Community Center patio. This welcoming community class is open to all experience levels and includes guided breathing, gentle warmups, and variations of Sun Salutation A and B with helpful modifications.</p>\n<p>Whether new to yoga or a seasoned yogi, attendees can enjoy connecting with body, mind, and community. Yoga mats are available while supplies last. Dogs are not allowed.<br /><br />For more information, contact the Meyer Senior and Community Center at 979.764.2670.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678280924,
+            "title": "Meyer Senior & Community Center",
+            "item_type": "taxonomy_venue",
+            "address": "2275 Dartmouth Street",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77840",
+            "geo_location": "30.6151293,-96.3054542",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "78431965": {
+      "id": 78431965,
+      "title": "Mud Day",
+      "description": "<p style=\"font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;background-color:#ffffff;\">Get ready to get muddy at Mud Day on Saturday, Sept. 19, from 8-11 a.m. at the Gary Halter Nature Center. This free, all-ages event invites you to explore the science and fun of mud through hands-on activities, games and demonstrations.</p>\n<p style=\"font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;background-color:#ffffff;\">Roll in a mud wallow, try mud archery, discover creatures that live in mud, create mud art, and make mud pies in the mud kitchen.</p>\n<p style=\"font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;background-color:#ffffff;\">Rinse stations will be available, so bring a change of clothes or towels. Parking at the nature center is limited, but additional parking is available at the equestrian lot.</p>\n<p style=\"font-family:Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;background-color:#ffffff;\">For more information, call the Gary Halter Nature Center at 979.764.6216.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678341145,
+            "title": "Gary Halter Nature Center",
+            "item_type": "taxonomy_venue",
+            "address": "13600 Rock Prairie Road",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77845",
+            "geo_location": "30.5680729,-96.2112665",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "78432368": {
+      "id": 78432368,
+      "title": "Christmas in the Park: Lights On",
+      "description": "<p>Enjoy a dazzling display of more than one million Christmas lights at Stephen C. Beachy Central Park! Lights will be on Nov. 26–Jan. 1 each night from 6–11 p.m. Admission is free, and parking is available in the park.</p>\n<p>As you stroll or drive through the park, be sure to tune in to Willy 97.7 FM to enjoy Christmas music provided by Bryan Broadcasting.</p>\n<p>Children can send letters to Santa using the North Pole mailbox outside the Parks and Recreation Administrative Office. Letters will be accepted Nov. 26–Dec. 24.</p>\n<p><strong>The park will be closed to vehicles on Dec. 5 as preparations are made for the Christmas in the Park event.</strong> The drive-thru closes at 7 a.m. to keep everyone safe during setup for visits with Santa, hayrides, and plenty of cookies and hot cocoa.</p>\n<p>For more information, visit <a href=\"https://www.cstx.gov//christmas\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/Christmas</a> or call 979.764.3486.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678280918,
+            "title": "Stephen C. Beachy Central Park",
+            "item_type": "taxonomy_venue",
+            "address": "1000 Krenek Tap Road",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77840",
+            "geo_location": "30.6103264,-96.295347",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "78435885": {
+      "id": 78435885,
+      "title": "Food Truck Wednesday",
+      "description": "<p>Enjoy tasty bites from local food trucks, live music and yard games at the Wolf Pen Creek Festival Site. Admission is free, and food is available for purchase. Pets, alcohol and glass containers are not allowed. Free parking is available at the Meyer Senior and Community Center and Post Oak Mall.</p>\n<p>Check Facebook (<a href=\"https://www.facebook.com/CSTXparks/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">/CSTXparks</a>) and Instagram (<a href=\"https://www.instagram.com/cstxparks/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">@CSTXparks</a>) the Monday before each event for the list of food trucks.<br /><br />For more information, contact the Parks and Recreation Administrative Office at 979.764.3486. </p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678280917,
+            "title": "Wolf Pen Creek Park",
+            "item_type": "taxonomy_venue",
+            "address": "1015 Colgate Drive",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77840",
+            "geo_location": "30.6181868,-96.30414379999999",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "78437913": {
+      "id": 78437913,
+      "title": "Exploring History Luncheon: “And Then There Were Maggie's”",
+      "description": "<p>Take a break for lunch and explore the community’s past at the Exploring History Luncheon, presented in partnership with the Historic Preservation Committee. September’s topic is “And Then There Were Maggie’s,” a look at the first female undergraduate students at Texas A&amp;M University in the 1960s, presented by Linda Harvell, chairperson of the Historic Preservation Committee and former City Councilwoman.</p>\n<p>The luncheon will be held Wednesday, Sept. 16, at 11:30 a.m. at the Larry J. Ringer Library. Attendance is free, with lunch available for $10 for residents and $12 for non-residents. Lunch reservations are required by Sept. 11. A limited number of meals will be available at the door for $12.</p>\n<div class=\"btn\" style=\"margin:0px;padding:15px;width:300px;background-color:#223d92;text-align:center;border-radius:5px;color:#ffffff;\"><a style=\"background-color:transparent;line-height:inherit;color:#ffffff;text-decoration-line:none;font-weight:bold;\" href=\"https://rectrac.cstx.gov/webtrac/web/search.html?Action=Start&amp;SubAction=&amp;_csrf_token=&amp;category=EVENTS&amp;=&amp;primarycode=PKS-17\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">Reserve Your Lunch</a></div>\n<p>For more information, contact the Parks and Recreation Administrative Office at 979.764.3486.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678280911,
+            "title": "Larry J. Ringer Library",
+            "item_type": "taxonomy_venue",
+            "address": "1818 Harvey Mitchell Parkway South",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77845",
+            "geo_location": "30.5900696,-96.3145078",
+            "venue_type": "P"
+          }
+        ]
+      }
+    },
+    "78461632": {
+      "id": 78461632,
+      "title": "Seniors Night Out: Dancing & Games",
+      "description": "<p>Get ready for an evening of music, games and good company! Adults 55 and older are invited to enjoy a night of dancing and games Friday, Sept. 25, from 6–9 p.m. at the Southwood Community Center.</p>\n<p>Dance to country music and hits from the 1960s through the 1980s, or play cards, board games or dominoes. Light refreshments will be served. Admission is free.</p>\n<p>For more information on senior programs, call 979.764.2670 or visit <a href=\"https://www.cstx.gov/parks-recreation-culture/senior-adult-programs/\" rel=\"nofollow noreferrer noopener\" target=\"_blank\">cstx.gov/seniors</a>.</p>",
+      "timezone": "CST6CDT",
+      "cost_external_url": null,
+      "taxonomies": {
+        "taxonomy_venue": [
+          {
+            "id": 678280914,
+            "title": "Southwood Community Center",
+            "item_type": "taxonomy_venue",
+            "address": "1520 Rock Prairie Road",
+            "city": "College Station",
+            "country_first_division": "Texas",
+            "country": "United States",
+            "postal_code": "77845",
+            "geo_location": "30.5809559,-96.29374469999999",
+            "venue_type": "P"
+          }
+        ]
+      }
+    }
+  }
+}
