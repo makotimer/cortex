@@ -1,0 +1,333 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:BVCA Monthly Event Calendar
+X-WR-TIMEZONE:America/Chicago
+X-WR-CALDESC:Brazos Valley Chess Association tournament dates and events.
+BEGIN:VEVENT
+DTSTART:20260328T143000Z
+DTEND:20260328T213000Z
+DTSTAMP:20260920T001538Z
+UID:10rv26362ueuh14ms21aaqvjip@google.com
+CREATED:20260103T205124Z
+DESCRIPTION:**<u><b><a href="https://docs.google.com/forms/d/1MJMaI3o0enMsn
+ eB7rUmEuIj-AyDQfTDtRHLYQcpJtDQ/viewform?edit_requested=true">Registration F
+ orm</a></b></u>**<br><br>Saturday\, March 28th\, 2026<br><br>First Baptist 
+ Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https://fbcbry
+ an.org/" target="_blank">https://fbcbryan.org/</a><br><br><br>3 Sections:<b
+ r>Open<br>U1500<br>U1000<br><br>4 Rounds with a time control of G45\; d5 (4
+ 5 minutes with a delay of 5 seconds every move)<br><br>Round 1: 9:30 AM<br>
+ Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><br></u><br
+ >View <a href="https://docs.google.com/spreadsheets/d/1KMnnpuZjUW2jD_EtOLav
+ frmAUWV5NVPGJXQPJ0NCrBg/edit?gid=0#gid=0" target="_blank"><u>Entry List</u>
+ </a><br><u>Limited Capacity of 50 players!</u><br><br>$25 CASH entry fee.<b
+ r> <br>Please bring your own board and clock.<br><br>*Participants must be 
+ a current USCF member to participate.*
+LAST-MODIFIED:20260105T191753Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:BVCA March Swiss
+TRANSP:OPAQUE
+ATTACH;FILENAME=BVCA March Swiss Entry List ;FMTTYPE=application/vnd.google
+ -apps.spreadsheet:https://docs.google.com/spreadsheets/d/1KMnnpuZjUW2jD_EtO
+ LavfrmAUWV5NVPGJXQPJ0NCrBg/edit?gid=0
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20261114T153000Z
+DTEND:20261114T223000Z
+DTSTAMP:20260920T001538Z
+UID:2gg401rr5gkkop7634qgad3gor@google.com
+CREATED:20260103T205540Z
+DESCRIPTION:**<u><b><a href="https://forms.gle/Z7yErZGVepp132vT8">Registrat
+ ion Form</a></b></u>**<br><br>Saturday\, November 14th\, 2025<br><br>First 
+ Baptist Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https:
+ //fbcbryan.org/" target="_blank">https://fbcbryan.org/</a><br><br><br>3 Sec
+ tions:<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time control of G45
+ \; d5 (45 minutes with a delay of 5 seconds every move)<br><br>Round 1: 9:3
+ 0 AM<br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><br
+ ></u><br>View <a href="https://docs.google.com/spreadsheets/d/15AH2d9U-7s63
+ 57jpinnM-nno6zf4vGvwwZV1xkFqTfc/edit?gid=0#gid=0" target="_blank"><u>Entry 
+ List</u></a><br><u>Limited Capacity of 50 players!</u><br><br>$25 CASH entr
+ y fee.<br> <br>Please bring your own board and clock (BYOB).<br><br>*Partic
+ ipants must be a current USCF member to participate.*
+LAST-MODIFIED:20260105T203826Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:November BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20261010T143000Z
+DTEND:20261010T213000Z
+DTSTAMP:20260920T001538Z
+UID:3gt6tgfbhs2khql7mu6h8osihn@google.com
+CREATED:20260103T205513Z
+DESCRIPTION:**<u><b><a href="https://forms.gle/e5TCW1kr3Xtvv5yv9">Registrat
+ ion Form</a></b></u>**<br><br>Saturday\, October 10th\, 2025<br><br>First B
+ aptist Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https:/
+ /fbcbryan.org/" target="_blank">https://fbcbryan.org/</a><br><br><br>3 Sect
+ ions:<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time control of G45\
+ ; d5 (45 minutes with a delay of 5 seconds every move)<br><br>Round 1: 9:30
+  AM<br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><br>
+ </u><br>View <a href="https://docs.google.com/spreadsheets/d/18mOlV0I0yrp4e
+ QNP2ObeG7OcjYziUZXJXColDAIqz-E/edit?gid=0#gid=0" target="_blank"><u>Entry L
+ ist</u></a><br><u>Limited Capacity of 50 players!</u><br><br>$25 CASH entry
+  fee.<br> <br>Please bring your own board and clock (BYOB).<br><br>*Partici
+ pants must be a current USCF member to participate.*
+LAST-MODIFIED:20260105T203741Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:October BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260620T143000Z
+DTEND:20260620T213000Z
+DTSTAMP:20260920T001538Z
+UID:7m2ts3lrktvvurokghotac9n7n@google.com
+CREATED:20260103T205306Z
+DESCRIPTION:**<u><b><a href="https://forms.gle/9diC9vcKGHLhmysTA" target="_
+ blank">Registration Form</a></b></u>**<br><br>Saturday\, June 20th\, 2026<b
+ r><br>First Baptist Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a 
+ href="https://fbcbryan.org/" target="_blank">https://fbcbryan.org/</a><br><
+ br><br>3 Sections:<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time co
+ ntrol of G45\; d5 (45 minutes with a delay of 5 seconds every move)<br><br>
+ Round 1: 9:30 AM<br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 
+ PM<br><u><br></u><br>View <a href="https://docs.google.com/spreadsheets/d/1
+ VH2P1JRKl44dCrKJvkBegh8ZkLtQMBVTZPKS49Zi2fI/edit?gid=0#gid=0" target="_blan
+ k"><u>Entry List</u></a><br><u>Limited Capacity of 50 players!</u><br><br>$
+ 25 CASH entry fee.<br> <br>Please bring your own board and clock.<br><br>*P
+ articipants must be a current USCF member to participate.*
+LAST-MODIFIED:20260105T203216Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:June BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20261205T153000Z
+DTEND:20261205T223000Z
+DTSTAMP:20260920T001538Z
+UID:3mum2g5q91is8tn5405vav5s63@google.com
+CREATED:20260103T205621Z
+DESCRIPTION:**<u><b><a href="https://forms.gle/tGVBoZJQkfcL3rYj7">Registrat
+ ion Form</a></b></u>**<br><br>Saturday\, December 5th\, 2025<br><br>First B
+ aptist Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https:/
+ /fbcbryan.org/" target="_blank">https://fbcbryan.org/</a><br><br><br>3 Sect
+ ions:<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time control of G45\
+ ; d5 (45 minutes with a delay of 5 seconds every move)<br><br>Round 1: 9:30
+  AM<br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><br>
+ </u><br>View <a href="https://docs.google.com/spreadsheets/d/1oFP3SKsZvH87J
+ i-C0r2a2eAMJqHPQqDUJMBWZcFGUqk/edit?gid=0#gid=0" target="_blank"><u>Entry L
+ ist</u></a><br><u>Limited Capacity of 50 players!</u><br><br>$25 CASH entry
+  fee.<br> <br>Please bring your own board and clock (BYOB).<br><br>*Partici
+ pants must be a current USCF member to participate.* <br><br>If you are not
+  a current USCF member\, <a href="https://new.uschess.org/join-us-chess" ta
+ rget="_blank"><u>please sign up</u></a> before finishing this registration 
+ form.
+LAST-MODIFIED:20260105T203918Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:December BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260919T143000Z
+DTEND:20260919T213000Z
+DTSTAMP:20260920T001538Z
+UID:2l8dd6p2ouqibu72hvnnvla568@google.com
+CREATED:20260103T205445Z
+DESCRIPTION:**<u><b><a href="https://forms.gle/knpBBuNQk8bAK3B89">Registrat
+ ion Form</a></b></u>**<br><br>Saturday\, September 12th\, 2025<br><br>First
+  Baptist Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https
+ ://fbcbryan.org/" target="_blank">https://fbcbryan.org/</a><br><br><br>3 Se
+ ctions:<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time control of G4
+ 5\; d5 (45 minutes with a delay of 5 seconds every move)<br><br>Round 1: 9:
+ 30 AM<br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><b
+ r></u><br>View <a href="https://docs.google.com/spreadsheets/d/1sGJZwYfrTjX
+ HWzc98lUIhd8dOC3y7tJI3JkVAHoDmMw/edit?gid=0#gid=0" target="_blank"><u>Entry
+  List</u></a><br><u>Limited Capacity of 50 players!</u><br><br>$25 CASH ent
+ ry fee.<br> <br>Please bring your own board and clock (BYOB).<br><br>*Parti
+ cipants must be a current USCF member to participate.*
+LAST-MODIFIED:20260729T162621Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:September BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260530T143000Z
+DTEND:20260530T213000Z
+DTSTAMP:20260920T001538Z
+UID:1k6e1i7b99m681ltp0s0cvppnf@google.com
+CREATED:20260427T195403Z
+DESCRIPTION:**<u><b><a href="https://forms.gle/hJDdxJFcvWU3KCwt5" target="_
+ blank">Registration Form</a></b></u>**<br><br>Saturday\, May 30th\, 2026<br
+ ><br>First Baptist Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a h
+ ref="https://fbcbryan.org/" target="_blank">https://fbcbryan.org/</a><br><b
+ r><br>3 Sections:<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time con
+ trol of G45\; d5 (45 minutes with a delay of 5 seconds every move)<br><br>R
+ ound 1: 9:30 AM<br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 P
+ M<br><u><br></u><br>View <a href="https://docs.google.com/spreadsheets/d/1o
+ 6aSypgv8FQPVjoqGFQC-1CanlGc6p8xrfcaeASUWIg/edit?gid=0#gid=0" target="_blank
+ "><u>Entry List</u></a><br><u>Limited Capacity of 50 players!</u><br><br>$2
+ 5 CASH entry fee.<br> <br>Please bring your own board and clock (BYOB).<br>
+ <br>*Participants must be a current USCF member to participate.*
+LAST-MODIFIED:20260427T195428Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:May BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260228T153000Z
+DTEND:20260228T223000Z
+DTSTAMP:20260920T001538Z
+UID:7ejokuqf19b53ub7kr4s2pbsfi@google.com
+CREATED:20260103T204946Z
+DESCRIPTION:**<u><b><a href="https://docs.google.com/forms/d/1x7_CgbESaek1D
+ 5cxIO5WjqKXldpWUqXR4tqSh0lgsyg/viewform?edit_requested=true">Registration F
+ orm</a></b></u>**<br><br>Saturday\, February 28th\, 2026<br><br>First Bapti
+ st Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https://fbc
+ bryan.org/" target="_blank">https://fbcbryan.org/</a><br><br><br>3 Sections
+ :<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time control of G45\; d5
+  (45 minutes with a delay of 5 seconds every move)<br><br>Round 1: 9:30 AM<
+ br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><br></u>
+ <br>View <a href="https://docs.google.com/spreadsheets/d/1X91GMdThChMUnYfrv
+ CFVlCiEvP7Jhl3g5i4P2nS6Mg4/edit?gid=0#gid=0" target="_blank"><u>Entry List<
+ /u></a><br><u>Limited Capacity of 50 players!</u><br><br>$25 CASH entry fee
+ .<br> <br>Please bring your own board and clock (BYOB).<br><br>*Participant
+ s must be a current USCF member to participate.*
+LAST-MODIFIED:20260105T184514Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:February BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260808T143000Z
+DTEND:20260808T213000Z
+DTSTAMP:20260920T001538Z
+UID:0uo6gi8lasarfg6kj66ebkog6d@google.com
+CREATED:20260103T205412Z
+DESCRIPTION:**<u><b><a href="https://forms.gle/LWJKFzVLEJpc1c879">Registrat
+ ion Form</a></b></u>**<br><br>Saturday\, August 8th\, 2025<br><br>First Bap
+ tist Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https://f
+ bcbryan.org/" target="_blank">https://fbcbryan.org/</a><br><br><br>3 Sectio
+ ns:<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time control of G45\; 
+ d5 (45 minutes with a delay of 5 seconds every move)<br><br>Round 1: 9:30 A
+ M<br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><br></
+ u><br>View <a href="https://docs.google.com/spreadsheets/d/16EYTiDPs7-7znYA
+ ylO34DfqTCHHHlppK1fDfm_VJdGE/edit?gid=0#gid=0" target="_blank"><u>Entry Lis
+ t</u></a><br><u>Limited Capacity of 50 players!</u><br><br>$25 CASH entry f
+ ee.<br> <br>Please bring your own board and clock (BYOB).<br><br>*Participa
+ nts must be a current USCF member to participate.*
+LAST-MODIFIED:20260105T203417Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:August BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260124T153000Z
+DTEND:20260124T223000Z
+DTSTAMP:20260920T001538Z
+UID:3lqj4hineaqvuilal8h5ptku9q@google.com
+CREATED:20260103T202310Z
+DESCRIPTION:**<a href="https://docs.google.com/forms/d/1KKdH0O8R0Rh-wIsJYxw
+ jkbhazDwljrPyEFb6xvGOIhs/viewform?edit_requested=true"><u><b>Registration F
+ orm</b></u></a>**<br><br>Saturday\, January 24th\, 2026<br><br>First Baptis
+ t Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https://fbcb
+ ryan.org/">https://fbcbryan.org/</a><br><br><br>3 Sections:<br>Open<br>U150
+ 0<br>U1000<br><br>4 Rounds with a time control of G45\; d5 (45 minutes with
+  a delay of 5 seconds every move)<br><br>Round 1: 9:30 AM<br>Round 2: 11:15
+  AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><br></u><br>View <a href=
+ "https://docs.google.com/spreadsheets/d/1wzNVJ_2u-AqWiXBO9_uf6cZayz35S8-x-R
+ UW7WAs_FU/edit?gid=0#gid=0" class="pastedDriveLink-0"><u>Entry List</u></a>
+ <br><u>Limited Capacity of 50 players!</u><br><br>$25 CASH entry fee.<br> <
+ br>Please bring your own board and clock (BYOB).<br><br>*Participants must 
+ be a current USCF member to participate.* <br><br>If you are not a current 
+ USCF member\, <a href="https://new.uschess.org/join-us-chess"><u>please sig
+ n up</u></a> before finishing this registration form.
+LAST-MODIFIED:20260103T204843Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:January BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260711T143000Z
+DTEND:20260711T213000Z
+DTSTAMP:20260920T001538Z
+UID:0487b7b5sfuknko6ndak1jt004@google.com
+CREATED:20260103T205339Z
+DESCRIPTION:**<u><b><a href="https://forms.gle/6nZfA3xmG5UAFzMC8" target="_
+ blank">Registration Form</a></b></u>**<br><br>Saturday\, July 18th\, 2025<b
+ r><br>First Baptist Bryan<br>3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a 
+ href="https://fbcbryan.org/" target="_blank">https://fbcbryan.org/</a><br><
+ br><br>3 Sections:<br>Open<br>U1500<br>U1000<br><br>4 Rounds with a time co
+ ntrol of G45\; d5 (45 minutes with a delay of 5 seconds every move)<br><br>
+ Round 1: 9:30 AM<br>Round 2: 11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 
+ PM<br><u><br></u><br>View <a href="https://docs.google.com/spreadsheets/d/1
+ 5XQ2909S1F5mv4j5YkQrqPM3VlT94AldCozAD6ZQ4xw/edit?gid=0#gid=0" target="_blan
+ k"><u>Entry List</u></a><br><u>Limited Capacity of 50 players!</u><br><br>$
+ 25 CASH entry fee.<br> <br>Please bring your own board and clock.<br><br>*P
+ articipants must be a current USCF member to participate.*
+LAST-MODIFIED:20260729T162616Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:3
+STATUS:CONFIRMED
+SUMMARY:July BVCA Swiss
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260411T143000Z
+DTEND:20260411T213000Z
+DTSTAMP:20260920T001538Z
+UID:45us3s59e1ccvpi26mddlisc01@google.com
+CREATED:20260103T205200Z
+DESCRIPTION:**<u><b><a href="https://docs.google.com/forms/d/16C9PuzTiN2yFb
+ UEy5Niw09lMKJouNsqLQ8rCNbbKj_Q/edit" target="_blank">Registration Form</a><
+ /b></u>**<br><br>Saturday\, April 11th\, 2026<br><br>First Baptist Bryan<br
+ >3100 Cambridge Dr.<br> Bryan\, TX 77802<br><a href="https://fbcbryan.org/"
+  target="_blank">https://fbcbryan.org/</a><br><br><br>3 Sections:<br>Open<b
+ r>U1500<br>U1000<br><br>4 Rounds with a time control of G45\; d5 (45 minute
+ s with a delay of 5 seconds every move)<br><br>Round 1: 9:30 AM<br>Round 2:
+  11:15 AM<br>Round 3: 1:45 PM<br>Round 4: 3:30 PM<br><u><br></u><br>View <a
+  href="https://docs.google.com/spreadsheets/d/1Lw-4T__gb-mT4rSIq4zu-Q2WJO46
+ sg7SPPKSyv_A_oA/edit?gid=0#gid=0" target="_blank"><u>Entry List</u></a><br>
+ <u>Limited Capacity of 50 players!</u><br><br>$25 CASH entry fee.<br> <br>P
+ lease bring your own board and clock.<br><br>*Participants must be a curren
+ t USCF member to participate.*
+LAST-MODIFIED:20260205T195426Z
+LOCATION:First Baptist Church Bryan\, 3100 Cambridge Dr\, Bryan\, TX 77802\
+ , USA
+SEQUENCE:1
+STATUS:CONFIRMED
+SUMMARY:BVCA April Swiss
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

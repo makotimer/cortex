@@ -34,13 +34,14 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `cstxparks` | College Station Parks & Rec (RecTrac Events) | run default (270d) | WebTrac HTML; Events category only |
 | `cstxcal` | City of College Station (Timely) | run default (270d) | Public Type JSON; meetings in; office-closure Notices out |
 | `youthcamps` | TAMU Youth Camps (Localist) | run default (270d) | `/api/2/events`; BCS only; campus pins |
+| `bvchess` | Brazos Valley Chess Association (Google Calendar) | run default (270d) | public ICS; one VEVENT per tournament; venue gate; direct |
 
 Design: `/srv/docker/websites/discoverbcs/docs/superpowers/specs/2026-08-12-bcs-library-event-injector-design.md`
 Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
 
 ## Status
 
-**Live.** All 29 kinds are scheduled in `local/config.json` (gitignored — the
+**Live.** All 30 kinds are scheduled in `local/config.json` (gitignored — the
 entries below are the record of what is there). `vpn-cycle-events` fires at
 03:25 on the same days, ahead of the 03:40 first scrape.
 
@@ -75,6 +76,7 @@ entries below are the record of what is there). `vpn-cycle-events` fires at
 | `event-watch-cstxparks` | `cstxparks` | Tue/Fri 10:05 | `rotate_vpn_per_run: false` |
 | `event-watch-cstxcal` | `cstxcal` | Tue/Fri 10:20 | `rotate_vpn_per_run: false` |
 | `event-watch-youthcamps` | `youthcamps` | Tue/Fri 10:35 | `rotate_vpn_per_run: false` |
+| `event-watch-bvchess` | `bvchess` | Tue/Fri 10:50 | `proxy_url: ""` |
 | `event-watch-done` | — (`modules.event_watch_done`) | Tue/Fri 11:00 | `site: discoverbcs` — publishes `watch.complete` so the site reviews the morning's intake as one batch |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
@@ -90,7 +92,7 @@ every run.
 
 That is also why **every job pins `kinds` explicitly**. The default is
 `["tockify", "challenge"]` — `kbtx`, `kbtxdeals`, `cityspark`, `tamu`, `bryantx`,
-`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `sewmuchclass`, `thepalace`, `lowes`, `homedepot`, `americangi`, `cstxparks`, `cstxcal` and `youthcamps` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
+`lakewalk`, `bvmuseum`, `bvso`, `hyperbole`, `bcschamber`, `ttc`, `stage12`, `rei`, `wonderfulwords`, `pwat`, `sewmuchclass`, `thepalace`, `lowes`, `homedepot`, `americangi`, `cstxparks`, `cstxcal`, `youthcamps` and `bvchess` are opt-in so a bare run does not silently add them. A job that omits `kinds` would pick up Challenge
 through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
@@ -529,6 +531,33 @@ false on free listings. Day Camp / title `camp` → `camp`; STEM →
 on `tamu`; downstream duplicate detection owns the overlap.
 `youthcamps` is not in `DEFAULT_KINDS`. Pin it.
 
+## Brazos Valley Chess Association (Google Calendar)
+
+`brazosvalleychess.com/events` is a Squarespace shell around an embedded
+Google Calendar ("BVCA Monthly Event Calendar"). The calendar's public
+ICS (`calendar.google.com/calendar/ical/<id>/public/basic.ics`) is the
+source: one VEVENT per monthly Swiss tournament, no RRULEs, UTC `Z`
+stamps converted to Chicago wall clock. Series uid is the ICS `UID`,
+occurrence tid the UTC start stamp. `STATUS:CANCELLED` → `cancelled`.
+
+**One VEVENT is one series with one occurrence.** A VEVENT that grows an
+RRULE is rejected loudly rather than expanded. **`VENUES` is an editorial
+gate** keyed on the ICS `LOCATION`: only First Baptist Church Bryan is
+listed; anything else rejects and emails.
+
+The HTML description is flattened to text. The `Registration Form` link
+is `registration_url` (`registration_required: true`); the
+`$25 CASH entry fee.` sentence is `cost_note` verbatim, `cost_low_cents`
+2500, `per_person`. Topic `sports`; no audiences or ages (the source
+states none — "must be a current USCF member" is in the description).
+The description's own "Saturday, <month> <day>, 2025" line is stale
+copy-paste at the source, not ours. Google is fetched direct.
+`bvchess` is not in `DEFAULT_KINDS`. Pin it.
+
+First inject 2026-09-19: **3 upserted / 0 rejected** (Oct, Nov, Dec Swiss;
+that day's September tournament fell before the window), occurrences
+4156–4158 on the site. 2027 is not on the calendar yet.
+
 ## Where reality differed from the design
 
 Verified against the captured window — see `tests/fixtures/event_watch/README.md`.
@@ -669,6 +698,10 @@ docker compose run --rm cortex python -m service.cli run modules.event_watch \
 # TAMU Youth Camps (Localist)
 docker compose run --rm cortex python -m service.cli run modules.event_watch \
   --kwargs dry_run=true kinds=youthcamps --no-email
+
+# Brazos Valley Chess Association (Google Calendar ICS)
+docker compose run --rm cortex python -m service.cli run modules.event_watch \
+  --kwargs dry_run=true kinds=bvchess proxy_url= --no-email
 
 # Unit tests (hermetic — conformance skips)
 make test

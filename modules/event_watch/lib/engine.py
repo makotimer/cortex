@@ -309,6 +309,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
     from .scrapers.bcschamber import BcsChamberScraper
     from .scrapers.bryantx import BryanTxScraper
     from .scrapers.bush41 import Bush41Scraper
+    from .scrapers.bvchess import BvChessScraper
     from .scrapers.bvmuseum import BvMuseumScraper
     from .scrapers.bvso import BvsoScraper
     from .scrapers.challenge import ChallengeScraper
@@ -352,6 +353,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         "visitcstx": VisitCstxScraper,
         "bvmuseum": BvMuseumScraper,
         "bush41": Bush41Scraper,
+        "bvchess": BvChessScraper,
         "bvso": BvsoScraper,
         "hyperbole": HyperboleScraper,
         "bcschamber": BcsChamberScraper,
