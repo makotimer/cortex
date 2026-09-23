@@ -55,6 +55,9 @@ class Settings:
     #: Fraction of the previous in-window set that may vanish before the run
     #: refuses to cancel anything (design §7 step 3).
     disappearance_guard: float = 0.25
+    #: The guard only applies once a source had at least this many
+    #: occurrences in the window; below it every change is a large fraction.
+    disappearance_guard_min: int = 10
 
     @classmethod
     def from_env_and_kwargs(cls, kw: dict[str, Any] | None = None) -> Settings:
@@ -89,4 +92,5 @@ class Settings:
             dry_run=truthy(kw.get("dry_run", os.getenv("EVENT_WATCH_DRY_RUN", "0"))),
             skip_network=truthy(kw.get("skip_network", "0")),
             disappearance_guard=float(kw.get("disappearance_guard") or 0.25),
+            disappearance_guard_min=int(kw.get("disappearance_guard_min") or 10),
         )

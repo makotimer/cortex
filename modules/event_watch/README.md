@@ -55,7 +55,7 @@ fires at 02:00.
 | `event-watch-homedepot` | `homedepot` | Tue/Fri 01:10 | `proxy_url: ""` |
 | `event-watch-americangi` | `americangi` | Tue/Fri 01:10 | `proxy_url: ""` |
 | `event-watch-cityspark` | `cityspark` | Tue/Fri 01:22 | `proxy_url: ""` |
-| `event-watch-bryantx` | `bryantx` | Tue/Fri 01:22 | `proxy_url: ""` |
+| `event-watch-bryantx` | `bryantx` | Tue/Fri 01:22 | `proxy_url: ""` — sends a browser User-Agent; events.bryantx.gov 403s bot UAs since 2026-09-18 |
 | `event-watch-lakewalk` | `lakewalk` | Tue/Fri 01:22 | `proxy_url: ""` |
 | `event-watch-bvmuseum` | `bvmuseum` | Tue/Fri 01:22 | `proxy_url: ""` |
 | `event-watch-bcschamber` | `bcschamber` | Tue/Fri 01:22 | `proxy_url: ""` |
@@ -735,7 +735,7 @@ docker compose run --rm \
 | VPN unhealthy | Bail. Trace `vpn_health_fail`. No state written |
 | Fetch fails | Abort that source. Publish nothing, cancel nothing |
 | LLM unavailable | Publish without topics |
-| >25% of the window missing | Cancel nothing, email, keep previous state |
+| >25% of the window missing (source had ≥10 in the window) | Cancel nothing, email, keep previous state |
 | Unknown venue | Reject that event, email, publish the rest |
 | `challenge` finds no shows on **any** day | Treated as a fetch failure, not an empty calendar |
 | Bus publish fails | eventbus-kit retries, then dead-letters |
@@ -747,3 +747,15 @@ parameter or a moved endpoint — and aborting is what stops the disappearance g
 from being handed an empty set.
 
 A run that bails writes no state, so nothing is ever falsely cancelled after an outage.
+
+**The guard has a floor** (`disappearance_guard_min`, default 10). Below it the
+ratio means nothing: `brazos-valley-museum` shows two homepage cards, both moved
+date on 2026-09-23, and "2 of 2 vanished" blocked the source from Sep 15 on.
+Under the floor a changed date is just a cancel plus an upsert.
+
+**A scraper that re-keys trips the guard on purpose.** `22c9b55` (2026-09-18)
+folded TAMU's per-day ids into `program:<venue>:<title>` series; 480 of the 502
+"missing" were the same start times under new keys, and every run was blocked
+until one supervised run with `disappearance_guard: 1.0` cancelled the old keys
+(2026-09-23). Plan that run with any change to `source_series_uid` or
+`source_occurrence_tid`.

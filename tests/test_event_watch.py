@@ -356,19 +356,39 @@ def test_occurrence_outside_the_window_is_never_cancelled():
 
 
 def test_guard_trips_above_25_percent_and_cancels_nothing():
-    previous = {f"s|{1000 + i}": "d" for i in range(4)}
-    plan = engine.reconcile(previous, [_payload("s", "1000")], WINDOW)  # 3 of 4 missing
+    previous = {f"s|{1000 + i}": "d" for i in range(40)}
+    plan = engine.reconcile(previous, [_payload("s", "1000")], WINDOW)  # 39 of 40 missing
     assert plan.guard_tripped
     assert plan.cancels == []
-    assert plan.missing_count == 3
+    assert plan.missing_count == 39
 
 
 def test_guard_does_not_trip_at_exactly_25_percent():
-    previous = {f"s|{1000 + i}": "d" for i in range(4)}
-    current = [_payload("s", str(1000 + i)) for i in range(3)]  # 1 of 4 missing
+    previous = {f"s|{1000 + i}": "d" for i in range(40)}
+    current = [_payload("s", str(1000 + i)) for i in range(30)]  # 10 of 40 missing
     plan = engine.reconcile(previous, current, WINDOW)
     assert not plan.guard_tripped
-    assert len(plan.cancels) == 1
+    assert len(plan.cancels) == 10
+
+
+def test_guard_ignores_a_source_below_the_floor():
+    """brazos-valley-museum, 2026-09-23: both homepage cards moved date, so
+    2 of 2 "vanished" and the ratio guard blocked the source for good."""
+    previous = {"boonville|1000": "x", "stampede|2000": "y"}
+    current = [_payload("boonville", "1500"), _payload("stampede", "1600")]
+    plan = engine.reconcile(previous, current, WINDOW)
+    assert not plan.guard_tripped
+    assert plan.cancels == [("boonville", "1000"), ("stampede", "2000")]
+    assert len(plan.upserts) == 2
+
+
+def test_guard_floor_is_inclusive_and_configurable():
+    previous = {f"s|{1000 + i}": "d" for i in range(10)}
+    plan = engine.reconcile(previous, [], WINDOW)  # 10 of 10 missing, at the floor
+    assert plan.guard_tripped
+    plan = engine.reconcile(previous, [], WINDOW, guard_min=11)
+    assert not plan.guard_tripped
+    assert len(plan.cancels) == 10
 
 
 def test_no_previous_state_cancels_nothing():
@@ -470,7 +490,7 @@ def test_guard_trip_keeps_previous_state(tmp_path, monkeypatch):
                         lambda self, t, p, correlation_id=None: None)
     settings = _settings(tmp_path)
     window_ms = _window_ms(settings)
-    previous = {f"s|{window_ms[0] + i}": "d" for i in range(4)}
+    previous = {f"s|{window_ms[0] + i}": "d" for i in range(40)}
     state.save(str(tmp_path), "stub", previous, {"start_ms": window_ms[0], "end_ms": window_ms[1]})
 
     scraper = _StubScraper([_payload("s", str(window_ms[0]))])
@@ -2534,3 +2554,22 @@ def test_tamu_unify_needs_a_dense_run_not_just_a_repeat():
     assert uids["University Jazz Ensembles in Concert"] == {"385689", "385690"}
     assert uids["Numerical Analysis Seminar"] == {"500", "501", "502"}
     assert uids["A Legacy Built of Brick & Stone"] == {"program:cushing:a-legacy-built-of-brick-stone"}
+
+
+def test_bryantx_sends_a_browser_user_agent(monkeypatch):
+    """events.bryantx.gov 403s bot User-Agents (2026-09-18)."""
+    seen = {}
+
+    class _Client:
+        def __init__(self, *, user_agent, proxy_url, proxy_env):
+            seen["ua"] = user_agent
+
+        def get_text(self, url, params=None):
+            return ""
+
+    monkeypatch.setattr(bryantx, "HttpClient", _Client)
+    from datetime import date as _date
+    bryantx.BryanTxScraper().fetch(_date(2026, 9, 23), _date(2026, 10, 23),
+                                   skip_network=False)
+    assert seen["ua"].startswith("Mozilla/5.0 (")
+    assert "Chrome/" in seen["ua"]

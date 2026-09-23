@@ -54,6 +54,7 @@ def reconcile(
     payloads: list[dict],
     window_ms: tuple[int, int],
     guard: float = 0.25,
+    guard_min: int = 10,
 ) -> Plan:
     """Diff this run's payloads against what was sent last time.
 
@@ -87,7 +88,13 @@ def reconcile(
     missing = previous_in_window - set(current)
     plan.missing_count = len(missing)
 
-    if missing and previous_in_window and len(missing) > guard * len(previous_in_window):
+    # Below guard_min the ratio says nothing: a two-card source that moves
+    # both dates is 100% "vanished" (brazos-valley-museum, 2026-09-23), and
+    # the guard would then block it forever. A broken fetch of a small source
+    # cancels a handful at most, and an empty fetch still fails loudly as
+    # fetch_failed/rejected upstream.
+    if missing and len(previous_in_window) >= guard_min \
+            and len(missing) > guard * len(previous_in_window):
         # That shape is a broken fetch, not forty cancellations.
         plan.guard_tripped = True
         return plan
@@ -200,7 +207,8 @@ def _run_source(
         int(datetime.combine(window_end, datetime.min.time(), UTC).timestamp() * 1000),
     )
     previous = state.load(settings.state_dir, slug)
-    plan = reconcile(previous.get("sent") or {}, payloads, window_ms, settings.disappearance_guard)
+    plan = reconcile(previous.get("sent") or {}, payloads, window_ms,
+                     settings.disappearance_guard, settings.disappearance_guard_min)
 
     if plan.guard_tripped:
         logging_bridge.error({

@@ -19,6 +19,14 @@ from .. import normalize
 from .base import BaseEventScraper, RawEvent, ScraperError
 
 LIST_URL = "https://events.bryantx.gov/default/_List"
+
+# events.bryantx.gov 403s any non-browser User-Agent (seen from 2026-09-18;
+# the IP is fine — a browser UA gets 200 direct and through the VPN), so the
+# job stays direct and just looks like a browser, as lowes/rei do.
+BROWSER_UA = (
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+)
 SITE = "https://events.bryantx.gov"
 TIMEZONE = "America/Chicago"
 
@@ -78,7 +86,7 @@ class BryanTxScraper(BaseEventScraper):
         if skip_network:
             return []
         client = self._client or HttpClient(
-            user_agent="CortexEventWatch/1.0 (+https://discoverbcs.org)",
+            user_agent=BROWSER_UA,
             proxy_url=self._proxy_url,
             proxy_env=None,
         )
