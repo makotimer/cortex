@@ -33,8 +33,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 sys.path.insert(0, "/app")
 
-from service import runner, scheduler  # noqa: E402
-from service.config_schema import load_config  # noqa: E402
+from service import runner, scheduler
+from service.config_schema import load_config
 
 
 def _first_time(raw: dict) -> str:
@@ -112,7 +112,7 @@ def main(argv: list[str]) -> int:
             )
             print(f"OK   {spec.id} {time.monotonic() - started:.0f}s", flush=True)
             return True
-        except Exception as e:  # noqa: BLE001 — report and keep going
+        except Exception as e:
             print(f"FAIL {spec.id} {time.monotonic() - started:.0f}s {e!r}",
                   flush=True)
             return False
