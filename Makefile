@@ -8,7 +8,7 @@
 	up down reload reload-bridge rebuild \
 	logs logs-f tail tail-f \
 	career-report \
-	event-probe \
+	event-probe run-jobs \
 	live-test \
 	trigger-reading \
 	clean
@@ -60,6 +60,13 @@ event-probe: ## Fetch a calendar URL through the VPN (URL='https://...')
 	fi
 	docker compose run --rm -v "$(CURDIR)/scripts:/app/scripts" cortex \
 	  python scripts/event_probe.py $(if $(filter 1,$(NO_ROTATE)),--no-rotate,) "$(URL)"
+
+run-jobs: ## Run configured jobs now by id/glob (JOBS='event-watch-*' [ARGS=--list])
+	@if [ -z "$(JOBS)" ]; then \
+	  echo "Usage: make run-jobs JOBS='event-watch-*' [ARGS='--list|--no-email']"; \
+	  exit 1; \
+	fi
+	./scripts/run-jobs.sh $(ARGS) $(JOBS)
 
 # ──────── Logs ────────
 logs: ; docker compose logs cortex ## Show cortex logs

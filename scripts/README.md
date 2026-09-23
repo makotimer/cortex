@@ -145,3 +145,40 @@ burn three rotations and leave us with no body.
 | `--no-rotate` | Keep the current exit if it already carries traffic |
 | `--verify-url URL` | Neutral reachability check (default: Cloudflare trace) |
 | `--timeout SEC` | Per-request timeout (default 20) |
+
+---
+
+## `run-jobs.sh` / `run_jobs.py`
+
+Runs **configured jobs** from `local/config.json` now, by id or glob, the way
+the scheduler would: the same spec parsing and the same `run_module_once`
+call (kwargs, `send_email`, email fields, timeout), with
+`trigger_type="manual"`. `service.cli run` is the module-level tool and makes
+you retype kwargs; this is the job-level one.
+
+```bash
+./scripts/run-jobs.sh --list 'event-watch-*'      # what would run, in order
+./scripts/run-jobs.sh 'event-watch-*'             # the whole Tue/Fri batch
+./scripts/run-jobs.sh event-watch-destbryan       # one scraper
+make run-jobs JOBS="'event-watch-*'" ARGS=--list
+```
+
+- Parallel by default, like the scheduler's 10-thread pool: every job runs
+  at once (`--parallel N`, default 10) except the **latest time group**,
+  which starts after the rest finish — so `event-watch-*` ends with
+  `event-watch-done` and its `watch.complete` lands after every scraper has
+  published. `--parallel 1` runs serially in schedule order. That message is what makes the
+  discoverbcs worker run new-and-notable, fact-review and — **on Tuesday
+  and Friday only** — the pick lineups. On any other day, re-run the
+  pickers with `websites/discoverbcs/scripts/propose-picks.sh`.
+- Disabled jobs print `SKIP` unless `--include-disabled`. `--no-email`
+  forces `send_email` off. A failure is printed as `FAIL` and the rest still
+  run; exit code 1 if any failed.
+- The Python file is piped from the host into the **running** container, so
+  it works without a rebuild (`service/` is baked into the image). Do not
+  run it while `make reload` / `rebuild` recreates cortex — that kills it.
+- In parallel the batch takes about as long as its slowest one or two jobs (~9–13 min:
+  `event-watch-tamu`, and `event-watch-destbryan` via the VPN); most others
+  take seconds. Serially it is far longer. Detach it with `setsid` so it
+  outlives your shell (a plain `&` tied to a session died silently once):
+  `setsid nohup ./scripts/run-jobs.sh 'event-watch-*' > /tmp/watch-run.log 2>&1 < /dev/null &`
