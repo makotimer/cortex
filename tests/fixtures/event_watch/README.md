@@ -131,7 +131,7 @@ station's public URL: Bryan, TX, 15 miles, sort Popularity, start 2026-08-15.
 
 - **29 occurrences, 26 series.**
 - **Cities:** College Station 23, Bryan 6. Nothing else survived the 15-mile filter.
-- **8 listings have no venue name** (mostly A&M sports). City + lat/lng are still present; the place name falls back to the city.
+- **8 listings have no venue name** (mostly A&M sports). City + lat/lng are still present; those without a street omit `series.place` rather than minting a city pin. A street-only row (TXSEF) uses the street as the place name.
 - **`DateStart` is wall-clock Central with a fake `Z`.** Mikey B is listed at 8:00pm; the JSON says `2026-08-28T20:00:00Z`, which is 3pm CDT if believed. The injector strips the Z.
 - **`Free` is false on every row.** `is_free` is omitted, not sent as false.
 - **`18+` arrives escaped** as `18\\+` in Mikey B's description.

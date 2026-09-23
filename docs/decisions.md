@@ -109,10 +109,14 @@ restart is exactly what fixes the failure, so that churn is wanted.
 
 ## event_watch
 
-- **All kinds run Tue/Fri, America/Chicago, 03:40–10:35, one kind per job,
-  15 min apart, with `vpn-cycle-events` at 03:25 ahead of the grid**
-  (`0338787`, 2026-08-30; `local/config.json` 2026-09-15 has 29 such jobs,
-  `rei` disabled).
+- **All kinds run Tue/Fri, America/Chicago, one kind per job, with
+  `vpn-cycle-events` ahead of the scrapes** (`0338787`, 2026-08-30; `rei`
+  disabled since 2026-09-04).
+- **The Tue/Fri grid starts at 01:00** (`local/config.json`, 2026-09-22).
+  VPN cycle at 01:00. Scrapes from 01:10 through 01:36, at most six at a
+  time; Destination Bryan is the only proxied job at 01:10. `event-watch-done`
+  at 02:00, before career-watch's 04:45 VPN rotation. Friday's digest follows
+  that 02:00 `watch.complete`.
 - **De-duplication is the scraper's job, not the display's.** TAMU's
   LiveWhale feed emits one multi-day package as several series ids with
   windows shifted a day apart plus an all-day row for every day inside each

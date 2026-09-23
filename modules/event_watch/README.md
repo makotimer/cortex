@@ -43,41 +43,42 @@ Contract: `/srv/docker/websites/discoverbcs/docs/intake-contract.md`
 
 **Live.** All 30 kinds are scheduled in `local/config.json` (gitignored — the
 entries below are the record of what is there). `vpn-cycle-events` fires at
-03:25 on the same days, ahead of the 03:40 first scrape.
+01:00 on the same days, ahead of the 01:10 first scrape. `event-watch-done`
+fires at 02:00.
 
 | Job | Kind | When | kwargs |
 |---|---|---|---|
-| `event-watch-bcslibrary` | `tockify` | Tue/Fri 03:40 | `rotate_vpn_per_run: false` |
-| `event-watch-challenge` | `challenge` | Tue/Fri 03:55 | `proxy_url: ""` |
-| `event-watch-kbtx` | `kbtx` | Tue/Fri 04:10 | `rotate_vpn_per_run: false` |
-| `event-watch-tamu` | `tamu` | Tue/Fri 04:25 | `rotate_vpn_per_run: false` |
-| `event-watch-destbryan` | `destbryan` | Tue/Fri 04:40 | `rotate_vpn_per_run: false` |
-| `event-watch-visitcstx` | `visitcstx` | Tue/Fri 04:50 | `rotate_vpn_per_run: false` |
-| `event-watch-bush41` | `bush41` | Tue/Fri 05:05 | `rotate_vpn_per_run: false` |
-| `event-watch-bvso` | `bvso` | Tue/Fri 05:20 | `proxy_url: ""` |
-| `event-watch-hyperbole` | `hyperbole` | Tue/Fri 05:35 | `rotate_vpn_per_run: false` |
-| `event-watch-lowes` | `lowes` | Tue/Fri 05:50 | `proxy_url: ""` |
-| `event-watch-homedepot` | `homedepot` | Tue/Fri 06:05 | `proxy_url: ""` |
-| `event-watch-americangi` | `americangi` | Tue/Fri 06:20 | `proxy_url: ""` |
-| `event-watch-kbtxdeals` | `kbtxdeals` | Tue/Fri 06:35 | `rotate_vpn_per_run: false` |
-| `event-watch-tamumusic` | `tamumusic` | Tue/Fri 06:50 | `rotate_vpn_per_run: false` |
-| `event-watch-cityspark` | `cityspark` | Tue/Fri 07:05 | `proxy_url: ""` |
-| `event-watch-bryantx` | `bryantx` | Tue/Fri 07:20 | `proxy_url: ""` |
-| `event-watch-lakewalk` | `lakewalk` | Tue/Fri 07:35 | `proxy_url: ""` |
-| `event-watch-bvmuseum` | `bvmuseum` | Tue/Fri 07:50 | `proxy_url: ""` |
-| `event-watch-bcschamber` | `bcschamber` | Tue/Fri 08:05 | `proxy_url: ""` |
-| `event-watch-ttc` | `ttc` | Tue/Fri 08:20 | `proxy_url: ""` |
-| `event-watch-stage12` | `stage12` | Tue/Fri 08:35 | `proxy_url: ""` |
-| ~~`event-watch-rei`~~ | `rei` | ~~Tue/Fri 08:50~~ | `enabled: false` since 2026-09-04 |
-| `event-watch-wonderfulwords` | `wonderfulwords` | Tue/Fri 09:05 | `rotate_vpn_per_run: false` |
-| `event-watch-pwat` | `pwat` | Tue/Fri 09:20 | `rotate_vpn_per_run: false` |
-| `event-watch-sewmuchclass` | `sewmuchclass` | Tue/Fri 09:35 | `proxy_url: ""` |
-| `event-watch-thepalace` | `thepalace` | Tue/Fri 09:50 | `rotate_vpn_per_run: false` |
-| `event-watch-cstxparks` | `cstxparks` | Tue/Fri 10:05 | `rotate_vpn_per_run: false` |
-| `event-watch-cstxcal` | `cstxcal` | Tue/Fri 10:20 | `rotate_vpn_per_run: false` |
-| `event-watch-youthcamps` | `youthcamps` | Tue/Fri 10:35 | `rotate_vpn_per_run: false` |
-| `event-watch-bvchess` | `bvchess` | Tue/Fri 10:50 | `proxy_url: ""` |
-| `event-watch-done` | — (`modules.event_watch_done`) | Tue/Fri 11:00 | `site: discoverbcs` — publishes `watch.complete` so the site reviews the morning's intake as one batch |
+| `event-watch-destbryan` | `destbryan` | Tue/Fri 01:10 | `rotate_vpn_per_run: false` |
+| `event-watch-challenge` | `challenge` | Tue/Fri 01:10 | `proxy_url: ""` |
+| `event-watch-bvso` | `bvso` | Tue/Fri 01:10 | `proxy_url: ""` |
+| `event-watch-lowes` | `lowes` | Tue/Fri 01:10 | `proxy_url: ""` |
+| `event-watch-homedepot` | `homedepot` | Tue/Fri 01:10 | `proxy_url: ""` |
+| `event-watch-americangi` | `americangi` | Tue/Fri 01:10 | `proxy_url: ""` |
+| `event-watch-cityspark` | `cityspark` | Tue/Fri 01:22 | `proxy_url: ""` |
+| `event-watch-bryantx` | `bryantx` | Tue/Fri 01:22 | `proxy_url: ""` |
+| `event-watch-lakewalk` | `lakewalk` | Tue/Fri 01:22 | `proxy_url: ""` |
+| `event-watch-bvmuseum` | `bvmuseum` | Tue/Fri 01:22 | `proxy_url: ""` |
+| `event-watch-bcschamber` | `bcschamber` | Tue/Fri 01:22 | `proxy_url: ""` |
+| `event-watch-ttc` | `ttc` | Tue/Fri 01:22 | `proxy_url: ""` |
+| `event-watch-stage12` | `stage12` | Tue/Fri 01:24 | `proxy_url: ""` |
+| `event-watch-sewmuchclass` | `sewmuchclass` | Tue/Fri 01:24 | `proxy_url: ""` |
+| `event-watch-bvchess` | `bvchess` | Tue/Fri 01:24 | `proxy_url: ""` |
+| `event-watch-bcslibrary` | `tockify` | Tue/Fri 01:28 | `rotate_vpn_per_run: false` |
+| `event-watch-kbtx` | `kbtx` | Tue/Fri 01:28 | `rotate_vpn_per_run: false` |
+| `event-watch-tamu` | `tamu` | Tue/Fri 01:28 | `rotate_vpn_per_run: false` |
+| `event-watch-visitcstx` | `visitcstx` | Tue/Fri 01:28 | `rotate_vpn_per_run: false` |
+| `event-watch-bush41` | `bush41` | Tue/Fri 01:28 | `rotate_vpn_per_run: false` |
+| `event-watch-hyperbole` | `hyperbole` | Tue/Fri 01:28 | `rotate_vpn_per_run: false` |
+| `event-watch-kbtxdeals` | `kbtxdeals` | Tue/Fri 01:32 | `rotate_vpn_per_run: false` |
+| `event-watch-tamumusic` | `tamumusic` | Tue/Fri 01:32 | `rotate_vpn_per_run: false` |
+| `event-watch-wonderfulwords` | `wonderfulwords` | Tue/Fri 01:32 | `rotate_vpn_per_run: false` |
+| `event-watch-pwat` | `pwat` | Tue/Fri 01:32 | `rotate_vpn_per_run: false` |
+| `event-watch-thepalace` | `thepalace` | Tue/Fri 01:32 | `rotate_vpn_per_run: false` |
+| `event-watch-cstxparks` | `cstxparks` | Tue/Fri 01:32 | `rotate_vpn_per_run: false` |
+| `event-watch-cstxcal` | `cstxcal` | Tue/Fri 01:36 | `rotate_vpn_per_run: false` |
+| `event-watch-youthcamps` | `youthcamps` | Tue/Fri 01:36 | `rotate_vpn_per_run: false` |
+| ~~`event-watch-rei`~~ | `rei` | ~~Tue/Fri 01:40~~ | `enabled: false` since 2026-09-04 |
+| `event-watch-done` | — (`modules.event_watch_done`) | Tue/Fri 02:00 | `site: discoverbcs` — publishes `watch.complete` so the site reviews the morning's intake as one batch |
 
 First real injection of `challenge`: 2026-08-12, window `2026-08-13 → 2026-09-17`,
 **48 upserted / 0 cancelled / 0 rejected**, 12 series, no unmapped venue.
@@ -97,8 +98,14 @@ through whatever proxy that job has, and the library job would then email a
 fetch failure twice a week. `cityspark` talks to portal.cityspark.com, not
 fox44news.com; it goes direct like Challenge.
 
-The 15-minute offset is only politeness: the two runs share no state and no
-source, so overlapping would be harmless.
+The jobs share no state and no source, so they overlap on purpose. The
+container is capped at 512 MB and the scheduler has 10 workers, so each
+minute starts at most six scrapes. Destination Bryan is the long proxied
+run and has 01:10 to itself among proxied jobs; five direct scrapes share
+that minute. The other direct scrapes are 01:22 and 01:24. The other
+proxied scrapes are 01:28, 01:32, and 01:36. `event-watch-done` is 02:00,
+after the last scrape and before career-watch rotates the VPN at 04:45.
+Friday's digest goes out with that 02:00 signal.
 
 Window length and schedule are deliberately unscoped by the design (§3, §11.3).
 `window_days` defaults to 270; a scraper may narrow it (see below).
@@ -207,12 +214,15 @@ that happens to last two weeks is kept.
 **Bryan and College Station only.** Brenham, Hearne, Leon County and Waco-area
 listings are dropped, not filed as `nearby`.
 
-**Venues are not a maintained table.** Most records already have `c_locality`
-and a Google `place_id`; those get `area` from the city. When the city is
-missing, fetch calls `address-kit` (Census → Geoapify → Google, BCS ZIPs only)
-and caches the result on `place_id` or the cleaned address, so a venue is
-looked up at most once. `out_of_area` is a quiet drop; `no_match` is an
-attention email. `normalize` never calls the kit.
+**Venues are not a maintained table.** A Bryan/College Station `c_locality`
+with a street is structured: the place is the venue name, or the street when
+Tockify omitted a name — never the city itself. City-only records omit
+`series.place`. A named venue with no street goes through `address-kit`
+(Census → Geoapify → Google, BCS ZIPs only) and caches on `place_id` or the
+cleaned address, so a venue is looked up at most once. `out_of_area` is a
+quiet drop; `no_match` keeps the named venue without a street when the city
+is already BCS, and is an attention email when there is no city.
+`normalize` never calls the kit.
 
 `kbtx` is not in `DEFAULT_KINDS`. Pin it.
 
@@ -232,6 +242,12 @@ The filter is Bryan + 15 miles — the same one as the station's public URL.
 `DateStart` is wall-clock Central wearing a `Z`. Believing the suffix would
 shift every timed listing five or six hours. `Free` is false on the whole
 captured window, so `is_free` is omitted rather than sent as a lie.
+
+A CitySpark row with neither `Venue` nor `Address` is still published, with
+no `series.place` — the widget's city centroid is not a venue. A street
+without a venue name becomes the place name. A named venue without a street
+is looked up through `address-kit` (cached like KBTX); a miss keeps the
+name and drops the city pin.
 
 `cityspark` is not in `DEFAULT_KINDS`. Pin it, and run it un-proxied.
 

@@ -1,6 +1,6 @@
 """event_watch_done — tell the site the morning's event_watch runs are over.
 
-The 29 event_watch jobs are separate scheduled runs (Tue/Fri 03:40 to 10:35) and
+The 29 event_watch jobs are separate scheduled runs (Tue/Fri 01:10 to 01:36) and
 nothing marks the last one; the site wants a single "all done" so it can
 review what came in as one batch. This job publishes ``watch.complete`` on
 ``events:<site>`` once, from its own schedule slot after the last scrape.

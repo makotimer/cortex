@@ -102,6 +102,12 @@ BABY_HINTS = ("baby", "babies", "toddler", "infant", "lapsit")
 
 # The en and em dashes are deliberate: real titles use all three separators.
 _REGISTER_SUFFIX = re.compile(r"\s*[-–—]\s*Register\b.*$", re.I)  # noqa: RUF001
+# Branch codes the calendar appends. The place already names the branch.
+# Spelled-out locations such as "(Meyer Center, online)" stay in the title.
+_BRANCH_ABBR = re.compile(
+    r"\s*\((?:CBMPL|LJRL|CHC)(?:\s*,\s*(?:CBMPL|LJRL|CHC))*\)",
+    re.IGNORECASE,
+)
 _NOT_REQUIRED = re.compile(r"registration\s+(is\s+)?not\s+required|no\s+registration", re.I)
 _REQUIRED = re.compile(r"registration\s+(is\s+)?required", re.I)
 
@@ -187,7 +193,7 @@ class TockifyScraper(BaseEventScraper):
 
     def _series(self, uid: str, base: RawEvent) -> dict:
         content = base.record.get("content") or {}
-        title = strip_registration_suffix(content.get("summary", {}).get("text") or "")
+        title = clean_title(content.get("summary", {}).get("text") or "")
         description = base.supplement.get("description") or normalize.clean_text(
             (content.get("description") or {}).get("text")
         )
@@ -228,13 +234,22 @@ class TockifyScraper(BaseEventScraper):
 # Pure helpers. Kept module-level so tests can drive them directly.
 # --------------------------------------------------------------------------
 def strip_registration_suffix(title: str) -> str:
-    """Drop a trailing ``- Register…``, keeping the venue parenthetical.
+    """Drop a trailing ``- Register…``.
 
-    ``"Tech Titans (CBMPL) - Register"`` -> ``"Tech Titans (CBMPL)"``. The site's
-    matcher normalizes ``(CBMPL)`` away itself and it is useful signal in the
-    admin, so it stays.
+    ``"Tech Titans (CBMPL) - Register"`` -> ``"Tech Titans (CBMPL)"``.
+    KBTX shares this helper and does not use the library branch codes, so
+    the parenthetical stays here. Library titles go through :func:`clean_title`.
     """
     return _REGISTER_SUFFIX.sub("", title or "").strip()
+
+
+def clean_title(title: str) -> str:
+    """Registration suffix, then the branch abbreviation.
+
+    ``"Tech Titans (CBMPL) - Register"`` -> ``"Tech Titans"``.
+    ``"CLOSED (CBMPL, LJRL, CHC)"`` -> ``"CLOSED"``.
+    """
+    return _BRANCH_ABBR.sub("", strip_registration_suffix(title)).strip()
 
 
 def _registration(title: str, text: str) -> bool | None:
@@ -338,10 +353,10 @@ def _overrides(item: RawEvent, base: RawEvent) -> dict:
     if item.record.get("kind") != "mod" or item is base:
         return {}
     out = {}
-    item_title = strip_registration_suffix(
+    item_title = clean_title(
         ((item.record.get("content") or {}).get("summary") or {}).get("text") or ""
     )
-    base_title = strip_registration_suffix(
+    base_title = clean_title(
         ((base.record.get("content") or {}).get("summary") or {}).get("text") or ""
     )
     if item_title and item_title != base_title:

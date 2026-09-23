@@ -3,6 +3,9 @@
 The listing on fox44news.com is a CitySpark portal (slug ``MyCenTX``) behind
 PerimeterX. The widget itself POSTs to portal.cityspark.com with no auth —
 that is the feed. Bryan + 15 miles is the filter the station's own URL uses.
+
+City-only rows omit ``series.place``. Named venues without a street go through
+address-kit during fetch; a miss keeps the name and drops the city centroid.
 """
 from __future__ import annotations
 
@@ -76,8 +79,15 @@ class CitySparkScraper(BaseEventScraper):
     source_name = ORGANIZATION["name"]
     verify_url = "https://portal.cityspark.com/Content/images/citysparklogoSmall.png"
 
-    def __init__(self, proxy_url: str | None = None) -> None:
+    def __init__(
+        self,
+        proxy_url: str | None = None,
+        state_dir: str | None = None,
+        resolve: Any | None = None,
+    ) -> None:
         self._proxy_url = proxy_url
+        self._state_dir = state_dir
+        self._resolve = resolve
         self._client: HttpClient | None = None
 
     def fetch(
@@ -103,11 +113,24 @@ class CitySparkScraper(BaseEventScraper):
                 break
             skip = len(records)
 
-        return [
+        raw = [
             to_raw(record)
             for record in records
             if _in_window(record, window_start, window_end)
         ]
+        cache: dict[str, dict] = {}
+        if self._state_dir:
+            from .. import state
+
+            cache = state.load_addresses(self._state_dir, self.source_slug)
+        from . import kbtx
+
+        enrich_places(raw, resolve=self._resolve or kbtx.resolve_address, cache=cache)
+        if self._state_dir:
+            from .. import state
+
+            state.save_addresses(self._state_dir, self.source_slug, cache)
+        return raw
 
     def normalize(self, raw: list[RawEvent]) -> tuple[list[dict], list[dict]]:
         payloads: list[dict] = []
@@ -156,7 +179,9 @@ class CitySparkScraper(BaseEventScraper):
             series["source_url"] = url
         if rec.get("Free") is True:
             series["is_free"] = True
-        series["place"] = _place(rec)
+        place = _place(rec, item.supplement.get("place_resolution"))
+        if place:
+            series["place"] = place
         return series
 
 
@@ -219,7 +244,32 @@ def parse_city_state(city_state: str | None) -> tuple[str, str] | None:
     return city_area(head) if head else None
 
 
-def _place(record: dict) -> dict:
+def enrich_places(
+    raw: list[RawEvent],
+    *,
+    resolve: Any,
+    cache: dict[str, dict],
+) -> dict[str, dict]:
+    """Look up a named venue that the widget sent without a street."""
+    from . import kbtx
+
+    for item in raw:
+        rec = item.record
+        venue = (rec.get("Venue") or "").strip()
+        street = (rec.get("Address") or "").strip()
+        mapped = parse_city_state(rec.get("CityState"))
+        if not venue or street or mapped is None:
+            continue
+        city, _ = mapped
+        query = f"{venue}, {city}, TX"
+        key = kbtx.venue_cache_key(None, query)
+        if key not in cache:
+            cache[key] = dict(resolve(query) or {"status": "no_match"})
+        item.supplement["place_resolution"] = cache[key]
+    return cache
+
+
+def _place(record: dict, reso: dict | None = None) -> dict | None:
     mapped = parse_city_state(record.get("CityState"))
     if mapped is None:
         city_state = (record.get("CityState") or "").strip()
@@ -227,7 +277,11 @@ def _place(record: dict) -> dict:
             raise ScraperError("no usable city")
         raise _Drop()
     city, area = mapped
-    name = (record.get("Venue") or "").strip() or city
+    venue = (record.get("Venue") or "").strip()
+    street = (record.get("Address") or "").strip()
+    if not venue and not street:
+        return None
+    name = venue or street
     place: dict[str, Any] = {
         "slug": normalize.slugify(f"{name}-{city}"),
         "name": name,
@@ -235,16 +289,28 @@ def _place(record: dict) -> dict:
         "region": "TX",
         "area": area,
     }
-    street = (record.get("Address") or "").strip()
     if street:
         place["street"] = street
-    zip_code = record.get("Zip")
-    if zip_code:
-        place["postcode"] = str(zip_code).strip()
-    if isinstance(record.get("latitude"), (int, float)):
-        place["latitude"] = float(record["latitude"])
-    if isinstance(record.get("longitude"), (int, float)):
-        place["longitude"] = float(record["longitude"])
+        zip_code = record.get("Zip")
+        if zip_code:
+            place["postcode"] = str(zip_code).strip()
+        if isinstance(record.get("latitude"), (int, float)):
+            place["latitude"] = float(record["latitude"])
+        if isinstance(record.get("longitude"), (int, float)):
+            place["longitude"] = float(record["longitude"])
+        return place
+    if (reso or {}).get("status") == "matched" and city_area(reso.get("city")):
+        from . import kbtx
+
+        resolved_street = kbtx._street_from_address(reso.get("matched_address") or "")
+        if resolved_street:
+            place["street"] = resolved_street
+        if reso.get("zip_code"):
+            place["postcode"] = str(reso["zip_code"])
+        if isinstance(reso.get("lat"), (int, float)):
+            place["latitude"] = float(reso["lat"])
+        if isinstance(reso.get("lng"), (int, float)):
+            place["longitude"] = float(reso["lng"])
     return place
 
 

@@ -5,8 +5,9 @@ board: many one-off venues, mixed cities, freeform tags, and months-long
 listings that are not attendable dates.
 
 Fetch reuses the Tockify parse helpers. Place, geo and topic rules live here.
-Address resolution (when Tockify omitted a usable city) is I/O and happens in
-``enrich_places`` during fetch; ``normalize`` only reads what was attached.
+Address resolution (missing city, or a named venue with no street) is I/O and
+happens in ``enrich_places`` during fetch; ``normalize`` only reads what was
+attached. A city with no venue and no street omits ``series.place``.
 """
 
 from __future__ import annotations
@@ -225,16 +226,35 @@ def city_area(city: str | None) -> tuple[str, str] | None:
     return CITY_AREA.get((city or "").strip().lower())
 
 
+def _venue_name(content: dict) -> str:
+    loc = content.get("location") or {}
+    return (content.get("place") or "").strip() or (loc.get("name") or "").strip()
+
+
+def _street(content: dict) -> str:
+    loc = content.get("location") or {}
+    return (loc.get("c_street") or "").strip() or _street_from_address(
+        content.get("address") or ""
+    )
+
+
 def place_decision(record: dict) -> str:
-    """How this record gets a place: structured, drop_geo, resolve, or reject."""
+    """How this record gets a place: structured, no_place, drop_geo, resolve, or reject."""
     content = record.get("content") or {}
     loc = content.get("location") or {}
     city = (loc.get("c_locality") or "").strip()
+    venue = _venue_name(content)
+    street = _street(content)
     if city:
-        return "structured" if city_area(city) else "drop_geo"
+        if not city_area(city):
+            return "drop_geo"
+        if not venue and not street:
+            return "no_place"
+        if street:
+            return "structured"
+        return "resolve"
     address = (content.get("address") or "").strip()
-    place = (content.get("place") or "").strip()
-    if address or place:
+    if address or venue:
         return "resolve"
     return "reject"
 
@@ -327,25 +347,31 @@ def resolve_address(address: str) -> dict[str, Any]:
     }
 
 
-def _place_for(item: RawEvent) -> dict:
+def _place_for(item: RawEvent) -> dict | None:
     decision = place_decision(item.record)
     if decision == "drop_geo":
         raise _Drop()
+    if decision == "no_place":
+        return None
     if decision == "structured":
         return _place_from_structured(item.record)
     if decision == "resolve":
         reso = item.supplement.get("place_resolution")
-        if not reso:
-            raise ScraperError("address needs resolution; no city from source")
-        status = reso.get("status")
+        status = (reso or {}).get("status")
         if status == "out_of_area":
             raise _Drop()
-        if status != "matched":
-            raise ScraperError(f"address could not be resolved ({status})")
-        mapped = city_area(reso.get("city"))
-        if not mapped:
-            raise _Drop()
-        return _place_from_resolution(item.record, reso, mapped)
+        if status == "matched":
+            mapped = city_area(reso.get("city"))
+            if not mapped:
+                raise _Drop()
+            return _place_from_resolution(item.record, reso, mapped)
+        content = item.record.get("content") or {}
+        loc = content.get("location") or {}
+        if city_area(loc.get("c_locality")) and _venue_name(content):
+            return _place_from_structured(item.record)
+        if not reso:
+            raise ScraperError("address needs resolution; no city from source")
+        raise ScraperError(f"address could not be resolved ({status})")
     raise ScraperError("no usable address or city")
 
 
@@ -356,7 +382,10 @@ def _place_from_structured(record: dict) -> dict:
     if not mapped:
         raise _Drop()
     city, area = mapped
-    name = (content.get("place") or "").strip() or (loc.get("name") or "").strip() or city
+    street = _street(content)
+    name = _venue_name(content) or street
+    if not name:
+        raise ScraperError("no usable address or city")
     place: dict[str, Any] = {
         "slug": normalize.slugify(f"{name}-{city}"),
         "name": name,
@@ -364,7 +393,6 @@ def _place_from_structured(record: dict) -> dict:
         "region": "TX",
         "area": area,
     }
-    street = (loc.get("c_street") or "").strip() or _street_from_address(content.get("address") or "")
     if street:
         place["street"] = street
     if loc.get("c_postcode"):
@@ -382,7 +410,12 @@ def _place_from_resolution(record: dict, reso: dict, mapped: tuple[str, str]) ->
     content = record.get("content") or {}
     loc = content.get("location") or {}
     city, area = mapped
-    name = (content.get("place") or "").strip() or city
+    street = _street_from_address(
+        reso.get("matched_address") or content.get("address") or ""
+    )
+    name = _venue_name(content) or street
+    if not name:
+        raise ScraperError("no usable address or city")
     place: dict[str, Any] = {
         "slug": normalize.slugify(f"{name}-{city}"),
         "name": name,
@@ -390,7 +423,6 @@ def _place_from_resolution(record: dict, reso: dict, mapped: tuple[str, str]) ->
         "region": "TX",
         "area": area,
     }
-    street = _street_from_address(reso.get("matched_address") or content.get("address") or "")
     if street:
         place["street"] = street
     if reso.get("zip_code"):

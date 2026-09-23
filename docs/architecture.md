@@ -51,12 +51,12 @@ starts three things in one process (`service/cli.py`):
 Each job module is a directory exposing `run(**kwargs)`; `modules/README.md` is
 the author's guide and `modules/example_daily/` the template.
 
-| Module | Does | Scheduled (`local/config.json`, 2026-09-13) |
+| Module | Does | Scheduled (`local/config.json`, 2026-09-22) |
 |---|---|---|
 | `bible_plan` | daily reading email linking `https://study.coviecraft.dev`; no LLM call (`modules/bible_plan/main.py`) | Mon–Thu 05:25, Fri–Sun 06:55 |
 | `career_watch` | job-board scrapers through the VPN proxy; SQLite state `local/state/careerwatch.db` | 10×/day Mon–Sat, 05:00–18:30 every 90 min; a second user's job is `enabled: false` |
-| `event_watch` | 31 scraper files under `lib/scrapers/`, one `kind` per job, publishing onto `events:<site>` | 29 jobs Tue+Fri 03:40–10:35, 15 min apart; `rei` disabled |
-| `vpn_cycle` | moves the VPN exit while nothing is scraping (`DEFAULT_ATTEMPTS = 5`) | 10×/day Mon–Sat at :45/:15, 15 min before each `career_watch` run; Tue+Fri 03:25 before the event grid |
+| `event_watch` | 31 scraper files under `lib/scrapers/`, one `kind` per job, publishing onto `events:<site>` | 29 jobs Tue+Fri 01:10–01:36, at most six at once; `rei` disabled; `event-watch-done` at 02:00 |
+| `vpn_cycle` | moves the VPN exit while nothing is scraping (`DEFAULT_ATTEMPTS = 5`) | 10×/day Mon–Sat at :45/:15, 15 min before each `career_watch` run; Tue+Fri 01:00 before the event grid |
 | `sonos` | hourly chime via SoCo; `sonos_volume` kwarg 25 (quiet) / 40 (loud) | four jobs splitting Sun vs Mon–Sat, quiet vs loud hours |
 | `health_check` | CLI `python -m modules.health_check --json --date yesterday`; reads the JSONL logs and judges the day | not scheduled — the ops nightly `docker exec`s it (`websites/ops/scripts/nightly_fleet.sh:75`) |
 | `example_daily` | reference implementation | — |

@@ -118,15 +118,19 @@ def test_six_venues_including_the_two_the_design_missed(normalized):
 @pytest.mark.parametrize(
     "raw,expected",
     [
-        ("Tech Titans (CBMPL) - Register", "Tech Titans (CBMPL)"),
-        ("Play2Learn (LJRL) - Register starting August 7", "Play2Learn (LJRL)"),
+        ("Tech Titans (CBMPL) - Register", "Tech Titans"),
+        ("Play2Learn (LJRL) - Register starting August 7", "Play2Learn"),
         ("DigiLab Orientation (CHC) - Register starting August 5 at noon",
-         "DigiLab Orientation (CHC)"),
-        ("Storytime (LJRL)", "Storytime (LJRL)"),
+         "DigiLab Orientation"),
+        ("Storytime (LJRL)", "Storytime"),
+        ("CLOSED: Staff Development Day (CBMPL, LJRL, CHC)",
+         "CLOSED: Staff Development Day"),
+        ("Meyer Book Club (Meyer Center, online)",
+         "Meyer Book Club (Meyer Center, online)"),
     ],
 )
-def test_registration_suffix_stripped_venue_parenthetical_kept(raw, expected):
-    assert tockify.strip_registration_suffix(raw) == expected
+def test_registration_suffix_and_branch_abbreviation_stripped(raw, expected):
+    assert tockify.clean_title(raw) == expected
 
 
 def test_registration_required_is_three_state():
@@ -1049,10 +1053,111 @@ def test_kbtx_place_decision_routes_structured_and_foreign():
     missing = {"content": {"location": {}, "address": "2026 East 29th Street, Bryan, TX 77802",
                            "place": "Medical Examiner"}}
     empty = {"content": {"location": {}, "address": "", "place": ""}}
+    city_only = {"content": {"location": {"c_locality": "College Station"},
+                             "address": "", "place": ""}}
+    venue_no_street = {"content": {"location": {"c_locality": "Bryan"},
+                                   "address": "", "place": "Veterans Park"}}
     assert kbtx.place_decision(bcs) == "structured"
     assert kbtx.place_decision(other) == "drop_geo"
     assert kbtx.place_decision(missing) == "resolve"
     assert kbtx.place_decision(empty) == "reject"
+    assert kbtx.place_decision(city_only) == "no_place"
+    assert kbtx.place_decision(venue_no_street) == "resolve"
+
+
+def test_kbtx_city_only_omits_place():
+    raw = [tockify._to_raw({
+        "eid": {"uid": "40", "tid": 40},
+        "content": {
+            "summary": {"text": "Somewhere in town"},
+            "location": {"c_locality": "College Station"},
+            "address": "",
+            "place": "",
+        },
+        "when": {"start": {"millis": 40, "tzid": "America/Chicago"}, "allDay": False},
+    }, {})]
+    payloads, rejected = kbtx.KbtxScraper().normalize(raw)
+    assert rejected == []
+    assert payloads
+    assert "place" not in payloads[0]["series"]
+
+
+def test_kbtx_street_without_venue_names_the_street():
+    raw = [tockify._to_raw({
+        "eid": {"uid": "41", "tid": 41},
+        "content": {
+            "summary": {"text": "Day at Play"},
+            "location": {
+                "c_locality": "College Station",
+                "c_street": "19851 FM 2154",
+            },
+            "address": "19851 FM 2154, College Station, TX",
+            "place": "",
+        },
+        "when": {"start": {"millis": 41, "tzid": "America/Chicago"}, "allDay": False},
+    }, {})]
+    payloads, rejected = kbtx.KbtxScraper().normalize(raw)
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["name"] == "19851 FM 2154"
+    assert place["street"] == "19851 FM 2154"
+    assert place["city"] == "College Station"
+    assert "19851" in place["slug"]
+    assert place["name"].lower() != "college station"
+
+
+def test_kbtx_enrich_resolves_named_venue_when_street_missing():
+    calls: list[str] = []
+
+    def resolve(address: str) -> dict:
+        calls.append(address)
+        return {
+            "status": "matched", "city": "Bryan", "zip_code": "77803",
+            "lat": 30.65, "lng": -96.36,
+            "matched_address": "VETERANS PARK, BRYAN, TX, 77803",
+        }
+
+    raw = [tockify._to_raw({
+        "eid": {"uid": "42", "tid": 42},
+        "content": {
+            "summary": {"text": "Memorial"},
+            "location": {"c_locality": "Bryan"},
+            "address": "",
+            "place": "Veterans Park",
+        },
+        "when": {"start": {"millis": 42, "tzid": "America/Chicago"}, "allDay": False},
+    }, {})]
+    kbtx.enrich_places(raw, resolve=resolve, cache={})
+    assert calls == ["Veterans Park"]
+    payloads, rejected = kbtx.KbtxScraper().normalize(raw)
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["name"] == "Veterans Park"
+    assert place["street"] == "VETERANS PARK"
+    assert place["city"] == "Bryan"
+
+
+def test_kbtx_named_venue_survives_unresolved_geocode():
+    def resolve(address: str) -> dict:
+        return {"status": "no_match"}
+
+    raw = [tockify._to_raw({
+        "eid": {"uid": "43", "tid": 43},
+        "content": {
+            "summary": {"text": "Memorial"},
+            "location": {"c_locality": "Bryan"},
+            "address": "",
+            "place": "Veterans Park",
+        },
+        "when": {"start": {"millis": 43, "tzid": "America/Chicago"}, "allDay": False},
+    }, {})]
+    kbtx.enrich_places(raw, resolve=resolve, cache={})
+    payloads, rejected = kbtx.KbtxScraper().normalize(raw)
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["name"] == "Veterans Park"
+    assert place["city"] == "Bryan"
+    assert "street" not in place
 
 
 def test_kbtx_enrich_skips_long_all_day_listings():
@@ -1346,10 +1451,77 @@ def test_cityspark_only_publishes_bryan_and_college_station(cityspark_normalized
     cities = {p["series"]["place"]["city"] for p in payloads if "place" in p["series"]}
     assert cities <= {"Bryan", "College Station"}
     for p in payloads:
+        if "place" not in p["series"]:
+            continue
         place = p["series"]["place"]
         assert place["area"] in {"bryan", "college_station"}
         assert place["name"]
         assert place.get("region") == "TX"
+
+
+def test_cityspark_city_only_omits_place(cityspark_normalized):
+    payloads, rejected = cityspark_normalized
+    assert rejected == []
+    basketball = next(
+        p for p in payloads
+        if "Women's Basketball at Texas A&M" in p["series"]["title"]
+    )
+    assert "place" not in basketball["series"]
+    city_only = [p for p in payloads if "place" not in p["series"]]
+    assert city_only, "sports listings with only a city must still publish"
+
+
+def test_cityspark_street_without_venue_names_the_street(cityspark_normalized):
+    payloads, _ = cityspark_normalized
+    txsef = next(p for p in payloads if "TXSEF" in p["series"]["title"])
+    place = txsef["series"]["place"]
+    assert place["name"] == "400 Bizzell St"
+    assert place["street"] == "400 Bizzell St"
+    assert place["city"] == "College Station"
+    assert place["name"].lower() != "college station"
+
+
+def test_cityspark_named_venue_without_street_is_not_the_city_pin(cityspark_normalized):
+    payloads, _ = cityspark_normalized
+    watts = next(p for p in payloads if "Watts" in p["series"]["title"]
+                 or "Watts" in (p["series"].get("place") or {}).get("name", ""))
+    place = watts["series"]["place"]
+    assert place["name"] == "Watts Cross Country Course"
+    assert "street" not in place
+    assert "latitude" not in place
+    assert "longitude" not in place
+
+
+def test_cityspark_enrich_resolves_named_venue_without_street():
+    calls: list[str] = []
+
+    def resolve(address: str) -> dict:
+        calls.append(address)
+        return {
+            "status": "matched", "city": "College Station", "zip_code": "77845",
+            "lat": 30.58, "lng": -96.31,
+            "matched_address": "WATTS CROSS COUNTRY COURSE, COLLEGE STATION, TX, 77845",
+        }
+
+    raw = [cityspark.to_raw({
+        "PId": 99, "Id": "watts-1",
+        "Name": "Aggie Invite",
+        "CityState": "College Station, TX",
+        "Venue": "Watts Cross Country Course",
+        "Address": None,
+        "latitude": 30.62798, "longitude": -96.33441,
+        "DateStart": "2026-09-12T08:00:00Z", "AllDay": False, "HasTime": True,
+        "Tags": [],
+    })]
+    cityspark.enrich_places(raw, resolve=resolve, cache={})
+    assert calls == ["Watts Cross Country Course, College Station, TX"]
+    payloads, rejected = cityspark.CitySparkScraper().normalize(raw)
+    assert rejected == []
+    place = payloads[0]["series"]["place"]
+    assert place["name"] == "Watts Cross Country Course"
+    assert place["street"] == "WATTS CROSS COUNTRY COURSE"
+    assert place["latitude"] == 30.58
+    assert place["longitude"] == -96.31
 
 
 def test_cityspark_times_are_wall_clock_central_not_utc(cityspark_normalized):

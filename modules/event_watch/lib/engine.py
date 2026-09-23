@@ -376,7 +376,7 @@ def _default_scrapers(settings: Settings) -> list[BaseEventScraper]:
         if cls in {
             KbtxScraper, TamuScraper, TamuMusicScraper,
             DestBryanScraper, VisitCstxScraper, KbtxDealsScraper,
-            BcsChamberScraper,
+            BcsChamberScraper, CitySparkScraper,
         }:
             out.append(cls(proxy_url=settings.proxy_url, state_dir=settings.state_dir))
         else:
