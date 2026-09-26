@@ -114,20 +114,19 @@ class ThePalaceScraper(BaseEventScraper):
         )
         self._client = client
         slugs = parse_list(client.get_text(LIST_URL))
-        raw: list[RawEvent] = []
+        listing: list[RawEvent] = []
         for slug in slugs:
             html = client.get_text(f"{SITE}/movie/ThePalace/{slug}")
             rec = parse_detail(html, slug)
             item = to_raw(rec)
             if in_window(item, window_start, window_end):
-                raw.append(item)
+                listing.append(item)
         try:
             weekly_html = client.get_text(WEEKLY_URL)
         except Exception:
             weekly_html = ""
-        if weekly_html:
-            raw.extend(expand_weekly(weekly_html, window_start, window_end))
-        return raw
+        weekly = expand_weekly(weekly_html, window_start, window_end) if weekly_html else []
+        return combine(listing, weekly)
 
     def normalize(self, raw: list[RawEvent]) -> tuple[list[dict], list[dict]]:
         payloads: list[dict] = []
@@ -205,6 +204,35 @@ def weekly_kinds(html_text: str) -> set[str]:
     if "maroon" in text and "white" in text:
         out.add("maroon-white")
     return out
+
+
+def listing_kind(slug: str) -> str | None:
+    """Show-page slug -> the weekly series it restates, if exactly one. Pure."""
+    kinds = weekly_kinds((slug or "").replace("-", " "))
+    return next(iter(kinds)) if len(kinds) == 1 else None
+
+
+def combine(listing: list[RawEvent], weekly: list[RawEvent]) -> list[RawEvent]:
+    """Fold listing pages that restate a weekly series into that series. Pure.
+
+    The listing started carrying GAMEDAY-ON-MAIN, NFL-GAMEDAY-ON-MAIN and
+    OPEN-MIC-NIGHT as show pages (2026-09-22). Under their own slugs each
+    became a second series from this source beside the weekly one, and the
+    site only matches duplicates across sources. So a restating page takes
+    the weekly uid, and on any day it covers it replaces the projected
+    weekly row: the page has the real start and end.
+    """
+    covered: set[tuple[str, date]] = set()
+    for item in listing:
+        kind = listing_kind(item.series_uid)
+        if kind:
+            item.series_uid = kind
+            covered.add((kind, item.record["start"].date()))
+    kept = [
+        item for item in weekly
+        if (item.series_uid, item.record["start"].date()) not in covered
+    ]
+    return listing + kept
 
 
 def expand_weekly(html_text: str, window_start: date, window_end: date) -> list[RawEvent]:

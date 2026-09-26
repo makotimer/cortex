@@ -10,7 +10,7 @@ from __future__ import annotations
 import importlib.util
 import json
 import sys
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 import pytest
@@ -220,3 +220,68 @@ def test_conformance_palace_payloads_pass_the_real_validator(palace_normalized):
     assert payloads
     for payload in payloads:
         validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
+# --- listing pages that restate a weekly series (2026-09-26) ---------------
+#
+# The movies listing started carrying GAMEDAY-ON-MAIN, NFL-GAMEDAY-ON-MAIN and
+# OPEN-MIC-NIGHT as show pages. Under their own slugs they became second
+# series from the same source, which the site's cross-source matcher never
+# compares, so each gameday Saturday listed twice.
+
+
+def _listing(slug: str, start: datetime, end: datetime | None = None) -> RawEvent:
+    return thepalace.to_raw({"slug": slug, "title": slug, "start": start, "end": end})
+
+
+@pytest.mark.parametrize("slug,kind", [
+    ("GAMEDAY-ON-MAIN", "gameday"),
+    ("NFL-GAMEDAY-ON-MAIN", "gameday"),
+    ("OPEN-MIC-NIGHT", "open-mic"),
+    ("ROGER-CREAGER", None),
+    ("ONE-PERCENT-SKYNYRD-FEATURING-BURN", None),
+])
+def test_palace_listing_slug_maps_to_weekly_kind(slug, kind):
+    assert thepalace.listing_kind(slug) == kind
+
+
+def test_palace_listing_replaces_weekly_row_on_its_day():
+    html = (FIXTURES / "thepalace_weekly.html").read_text(encoding="utf-8")
+    weekly = thepalace.expand_weekly(html, date(2026, 9, 21), date(2026, 10, 5))
+    listing = [
+        _listing("GAMEDAY-ON-MAIN", datetime(2026, 9, 26, 11), datetime(2026, 9, 26, 14)),
+        _listing("NFL-GAMEDAY-ON-MAIN", datetime(2026, 9, 27, 12), datetime(2026, 9, 27, 15)),
+        _listing("OPEN-MIC-NIGHT", datetime(2026, 9, 23, 19)),
+        _listing("ROGER-CREAGER", datetime(2026, 9, 25, 19)),
+    ]
+    raw = thepalace.combine(listing, weekly)
+
+    games = sorted(
+        i.record["start"] for i in raw if i.series_uid == "gameday")
+    assert games == [
+        datetime(2026, 9, 26, 11),   # listing (same time as weekly)
+        datetime(2026, 9, 27, 12),   # listing wins over the weekly 11:00
+        datetime(2026, 10, 3, 11),   # weekly, no listing yet
+        datetime(2026, 10, 4, 11),
+    ]
+    sat = next(i for i in raw if i.record["start"] == datetime(2026, 9, 26, 11))
+    assert sat.record["end"] == datetime(2026, 9, 26, 14)
+    mics = sorted(i.record["start"] for i in raw if i.series_uid == "open-mic")
+    assert mics == [datetime(2026, 9, 23, 19), datetime(2026, 9, 30, 19)]
+    assert {i.series_uid for i in raw} >= {"ROGER-CREAGER"}
+    assert not {i.series_uid for i in raw} & {
+        "GAMEDAY-ON-MAIN", "NFL-GAMEDAY-ON-MAIN", "OPEN-MIC-NIGHT"}
+
+
+def test_palace_folded_listing_normalizes_as_the_weekly_series():
+    listing = [_listing("NFL-GAMEDAY-ON-MAIN", datetime(2026, 9, 27, 12),
+                        datetime(2026, 9, 27, 15))]
+    payloads, rejected = thepalace.ThePalaceScraper().normalize(
+        thepalace.combine(listing, []))
+    assert rejected == []
+    (p,) = payloads
+    assert p["series"]["source_series_uid"] == "gameday"
+    assert p["series"]["title"] == "Gameday on Main"
+    assert p["series"]["source_url"].endswith("/weekly-events")
+    assert p["occurrence"]["start_local"] == "2026-09-27T12:00:00"
+    assert p["occurrence"]["end_local"] == "2026-09-27T15:00:00"
