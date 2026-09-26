@@ -4,6 +4,16 @@ The public ``/events/`` page is a Craft directory. Date filters work as ISO
 query params; other date formats 500. There is no JSON list — 12 cards per
 page, paginated with ``page=N``. Clock times and a full postal address live on
 each detail page as schema.org Event JSON-LD.
+
+This is a mixed-audience source. Most of the feed is family programming at
+shops, parks and churches, but it also carries bar and brewery nights (karaoke,
+open mics, trivia, Oktoberfests) that arrive with no audience label. The site
+policy for mixed-audience sources (decided 2026-08-12 for Challenge
+Entertainment) is publish and band ``["adult"]``, never drop. ``ADULT_VENUES``
+and ``ADULT_TITLES`` are that band, hand-kept: unlike ``challenge``'s
+``VENUES`` they are *not* a gate — a venue missing from the table is not
+rejected, it publishes exactly as before, because rejecting an unknown venue
+here would reject most of the feed.
 """
 
 from __future__ import annotations
@@ -206,6 +216,8 @@ class DestBryanScraper(BaseEventScraper):
         place = _place_for(item)
         if place:
             series["place"] = place
+            if _venue_key(place["name"]) in ADULT_VENUES or ADULT_TITLES.search(title):
+                series["audiences"] = ["adult"]
         return series
 
 
@@ -345,6 +357,40 @@ def audiences_from_categories(labels: list[str]) -> list[str]:
     if "family-friendly" in keys:
         out.add("all-ages")
     return sorted(out)
+
+
+def _venue_key(name: str) -> str:
+    """Normalize a place name for lookup: casefold, collapse whitespace, drop a leading "the"."""
+    key = " ".join((name or "").casefold().split())
+    if key.startswith("the "):
+        key = key[4:]
+    return key
+
+
+#: Bar and brewery names that are adult wherever they appear, keyed by
+#: normalized place name (see :func:`_venue_key`). A card whose venue is here
+#: publishes ``audiences == ["adult"]`` in place of whatever the categories
+#: said — a ``family-friendly`` tag at a pub does not make it one.
+#:
+#: A venue missing from this table is *not* rejected: most of the Destination
+#: Bryan feed is family programming (2026-08-12 policy for mixed-audience
+#: sources is publish-and-band, and rejecting an unknown venue here would
+#: reject the feed). Deliberately absent: Zoomz Entertainment, Grand Stafford
+#: Theater, La Bougainvillea Kitchen & Lounge and Ronin Farm — family venues
+#: that host a bar night now and then; ``ADULT_TITLES`` catches those nights.
+ADULT_VENUES: frozenset[str] = frozenset({
+    _venue_key("Murphy's Law Pub"),
+    _venue_key("Angry Elephant"),
+    _venue_key("Cadillac Ranch Bar & Grill"),
+    _venue_key("Yesterdays Bar and Grill"),
+    _venue_key("Tilted Pint Pub & Grill"),
+    _venue_key("The Owl"),
+    _venue_key("KinderHill Brew Lab"),
+    _venue_key("Blackwater Draw Brewing Co."),
+})
+
+#: Title words that mean a bar night wherever the event is held.
+ADULT_TITLES = re.compile(r"\b(karaoke|college night|happy hour|pub crawl|bar crawl|tequila)\b", re.I)
 
 
 def wall_clock_local(value: str | None) -> datetime | None:

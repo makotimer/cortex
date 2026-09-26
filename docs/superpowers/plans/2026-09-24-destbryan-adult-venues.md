@@ -30,15 +30,15 @@ titles, `audiences: ["adult"]`.
 
 ### Task 1: the venue and title band
 
-- [ ] Write failing tests in `tests/test_event_watch_destbryan.py`:
+- [x] Write failing tests in `tests/test_event_watch_destbryan.py`:
   - `test_destbryan_bar_venue_is_banded_adult` (e.g. "Karaoke at Murphy's Law", place `Murphy's Law Pub`)
   - `test_destbryan_venue_match_ignores_case_and_a_leading_the` (`the owl` / `The Owl`)
   - `test_destbryan_adult_venue_overrides_family_friendly_category`
   - `test_destbryan_bar_night_title_is_adult_at_any_venue` ("College Night at Zoomz Entertainment")
   - `test_destbryan_unknown_venue_keeps_category_audiences` (not rejected, unchanged)
-- [ ] Add `ADULT_VENUES`, `ADULT_TITLES` and `_venue_key(name)` beside `audiences_from_categories`; apply in `DestBryanScraper._series` after `_place_for`.
-- [ ] Module docstring: why unknown venues are not rejected here, citing the 2026-08-12 policy.
-- [ ] `./run_tests.sh` passes. Commit.
+- [x] Add `ADULT_VENUES`, `ADULT_TITLES` and `_venue_key(name)` beside `audiences_from_categories`; apply in `DestBryanScraper._series` after `_place_for`.
+- [x] Module docstring: why unknown venues are not rejected here, citing the 2026-08-12 policy.
+- [x] `./run_tests.sh` passes. Commit.
 
 ### Task 2: docs
 

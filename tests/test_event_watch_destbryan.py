@@ -188,3 +188,72 @@ def test_conformance_destbryan_payloads_pass_the_real_validator(destbryan_normal
     assert payloads
     for payload in payloads:
         validator.validate_upsert(json.loads(json.dumps(payload)))
+
+
+def _card(title, *, categories=None, date_text="August 20", maps="123 Main St, Bryan, TX 77801", address=""):
+    return {
+        "entry_id": title,
+        "title": title,
+        "category": (categories or ["Arts & Culture"])[0],
+        "categories": list(categories or ["Arts & Culture"]),
+        "href": "https://www.destinationbryan.com/events/" + title.lower().replace(" ", "-"),
+        "address": address,
+        "date_text": date_text,
+        "lat": None,
+        "lng": None,
+        "maps": maps,
+    }
+
+
+def _item(card, location_name="", location_city="Bryan"):
+    item = destbryan.to_raw(card)
+    item.supplement["jsonld"] = {
+        "description": "",
+        "startDate": "2026-08-20T19:00:00",
+        "location": {
+            "name": location_name,
+            "address": {"addressLocality": location_city, "streetAddress": "123 Main St"},
+        },
+    }
+    return item
+
+
+def _audiences_of(item):
+    payloads, _ = destbryan.DestBryanScraper().normalize([item])
+    assert len(payloads) == 1
+    return payloads[0]["series"]["audiences"]
+
+
+def test_destbryan_bar_venue_is_banded_adult():
+    item = _item(_card("Karaoke at Murphy's Law"), location_name="Murphy's Law Pub")
+    assert _audiences_of(item) == ["adult"]
+
+
+def test_destbryan_venue_match_ignores_case_and_a_leading_the():
+    for name in ("the owl", "THE OWL", "  The   Owl  "):
+        item = _item(_card("Trivia"), location_name=name)
+        assert _audiences_of(item) == ["adult"], name
+
+
+def test_destbryan_adult_venue_overrides_family_friendly_category():
+    card = _card("Karaoke at Murphy's Law", categories=["Family-Friendly"])
+    item = _item(card, location_name="Murphy's Law Pub")
+    assert _audiences_of(item) == ["adult"]
+
+
+def test_destbryan_bar_night_title_is_adult_at_any_venue():
+    card = _card("College Night at Zoomz Entertainment")
+    item = _item(card, location_name="Zoomz Entertainment")
+    assert _audiences_of(item) == ["adult"]
+    card = _card("Karaoke at Zoomz Entertainment")
+    item = _item(card, location_name="Zoomz Entertainment")
+    assert _audiences_of(item) == ["adult"]
+
+
+def test_destbryan_unknown_venue_keeps_category_audiences():
+    card = _card("Community Yoga at Lake Walk", categories=["Arts & Culture"])
+    item = _item(card, location_name="Lake Walk Pavilion")
+    assert _audiences_of(item) == []
+    card = _card("Sunday Funday at Midtown Park", categories=["Family-Friendly"])
+    item = _item(card, location_name="Midtown Park")
+    assert _audiences_of(item) == ["all-ages"]
