@@ -14,6 +14,13 @@ name, from `docker compose config` and `docker ps` on 2026-09-13:
 | `cortex` | `cortex-cortex-1` | built from `./Dockerfile` (`python:3.12-slim`, digest-pinned) | scheduler + runner + IMAP listener + `email.send` consumer; also hosts the on-demand MCP server |
 | `cortex_bridge` | `cortex-cortex_bridge-1` | `ghcr.io/videocurio/proton-mail-bridge` (digest-pinned) | ProtonMail Bridge; every SMTP and IMAP byte goes through it |
 | `vpn` | `cortex-vpn-1` | `qmcgaw/gluetun:v3` (ProtonVPN WireGuard) | HTTP proxy on `:8888` and control API on `:8000` for the scrapers |
+
+`vpn` is also on the external `vpnproxy` network (10.253.7.0/28), shared only
+with `discoverbcs-worker`, whose nightly fact check (00:40) fetches through
+`http://vpn:8888`. It exists so that consumer never joins `mailnet`. gluetun's
+firewall admits only networks attached at start: adding a network needs a
+recreate, not `docker network connect`.
+
 | `autoheal` | `cortex-autoheal-1` | `willfarrell/autoheal:latest` | restarts any container labelled `autoheal=true` whose healthcheck goes red |
 
 **Only `cortex_bridge` and `vpn` carry the `autoheal=true` label.** `cortex`

@@ -50,6 +50,11 @@ services:
     logging: *default-logging
     networks:
       - mailnet
+      # Proxy-only reach for other stacks (created once: `docker network
+      # create vpnproxy`). Only this container is on it, so a consumer such as
+      # discoverbcs-worker's nightly fact check gets http://vpn:8888 without
+      # seeing cortex_bridge's IMAP/SMTP on mailnet.
+      - vpnproxy
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8000/v1/publicip/ip 2>/dev/null | grep -qE '\"public_ip\":\"[0-9]'"]
       interval: 60s
@@ -118,6 +123,8 @@ services:
 networks:
   mailnet:
   eventbus:
+    external: true
+  vpnproxy:
     external: true
 
 secrets:
