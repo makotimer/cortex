@@ -51,7 +51,7 @@ WEEKLY = {
     "gameday": {
         "title": "Gameday on Main",
         "topics": ["sports"],
-        "audiences": ["adult"],
+        "audiences": ["all-ages"],
         "hour": 11,
         "minute": 0,
     },

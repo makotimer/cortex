@@ -195,6 +195,7 @@ def test_palace_weekly_normalize_marks_free_and_topics():
     assert by_uid["open-mic"]["series"]["topics"] == ["music"]
     assert by_uid["gameday"]["series"]["title"] == "Gameday on Main"
     assert by_uid["gameday"]["series"]["topics"] == ["sports"]
+    assert by_uid["gameday"]["series"]["audiences"] == ["all-ages"]
     assert "is_free" not in by_uid["gameday"]["series"]
     assert by_uid["maroon-white"]["series"]["topics"] == ["community"]
     assert payloads[0]["series"]["source_url"].endswith("/weekly-events")
