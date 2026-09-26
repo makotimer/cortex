@@ -14,7 +14,7 @@ Scrapes public event calendars and publishes them onto `events:<site>` as
 | `cityspark` | FOX 44 / MyCenTX (CitySpark widget API) | run default (270d) | Bryan 15mi; direct, not fox44news.com |
 | `bryantx` | City of Bryan GOVstack calendar | run default (270d) | HTML `_List` pages; direct |
 | `lakewalk` | Lake Walk (The Events Calendar) | run default (270d) | tribe REST; dedupe TEC ghosts; direct |
-| `destbryan` | Destination Bryan Craft directory | run default (270d) | HTML list + JSON-LD; all categories; nearby ZIPs |
+| `destbryan` | Destination Bryan Craft directory | run default (270d) | HTML list + JSON-LD; all categories; nearby ZIPs; bar/brewery venues and bar-night titles banded `adult` (table in the scraper) |
 | `bvmuseum` | Brazos Valley Museum of Natural History | run default (270d) | Homepage Upcoming Events repeater; year from the run; direct |
 | `visitcstx` | Visit College Station (Algolia Events) | run default (270d) | InstantSearch index; all categories; not destbryan |
 | `bush41` | George H.W. Bush Presidential Library | upcoming list | Drupal Views; date + optional body clock |

@@ -42,5 +42,5 @@ titles, `audiences: ["adult"]`.
 
 ### Task 2: docs
 
-- [ ] `modules/event_watch/README.md`, Destination Bryan: one sentence on the adult band and where the table lives.
-- [ ] Commit.
+- [x] `modules/event_watch/README.md`, Destination Bryan: one sentence on the adult band and where the table lives.
+- [x] Commit.
