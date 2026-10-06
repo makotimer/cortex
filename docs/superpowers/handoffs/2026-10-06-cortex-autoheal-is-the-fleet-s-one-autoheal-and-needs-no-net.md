@@ -22,6 +22,4 @@ Read the spec (`docs/superpowers/specs/2026-10-06-autoheal-fleet-owner-design.md
 
 ## Done when
 
-- [ ] `docker-compose.yaml` gives `autoheal` `network_mode: none` and a fleet-owner comment, with a passing test pinning it
-- [ ] `docs/architecture.md`, `docs/operations.md` and `docs/decisions.md` say autoheal acts on every `autoheal=true` container on the host and has no network
-- [ ] `./run_tests.sh` passes
+Tick every box in `docs/superpowers/checklists/FLEET-131.md` and commit that file. The next queued ticket will not start until every box is `[x]`.
