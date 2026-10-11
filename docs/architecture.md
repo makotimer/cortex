@@ -114,7 +114,7 @@ Bridge → acks; after 3 failed attempts the message moves to `email.send.dead`.
   mounted. See `development.md` → *Deploy: restart vs rebuild*.
 - **Two shared kits are mounted read-only** and put on `PYTHONPATH`:
   `../eventbus/eventbus-kit` → `/eventbus-kit` and
-  `../websites/address-kit` → `/address-kit`. Editing either changes cortex
+  `../websites/kits/address-kit` → `/address-kit`. Editing either changes cortex
   without a rebuild — but only after the process restarts.
 - **The MCP servers are out-of-band.** `~/.claude.json` registers `protonmail`
   as `docker exec -i cortex-cortex-1 python -m service.mcp_server` and `vpn`

@@ -75,7 +75,7 @@ services:
       - ./local:/app/local
       - ./local/command_history:/home/app/.bash_history
       - ../eventbus/eventbus-kit:/eventbus-kit:ro
-      - ../websites/address-kit:/address-kit:ro
+      - ../websites/kits/address-kit:/address-kit:ro
     depends_on:
       cortex_bridge:
         condition: service_healthy

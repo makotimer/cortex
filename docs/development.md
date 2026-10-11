@@ -17,12 +17,12 @@ scores whatever image is current — on 2026-09-13 that image was built
 2026-09-05 against a tree whose HEAD was 2026-09-12 — so `make test` after a
 host edit, without `make reload`, reports a stale pass count.
 
-**`./run_tests.sh` is the ops-worker contract** (`websites/ops-kit/opskit/fleet.py`
+**`./run_tests.sh` is the ops-worker contract** (`websites/kits/ops-kit/opskit/fleet.py`
 runs every catalog project's `run_tests.sh`). It rebuilds `.venv` when the
 interpreter is missing or broken (it did so on 2026-09-13), reinstalls
 `cortex[dev]` when `pyproject.toml` is newer than `.venv/.deps-installed`, and
 prepends `eventbus-kit` and `address-kit` to `PYTHONPATH` from
-`/srv/docker/eventbus/eventbus-kit` and `/srv/docker/websites/address-kit`.
+`/srv/docker/eventbus/eventbus-kit` and `/srv/docker/websites/kits/address-kit`.
 `./run_tests.sh -m smoke` runs the four-file hermetic subset
 (`test_config_schema`, `test_logging_utils`, `test_skip_tokens`, `test_bible_plan`).
 
@@ -72,7 +72,7 @@ add a job to `local/config.json`. The schema is in `docs/config-schema.md`.
 `restart`.** `Dockerfile` `COPY`s `modules/`, `service/`, `scripts/`, `tests/`
 and `pip install -e .`; `docker-compose.yaml` bind-mounts only `./local`,
 `./local/command_history`, `../eventbus/eventbus-kit:ro` and
-`../websites/address-kit:ro`. Verified 2026-09-13.
+`../websites/kits/address-kit:ro`. Verified 2026-09-13.
 
 | You changed | Do |
 |---|---|
@@ -80,7 +80,7 @@ and `pip install -e .`; `docker-compose.yaml` bind-mounts only `./local`,
 | `pyproject.toml` or `Dockerfile` | `make reload` too — same path; the deps layer re-runs because `pyproject.toml` is copied before `pip install` |
 | `docker-compose.yaml` or `.env` | `docker compose up -d --force-recreate <service>` — `restart` replays the old spec |
 | `local/config.json` | `make reload` or `docker compose restart cortex`; config is read once at `serve` start (`service/scheduler.py`) |
-| `../eventbus/eventbus-kit` or `../websites/address-kit` | `docker compose restart cortex` — mounted, but only re-imported on process start |
+| `../eventbus/eventbus-kit` or `../websites/kits/address-kit` | `docker compose restart cortex` — mounted, but only re-imported on process start |
 | `scripts/bridge-healthcheck.sh` | `make reload-bridge` (also recreates `cortex_bridge`) |
 
 **`make up` does not build** (`docker compose up -d`). `make rebuild` builds

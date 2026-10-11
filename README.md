@@ -62,7 +62,7 @@ examples into place.
 |---|---|
 | `service/`, `modules/`, `scripts/`, `tests/`, `pyproject.toml`, `Dockerfile` | `make reload` |
 | `docker-compose.yaml`, `.env` | `docker compose up -d --force-recreate <service>` |
-| `local/config.json`, `../eventbus/eventbus-kit`, `../websites/address-kit` | `docker compose restart cortex` |
+| `local/config.json`, `../eventbus/eventbus-kit`, `../websites/kits/address-kit` | `docker compose restart cortex` |
 | `scripts/bridge-healthcheck.sh` | `make reload-bridge` |
 
 `make up` never builds. `make rebuild` recreates all four containers, including

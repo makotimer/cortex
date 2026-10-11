@@ -89,8 +89,8 @@ fi
 _address_kit=""
 for _cand in \
   "/address-kit" \
-  "/srv/docker/websites/address-kit" \
-  "$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)/websites/address-kit"
+  "/srv/docker/websites/kits/address-kit" \
+  "$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)/websites/kits/address-kit"
 do
   if [ -f "${_cand}/address_kit/__init__.py" ]; then
     _address_kit="$_cand"
