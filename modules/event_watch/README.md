@@ -268,9 +268,11 @@ dropped quietly — geocoding them emailed `no_match` twice a week, and `Peru`
 matched Fusion Peru. A local venue that still cannot be resolved is rejected
 with the location in the log and the attention email.
 
-The JSON endpoint silently caps around 400, so fetch walks the window a week at
-a time. Occurrence tid is start-time millis so disappearance reconciliation
-still works. `tamu` is not in `DEFAULT_KINDS`. Pin it.
+The JSON endpoint silently caps at 400, so fetch walks the window a week at
+a time, splits a week that comes back full, and retries an empty week once
+before treating it as a gap. Occurrence tid is start-time millis so
+disappearance reconciliation still works. `tamu` is not in `DEFAULT_KINDS`.
+Pin it.
 
 ## TAMU Music Activities
 
@@ -415,8 +417,9 @@ The `/event-list` HTML is a Wix events-viewer shell. `event_probe`
 through gluetun returns 200 with no cards. Dates live on
 `GET /_api/wix-events-web/v1/events` with `Authorization` set to the
 Events app instance from `GET /_api/v2/dynamicmodel`
-(`140603ad-af8d-84a5-2c80-a0f60cb47351`). Default order is future-first;
-fetch walks pages of 50 until the last start is before the window.
+(`140603ad-af8d-84a5-2c80-a0f60cb47351`). Default order is not by start
+date, so fetch asks for `scheduling.config.startDate:desc` and walks
+pages of 50 until the last start is before the window.
 
 Each Wix row is one occurrence. The series uid is the slug with
 `-YYYY-MM-DD-HH-MM` stripped (`storytime`, `special-storytime`,

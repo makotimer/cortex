@@ -175,6 +175,74 @@ def test_ww_skip_network_fetches_nothing():
     ) == []
 
 
+def _ww_event(slug: str, start: str) -> dict:
+    return {
+        "status": "SCHEDULED",
+        "slug": slug,
+        "title": slug,
+        "scheduling": {"config": {"startDate": start, "timeZoneId": "America/Chicago"}},
+    }
+
+
+class _FakeWix:
+    """Page 1 ends in the past unless the request sorts by start date descending.
+
+    That is the live shape as of 2026-10-16: default order put 2026-02-14 at
+    the end of the first 50 rows, and the storytimes were on later pages.
+    """
+
+    def __init__(self) -> None:
+        self.event_params: list[dict] = []
+
+    def get_json(self, url, params=None, headers=None, **kwargs):
+        if str(url).endswith("/dynamicmodel"):
+            return {"apps": {wonderfulwords.EVENTS_APP_ID: {"instance": "tok"}}}
+        params = dict(params or {})
+        self.event_params.append(params)
+        offset = int(params.get("offset") or 0)
+        if not str(params.get("sort") or "").endswith(":desc"):
+            pages = {
+                0: [
+                    _ww_event("first-friday-open-late-2026-11-06-17-00", "2026-11-06T23:00:00Z"),
+                    _ww_event("storytime-2026-02-14-10-30", "2026-02-14T16:30:00Z"),
+                ],
+                50: [
+                    _ww_event("storytime-2026-11-07-10-30", "2026-11-07T16:30:00Z"),
+                ],
+            }
+        else:
+            # A full page, still ending inside the window, so the walk continues.
+            # The live failure was this page ending in the past instead.
+            page0 = [
+                _ww_event("storytime-2029-08-11-10-30", "2029-08-11T15:30:00Z")
+                for _ in range(wonderfulwords.PAGE_SIZE - 1)
+            ]
+            page0.append(
+                _ww_event("first-friday-open-late-2026-11-06-17-00", "2026-11-06T23:00:00Z")
+            )
+            pages = {
+                0: page0,
+                50: [
+                    _ww_event("storytime-2026-11-07-10-30", "2026-11-07T16:30:00Z"),
+                    _ww_event("storytime-2026-02-14-10-30", "2026-02-14T16:30:00Z"),
+                ],
+                100: [
+                    _ww_event("storytime-2025-12-01-10-30", "2025-12-01T16:30:00Z"),
+                ],
+            }
+        return {"events": pages.get(offset, [])}
+
+
+def test_ww_fetch_keeps_events_that_sit_past_an_unsorted_first_page():
+    scraper = wonderfulwords.WonderfulWordsScraper()
+    scraper._client = _FakeWix()
+    raw = scraper.fetch(date(2026, 10, 16), date(2027, 7, 13), skip_network=False)
+    assert {item.series_uid for item in raw} == {"first-friday-open-late", "storytime"}
+    offsets = [params["offset"] for params in scraper._client.event_params]
+    assert offsets == [0, 50]
+    assert all(str(params.get("sort") or "").endswith(":desc") for params in scraper._client.event_params)
+
+
 def test_ww_normalizing_twice_is_byte_identical(ww_raw):
     first, _ = wonderfulwords.WonderfulWordsScraper().normalize(ww_raw)
     second, _ = wonderfulwords.WonderfulWordsScraper().normalize(ww_raw)

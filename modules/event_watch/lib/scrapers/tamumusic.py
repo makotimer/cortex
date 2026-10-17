@@ -13,7 +13,7 @@ from typing import Any
 from urllib.parse import quote
 
 from . import tamu
-from .base import RawEvent, ScraperError
+from .base import RawEvent
 
 GROUP = "Music Activities"
 JSON_URL = "https://calendar.tamu.edu/live/json/events"
@@ -75,8 +75,8 @@ class TamuMusicScraper(tamu.TamuScraper):
 
 
 def _fetch_chunk(client: Any, start: date, end: date) -> list[dict]:
-    url = f"{JSON_URL}/group/{quote(GROUP)}/start_date/{start.isoformat()}/end_date/{end.isoformat()}/max/400"
-    data = client.get_json(url)
-    if not isinstance(data, list):
-        raise ScraperError(f"tamumusic: expected a JSON array from {url}")
-    return data
+    url = (
+        f"{JSON_URL}/group/{quote(GROUP)}"
+        f"/start_date/{start.isoformat()}/end_date/{end.isoformat()}/max/{tamu.MAX_EVENTS}"
+    )
+    return tamu._fetch_range(client, url, start, end, label="tamumusic")

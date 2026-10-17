@@ -4,14 +4,18 @@ The public listing is a LiveWhale calendar. There is nothing to scrape in the
 HTML sense — ``/live/json/events`` already carries types, campus, audience,
 location and HTML description.
 
-The unpaginated endpoint silently caps (~400). Fetch walks the window in week
-chunks so a 270-day run does not lose the tail.
+The unpaginated endpoint silently caps at 400 and does not say so. Fetch
+walks the window in week chunks, and a week that comes back full is split
+and refetched. An empty week is retried once: a fast walk has come back
+with the tail missing (every Tuesday, 2026-09-29 through 2026-10-13) and
+the same dates full on the Friday run.
 """
 
 from __future__ import annotations
 
 import html
 import re
+import time
 from datetime import date, datetime, timedelta
 from difflib import SequenceMatcher
 from itertools import pairwise
@@ -28,6 +32,10 @@ VERIFY_URL = "https://calendar.tamu.edu/live/json/events/max/1"
 CATEGORIES = "Arts & Entertainment|General Interest|Speakers, Forums, Conferences, Training & Workshops"
 CAMPUS = "Bryan-College Station"
 CHUNK_DAYS = 7
+MAX_EVENTS = 400
+# One pause before accepting an empty week. A throttle that answers 200 []
+# otherwise becomes a few hundred vanished occurrences.
+_EMPTY_RETRY_SLEEP = 1.0
 TIMEZONE = "America/Chicago"
 
 ORGANIZATION = {
@@ -833,14 +841,66 @@ def _occurrence(item: RawEvent) -> dict:
     return occ
 
 
-def _fetch_chunk(client: HttpClient, start: date, end: date) -> list[dict]:
+def _campus_url(start: date, end: date) -> str:
     from urllib.parse import quote
 
-    url = (
+    return (
         f"{JSON_URL}/campus/{quote(CAMPUS)}/category/{quote(CATEGORIES)}"
-        f"/start_date/{start.isoformat()}/end_date/{end.isoformat()}/max/400"
+        f"/start_date/{start.isoformat()}/end_date/{end.isoformat()}/max/{MAX_EVENTS}"
     )
+
+
+def _fetch_chunk(client: HttpClient, start: date, end: date) -> list[dict]:
+    return _fetch_range(client, _campus_url(start, end), start, end, label="tamu")
+
+
+def _fetch_range(
+    client: HttpClient,
+    url: str,
+    start: date,
+    end: date,
+    *,
+    label: str,
+) -> list[dict]:
+    """One LiveWhale range, refusing a silent cap and a one-shot empty body.
+
+    ``url`` is the request for this exact range. Callers that split pass a
+    fresh url for each half. A full ``MAX_EVENTS`` body is the cap, not a
+    week that happened to have 400 rows: a 30-day ask returns 400 and the
+    same ask with a higher max returns the rest.
+    """
+    data = _get_event_list(client, url, label)
+    if not data and (end - start).days >= 1:
+        time.sleep(_EMPTY_RETRY_SLEEP)
+        data = _get_event_list(client, url, label)
+    if len(data) < MAX_EVENTS:
+        return data
+    span = (end - start).days
+    if span <= 1:
+        raise ScraperError(
+            f"{label}: {start.isoformat()} returned {len(data)} events, the {MAX_EVENTS} cap"
+        )
+    mid = start + timedelta(days=span // 2)
+    if mid <= start or mid >= end:
+        raise ScraperError(f"{label}: cannot split {start.isoformat()}..{end.isoformat()}")
+    # Halves rebuild the same path with new dates, so the music-group url
+    # splits the same way as the campus url.
+    return _fetch_range(client, _url_for_range(url, start, mid), start, mid, label=label) + _fetch_range(
+        client, _url_for_range(url, mid, end), mid, end, label=label
+    )
+
+
+def _url_for_range(url: str, start: date, end: date) -> str:
+    """Replace the start_date and end_date path segments, keep everything else."""
+    updated = re.sub(r"/start_date/[^/]+", f"/start_date/{start.isoformat()}", url, count=1)
+    updated = re.sub(r"/end_date/[^/]+", f"/end_date/{end.isoformat()}", updated, count=1)
+    if updated == url:
+        raise ScraperError(f"livewhale: cannot retarget date range in {url}")
+    return updated
+
+
+def _get_event_list(client: HttpClient, url: str, label: str) -> list[dict]:
     data = client.get_json(url)
     if not isinstance(data, list):
-        raise ScraperError(f"tamu: expected a JSON array from {url}")
+        raise ScraperError(f"{label}: expected a JSON array from {url}")
     return data

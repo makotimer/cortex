@@ -5,6 +5,12 @@ The public ``/event-list`` page is an events-viewer shell. Dates live on
 instance from ``GET /_api/v2/dynamicmodel``. Each Wix row is one
 occurrence; the series uid is the slug with the ``-YYYY-MM-DD-HH-MM``
 suffix stripped.
+
+The list is not ordered by start. A past event can sit at the end of
+page 1 while later pages hold the next nine months of storytimes, and
+stopping there drops the whole series (73 of 89 in-window rows, every
+run since 2026-10-06). Ask for start-date descending so the page walk
+really is future-first.
 """
 
 from __future__ import annotations
@@ -27,6 +33,9 @@ EVENTS_API = SITE + "/_api/wix-events-web/v1/events"
 EVENTS_APP_ID = "140603ad-af8d-84a5-2c80-a0f60cb47351"
 TIMEZONE = "America/Chicago"
 PAGE_SIZE = 50
+# Default order is not start-date order. Descending makes "the last row is
+# already before the window" a real end of the walk instead of a trap.
+SORT = "scheduling.config.startDate:desc"
 
 ORGANIZATION = {
     "slug": "wonderful-words",
@@ -223,7 +232,7 @@ def _events_instance(client: HttpClient) -> str:
 def _get_page(client: HttpClient, instance: str, offset: int) -> dict:
     data = client.get_json(
         EVENTS_API,
-        params={"limit": PAGE_SIZE, "offset": offset},
+        params={"limit": PAGE_SIZE, "offset": offset, "sort": SORT},
         headers={"Authorization": instance, "Accept": "application/json"},
     )
     if not isinstance(data, dict):

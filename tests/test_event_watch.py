@@ -2139,6 +2139,62 @@ def test_tamu_skip_network_fetches_nothing():
         date(2026, 8, 15), date(2027, 5, 12), skip_network=True) == []
 
 
+class _FakeLiveWhale:
+    def __init__(self, rows_for) -> None:
+        self.urls: list[str] = []
+        self._rows_for = rows_for
+
+    def get_json(self, url, **kwargs):
+        self.urls.append(url)
+        return self._rows_for(url)
+
+
+def _livewhale_span(url: str) -> tuple[date, date]:
+    start = date.fromisoformat(url.split("/start_date/")[1].split("/")[0])
+    end = date.fromisoformat(url.split("/end_date/")[1].split("/")[0])
+    return start, end
+
+
+def test_tamu_splits_a_week_that_hits_the_cap(monkeypatch):
+    """400 rows is the silent cap, not a full week. The capped body is discarded
+    and the two halves are what get kept."""
+    monkeypatch.setattr(tamu, "_EMPTY_RETRY_SLEEP", 0)
+
+    def rows_for(url: str):
+        start, end = _livewhale_span(url)
+        if (end - start).days >= 7:
+            return [{"id": i} for i in range(tamu.MAX_EVENTS)]
+        return [{"id": f"{start.isoformat()}:{end.isoformat()}"}]
+
+    client = _FakeLiveWhale(rows_for)
+    rows = tamu._fetch_chunk(client, date(2026, 10, 13), date(2026, 10, 20))
+    assert [row["id"] for row in rows] == ["2026-10-13:2026-10-16", "2026-10-16:2026-10-20"]
+    assert len(client.urls) == 3
+
+
+def test_tamu_retries_an_empty_week_once(monkeypatch):
+    monkeypatch.setattr(tamu, "_EMPTY_RETRY_SLEEP", 0)
+    calls = {"n": 0}
+
+    def rows_for(url: str):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return []
+        return [{"id": "later"}]
+
+    client = _FakeLiveWhale(rows_for)
+    rows = tamu._fetch_chunk(client, date(2026, 10, 13), date(2026, 10, 20))
+    assert rows == [{"id": "later"}]
+    assert calls["n"] == 2
+
+
+def test_tamu_a_capped_single_day_is_a_fetch_failure(monkeypatch):
+    monkeypatch.setattr(tamu, "_EMPTY_RETRY_SLEEP", 0)
+    client = _FakeLiveWhale(lambda url: [{"id": i} for i in range(tamu.MAX_EVENTS)])
+    with pytest.raises(tamu.ScraperError, match="cap"):
+        tamu._fetch_chunk(client, date(2026, 10, 13), date(2026, 10, 14))
+
+
 def test_tamu_normalizing_twice_is_byte_identical(tamu_raw):
     first, _ = tamu.TamuScraper().normalize(tamu_raw)
     second, _ = tamu.TamuScraper().normalize(tamu_raw)
